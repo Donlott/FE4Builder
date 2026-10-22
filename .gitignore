@@ -4,6 +4,7 @@
 !/README.md
 !/FE4Builder/
 !/Nightmare Modules/
+!/FE4_Modding_Studio_v0.5_Windows/
 
 /FE4Builder/*
 !/FE4Builder/README.md
@@ -72,3 +73,19 @@
 .env.*
 *.pem
 *.key
+
+# Separate contributed project snapshot; keep its local environment/builds private.
+/FE4_Modding_Studio_v0.5_Windows/*
+!/FE4_Modding_Studio_v0.5_Windows/*.bat
+!/FE4_Modding_Studio_v0.5_Windows/*.txt
+!/FE4_Modding_Studio_v0.5_Windows/setup_windows.py
+!/FE4_Modding_Studio_v0.5_Windows/fe4_modding_studio/
+/FE4_Modding_Studio_v0.5_Windows/fe4_modding_studio/*
+!/FE4_Modding_Studio_v0.5_Windows/fe4_modding_studio/*.py
+!/FE4_Modding_Studio_v0.5_Windows/fe4_modding_studio/*.md
+!/FE4_Modding_Studio_v0.5_Windows/fe4_modding_studio/rom_audit.json
+!/FE4_Modding_Studio_v0.5_Windows/fe4_modding_studio/slot_names.json
+!/FE4_Modding_Studio_v0.5_Windows/fe4_modding_studio/test_results.txt
+!/FE4_Modding_Studio_v0.5_Windows/fe4_modding_studio/data/
+/FE4_Modding_Studio_v0.5_Windows/fe4_modding_studio/data/*
+!/FE4_Modding_Studio_v0.5_Windows/fe4_modding_studio/data/*.json

@@ -1,0 +1,17 @@
+Windows packaging checks: all modules compile and imports/catalog loading pass on Linux.
+UTF-8 used for catalog and edit-project reads/writes.
+Windows runtime, batch scripts and EXE build not executed.
+
+test_actual_english_and_live_pointer (__main__.NagaTests.test_actual_english_and_live_pointer) ... ok
+test_budget_controls_and_bitmap_guards (__main__.NagaTests.test_budget_controls_and_bitmap_guards) ... ok
+test_combined_save_preserves_other_data (__main__.NagaTests.test_combined_save_preserves_other_data) ... /workspace/scratch/5f96c1e1cbef/windows_release/FE4_Modding_Studio_v0.5_Windows/fe4_modding_studio/test_text.py:40: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  self.assertEqual(list(m.menu_image(0).getdata()),list(im.getdata()));self.assertEqual(r.header,self.rom.header)
+ok
+test_headerless_and_font_guard (__main__.NagaTests.test_headerless_and_font_guard) ... ok
+test_noop_and_every_indexed_passage (__main__.NagaTests.test_noop_and_every_indexed_passage) ... ok
+test_projects_transaction_and_overlaps (__main__.NagaTests.test_projects_transaction_and_overlaps) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 22.115s
+
+OK

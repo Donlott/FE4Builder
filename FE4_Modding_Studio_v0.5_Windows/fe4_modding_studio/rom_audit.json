@@ -1,0 +1,14 @@
+{
+  "sha256": "895f6a646c68600848367dd65c4a772b58d7c069520e4372b0f3f58074983e0c",
+  "file_bytes": 8389120,
+  "body_bytes": 8388608,
+  "copier_header": 512,
+  "mapping_byte": "0x35",
+  "portrait_slots": 248,
+  "unique_graphics": 152,
+  "unique_palettes": 221,
+  "stored_checksum": "0x5d7c",
+  "calculated_sum": "0xae8e",
+  "changed_graphics_pointers": [],
+  "changed_palettes_pointers": []
+}

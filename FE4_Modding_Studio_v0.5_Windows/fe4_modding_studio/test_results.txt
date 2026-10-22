@@ -1,0 +1,42 @@
+FE4 Modding Studio v0.5 validation
+
+Fixture: FE4_Archanea_Hero_Hand_Axe_Test_v2.smc
+5 packing tests passed; 6 Naga text tests passed; 6 animation tests passed.
+All Python modules compiled. No emulator or interactive GUI test performed.
+
+Packing suite:
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 38.744s
+
+OK
+
+Text suite:
+test_actual_english_and_live_pointer (__main__.NagaTests.test_actual_english_and_live_pointer) ... ok
+test_budget_controls_and_bitmap_guards (__main__.NagaTests.test_budget_controls_and_bitmap_guards) ... ok
+test_combined_save_preserves_other_data (__main__.NagaTests.test_combined_save_preserves_other_data) ... /workspace/scratch/5f96c1e1cbef/fe4_modding_studio/test_text.py:40: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  self.assertEqual(list(m.menu_image(0).getdata()),list(im.getdata()));self.assertEqual(r.header,self.rom.header)
+ok
+test_headerless_and_font_guard (__main__.NagaTests.test_headerless_and_font_guard) ... ok
+test_noop_and_every_indexed_passage (__main__.NagaTests.test_noop_and_every_indexed_passage) ... ok
+test_projects_transaction_and_overlaps (__main__.NagaTests.test_projects_transaction_and_overlaps) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 13.216s
+
+OK
+
+Animation suite:
+test_combined_save_and_headerless (__main__.AnimationTests.test_combined_save_and_headerless) ... /workspace/scratch/5f96c1e1cbef/fe4_modding_studio/core.py:118: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if im.mode=='P' and pal and max(im.getdata())<16 and im.info.get('transparency') in (None,0):
+ok
+test_map_and_movement (__main__.AnimationTests.test_map_and_movement) ... ok
+test_noop (__main__.AnimationTests.test_noop) ... ok
+test_overlap_and_loader_guard (__main__.AnimationTests.test_overlap_and_loader_guard) ... ok
+test_project_and_validation (__main__.AnimationTests.test_project_and_validation) ... ok
+test_separate_axe_handaxe_and_grouping (__main__.AnimationTests.test_separate_axe_handaxe_and_grouping) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 6.452s
+
+OK

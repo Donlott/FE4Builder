@@ -30,3 +30,12 @@ Run `python FE4Builder/scripts/build_release.py`. The `releases/` directory rece
 No game ROMs, translation patches, saves, savestates, personal settings, backups or research downloads are included. FE4 Nightmare module attribution is in [Nightmare Modules/README.md](Nightmare%20Modules/README.md). The Windows Snes9x audio core has its own [license](FE4Builder/vendor/snes9x/LICENSE) and [source links](FE4Builder/vendor/snes9x/README.md), including non-commercial terms. Game-derived names and launcher artwork belong to their respective rights holders.
 
 A project-wide source license has not yet been selected; third-party files retain their own terms.
+
+
+## FE4 Modding Studio v0.5 — separate project snapshot
+
+[FE4_Modding_Studio_v0.5_Windows](FE4_Modding_Studio_v0.5_Windows/) preserves the contributed FE4 Modding Studio project alongside FE4Builder while integration is in progress. The two applications remain separate; FE4Builder's existing launchers and release packages are unchanged.
+
+The Studio snapshot includes its original source, data catalogues, documentation, regression tests, setup script and Windows launchers. For its portrait storage optimization, Project Naga text and animation tools, follow [README_WINDOWS.txt](FE4_Modding_Studio_v0.5_Windows/README_WINDOWS.txt). On Windows, run **Setup Windows.bat** in that folder first, then **Start Studio.bat**. It has its own pinned Pillow dependency and local virtual environment; FE4Builder's dependency instructions do not apply to it.
+
+Local virtual environments, Python caches, build outputs and game files are excluded. The snapshot is stored for collaboration and future integration; adding it does not validate its ROM-writing behavior or change the original project's terms.
