@@ -1,0 +1,6023 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": 1,
+      "chapter": 0,
+      "label": "Prologue Opening",
+      "profile": {
+        "start": 3244032,
+        "length": 360,
+        "masks": [
+          [
+            5,
+            2
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            13,
+            2
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            21,
+            2
+          ],
+          [
+            25,
+            1
+          ],
+          [
+            152,
+            2
+          ],
+          [
+            164,
+            2
+          ],
+          [
+            246,
+            2
+          ],
+          [
+            250,
+            10
+          ],
+          [
+            262,
+            10
+          ],
+          [
+            274,
+            10
+          ],
+          [
+            288,
+            2
+          ],
+          [
+            308,
+            1
+          ],
+          [
+            335,
+            2
+          ],
+          [
+            347,
+            2
+          ],
+          [
+            350,
+            2
+          ]
+        ],
+        "hash": "5ce45f4ba7b4f80ab6d85de82a9ad28d828794135d0309ea8085eadf3200a0d9"
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 74,
+          "size": 3,
+          "name": "RUN_EVENT_CONDITION / REGISTER_UNITGROUP_MAP_SPRITES",
+          "condition": 74,
+          "editable": false
+        },
+        {
+          "offset": 3,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / REGISTER_CHARACTER_MAP_SPRITE",
+          "condition": 73,
+          "editable": true
+        },
+        {
+          "offset": 7,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / REGISTER_CHARACTER_MAP_SPRITE",
+          "condition": 73,
+          "editable": true
+        },
+        {
+          "offset": 11,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / REGISTER_CHARACTER_MAP_SPRITE",
+          "condition": 73,
+          "editable": true
+        },
+        {
+          "offset": 15,
+          "opcode": 58,
+          "size": 3,
+          "name": "SET_CAMERA_POSITION",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 18,
+          "opcode": 59,
+          "size": 2,
+          "name": "EVENT_3B",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 20,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 23,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 24,
+          "opcode": 70,
+          "size": 2,
+          "name": "FADE_IN_BY_TIMER",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 26,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 34,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 35,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 43,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 44,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 52,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 53,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 61,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 62,
+          "opcode": 13,
+          "size": 6,
+          "name": "CASTLE_NAME",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 68,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 76,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 77,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 85,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 86,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 94,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 95,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 103,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 104,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 112,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 113,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 121,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 122,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 130,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 131,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 139,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 140,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 148,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 149,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 150,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 151,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 154,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 155,
+          "opcode": 20,
+          "size": 7,
+          "name": "DIALOGUE_WITH_BG",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 162,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 163,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 166,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 167,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 175,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 176,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 180,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 184,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 188,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 196,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 197,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 205,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 206,
+          "opcode": 63,
+          "size": 5,
+          "name": "SCRIPTED_MAP_SCROLL",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 211,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 212,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 220,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 221,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 229,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 230,
+          "opcode": 13,
+          "size": 6,
+          "name": "CASTLE_NAME",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 236,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 237,
+          "opcode": 20,
+          "size": 7,
+          "name": "DIALOGUE_WITH_BG",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 244,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 245,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 248,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 249,
+          "opcode": 36,
+          "size": 11,
+          "name": "LOAD_UNIT_DIRECT",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 260,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 261,
+          "opcode": 36,
+          "size": 11,
+          "name": "LOAD_UNIT_DIRECT",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 272,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 273,
+          "opcode": 36,
+          "size": 11,
+          "name": "LOAD_UNIT_DIRECT",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 284,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 285,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 286,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 287,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 290,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 291,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 299,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 300,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 301,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 302,
+          "opcode": 2,
+          "size": 3,
+          "name": "JUMP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 305,
+          "opcode": 65534,
+          "size": 2,
+          "name": "EVENT_DUMMY",
+          "editable": false
+        },
+        {
+          "offset": 307,
+          "opcode": 71,
+          "size": 2,
+          "name": "FADE_OUT_BY_TIMER",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 309,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 310,
+          "opcode": 74,
+          "size": 7,
+          "name": "RUN_EVENT_CONDITION / SET_UNIT_POSITION",
+          "condition": 80,
+          "editable": false
+        },
+        {
+          "offset": 317,
+          "opcode": 74,
+          "size": 7,
+          "name": "RUN_EVENT_CONDITION / SET_UNIT_POSITION",
+          "condition": 80,
+          "editable": false
+        },
+        {
+          "offset": 324,
+          "opcode": 74,
+          "size": 7,
+          "name": "RUN_EVENT_CONDITION / SET_UNIT_POSITION",
+          "condition": 80,
+          "editable": false
+        },
+        {
+          "offset": 331,
+          "opcode": 74,
+          "size": 3,
+          "name": "RUN_EVENT_CONDITION / DEPLOY_UNIT_GROUP",
+          "condition": 78,
+          "editable": false
+        },
+        {
+          "offset": 334,
+          "opcode": 58,
+          "size": 3,
+          "name": "SET_CAMERA_POSITION",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 337,
+          "opcode": 59,
+          "size": 2,
+          "name": "EVENT_3B",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 339,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 340,
+          "opcode": 2,
+          "size": 3,
+          "name": "JUMP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 343,
+          "opcode": 74,
+          "size": 3,
+          "name": "RUN_EVENT_CONDITION / DEPLOY_UNIT_GROUP",
+          "condition": 78,
+          "editable": false
+        },
+        {
+          "offset": 346,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 349,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 352,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 353,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "chapter": 0,
+      "label": "Prologue Quan Group Spawn",
+      "profile": {
+        "start": 3244770,
+        "length": 98,
+        "masks": [
+          [
+            1,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            13,
+            2
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            20,
+            3
+          ],
+          [
+            25,
+            2
+          ],
+          [
+            29,
+            10
+          ],
+          [
+            32,
+            5
+          ],
+          [
+            41,
+            2
+          ],
+          [
+            45,
+            10
+          ],
+          [
+            48,
+            5
+          ],
+          [
+            57,
+            2
+          ],
+          [
+            61,
+            10
+          ],
+          [
+            64,
+            5
+          ],
+          [
+            75,
+            3
+          ],
+          [
+            81,
+            2
+          ],
+          [
+            85,
+            2
+          ],
+          [
+            88,
+            2
+          ],
+          [
+            91,
+            2
+          ]
+        ],
+        "hash": "d1ebf005984311dfcf176a1788e7468c43b4323642efc194483bff3d510c3e23",
+        "switches": []
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 2,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 3,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / REGISTER_CHARACTER_MAP_SPRITE",
+          "condition": 73,
+          "editable": true
+        },
+        {
+          "offset": 7,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / REGISTER_CHARACTER_MAP_SPRITE",
+          "condition": 73,
+          "editable": true
+        },
+        {
+          "offset": 11,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / REGISTER_CHARACTER_MAP_SPRITE",
+          "condition": 73,
+          "editable": true
+        },
+        {
+          "offset": 15,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 18,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 19,
+          "opcode": 64,
+          "size": 4,
+          "name": "MAP_SCROLL",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 23,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 24,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 27,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 28,
+          "opcode": 36,
+          "size": 11,
+          "name": "LOAD_UNIT_DIRECT",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 39,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 40,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 43,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 44,
+          "opcode": 36,
+          "size": 11,
+          "name": "LOAD_UNIT_DIRECT",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 55,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 56,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 59,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 60,
+          "opcode": 36,
+          "size": 11,
+          "name": "LOAD_UNIT_DIRECT",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 71,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 72,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 73,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 74,
+          "opcode": 12,
+          "size": 4,
+          "name": "DIALOGUE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 78,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 79,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / SET_TALK_TARGET",
+          "condition": 104,
+          "editable": false
+        },
+        {
+          "offset": 83,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / SET_TALK_TARGET",
+          "condition": 104,
+          "editable": false
+        },
+        {
+          "offset": 87,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 90,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 93,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 94,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 95,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 96,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "chapter": 0,
+      "label": "Prologue Lex Azelle Spawn",
+      "profile": {
+        "start": 3244868,
+        "length": 90,
+        "masks": [
+          [
+            1,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            12,
+            3
+          ],
+          [
+            17,
+            2
+          ],
+          [
+            21,
+            10
+          ],
+          [
+            24,
+            5
+          ],
+          [
+            33,
+            10
+          ],
+          [
+            36,
+            5
+          ],
+          [
+            47,
+            2
+          ],
+          [
+            51,
+            3
+          ],
+          [
+            56,
+            2
+          ],
+          [
+            61,
+            2
+          ],
+          [
+            65,
+            2
+          ],
+          [
+            68,
+            2
+          ],
+          [
+            71,
+            2
+          ]
+        ],
+        "hash": "03aa8da56ba10bed90386a993ffca97fc354321977bc2737cc3da94dedb79155",
+        "switches": []
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 2,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 3,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / REGISTER_CHARACTER_MAP_SPRITE",
+          "condition": 73,
+          "editable": true
+        },
+        {
+          "offset": 7,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / REGISTER_CHARACTER_MAP_SPRITE",
+          "condition": 73,
+          "editable": true
+        },
+        {
+          "offset": 11,
+          "opcode": 64,
+          "size": 4,
+          "name": "MAP_SCROLL",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 15,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 16,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 19,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 20,
+          "opcode": 36,
+          "size": 11,
+          "name": "LOAD_UNIT_DIRECT",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 31,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 32,
+          "opcode": 36,
+          "size": 11,
+          "name": "LOAD_UNIT_DIRECT",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 43,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 44,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 45,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 46,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 49,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 50,
+          "opcode": 12,
+          "size": 4,
+          "name": "DIALOGUE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 54,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 55,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 58,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 59,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / SET_TALK_TARGET",
+          "condition": 104,
+          "editable": false
+        },
+        {
+          "offset": 63,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / SET_TALK_TARGET",
+          "condition": 104,
+          "editable": false
+        },
+        {
+          "offset": 67,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 70,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 73,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 74,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 75,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 76,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "chapter": 0,
+      "label": "Prologue Yngvi Seized",
+      "profile": {
+        "start": 3244958,
+        "length": 55,
+        "masks": [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            12,
+            2
+          ],
+          [
+            22,
+            2
+          ],
+          [
+            26,
+            10
+          ],
+          [
+            29,
+            5
+          ],
+          [
+            45,
+            2
+          ],
+          [
+            48,
+            2
+          ]
+        ],
+        "hash": "99fcb22b59feadd493bfb9c2a6c690ad27c11b40070c069f3b49b618b171a570",
+        "switches": []
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 3,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 6,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 7,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 9,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 10,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / REGISTER_CHARACTER_MAP_SPRITE",
+          "condition": 73,
+          "editable": true
+        },
+        {
+          "offset": 14,
+          "opcode": 20,
+          "size": 7,
+          "name": "DIALOGUE_WITH_BG",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 21,
+          "opcode": 58,
+          "size": 3,
+          "name": "SET_CAMERA_POSITION",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 24,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 25,
+          "opcode": 36,
+          "size": 11,
+          "name": "LOAD_UNIT_DIRECT",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 36,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 37,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 38,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 39,
+          "opcode": 66,
+          "size": 4,
+          "name": "FILL_EVENT_UNIT_SLOT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 43,
+          "opcode": 57,
+          "size": 1,
+          "name": "SET_CAMERA_TO_EVENT_UNIT_SLOT_1",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 44,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 47,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 50,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 51,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 52,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 53,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "chapter": 0,
+      "label": "Prologue Evans Spawn",
+      "profile": {
+        "start": 3245013,
+        "length": 208,
+        "masks": [
+          [
+            4,
+            3
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            13,
+            3
+          ],
+          [
+            18,
+            2
+          ],
+          [
+            25,
+            3
+          ],
+          [
+            31,
+            2
+          ],
+          [
+            38,
+            3
+          ],
+          [
+            44,
+            2
+          ],
+          [
+            51,
+            3
+          ],
+          [
+            57,
+            2
+          ],
+          [
+            64,
+            3
+          ],
+          [
+            73,
+            3
+          ],
+          [
+            82,
+            3
+          ],
+          [
+            91,
+            3
+          ],
+          [
+            100,
+            3
+          ],
+          [
+            109,
+            3
+          ],
+          [
+            118,
+            3
+          ],
+          [
+            127,
+            3
+          ],
+          [
+            136,
+            3
+          ],
+          [
+            145,
+            3
+          ],
+          [
+            154,
+            3
+          ],
+          [
+            160,
+            2
+          ],
+          [
+            177,
+            2
+          ],
+          [
+            189,
+            1
+          ],
+          [
+            191,
+            2
+          ]
+        ],
+        "hash": "40da345dccb7822330a84e5748cf8a150c106c1ef9b9e22312719f46f2a4b0de",
+        "switches": []
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 74,
+          "size": 3,
+          "name": "RUN_EVENT_CONDITION / REGISTER_UNITGROUP_MAP_SPRITES",
+          "condition": 74,
+          "editable": false
+        },
+        {
+          "offset": 3,
+          "opcode": 64,
+          "size": 4,
+          "name": "MAP_SCROLL",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 7,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 8,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 11,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 12,
+          "opcode": 12,
+          "size": 4,
+          "name": "DIALOGUE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 16,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 17,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 20,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 21,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 29,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 30,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 33,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 34,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 42,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 43,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 46,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 47,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 55,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 56,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 59,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 60,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 68,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 69,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 77,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 78,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 86,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 87,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 95,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 96,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 104,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 105,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 113,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 114,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 122,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 123,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 131,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 132,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 140,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 141,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 149,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 150,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 158,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 159,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 162,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 163,
+          "opcode": 39,
+          "size": 10,
+          "name": "MOVE_TEMPORARY_BY_SCRIPT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 173,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 174,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 175,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 176,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 179,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 180,
+          "opcode": 76,
+          "size": 3,
+          "name": "UNSET_FLAG_IF_IN_CHAPTER",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 183,
+          "opcode": 75,
+          "size": 3,
+          "name": "SET_FLAG_IF_IN_CHAPTER",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 186,
+          "opcode": 74,
+          "size": 2,
+          "name": "RUN_EVENT_CONDITION / UPDATE_LOCATION_AND_MAP_CHANGE_EVENTS",
+          "condition": 92,
+          "editable": false
+        },
+        {
+          "offset": 188,
+          "opcode": 17,
+          "size": 2,
+          "name": "PLAY_SFX_BYTE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 190,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 193,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 194,
+          "opcode": 43,
+          "size": 1,
+          "name": "CONTINUE_FORM_MAP_SPRITE_HALT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 195,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 199,
+          "opcode": 74,
+          "size": 3,
+          "name": "RUN_EVENT_CONDITION / DEPLOY_UNIT_GROUP",
+          "condition": 78,
+          "editable": false
+        },
+        {
+          "offset": 202,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "chapter": 0,
+      "label": "Prologue Arvis Spawn",
+      "profile": {
+        "start": 3245221,
+        "length": 40,
+        "masks": [
+          [
+            2,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            12,
+            1
+          ],
+          [
+            15,
+            3
+          ],
+          [
+            20,
+            10
+          ],
+          [
+            23,
+            5
+          ],
+          [
+            34,
+            3
+          ]
+        ],
+        "hash": "39fea78e283f0472b18f6087f0faca8a9a94a3daf09fae02f489cdc17f71f945",
+        "switches": []
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / REGISTER_CHARACTER_MAP_SPRITE",
+          "condition": 73,
+          "editable": true
+        },
+        {
+          "offset": 4,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 7,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 10,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 11,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 13,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 14,
+          "opcode": 64,
+          "size": 4,
+          "name": "MAP_SCROLL",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 18,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 19,
+          "opcode": 36,
+          "size": 11,
+          "name": "LOAD_UNIT_DIRECT",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 30,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 31,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 32,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 33,
+          "opcode": 12,
+          "size": 4,
+          "name": "DIALOGUE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 37,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 38,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "chapter": 0,
+      "label": "Prologue Ending",
+      "profile": {
+        "start": 3245261,
+        "length": 193,
+        "masks": [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            11,
+            1
+          ],
+          [
+            76,
+            2
+          ],
+          [
+            81,
+            2
+          ],
+          [
+            85,
+            1
+          ],
+          [
+            88,
+            2
+          ],
+          [
+            121,
+            2
+          ],
+          [
+            132,
+            2
+          ]
+        ],
+        "hash": "fd151c7d533375fe62016d28ddb7eca023ebe7d361f87d28bb277eadfaa97761"
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 3,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 6,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 7,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 9,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 10,
+          "opcode": 71,
+          "size": 2,
+          "name": "FADE_OUT_BY_TIMER",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 12,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 13,
+          "opcode": 74,
+          "size": 5,
+          "name": "RUN_EVENT_CONDITION / SET_UNIT_IN_CASTLE",
+          "condition": 97,
+          "editable": false
+        },
+        {
+          "offset": 18,
+          "opcode": 74,
+          "size": 5,
+          "name": "RUN_EVENT_CONDITION / SET_UNIT_IN_CASTLE",
+          "condition": 97,
+          "editable": false
+        },
+        {
+          "offset": 23,
+          "opcode": 74,
+          "size": 5,
+          "name": "RUN_EVENT_CONDITION / SET_UNIT_IN_CASTLE",
+          "condition": 97,
+          "editable": false
+        },
+        {
+          "offset": 28,
+          "opcode": 74,
+          "size": 5,
+          "name": "RUN_EVENT_CONDITION / SET_UNIT_IN_CASTLE",
+          "condition": 97,
+          "editable": false
+        },
+        {
+          "offset": 33,
+          "opcode": 74,
+          "size": 5,
+          "name": "RUN_EVENT_CONDITION / SET_UNIT_IN_CASTLE",
+          "condition": 97,
+          "editable": false
+        },
+        {
+          "offset": 38,
+          "opcode": 74,
+          "size": 5,
+          "name": "RUN_EVENT_CONDITION / SET_UNIT_IN_CASTLE",
+          "condition": 97,
+          "editable": false
+        },
+        {
+          "offset": 43,
+          "opcode": 74,
+          "size": 5,
+          "name": "RUN_EVENT_CONDITION / SET_UNIT_IN_CASTLE",
+          "condition": 97,
+          "editable": false
+        },
+        {
+          "offset": 48,
+          "opcode": 74,
+          "size": 5,
+          "name": "RUN_EVENT_CONDITION / SET_UNIT_IN_CASTLE",
+          "condition": 97,
+          "editable": false
+        },
+        {
+          "offset": 53,
+          "opcode": 74,
+          "size": 5,
+          "name": "RUN_EVENT_CONDITION / SET_UNIT_IN_CASTLE",
+          "condition": 97,
+          "editable": false
+        },
+        {
+          "offset": 58,
+          "opcode": 74,
+          "size": 5,
+          "name": "RUN_EVENT_CONDITION / SET_UNIT_IN_CASTLE",
+          "condition": 97,
+          "editable": false
+        },
+        {
+          "offset": 63,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / REMOVE_UNIT",
+          "condition": 101,
+          "editable": false
+        },
+        {
+          "offset": 67,
+          "opcode": 20,
+          "size": 7,
+          "name": "DIALOGUE_WITH_BG",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 74,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 75,
+          "opcode": 58,
+          "size": 3,
+          "name": "SET_CAMERA_POSITION",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 78,
+          "opcode": 59,
+          "size": 2,
+          "name": "EVENT_3B",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 80,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 83,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 84,
+          "opcode": 70,
+          "size": 2,
+          "name": "FADE_IN_BY_TIMER",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 86,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 87,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 90,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 91,
+          "opcode": 39,
+          "size": 10,
+          "name": "MOVE_TEMPORARY_BY_SCRIPT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 101,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 102,
+          "opcode": 39,
+          "size": 10,
+          "name": "MOVE_TEMPORARY_BY_SCRIPT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 112,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 113,
+          "opcode": 63,
+          "size": 5,
+          "name": "SCRIPTED_MAP_SCROLL",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 118,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 119,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 120,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 123,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 124,
+          "opcode": 20,
+          "size": 7,
+          "name": "DIALOGUE_WITH_BG",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 131,
+          "opcode": 58,
+          "size": 3,
+          "name": "SET_CAMERA_POSITION",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 134,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 135,
+          "opcode": 74,
+          "size": 2,
+          "name": "RUN_EVENT_CONDITION / ADD_CASTLE_MONEY",
+          "condition": 109,
+          "editable": false
+        },
+        {
+          "offset": 137,
+          "opcode": 74,
+          "size": 3,
+          "name": "RUN_EVENT_CONDITION / REMOVE_CHAPTER_STRUCT",
+          "condition": 52,
+          "editable": false
+        },
+        {
+          "offset": 140,
+          "opcode": 74,
+          "size": 2,
+          "name": "RUN_EVENT_CONDITION / SAVE_CHAPTER_TURNCOUNT",
+          "condition": 120,
+          "editable": false
+        },
+        {
+          "offset": 142,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "chapter": 0,
+      "label": "Prologue Sigurd Arvis Talk",
+      "profile": {
+        "start": 3245485,
+        "length": 66,
+        "masks": [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            22,
+            3
+          ],
+          [
+            30,
+            3
+          ],
+          [
+            56,
+            2
+          ],
+          [
+            59,
+            2
+          ]
+        ],
+        "hash": "5b3fa48d745ddd5ed8beb749c1f26047454294210d1e8bbb64d2dcd348bbdf4a",
+        "switches": []
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 3,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 6,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 7,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 9,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 10,
+          "opcode": 74,
+          "size": 5,
+          "name": "RUN_EVENT_CONDITION / GIVE_UNIT_PID",
+          "condition": 87,
+          "editable": false
+        },
+        {
+          "offset": 15,
+          "opcode": 8,
+          "size": 3,
+          "name": "TEST_FLAG_IN_CHAPTER_SET",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 18,
+          "opcode": 3,
+          "size": 3,
+          "name": "JUMP_TRUE",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 21,
+          "opcode": 12,
+          "size": 4,
+          "name": "DIALOGUE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 25,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 26,
+          "opcode": 2,
+          "size": 3,
+          "name": "JUMP",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 29,
+          "opcode": 12,
+          "size": 4,
+          "name": "DIALOGUE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 33,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 34,
+          "opcode": 66,
+          "size": 4,
+          "name": "FILL_EVENT_UNIT_SLOT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 38,
+          "opcode": 34,
+          "size": 9,
+          "name": "MOVE_TEMPORARY_TO_COORDS",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 47,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 48,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 49,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / REMOVE_UNIT",
+          "condition": 101,
+          "editable": false
+        },
+        {
+          "offset": 53,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 54,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 55,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 58,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 61,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 62,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 63,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 64,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "chapter": 0,
+      "label": "Prologue Quan Died",
+      "profile": {
+        "start": 3245626,
+        "length": 113,
+        "masks": [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            11,
+            1
+          ],
+          [
+            22,
+            2
+          ],
+          [
+            33,
+            2
+          ],
+          [
+            37,
+            2
+          ],
+          [
+            52,
+            2
+          ],
+          [
+            72,
+            2
+          ],
+          [
+            76,
+            2
+          ],
+          [
+            79,
+            2
+          ]
+        ],
+        "hash": "458fccb43577f52ccd2acdbdd831b66a571f4bd45d933f570e88ca8c8787fdf0"
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 3,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 6,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 7,
+          "opcode": 71,
+          "size": 2,
+          "name": "FADE_OUT_BY_TIMER",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 9,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 10,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 12,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 13,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / UNDEPLOY_UNIT",
+          "condition": 102,
+          "editable": false
+        },
+        {
+          "offset": 17,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / UNDEPLOY_UNIT",
+          "condition": 102,
+          "editable": false
+        },
+        {
+          "offset": 21,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 24,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 25,
+          "opcode": 20,
+          "size": 7,
+          "name": "DIALOGUE_WITH_BG",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 32,
+          "opcode": 58,
+          "size": 3,
+          "name": "SET_CAMERA_POSITION",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 35,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 36,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 39,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 40,
+          "opcode": 39,
+          "size": 10,
+          "name": "MOVE_TEMPORARY_BY_SCRIPT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 50,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 51,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 54,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 55,
+          "opcode": 39,
+          "size": 10,
+          "name": "MOVE_TEMPORARY_BY_SCRIPT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 65,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 66,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 67,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 68,
+          "opcode": 74,
+          "size": 3,
+          "name": "RUN_EVENT_CONDITION / SET_PERMANENT_FLAG",
+          "condition": 54,
+          "editable": false
+        },
+        {
+          "offset": 71,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 74,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 75,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 78,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 81,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 82,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 83,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 84,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "chapter": 0,
+      "label": "Prologue Ethlyn Died",
+      "profile": {
+        "start": 3245739,
+        "length": 113,
+        "masks": [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            11,
+            1
+          ],
+          [
+            22,
+            2
+          ],
+          [
+            33,
+            2
+          ],
+          [
+            37,
+            2
+          ],
+          [
+            52,
+            2
+          ],
+          [
+            72,
+            2
+          ],
+          [
+            76,
+            2
+          ],
+          [
+            79,
+            2
+          ]
+        ],
+        "hash": "d4f44c464a771af9022e3615e0ca2be92274d7bd75393d62ca89fc1eefa3320a"
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 3,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 6,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 7,
+          "opcode": 71,
+          "size": 2,
+          "name": "FADE_OUT_BY_TIMER",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 9,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 10,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 12,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 13,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / UNDEPLOY_UNIT",
+          "condition": 102,
+          "editable": false
+        },
+        {
+          "offset": 17,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / UNDEPLOY_UNIT",
+          "condition": 102,
+          "editable": false
+        },
+        {
+          "offset": 21,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 24,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 25,
+          "opcode": 20,
+          "size": 7,
+          "name": "DIALOGUE_WITH_BG",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 32,
+          "opcode": 58,
+          "size": 3,
+          "name": "SET_CAMERA_POSITION",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 35,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 36,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 39,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 40,
+          "opcode": 39,
+          "size": 10,
+          "name": "MOVE_TEMPORARY_BY_SCRIPT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 50,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 51,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 54,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 55,
+          "opcode": 39,
+          "size": 10,
+          "name": "MOVE_TEMPORARY_BY_SCRIPT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 65,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 66,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 67,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 68,
+          "opcode": 74,
+          "size": 3,
+          "name": "RUN_EVENT_CONDITION / SET_PERMANENT_FLAG",
+          "condition": 54,
+          "editable": false
+        },
+        {
+          "offset": 71,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 74,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 75,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 78,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 81,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 82,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 83,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 84,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "chapter": 0,
+      "label": "Prologue Finn Died",
+      "profile": {
+        "start": 3245852,
+        "length": 77,
+        "masks": [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            11,
+            1
+          ],
+          [
+            18,
+            2
+          ],
+          [
+            22,
+            2
+          ],
+          [
+            27,
+            2
+          ],
+          [
+            31,
+            1
+          ],
+          [
+            34,
+            2
+          ],
+          [
+            54,
+            2
+          ],
+          [
+            58,
+            2
+          ],
+          [
+            61,
+            2
+          ]
+        ],
+        "hash": "7d63540ba8a61c23bf3657cf39fb2ab78d5791d83e818813b4028e3b5a1769a4"
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 3,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 6,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 7,
+          "opcode": 71,
+          "size": 2,
+          "name": "FADE_OUT_BY_TIMER",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 9,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 10,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 12,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 13,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / UNDEPLOY_UNIT",
+          "condition": 102,
+          "editable": false
+        },
+        {
+          "offset": 17,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 20,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 21,
+          "opcode": 58,
+          "size": 3,
+          "name": "SET_CAMERA_POSITION",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 24,
+          "opcode": 59,
+          "size": 2,
+          "name": "EVENT_3B",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 26,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 29,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 30,
+          "opcode": 70,
+          "size": 2,
+          "name": "FADE_IN_BY_TIMER",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 32,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 33,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 36,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 37,
+          "opcode": 39,
+          "size": 10,
+          "name": "MOVE_TEMPORARY_BY_SCRIPT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 47,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 48,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 49,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 50,
+          "opcode": 74,
+          "size": 3,
+          "name": "RUN_EVENT_CONDITION / SET_PERMANENT_FLAG",
+          "condition": 54,
+          "editable": false
+        },
+        {
+          "offset": 53,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 56,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 57,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 60,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 63,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 64,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 65,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 66,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 419,
+      "chapter": 0,
+      "label": "Prologue Ethlyn Sigurd Talk",
+      "profile": {
+        "start": 3340238,
+        "length": 26,
+        "masks": [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            11,
+            3
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            19,
+            2
+          ]
+        ],
+        "hash": "ef3df53c2a5cd84c8db93d576a363bafd825b847311f6a28547606565ccc5c35",
+        "switches": []
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 3,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 6,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 7,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 9,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 10,
+          "opcode": 12,
+          "size": 4,
+          "name": "DIALOGUE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 14,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 15,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 18,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 21,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 22,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 23,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 24,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 420,
+      "chapter": 0,
+      "label": "Prologue Azelle Sigurd Talk",
+      "profile": {
+        "start": 3340264,
+        "length": 26,
+        "masks": [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            11,
+            3
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            19,
+            2
+          ]
+        ],
+        "hash": "ef3df53c2a5cd84c8db93d576a363bafd825b847311f6a28547606565ccc5c35",
+        "switches": []
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 3,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 6,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 7,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 9,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 10,
+          "opcode": 12,
+          "size": 4,
+          "name": "DIALOGUE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 14,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 15,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 18,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 21,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 22,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 23,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 24,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 421,
+      "chapter": 0,
+      "label": "Prologue Lex Sigurd Talk",
+      "profile": {
+        "start": 3340290,
+        "length": 26,
+        "masks": [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            11,
+            3
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            19,
+            2
+          ]
+        ],
+        "hash": "ef3df53c2a5cd84c8db93d576a363bafd825b847311f6a28547606565ccc5c35",
+        "switches": []
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 3,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 6,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 7,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 9,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 10,
+          "opcode": 12,
+          "size": 4,
+          "name": "DIALOGUE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 14,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 15,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 18,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 21,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 22,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 23,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 24,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 422,
+      "chapter": 0,
+      "label": "Prologue Unused Alec Ethlyn Talk",
+      "profile": {
+        "start": 3340316,
+        "length": 26,
+        "masks": [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            11,
+            3
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            19,
+            2
+          ]
+        ],
+        "hash": "ef3df53c2a5cd84c8db93d576a363bafd825b847311f6a28547606565ccc5c35"
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 3,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 6,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 7,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 9,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 10,
+          "opcode": 12,
+          "size": 4,
+          "name": "DIALOGUE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 14,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 15,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 18,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 21,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 22,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 23,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 24,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 423,
+      "chapter": 0,
+      "label": "Prologue Quan Sigurd Talk",
+      "profile": {
+        "start": 3340342,
+        "length": 26,
+        "masks": [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            11,
+            3
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            19,
+            2
+          ]
+        ],
+        "hash": "ef3df53c2a5cd84c8db93d576a363bafd825b847311f6a28547606565ccc5c35",
+        "switches": []
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 3,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 6,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 7,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 9,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 10,
+          "opcode": 12,
+          "size": 4,
+          "name": "DIALOGUE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 14,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 15,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 18,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 21,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 22,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 23,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 24,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 424,
+      "chapter": 0,
+      "label": "Prologue Unused Midir Azelle Talk",
+      "profile": {
+        "start": 3340368,
+        "length": 26,
+        "masks": [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            11,
+            3
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            19,
+            2
+          ]
+        ],
+        "hash": "ef3df53c2a5cd84c8db93d576a363bafd825b847311f6a28547606565ccc5c35"
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 3,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 6,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 7,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 9,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 10,
+          "opcode": 12,
+          "size": 4,
+          "name": "DIALOGUE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 14,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 15,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 18,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 21,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 22,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 23,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 24,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    },
+    {
+      "id": 425,
+      "chapter": 0,
+      "label": "Prologue Unused Naoise Alec Talk",
+      "profile": {
+        "start": 3340394,
+        "length": 26,
+        "masks": [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            11,
+            3
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            19,
+            2
+          ]
+        ],
+        "hash": "ef3df53c2a5cd84c8db93d576a363bafd825b847311f6a28547606565ccc5c35"
+      },
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 3,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 6,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 7,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 9,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 10,
+          "opcode": 12,
+          "size": 4,
+          "name": "DIALOGUE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 14,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 15,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 18,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 21,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 22,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 23,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 24,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "editable": false
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "start": 3244032,
+      "length": 360,
+      "masks": [
+        [
+          5,
+          2
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          13,
+          2
+        ],
+        [
+          16,
+          2
+        ],
+        [
+          21,
+          2
+        ],
+        [
+          25,
+          1
+        ],
+        [
+          152,
+          2
+        ],
+        [
+          164,
+          2
+        ],
+        [
+          246,
+          2
+        ],
+        [
+          250,
+          10
+        ],
+        [
+          262,
+          10
+        ],
+        [
+          274,
+          10
+        ],
+        [
+          288,
+          2
+        ],
+        [
+          308,
+          1
+        ],
+        [
+          335,
+          2
+        ],
+        [
+          347,
+          2
+        ],
+        [
+          350,
+          2
+        ]
+      ],
+      "hash": "5ce45f4ba7b4f80ab6d85de82a9ad28d828794135d0309ea8085eadf3200a0d9"
+    },
+    {
+      "start": 3244770,
+      "length": 98,
+      "masks": [
+        [
+          1,
+          1
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          13,
+          2
+        ],
+        [
+          16,
+          2
+        ],
+        [
+          20,
+          3
+        ],
+        [
+          25,
+          2
+        ],
+        [
+          29,
+          10
+        ],
+        [
+          32,
+          5
+        ],
+        [
+          41,
+          2
+        ],
+        [
+          45,
+          10
+        ],
+        [
+          48,
+          5
+        ],
+        [
+          57,
+          2
+        ],
+        [
+          61,
+          10
+        ],
+        [
+          64,
+          5
+        ],
+        [
+          75,
+          3
+        ],
+        [
+          81,
+          2
+        ],
+        [
+          85,
+          2
+        ],
+        [
+          88,
+          2
+        ],
+        [
+          91,
+          2
+        ]
+      ],
+      "hash": "d1ebf005984311dfcf176a1788e7468c43b4323642efc194483bff3d510c3e23",
+      "switches": []
+    },
+    {
+      "start": 3244868,
+      "length": 90,
+      "masks": [
+        [
+          1,
+          1
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          12,
+          3
+        ],
+        [
+          17,
+          2
+        ],
+        [
+          21,
+          10
+        ],
+        [
+          24,
+          5
+        ],
+        [
+          33,
+          10
+        ],
+        [
+          36,
+          5
+        ],
+        [
+          47,
+          2
+        ],
+        [
+          51,
+          3
+        ],
+        [
+          56,
+          2
+        ],
+        [
+          61,
+          2
+        ],
+        [
+          65,
+          2
+        ],
+        [
+          68,
+          2
+        ],
+        [
+          71,
+          2
+        ]
+      ],
+      "hash": "03aa8da56ba10bed90386a993ffca97fc354321977bc2737cc3da94dedb79155",
+      "switches": []
+    },
+    {
+      "start": 3244958,
+      "length": 55,
+      "masks": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          12,
+          2
+        ],
+        [
+          22,
+          2
+        ],
+        [
+          26,
+          10
+        ],
+        [
+          29,
+          5
+        ],
+        [
+          45,
+          2
+        ],
+        [
+          48,
+          2
+        ]
+      ],
+      "hash": "99fcb22b59feadd493bfb9c2a6c690ad27c11b40070c069f3b49b618b171a570",
+      "switches": []
+    },
+    {
+      "start": 3245013,
+      "length": 208,
+      "masks": [
+        [
+          4,
+          3
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          13,
+          3
+        ],
+        [
+          18,
+          2
+        ],
+        [
+          25,
+          3
+        ],
+        [
+          31,
+          2
+        ],
+        [
+          38,
+          3
+        ],
+        [
+          44,
+          2
+        ],
+        [
+          51,
+          3
+        ],
+        [
+          57,
+          2
+        ],
+        [
+          64,
+          3
+        ],
+        [
+          73,
+          3
+        ],
+        [
+          82,
+          3
+        ],
+        [
+          91,
+          3
+        ],
+        [
+          100,
+          3
+        ],
+        [
+          109,
+          3
+        ],
+        [
+          118,
+          3
+        ],
+        [
+          127,
+          3
+        ],
+        [
+          136,
+          3
+        ],
+        [
+          145,
+          3
+        ],
+        [
+          154,
+          3
+        ],
+        [
+          160,
+          2
+        ],
+        [
+          177,
+          2
+        ],
+        [
+          189,
+          1
+        ],
+        [
+          191,
+          2
+        ]
+      ],
+      "hash": "40da345dccb7822330a84e5748cf8a150c106c1ef9b9e22312719f46f2a4b0de",
+      "switches": []
+    },
+    {
+      "start": 3245221,
+      "length": 40,
+      "masks": [
+        [
+          2,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          12,
+          1
+        ],
+        [
+          15,
+          3
+        ],
+        [
+          20,
+          10
+        ],
+        [
+          23,
+          5
+        ],
+        [
+          34,
+          3
+        ]
+      ],
+      "hash": "39fea78e283f0472b18f6087f0faca8a9a94a3daf09fae02f489cdc17f71f945",
+      "switches": []
+    },
+    {
+      "start": 3245261,
+      "length": 193,
+      "masks": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          76,
+          2
+        ],
+        [
+          81,
+          2
+        ],
+        [
+          85,
+          1
+        ],
+        [
+          88,
+          2
+        ],
+        [
+          121,
+          2
+        ],
+        [
+          132,
+          2
+        ]
+      ],
+      "hash": "fd151c7d533375fe62016d28ddb7eca023ebe7d361f87d28bb277eadfaa97761"
+    },
+    {
+      "start": 3245485,
+      "length": 66,
+      "masks": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          22,
+          3
+        ],
+        [
+          30,
+          3
+        ],
+        [
+          56,
+          2
+        ],
+        [
+          59,
+          2
+        ]
+      ],
+      "hash": "5b3fa48d745ddd5ed8beb749c1f26047454294210d1e8bbb64d2dcd348bbdf4a",
+      "switches": []
+    },
+    {
+      "start": 3245626,
+      "length": 113,
+      "masks": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          22,
+          2
+        ],
+        [
+          33,
+          2
+        ],
+        [
+          37,
+          2
+        ],
+        [
+          52,
+          2
+        ],
+        [
+          72,
+          2
+        ],
+        [
+          76,
+          2
+        ],
+        [
+          79,
+          2
+        ]
+      ],
+      "hash": "458fccb43577f52ccd2acdbdd831b66a571f4bd45d933f570e88ca8c8787fdf0"
+    },
+    {
+      "start": 3245739,
+      "length": 113,
+      "masks": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          22,
+          2
+        ],
+        [
+          33,
+          2
+        ],
+        [
+          37,
+          2
+        ],
+        [
+          52,
+          2
+        ],
+        [
+          72,
+          2
+        ],
+        [
+          76,
+          2
+        ],
+        [
+          79,
+          2
+        ]
+      ],
+      "hash": "d4f44c464a771af9022e3615e0ca2be92274d7bd75393d62ca89fc1eefa3320a"
+    },
+    {
+      "start": 3245852,
+      "length": 77,
+      "masks": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          18,
+          2
+        ],
+        [
+          22,
+          2
+        ],
+        [
+          27,
+          2
+        ],
+        [
+          31,
+          1
+        ],
+        [
+          34,
+          2
+        ],
+        [
+          54,
+          2
+        ],
+        [
+          58,
+          2
+        ],
+        [
+          61,
+          2
+        ]
+      ],
+      "hash": "7d63540ba8a61c23bf3657cf39fb2ab78d5791d83e818813b4028e3b5a1769a4"
+    },
+    {
+      "start": 3340238,
+      "length": 26,
+      "masks": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          11,
+          3
+        ],
+        [
+          16,
+          2
+        ],
+        [
+          19,
+          2
+        ]
+      ],
+      "hash": "ef3df53c2a5cd84c8db93d576a363bafd825b847311f6a28547606565ccc5c35",
+      "switches": []
+    },
+    {
+      "start": 3340264,
+      "length": 26,
+      "masks": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          11,
+          3
+        ],
+        [
+          16,
+          2
+        ],
+        [
+          19,
+          2
+        ]
+      ],
+      "hash": "ef3df53c2a5cd84c8db93d576a363bafd825b847311f6a28547606565ccc5c35",
+      "switches": []
+    },
+    {
+      "start": 3340290,
+      "length": 26,
+      "masks": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          11,
+          3
+        ],
+        [
+          16,
+          2
+        ],
+        [
+          19,
+          2
+        ]
+      ],
+      "hash": "ef3df53c2a5cd84c8db93d576a363bafd825b847311f6a28547606565ccc5c35",
+      "switches": []
+    },
+    {
+      "start": 3340316,
+      "length": 26,
+      "masks": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          11,
+          3
+        ],
+        [
+          16,
+          2
+        ],
+        [
+          19,
+          2
+        ]
+      ],
+      "hash": "ef3df53c2a5cd84c8db93d576a363bafd825b847311f6a28547606565ccc5c35"
+    },
+    {
+      "start": 3340342,
+      "length": 26,
+      "masks": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          11,
+          3
+        ],
+        [
+          16,
+          2
+        ],
+        [
+          19,
+          2
+        ]
+      ],
+      "hash": "ef3df53c2a5cd84c8db93d576a363bafd825b847311f6a28547606565ccc5c35",
+      "switches": []
+    },
+    {
+      "start": 3340368,
+      "length": 26,
+      "masks": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          11,
+          3
+        ],
+        [
+          16,
+          2
+        ],
+        [
+          19,
+          2
+        ]
+      ],
+      "hash": "ef3df53c2a5cd84c8db93d576a363bafd825b847311f6a28547606565ccc5c35"
+    },
+    {
+      "start": 3340394,
+      "length": 26,
+      "masks": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          11,
+          3
+        ],
+        [
+          16,
+          2
+        ],
+        [
+          19,
+          2
+        ]
+      ],
+      "hash": "ef3df53c2a5cd84c8db93d576a363bafd825b847311f6a28547606565ccc5c35"
+    }
+  ],
+  "skipped": [
+    {
+      "id": 2,
+      "label": "Prologue Edain Abduction",
+      "reason": "95"
+    },
+    {
+      "id": 9,
+      "label": "Prologue Sigurd Home Castle",
+      "reason": "Source command count mismatch"
+    },
+    {
+      "id": 20,
+      "label": "Prologue Village1",
+      "reason": "Source command count mismatch"
+    },
+    {
+      "id": 21,
+      "label": "Prologue Village2",
+      "reason": "Source command count mismatch"
+    },
+    {
+      "id": 22,
+      "label": "Prologue Village4",
+      "reason": "Source command count mismatch"
+    },
+    {
+      "id": 23,
+      "label": "Prologue Village3",
+      "reason": "Source command count mismatch"
+    },
+    {
+      "id": 24,
+      "label": "Prologue Village Speed Ring",
+      "reason": "Source command count mismatch"
+    }
+  ]
+}

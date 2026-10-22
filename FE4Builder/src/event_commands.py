@@ -1,0 +1,125 @@
+"""Fixed-length Prologue event operand editing with shared layout and stale-draft guards."""
+import json
+from functools import lru_cache
+from rom import DATA_DIR
+from portraits import pc_address
+from event_layouts import checked
+
+# (Label, operand offset, bytes, minimum, maximum)
+FIELDS={0x0c:[('Dialogue scene',1,3,0,0xffffff)],0x0e:[('Music track',1,1,0,255)],0x11:[('Byte sound effect',1,1,0,255)],0x12:[('Word sound command',1,2,0,65535)],0x34:[('Pause ticks',1,2,1,65535)],0x3a:[('Camera X',1,1,0,63),('Camera Y',2,1,0,63)],
+        0x24:[('Character',1,2,1,696),('Faction slot',3,1,0,3),('Start X',4,1,0,63),('Start Y',5,1,0,63),('Destination X',6,1,0,63),('Destination Y',7,1,0,63),('Movement speed',8,1,0,7),('Sprite color',9,1,2,6),('Group leader',10,1,0,1),('AI setting',10,1,0,15)],
+        0x40:[('Camera X',1,1,0,63),('Camera Y',2,1,0,63),('Scroll speed',3,1,1,255)],
+        0x46:[('Fade timing',1,1,1,255)],0x47:[('Fade timing',1,1,1,255)],
+        'character_sprite':[('Prepare map sprite for',2,2,1,696)]}
+def schema(command):
+    return 'character_sprite' if command['opcode']==0x4a and command.get('condition')==0x49 else command['opcode']
+
+def audio_kind(command):return {0x0e:'music',0x11:'byte',0x12:'word'}.get(command['opcode'])
+
+def audio_options(command):
+    from audio_preview import catalogue as audio_catalogue
+    kind=audio_kind(command)
+    return {e['value']:e['label'] for e in audio_catalogue()['entries'] if e['kind']==kind}
+
+def character_options(rom):
+    from conversations import character_names
+    from map_sprites import MapSprites
+    sprites=MapSprites(rom);result={}
+    for value,name in character_names(rom).items():
+        if not 1<=value<=696:continue
+        try:sprites.character(value)
+        except (ValueError,IndexError):continue
+        result[value]=name
+    return result
+
+HELP={0x0c:'Choose a dialogue by chapter, scene name or text using Find dialogue. This replaces only the existing command’s 3-byte pointer. Open in Dialogue Editor edits the text used by this command; settle pending event changes first. Dialogue controls portraits, speakers and pauses inside its own script.',0x29:'Read-only, no parameters. Wait until sprite decompression has finished and the unit movement setup engine is idle. This allows pending graphics/loading setup to complete; it does not guarantee that all units have finished walking. Use Wait Until Map Sprites Halting to synchronize scripted movement.',
+      0xfd:'Read-only, no parameters. Yield ends the current event-processing pass and resumes at the following command on a later update, normally the next frame when the event engine is ready. It gives other game systems time to update. It is not a fixed-duration pause or a wait for a particular animation, movement or dialogue to finish.',
+      0x2a:'Read-only, no parameters. Wait until every active scripted moving map sprite has finished moving or reached a halt point in its movement script. This covers event-controlled sprites, not every unit on the map. If no scripted sprites are active, continue immediately. A halt can be temporary: Continue From Map Sprite Halt resumes halted movement scripts. This command waits for movement readiness; it does not stop sprites itself.',
+      0x0e:'Choose the music played by this existing command. Preview audio auditions the selected draft without saving it.',
+      0x11:'Choose an observed byte sound effect. Preview audio auditions the selected draft using the same sound-driver queue.',
+      0x12:'Choose an observed full word sound-driver command. Some control fading/volume rather than play an effect; preview can include background music. The full 16-bit word is preserved.',
+      'character_sprite':'Prepare the selected character’s map-sprite graphics. This does not spawn, move or recruit that character. Match the graphics required by the later deployment/movement commands.',0x34:'Delay before the next command, in event timer ticks. This does not change dialogue waits or movement timing.',
+      0x3a:'Move the camera to these map coordinates (0–63). This changes the camera only; units and terrain stay in place.',
+      0x24:'Deploy an existing character and animate their entrance from Start to Destination. Faction slots here are Prologue groups; sprite color does not change allegiance. Group leader marks the commander. AI setting is the native 0–15 value, whose behavior depends on the faction AI. Movement speed changes only the entrance animation; other movement flags are preserved. Prepare the matching map sprite earlier in the event. Avoid deploying the same character twice, and review later dialogue and movement commands after replacing a character.',
+      0x40:'Pan the camera smoothly to X/Y (0–63), measured in map tiles at the upper-left of the screen. Scroll speed accepts 1–255; larger values move faster. Zero is rejected because it cannot advance the scroll. Units and terrain stay in place. Keep the destination within the chapter camera area and test the scene in-game.',
+      0x46:'Native fade-in timing parameter (1–255). This is not a duration in seconds; test the transition in-game.',
+      0x47:'Native fade-out timing parameter (1–255). This is not a duration in seconds; test the transition in-game.'}
+
+def field_bits(command,index):
+    if command['opcode']==0x24:
+        return {6:(7,0),8:(128,7),9:(15,0)}.get(index,(255 if index!=0 else 65535,0))
+    return ((1 << (FIELDS.get(schema(command),[('',0,2,0,0)])[index][2]*8))-1,0)
+
+def deployment_options(rom,index):
+    if index==0:return character_options(rom)
+    return {1:{0:'Player',1:'Evans',2:'Yngvi',3:'Arvis'},7:{2:'Blue',4:'Red',6:'Green'},8:{0:'No',1:'Yes'}}.get(index,{})
+
+@lru_cache(maxsize=1)
+def catalogue():return json.loads((DATA_DIR/'event_commands.json').read_text(encoding='utf-8'))
+
+class EventCommands:
+    def __init__(self,rom,index):
+        self.rom=rom;self.index=index;self.entry=catalogue()['entries'][index];self.profile=self.entry['profile']
+        at=0xfe8bf+self.entry['id']*3+rom.header;self.pointer=bytes(rom.data[at:at+3])
+        if len(self.pointer)!=3 or pc_address(int.from_bytes(self.pointer,'little'))!=self.profile['start']:
+            raise ValueError('This event has moved. Editing requires its verified original location.')
+        self.snapshot=checked(rom,self.profile);self.commands=self.entry['commands']
+    def dialogues(self):
+        if not hasattr(self,'_dialogues'):
+            try:self._dialogues=dialogue_options(self.rom)
+            except ValueError:self._dialogues=[]
+        return self._dialogues
+    def values(self,index):
+        command=self.commands[index];at=command['offset']
+        return [(int.from_bytes(self.snapshot[at+offset:at+offset+size],'little') & field_bits(command,i)[0]) >> field_bits(command,i)[1] for i,(_,offset,size,_,_) in enumerate(FIELDS.get(schema(command),[]))]
+    def describe(self,index):
+        command=self.commands[index];fields=FIELDS.get(schema(command),[])
+        values=self.values(index)
+        if schema(command)=='character_sprite':
+            return 'Prepare character map sprite · '+character_options(self.rom).get(values[0],f'Character 0x{values[0]:04X}')
+        if command['opcode']==0x0c:
+            labels={o['pointer']:o['label'] for o in self.dialogues()}
+            return 'Dialogue · '+labels.get(values[0],f'Existing scene ${values[0]:06X}')
+        if audio_kind(command):
+            return command['name'].replace('_',' ').title()+' · '+audio_options(command).get(values[0],f'Existing unknown ${values[0]:04X}')+f' (${values[0]:04X})'
+        return command['name'].replace('_',' ').title()+(' · '+', '.join(f'{field[0]}: {value}' for field,value in zip(fields,values)) if fields else '')
+    def write(self,updates):
+        current=EventCommands(self.rom,self.index)
+        if current.pointer!=self.pointer or current.snapshot!=self.snapshot:
+            raise ValueError('Event bytes changed while this editor was open. Reload before writing.')
+        edits={};details=[]
+        for index,values in updates.items():
+            if type(index) is not int or not 0<=index<len(self.commands):raise ValueError('Unknown command selection.')
+            command=self.commands[index];fields=FIELDS.get(schema(command))
+            if not command['editable'] or fields is None:raise ValueError('This command is read-only.')
+            if schema(command)=='character_sprite' and (len(values)!=1 or type(values[0]) is not int or values[0] not in character_options(self.rom)):
+                raise ValueError('Choose a character with a valid map-sprite assignment.')
+            if len(values)!=len(fields):raise ValueError('Incorrect command parameter count.')
+            for field_index,((label,offset,size,low,high),value,old) in enumerate(zip(fields,values,self.values(index))):
+                if type(value) is not int or (not low<=value<=high and value!=old):raise ValueError(f'{label} must be {low}–{high}.')
+                if command['opcode']==0x24 and deployment_options(self.rom,field_index) and value!=old and value not in deployment_options(self.rom,field_index):
+                    raise ValueError(f'{label}: choose a listed option.')
+                if command['opcode']==0x0c and value!=old and value not in {o['pointer'] for o in self.dialogues()}:
+                    raise ValueError('Dialogue scene: choose a supported scene from Find dialogue.')
+                if value!=old and audio_kind(command) and value not in audio_options(command):
+                    raise ValueError(f'{label}: choose an ID from the audio catalogue. Existing unknown values may be kept unchanged.')
+                if value!=old:
+                    address=self.profile['start']+command['offset']+offset+self.rom.header
+                    mask,shift=field_bits(command,field_index)
+                    previous=int.from_bytes(edits.get(address,self.rom.data[address:address+size]),'little')
+                    edits[address]=((previous & ~mask) | (value << shift)).to_bytes(size,'little')
+                    details.append(f'Command {index+1}: {label} {old} → {value}')
+        # Validate the entire draft before touching memory; preserve every opcode and pointer.
+        for address,data in edits.items():self.rom.data[address:address+len(data)]=data
+        return details
+
+
+def dialogue_options(rom):
+    from dialogue import catalogue as scenes,Dialogue,readable,check_profile
+    check_profile(rom)
+    result=[]
+    for entry in scenes()['entries']:
+        try:model=Dialogue(rom,entry)
+        except ValueError:continue
+        result.append(dict(entry=entry,pointer=int.from_bytes(model.pointer,'little'),label=entry['group']+' · '+entry['label'],text=readable(model.text)))
+    return result

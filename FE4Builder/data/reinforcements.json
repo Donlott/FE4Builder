@@ -1,0 +1,6798 @@
+{
+  "entries": [
+    {
+      "id": 3,
+      "chapter": 0,
+      "label": "Prologue Quan Group Spawn",
+      "units": [
+        {
+          "offset": 28,
+          "kind": "direct",
+          "label": "Quan, FS_Player, [63, 13], [59, 14], 4, MAP_SPRITE_BLUE"
+        },
+        {
+          "offset": 44,
+          "kind": "direct",
+          "label": "Finn, FS_Player, [63, 13], [60, 14], 4, MAP_SPRITE_BLUE"
+        },
+        {
+          "offset": 60,
+          "kind": "direct",
+          "label": "Ethlyn, FS_Player, [63, 13], [61, 14], 4, MAP_SPRITE_BLUE"
+        }
+      ],
+      "profile": {
+        "start": 3244770,
+        "length": 98,
+        "masks": [
+          [
+            32,
+            5
+          ],
+          [
+            48,
+            5
+          ],
+          [
+            64,
+            5
+          ],
+          [
+            75,
+            3
+          ]
+        ],
+        "hash": "5ce8f605f8cc42a4d23434105ba01d3919120e8fb69c7857ee4bbc1a169b6a01"
+      }
+    },
+    {
+      "id": 4,
+      "chapter": 0,
+      "label": "Prologue Lex Azelle Spawn",
+      "units": [
+        {
+          "offset": 20,
+          "kind": "direct",
+          "label": "Azelle, FS_Player, [41, 0], [44, 3], 4, MAP_SPRITE_BLUE"
+        },
+        {
+          "offset": 32,
+          "kind": "direct",
+          "label": "Lex, FS_Player, [41, 0], [43, 3], 4, MAP_SPRITE_BLUE"
+        }
+      ],
+      "profile": {
+        "start": 3244868,
+        "length": 90,
+        "masks": [
+          [
+            24,
+            5
+          ],
+          [
+            36,
+            5
+          ],
+          [
+            51,
+            3
+          ]
+        ],
+        "hash": "41e516ea441dc437e15b063044674d2e047b39f500ed3a7e0253567d60dfdabc"
+      }
+    },
+    {
+      "id": 5,
+      "chapter": 0,
+      "label": "Prologue Yngvi Seized",
+      "units": [
+        {
+          "offset": 25,
+          "kind": "direct",
+          "label": "Midir, FS_Player, [33, 25], [33, 25], 4, MAP_SPRITE_BLUE"
+        }
+      ],
+      "profile": {
+        "start": 3244958,
+        "length": 55,
+        "masks": [
+          [
+            29,
+            5
+          ]
+        ],
+        "hash": "d163c4d306ede2615ac428957f3add6e5f11e48953b420dd4b347505ca4d9cb5"
+      }
+    },
+    {
+      "id": 6,
+      "chapter": 0,
+      "label": "Prologue Evans Spawn",
+      "units": [
+        {
+          "offset": 21,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 34,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 47,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 60,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 69,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 78,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 87,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 96,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 105,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 114,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 123,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 132,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 141,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 150,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 3245013,
+        "length": 208,
+        "masks": [
+          [
+            25,
+            3
+          ],
+          [
+            38,
+            3
+          ],
+          [
+            51,
+            3
+          ],
+          [
+            64,
+            3
+          ],
+          [
+            73,
+            3
+          ],
+          [
+            82,
+            3
+          ],
+          [
+            91,
+            3
+          ],
+          [
+            100,
+            3
+          ],
+          [
+            109,
+            3
+          ],
+          [
+            118,
+            3
+          ],
+          [
+            127,
+            3
+          ],
+          [
+            136,
+            3
+          ],
+          [
+            145,
+            3
+          ],
+          [
+            154,
+            3
+          ],
+          [
+            13,
+            3
+          ]
+        ],
+        "hash": "aea385a04a17f05158a87e1462c7c8dd0240f5062ff3149c6f01619aa390b50a"
+      }
+    },
+    {
+      "id": 7,
+      "chapter": 0,
+      "label": "Prologue Arvis Spawn",
+      "units": [
+        {
+          "offset": 19,
+          "kind": "direct",
+          "label": "ArvisChPrologue, FS_PrologueArvis, [30, 0], [32, 3], 4, MAP_SPRITE_GREEN, true, 1"
+        }
+      ],
+      "profile": {
+        "start": 3245221,
+        "length": 40,
+        "masks": [
+          [
+            23,
+            5
+          ],
+          [
+            34,
+            3
+          ]
+        ],
+        "hash": "257b78336eb6e94e5813bc070b5c50fbf03970e47488d4db89d401dd12588344"
+      }
+    },
+    {
+      "id": 32,
+      "chapter": 1,
+      "label": "Chapter01Opening",
+      "units": [
+        {
+          "offset": 140,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 149,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 162,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 186,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 199,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 212,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 225,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 238,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 251,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 264,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 277,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 290,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 303,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 316,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        },
+        {
+          "offset": 329,
+          "kind": "group",
+          "label": "Spawn 15 (expanded group script)"
+        },
+        {
+          "offset": 342,
+          "kind": "group",
+          "label": "Spawn 16 (expanded group script)"
+        },
+        {
+          "offset": 355,
+          "kind": "group",
+          "label": "Spawn 17 (expanded group script)"
+        },
+        {
+          "offset": 368,
+          "kind": "group",
+          "label": "Spawn 18 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 1082030,
+        "length": 468,
+        "masks": [
+          [
+            144,
+            3
+          ],
+          [
+            153,
+            3
+          ],
+          [
+            166,
+            3
+          ],
+          [
+            190,
+            3
+          ],
+          [
+            203,
+            3
+          ],
+          [
+            216,
+            3
+          ],
+          [
+            229,
+            3
+          ],
+          [
+            242,
+            3
+          ],
+          [
+            255,
+            3
+          ],
+          [
+            268,
+            3
+          ],
+          [
+            281,
+            3
+          ],
+          [
+            294,
+            3
+          ],
+          [
+            307,
+            3
+          ],
+          [
+            320,
+            3
+          ],
+          [
+            333,
+            3
+          ],
+          [
+            346,
+            3
+          ],
+          [
+            359,
+            3
+          ],
+          [
+            372,
+            3
+          ],
+          [
+            53,
+            3
+          ],
+          [
+            182,
+            3
+          ]
+        ],
+        "hash": "1b783d69e3c7d94b64649e88779aa1f55fd6692bc782d48a2d9b9d902f209068"
+      }
+    },
+    {
+      "id": 34,
+      "chapter": 1,
+      "label": "Chapter01Edain Group Spawn",
+      "units": [
+        {
+          "offset": 144,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 157,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 170,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 183,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 196,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 209,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 222,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 235,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 248,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 261,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 272,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 281,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 290,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 299,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        },
+        {
+          "offset": 308,
+          "kind": "group",
+          "label": "Spawn 15 (expanded group script)"
+        },
+        {
+          "offset": 317,
+          "kind": "group",
+          "label": "Spawn 16 (expanded group script)"
+        },
+        {
+          "offset": 326,
+          "kind": "group",
+          "label": "Spawn 17 (expanded group script)"
+        },
+        {
+          "offset": 335,
+          "kind": "group",
+          "label": "Spawn 18 (expanded group script)"
+        },
+        {
+          "offset": 344,
+          "kind": "group",
+          "label": "Spawn 19 (expanded group script)"
+        },
+        {
+          "offset": 353,
+          "kind": "group",
+          "label": "Spawn 20 (expanded group script)"
+        },
+        {
+          "offset": 364,
+          "kind": "group",
+          "label": "Spawn 21 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 1082500,
+        "length": 473,
+        "masks": [
+          [
+            148,
+            3
+          ],
+          [
+            161,
+            3
+          ],
+          [
+            174,
+            3
+          ],
+          [
+            187,
+            3
+          ],
+          [
+            200,
+            3
+          ],
+          [
+            213,
+            3
+          ],
+          [
+            226,
+            3
+          ],
+          [
+            239,
+            3
+          ],
+          [
+            252,
+            3
+          ],
+          [
+            265,
+            3
+          ],
+          [
+            276,
+            3
+          ],
+          [
+            285,
+            3
+          ],
+          [
+            294,
+            3
+          ],
+          [
+            303,
+            3
+          ],
+          [
+            312,
+            3
+          ],
+          [
+            321,
+            3
+          ],
+          [
+            330,
+            3
+          ],
+          [
+            339,
+            3
+          ],
+          [
+            348,
+            3
+          ],
+          [
+            357,
+            3
+          ],
+          [
+            368,
+            3
+          ],
+          [
+            78,
+            3
+          ],
+          [
+            117,
+            3
+          ]
+        ],
+        "hash": "aa8d439f6ddb2327a11962a98c25f020a44949e512014bc1ee6f61437e02e009"
+      }
+    },
+    {
+      "id": 38,
+      "chapter": 1,
+      "label": "Chapter01Heirhein Spawn",
+      "units": [
+        {
+          "offset": 21,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 30,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 39,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 52,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 61,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 70,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 83,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 92,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 101,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 114,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 123,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 136,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 1083114,
+        "length": 219,
+        "masks": [
+          [
+            25,
+            3
+          ],
+          [
+            34,
+            3
+          ],
+          [
+            43,
+            3
+          ],
+          [
+            56,
+            3
+          ],
+          [
+            65,
+            3
+          ],
+          [
+            74,
+            3
+          ],
+          [
+            87,
+            3
+          ],
+          [
+            96,
+            3
+          ],
+          [
+            105,
+            3
+          ],
+          [
+            118,
+            3
+          ],
+          [
+            127,
+            3
+          ],
+          [
+            140,
+            3
+          ],
+          [
+            151,
+            3
+          ],
+          [
+            161,
+            3
+          ]
+        ],
+        "hash": "88fbe323503d66aeb573abcee4cd6887bca699346299141674e3b11d07df09a9"
+      }
+    },
+    {
+      "id": 39,
+      "chapter": 1,
+      "label": "Chapter01Nordion Spawn",
+      "units": [
+        {
+          "offset": 49,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 62,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 75,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 88,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 101,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 114,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 127,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 140,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 153,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 1083333,
+        "length": 184,
+        "masks": [
+          [
+            53,
+            3
+          ],
+          [
+            66,
+            3
+          ],
+          [
+            79,
+            3
+          ],
+          [
+            92,
+            3
+          ],
+          [
+            105,
+            3
+          ],
+          [
+            118,
+            3
+          ],
+          [
+            131,
+            3
+          ],
+          [
+            144,
+            3
+          ],
+          [
+            157,
+            3
+          ],
+          [
+            165,
+            3
+          ]
+        ],
+        "hash": "ce34f0ac5867b1f655e0078d8757b412b9e8169e9255424a08923bc9e8f1c4e9"
+      }
+    },
+    {
+      "id": 41,
+      "chapter": 1,
+      "label": "Chapter01Verdane Spawn",
+      "units": [
+        {
+          "offset": 72,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 85,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 98,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 130,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 139,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 148,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 157,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 166,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 175,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 184,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 193,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 202,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 211,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 222,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 1083640,
+        "length": 252,
+        "masks": [
+          [
+            76,
+            3
+          ],
+          [
+            89,
+            3
+          ],
+          [
+            102,
+            3
+          ],
+          [
+            134,
+            3
+          ],
+          [
+            143,
+            3
+          ],
+          [
+            152,
+            3
+          ],
+          [
+            161,
+            3
+          ],
+          [
+            170,
+            3
+          ],
+          [
+            179,
+            3
+          ],
+          [
+            188,
+            3
+          ],
+          [
+            197,
+            3
+          ],
+          [
+            206,
+            3
+          ],
+          [
+            215,
+            3
+          ],
+          [
+            226,
+            3
+          ]
+        ],
+        "hash": "1de618a8e373a4291ce9143fe28f7e3657ce2650550516ad0c1de3c95b5bce95"
+      }
+    },
+    {
+      "id": 42,
+      "chapter": 1,
+      "label": "Chapter01Deirdre Spawn",
+      "units": [
+        {
+          "offset": 19,
+          "kind": "direct",
+          "label": "Deirdre, FS_Player, [15, 42], [14, 42], 4, MAP_SPRITE_BLUE"
+        }
+      ],
+      "profile": {
+        "start": 1083892,
+        "length": 77,
+        "masks": [
+          [
+            23,
+            5
+          ],
+          [
+            44,
+            3
+          ],
+          [
+            52,
+            3
+          ]
+        ],
+        "hash": "6376d9cd4bd721cd53ed95bf1e116035b1fc93f225be2fb665d2657e7251690f"
+      }
+    },
+    {
+      "id": 69,
+      "chapter": 2,
+      "label": "Chapter02Infini Brigands Spawn",
+      "units": [
+        {
+          "offset": 33,
+          "kind": "group",
+          "label": "UNITGroupChapter02Yellows, aUNITGroupDataChapter02Yellows.ID_06, [12, 5], 4, MAP_SPRITE_YELLOW"
+        },
+        {
+          "offset": 46,
+          "kind": "group",
+          "label": "UNITGroupChapter02Yellows, aUNITGroupDataChapter02Yellows.ID_07, [12, 5], 4, MAP_SPRITE_YELLOW"
+        },
+        {
+          "offset": 59,
+          "kind": "group",
+          "label": "UNITGroupChapter02Yellows, aUNITGroupDataChapter02Yellows.ID_08, [12, 5], 4, MAP_SPRITE_YELLOW"
+        },
+        {
+          "offset": 72,
+          "kind": "group",
+          "label": "UNITGroupChapter02Yellows, aUNITGroupDataChapter02Yellows.ID_09, [12, 5], 4, MAP_SPRITE_YELLOW"
+        }
+      ],
+      "profile": {
+        "start": 950626,
+        "length": 88,
+        "masks": [
+          [
+            37,
+            3
+          ],
+          [
+            50,
+            3
+          ],
+          [
+            63,
+            3
+          ],
+          [
+            76,
+            3
+          ]
+        ],
+        "hash": "22ed8e0673065476952652f1e4a3793ea92c29eb44ef8475b1891cd41b6766f0"
+      }
+    },
+    {
+      "id": 72,
+      "chapter": 2,
+      "label": "Chapter02Lewyn Silvia Spawn",
+      "units": [
+        {
+          "offset": 41,
+          "kind": "direct",
+          "label": "Lewyn, FS_Player, [40, 24], [39, 25], 4, MAP_SPRITE_BLUE"
+        },
+        {
+          "offset": 53,
+          "kind": "direct",
+          "label": "Silvia, FS_Player, [40, 24], [40, 25], 4, MAP_SPRITE_BLUE"
+        }
+      ],
+      "profile": {
+        "start": 950754,
+        "length": 82,
+        "masks": [
+          [
+            45,
+            5
+          ],
+          [
+            57,
+            5
+          ]
+        ],
+        "hash": "310a986d5acbbd71cf8eea030c04a2323527222855c95e856383aa49de74b192"
+      }
+    },
+    {
+      "id": 73,
+      "chapter": 2,
+      "label": "Chapter02Infini Spawn",
+      "units": [
+        {
+          "offset": 92,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 105,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 118,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 131,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 140,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 149,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 158,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 167,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 176,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 185,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 196,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 950836,
+        "length": 247,
+        "masks": [
+          [
+            96,
+            3
+          ],
+          [
+            109,
+            3
+          ],
+          [
+            122,
+            3
+          ],
+          [
+            135,
+            3
+          ],
+          [
+            144,
+            3
+          ],
+          [
+            153,
+            3
+          ],
+          [
+            162,
+            3
+          ],
+          [
+            171,
+            3
+          ],
+          [
+            180,
+            3
+          ],
+          [
+            189,
+            3
+          ],
+          [
+            200,
+            3
+          ],
+          [
+            80,
+            3
+          ]
+        ],
+        "hash": "58a99423081bc21e85948ce9298a3333b277a4f5ec84dfe156e591683b507167"
+      }
+    },
+    {
+      "id": 78,
+      "chapter": 2,
+      "label": "Chapter02Mackily Spawn",
+      "units": [
+        {
+          "offset": 74,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 87,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 100,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 113,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 147,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 160,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 173,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 186,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 199,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 281,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 294,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 307,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 320,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 331,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 951197,
+        "length": 356,
+        "masks": [
+          [
+            78,
+            3
+          ],
+          [
+            91,
+            3
+          ],
+          [
+            104,
+            3
+          ],
+          [
+            117,
+            3
+          ],
+          [
+            151,
+            3
+          ],
+          [
+            164,
+            3
+          ],
+          [
+            177,
+            3
+          ],
+          [
+            190,
+            3
+          ],
+          [
+            203,
+            3
+          ],
+          [
+            285,
+            3
+          ],
+          [
+            298,
+            3
+          ],
+          [
+            311,
+            3
+          ],
+          [
+            324,
+            3
+          ],
+          [
+            335,
+            3
+          ]
+        ],
+        "hash": "bf53e600cd545b0e018800b994e16eb1c3a45ba2b118ee8e39a17122e0ada1a4"
+      }
+    },
+    {
+      "id": 80,
+      "chapter": 2,
+      "label": "Chapter02Agusti Spawn",
+      "units": [
+        {
+          "offset": 98,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 107,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 116,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 125,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 951583,
+        "length": 152,
+        "masks": [
+          [
+            102,
+            3
+          ],
+          [
+            111,
+            3
+          ],
+          [
+            120,
+            3
+          ],
+          [
+            129,
+            3
+          ],
+          [
+            143,
+            3
+          ]
+        ],
+        "hash": "876a13cba4e54b223b62d4dd55351cec4a6e924b216fb2240a7b6ff09c1a093a"
+      }
+    },
+    {
+      "id": 93,
+      "chapter": 2,
+      "label": "Chapter02Chulainn Recruitment Heirhein",
+      "units": [
+        {
+          "offset": 22,
+          "kind": "direct",
+          "label": "Chulainn, FS_Player, [5, 34], [5, 34], 4, MAP_SPRITE_BLUE"
+        }
+      ],
+      "profile": {
+        "start": 952094,
+        "length": 47,
+        "masks": [
+          [
+            26,
+            5
+          ]
+        ],
+        "hash": "6a391ce24b8ff5aacf173081b13d4a55aedbe004448e2077d4e475f93245cb5b"
+      }
+    },
+    {
+      "id": 94,
+      "chapter": 2,
+      "label": "Chapter02Chulainn Recruitment Infini",
+      "units": [
+        {
+          "offset": 22,
+          "kind": "direct",
+          "label": "Chulainn, FS_Player, [12, 5], [12, 5], 4, MAP_SPRITE_BLUE"
+        }
+      ],
+      "profile": {
+        "start": 952141,
+        "length": 47,
+        "masks": [
+          [
+            26,
+            5
+          ]
+        ],
+        "hash": "6a391ce24b8ff5aacf173081b13d4a55aedbe004448e2077d4e475f93245cb5b"
+      }
+    },
+    {
+      "id": 95,
+      "chapter": 2,
+      "label": "Chapter02Chulainn Recruitment Mackily",
+      "units": [
+        {
+          "offset": 22,
+          "kind": "direct",
+          "label": "Chulainn, FS_Player, [43, 31], [43, 31], 4, MAP_SPRITE_BLUE"
+        }
+      ],
+      "profile": {
+        "start": 952188,
+        "length": 47,
+        "masks": [
+          [
+            26,
+            5
+          ]
+        ],
+        "hash": "6a391ce24b8ff5aacf173081b13d4a55aedbe004448e2077d4e475f93245cb5b"
+      }
+    },
+    {
+      "id": 96,
+      "chapter": 2,
+      "label": "Chapter02Chulainn Recruitment Nordion",
+      "units": [
+        {
+          "offset": 22,
+          "kind": "direct",
+          "label": "Chulainn, FS_Player, [25, 53], [25, 53], 4, MAP_SPRITE_BLUE"
+        }
+      ],
+      "profile": {
+        "start": 952235,
+        "length": 47,
+        "masks": [
+          [
+            26,
+            5
+          ]
+        ],
+        "hash": "6a391ce24b8ff5aacf173081b13d4a55aedbe004448e2077d4e475f93245cb5b"
+      }
+    },
+    {
+      "id": 115,
+      "chapter": 3,
+      "label": "Chapter03Madino Seized",
+      "units": [
+        {
+          "offset": 247,
+          "kind": "direct",
+          "label": "Deirdre, FS_Player, [35, 53], [35, 53], 4 + $60, MAP_SPRITE_BLUE, false, 1"
+        },
+        {
+          "offset": 261,
+          "kind": "direct",
+          "label": "Manfroy, FS_Ch03Madino, [36, 53], [36, 53], 4, MAP_SPRITE_RED, false, 1"
+        }
+      ],
+      "profile": {
+        "start": 1935269,
+        "length": 435,
+        "masks": [
+          [
+            251,
+            5
+          ],
+          [
+            265,
+            5
+          ],
+          [
+            230,
+            3
+          ]
+        ],
+        "hash": "ddc19d48afafae0c61e0a16cb02ac04cb4e36891efa8c0ee495cca2d50998512"
+      }
+    },
+    {
+      "id": 116,
+      "chapter": 3,
+      "label": "Chapter03Sylvale Spawn",
+      "units": [
+        {
+          "offset": 96,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 109,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 122,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 135,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 148,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 161,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 174,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 226,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 235,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 244,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 253,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 262,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 271,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 280,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        },
+        {
+          "offset": 289,
+          "kind": "group",
+          "label": "Spawn 15 (expanded group script)"
+        },
+        {
+          "offset": 298,
+          "kind": "group",
+          "label": "Spawn 16 (expanded group script)"
+        },
+        {
+          "offset": 307,
+          "kind": "group",
+          "label": "Spawn 17 (expanded group script)"
+        },
+        {
+          "offset": 318,
+          "kind": "group",
+          "label": "Spawn 18 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 1935704,
+        "length": 348,
+        "masks": [
+          [
+            100,
+            3
+          ],
+          [
+            113,
+            3
+          ],
+          [
+            126,
+            3
+          ],
+          [
+            139,
+            3
+          ],
+          [
+            152,
+            3
+          ],
+          [
+            165,
+            3
+          ],
+          [
+            178,
+            3
+          ],
+          [
+            230,
+            3
+          ],
+          [
+            239,
+            3
+          ],
+          [
+            248,
+            3
+          ],
+          [
+            257,
+            3
+          ],
+          [
+            266,
+            3
+          ],
+          [
+            275,
+            3
+          ],
+          [
+            284,
+            3
+          ],
+          [
+            293,
+            3
+          ],
+          [
+            302,
+            3
+          ],
+          [
+            311,
+            3
+          ],
+          [
+            322,
+            3
+          ],
+          [
+            190,
+            3
+          ]
+        ],
+        "hash": "ec12373635fe5a6d14ef43fbd6699f81f82b21e15ee5156db54a7d62bdc13791"
+      }
+    },
+    {
+      "id": 123,
+      "chapter": 3,
+      "label": "Chapter03Thracia Spawn",
+      "units": [
+        {
+          "offset": 32,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 41,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 50,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 59,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 68,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 77,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 86,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 95,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 1936288,
+        "length": 125,
+        "masks": [
+          [
+            36,
+            3
+          ],
+          [
+            45,
+            3
+          ],
+          [
+            54,
+            3
+          ],
+          [
+            63,
+            3
+          ],
+          [
+            72,
+            3
+          ],
+          [
+            81,
+            3
+          ],
+          [
+            90,
+            3
+          ],
+          [
+            99,
+            3
+          ],
+          [
+            107,
+            3
+          ]
+        ],
+        "hash": "79d82c6375fd1200a3339ebc43979e17b7a1d4ca9ca9c68a3082a557847544e9"
+      }
+    },
+    {
+      "id": 127,
+      "chapter": 3,
+      "label": "Chapter03Claud Tailtiu Spawn",
+      "units": [
+        {
+          "offset": 20,
+          "kind": "direct",
+          "label": "Tailtiu, FS_Player, [7, 16], [8, 17], 4, MAP_SPRITE_BLUE"
+        },
+        {
+          "offset": 36,
+          "kind": "direct",
+          "label": "Claud, FS_Player, [7, 16], [7, 17], 4, MAP_SPRITE_BLUE"
+        }
+      ],
+      "profile": {
+        "start": 1936598,
+        "length": 70,
+        "masks": [
+          [
+            24,
+            5
+          ],
+          [
+            40,
+            5
+          ],
+          [
+            51,
+            3
+          ]
+        ],
+        "hash": "f39c5223909647d23c587dda15ca521a550ea73d57fce6e8417d6e78141e9458"
+      }
+    },
+    {
+      "id": 128,
+      "chapter": 3,
+      "label": "Chapter03Orgahil Spawn",
+      "units": [
+        {
+          "offset": 44,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 104,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 119,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 128,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 137,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 196,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 205,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 214,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 223,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 236,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 245,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 258,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 271,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 284,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        },
+        {
+          "offset": 297,
+          "kind": "group",
+          "label": "Spawn 15 (expanded group script)"
+        },
+        {
+          "offset": 310,
+          "kind": "group",
+          "label": "Spawn 16 (expanded group script)"
+        },
+        {
+          "offset": 323,
+          "kind": "group",
+          "label": "Spawn 17 (expanded group script)"
+        },
+        {
+          "offset": 336,
+          "kind": "group",
+          "label": "Spawn 18 (expanded group script)"
+        },
+        {
+          "offset": 345,
+          "kind": "group",
+          "label": "Spawn 19 (expanded group script)"
+        },
+        {
+          "offset": 354,
+          "kind": "group",
+          "label": "Spawn 20 (expanded group script)"
+        },
+        {
+          "offset": 363,
+          "kind": "group",
+          "label": "Spawn 21 (expanded group script)"
+        },
+        {
+          "offset": 372,
+          "kind": "group",
+          "label": "Spawn 22 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 1936668,
+        "length": 462,
+        "masks": [
+          [
+            48,
+            3
+          ],
+          [
+            108,
+            3
+          ],
+          [
+            123,
+            3
+          ],
+          [
+            132,
+            3
+          ],
+          [
+            141,
+            3
+          ],
+          [
+            200,
+            3
+          ],
+          [
+            209,
+            3
+          ],
+          [
+            218,
+            3
+          ],
+          [
+            227,
+            3
+          ],
+          [
+            240,
+            3
+          ],
+          [
+            249,
+            3
+          ],
+          [
+            262,
+            3
+          ],
+          [
+            275,
+            3
+          ],
+          [
+            288,
+            3
+          ],
+          [
+            301,
+            3
+          ],
+          [
+            314,
+            3
+          ],
+          [
+            327,
+            3
+          ],
+          [
+            340,
+            3
+          ],
+          [
+            349,
+            3
+          ],
+          [
+            358,
+            3
+          ],
+          [
+            367,
+            3
+          ],
+          [
+            376,
+            3
+          ],
+          [
+            93,
+            3
+          ],
+          [
+            388,
+            3
+          ]
+        ],
+        "hash": "50dedca34045b3d73941c4ed049e5006ed17471282dae230ca73fc77cd647035"
+      }
+    },
+    {
+      "id": 130,
+      "chapter": 3,
+      "label": "Chapter03Ending",
+      "units": [
+        {
+          "offset": 283,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 292,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 301,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 310,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 319,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 328,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 337,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 346,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 355,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 364,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 1937132,
+        "length": 540,
+        "masks": [
+          [
+            287,
+            3
+          ],
+          [
+            296,
+            3
+          ],
+          [
+            305,
+            3
+          ],
+          [
+            314,
+            3
+          ],
+          [
+            323,
+            3
+          ],
+          [
+            332,
+            3
+          ],
+          [
+            341,
+            3
+          ],
+          [
+            350,
+            3
+          ],
+          [
+            359,
+            3
+          ],
+          [
+            368,
+            3
+          ],
+          [
+            388,
+            3
+          ],
+          [
+            402,
+            3
+          ]
+        ],
+        "hash": "dfb67a58847df50e1edcfb5fb2cc75a290ab677dfafa9ba9d4c1387fc86e7c20"
+      }
+    },
+    {
+      "id": 155,
+      "chapter": 4,
+      "label": "Chapter04Pamela Spawn",
+      "units": [
+        {
+          "offset": 56,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 69,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 82,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 95,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 108,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 121,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 134,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 145,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 154,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 163,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 174,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 955286,
+        "length": 199,
+        "masks": [
+          [
+            60,
+            3
+          ],
+          [
+            73,
+            3
+          ],
+          [
+            86,
+            3
+          ],
+          [
+            99,
+            3
+          ],
+          [
+            112,
+            3
+          ],
+          [
+            125,
+            3
+          ],
+          [
+            138,
+            3
+          ],
+          [
+            149,
+            3
+          ],
+          [
+            158,
+            3
+          ],
+          [
+            167,
+            3
+          ],
+          [
+            178,
+            3
+          ]
+        ],
+        "hash": "15042bcf11c593c3641a2f82e8092fa24aa7cbd3358b59452bc9316d528b2a23"
+      }
+    },
+    {
+      "id": 156,
+      "chapter": 4,
+      "label": "Chapter04Annand Spawn",
+      "units": [
+        {
+          "offset": 49,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 62,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 75,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 88,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 101,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 114,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 127,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 955485,
+        "length": 152,
+        "masks": [
+          [
+            53,
+            3
+          ],
+          [
+            66,
+            3
+          ],
+          [
+            79,
+            3
+          ],
+          [
+            92,
+            3
+          ],
+          [
+            105,
+            3
+          ],
+          [
+            118,
+            3
+          ],
+          [
+            131,
+            3
+          ]
+        ],
+        "hash": "9c10faeb84450ab452e253b4c32119e6228cb2e3a1548eb3036fe2ba6fe96f74"
+      }
+    },
+    {
+      "id": 159,
+      "chapter": 4,
+      "label": "Chapter04Andrey Spawn",
+      "units": [
+        {
+          "offset": 15,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 28,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 41,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 54,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 63,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 72,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 81,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 90,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 99,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 955672,
+        "length": 129,
+        "masks": [
+          [
+            19,
+            3
+          ],
+          [
+            32,
+            3
+          ],
+          [
+            45,
+            3
+          ],
+          [
+            58,
+            3
+          ],
+          [
+            67,
+            3
+          ],
+          [
+            76,
+            3
+          ],
+          [
+            85,
+            3
+          ],
+          [
+            94,
+            3
+          ],
+          [
+            103,
+            3
+          ],
+          [
+            111,
+            3
+          ]
+        ],
+        "hash": "033b6e190fe926a0b59324ba12e26ec9cf81d7304068ffea5638beeef9c39c6c"
+      }
+    },
+    {
+      "id": 163,
+      "chapter": 4,
+      "label": "Chapter04Zaxon Spawn",
+      "units": [
+        {
+          "offset": 106,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 119,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 132,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 145,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 158,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 171,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 252,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 261,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 270,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 279,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 288,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 297,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 350,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 363,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        },
+        {
+          "offset": 376,
+          "kind": "group",
+          "label": "Spawn 15 (expanded group script)"
+        },
+        {
+          "offset": 389,
+          "kind": "group",
+          "label": "Spawn 16 (expanded group script)"
+        },
+        {
+          "offset": 402,
+          "kind": "group",
+          "label": "Spawn 17 (expanded group script)"
+        },
+        {
+          "offset": 415,
+          "kind": "group",
+          "label": "Spawn 18 (expanded group script)"
+        },
+        {
+          "offset": 428,
+          "kind": "group",
+          "label": "Spawn 19 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 956098,
+        "length": 482,
+        "masks": [
+          [
+            110,
+            3
+          ],
+          [
+            123,
+            3
+          ],
+          [
+            136,
+            3
+          ],
+          [
+            149,
+            3
+          ],
+          [
+            162,
+            3
+          ],
+          [
+            175,
+            3
+          ],
+          [
+            256,
+            3
+          ],
+          [
+            265,
+            3
+          ],
+          [
+            274,
+            3
+          ],
+          [
+            283,
+            3
+          ],
+          [
+            292,
+            3
+          ],
+          [
+            301,
+            3
+          ],
+          [
+            354,
+            3
+          ],
+          [
+            367,
+            3
+          ],
+          [
+            380,
+            3
+          ],
+          [
+            393,
+            3
+          ],
+          [
+            406,
+            3
+          ],
+          [
+            419,
+            3
+          ],
+          [
+            432,
+            3
+          ]
+        ],
+        "hash": "4f42a3bed4eff0e04550ef3944cec61f4842ce56144a1f62edf796e819667886"
+      }
+    },
+    {
+      "id": 164,
+      "chapter": 4,
+      "label": "Chapter04Donovan Spawn",
+      "units": [
+        {
+          "offset": 30,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 39,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 48,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 57,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 66,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 75,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 86,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 956580,
+        "length": 111,
+        "masks": [
+          [
+            34,
+            3
+          ],
+          [
+            43,
+            3
+          ],
+          [
+            52,
+            3
+          ],
+          [
+            61,
+            3
+          ],
+          [
+            70,
+            3
+          ],
+          [
+            79,
+            3
+          ],
+          [
+            90,
+            3
+          ]
+        ],
+        "hash": "84f9dcbd31518093650e98ba19f4fbed36f4ffa768c624e7bd06de4083731b51"
+      }
+    },
+    {
+      "id": 191,
+      "chapter": 5,
+      "label": "Chapter05Phinora Spawn",
+      "units": [
+        {
+          "offset": 57,
+          "kind": "group",
+          "label": "UNITGroupChapter05Phinora, aUNITGroupDataChapter05Phinora.ID_02, [42, 26], 4, MAP_SPRITE_RED"
+        },
+        {
+          "offset": 66,
+          "kind": "group",
+          "label": "UNITGroupChapter05Phinora, aUNITGroupDataChapter05Phinora.ID_03, [42, 26], 4, MAP_SPRITE_RED"
+        },
+        {
+          "offset": 75,
+          "kind": "group",
+          "label": "UNITGroupChapter05Phinora, aUNITGroupDataChapter05Phinora.ID_04, [42, 26], 4, MAP_SPRITE_RED"
+        },
+        {
+          "offset": 86,
+          "kind": "group",
+          "label": "UNITGroupChapter05Phinora, aUNITGroupDataChapter05Phinora.ID_01, [42, 24], 4, MAP_SPRITE_RED"
+        }
+      ],
+      "profile": {
+        "start": 1950138,
+        "length": 111,
+        "masks": [
+          [
+            61,
+            3
+          ],
+          [
+            70,
+            3
+          ],
+          [
+            79,
+            3
+          ],
+          [
+            90,
+            3
+          ]
+        ],
+        "hash": "876ccb08b4f9e4e990e7928f28afb6d4bea6d3173e5595f84801a1c1c9700ec5"
+      }
+    },
+    {
+      "id": 192,
+      "chapter": 5,
+      "label": "Chapter05Leonster Spawn",
+      "units": [
+        {
+          "offset": 26,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 39,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 52,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 65,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 82,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 95,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 108,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 121,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 134,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 147,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 1950249,
+        "length": 204,
+        "masks": [
+          [
+            30,
+            3
+          ],
+          [
+            43,
+            3
+          ],
+          [
+            56,
+            3
+          ],
+          [
+            69,
+            3
+          ],
+          [
+            86,
+            3
+          ],
+          [
+            99,
+            3
+          ],
+          [
+            112,
+            3
+          ],
+          [
+            125,
+            3
+          ],
+          [
+            138,
+            3
+          ],
+          [
+            151,
+            3
+          ],
+          [
+            163,
+            3
+          ]
+        ],
+        "hash": "cc6041f330567a68270de3b5f928cce05e2326a6b1088c72228ecbc0ea3ed1a3"
+      }
+    },
+    {
+      "id": 193,
+      "chapter": 5,
+      "label": "Chapter05Thracia Spawn",
+      "units": [
+        {
+          "offset": 18,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 27,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 36,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 45,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 54,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 63,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 72,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 81,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 90,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 99,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 108,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 117,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 126,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 135,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        },
+        {
+          "offset": 146,
+          "kind": "group",
+          "label": "Spawn 15 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 1950453,
+        "length": 207,
+        "masks": [
+          [
+            22,
+            3
+          ],
+          [
+            31,
+            3
+          ],
+          [
+            40,
+            3
+          ],
+          [
+            49,
+            3
+          ],
+          [
+            58,
+            3
+          ],
+          [
+            67,
+            3
+          ],
+          [
+            76,
+            3
+          ],
+          [
+            85,
+            3
+          ],
+          [
+            94,
+            3
+          ],
+          [
+            103,
+            3
+          ],
+          [
+            112,
+            3
+          ],
+          [
+            121,
+            3
+          ],
+          [
+            130,
+            3
+          ],
+          [
+            139,
+            3
+          ],
+          [
+            150,
+            3
+          ],
+          [
+            162,
+            3
+          ],
+          [
+            184,
+            3
+          ]
+        ],
+        "hash": "5f7f573b5c6d35b5f91ab37813e004701597b681ae4f1a4f669ba6e3da6f835a"
+      }
+    },
+    {
+      "id": 198,
+      "chapter": 5,
+      "label": "Chapter05Aida Betrayal",
+      "units": [
+        {
+          "offset": 43,
+          "kind": "direct",
+          "label": "Aida, FS_Ch05Velthomer, [22, 39], [22, 39], 4, MAP_SPRITE_RED, false, 1"
+        }
+      ],
+      "profile": {
+        "start": 1951055,
+        "length": 59,
+        "masks": [
+          [
+            47,
+            5
+          ]
+        ],
+        "hash": "82c3fdbe5a32bc4c27f0c3a5454b2502b04d14faaf11e7a8d515b03782cda9b2"
+      }
+    },
+    {
+      "id": 218,
+      "chapter": 6,
+      "label": "Chapter06Oifey Group Spawn",
+      "units": [
+        {
+          "offset": 49,
+          "kind": "direct",
+          "label": "Tristan, FS_Player, [0, 7], [1, 6], 4, MAP_SPRITE_BLUE"
+        },
+        {
+          "offset": 64,
+          "kind": "direct",
+          "label": "Diarmuid, FS_Player, [0, 7], [1, 6], 4, MAP_SPRITE_BLUE"
+        },
+        {
+          "offset": 82,
+          "kind": "direct",
+          "label": "Deimne, FS_Player, [0, 7], [1, 8], 4, MAP_SPRITE_BLUE"
+        },
+        {
+          "offset": 97,
+          "kind": "direct",
+          "label": "Lester, FS_Player, [0, 7], [1, 8], 4, MAP_SPRITE_BLUE"
+        },
+        {
+          "offset": 110,
+          "kind": "direct",
+          "label": "Oifey, FS_Player, [0, 7], [1, 7], 4, MAP_SPRITE_BLUE"
+        }
+      ],
+      "profile": {
+        "start": 1167584,
+        "length": 150,
+        "masks": [
+          [
+            53,
+            5
+          ],
+          [
+            68,
+            5
+          ],
+          [
+            86,
+            5
+          ],
+          [
+            101,
+            5
+          ],
+          [
+            114,
+            5
+          ],
+          [
+            125,
+            3
+          ]
+        ],
+        "hash": "2e770f2f8302ffeb9cb8aaa7b8d46986f3e0cf9c3c3658cb1db3b7c72c972f52"
+      }
+    },
+    {
+      "id": 219,
+      "chapter": 6,
+      "label": "Chapter06Ganeishire Seized",
+      "units": [
+        {
+          "offset": 76,
+          "kind": "direct",
+          "label": "Julia, FS_Player, [56, 16], [56, 16], 4, MAP_SPRITE_BLUE"
+        }
+      ],
+      "profile": {
+        "start": 1167734,
+        "length": 116,
+        "masks": [
+          [
+            80,
+            5
+          ]
+        ],
+        "hash": "02d8bc4dc922081b0dc490a74b65b5406ef9538e3ed94a68b0901cf84a14b75d"
+      }
+    },
+    {
+      "id": 220,
+      "chapter": 6,
+      "label": "Chapter06Fee Arthur Spawn",
+      "units": [
+        {
+          "offset": 91,
+          "kind": "direct",
+          "label": "Amid, FS_Player, [22, 40], [23, 40], 4, MAP_SPRITE_BLUE"
+        },
+        {
+          "offset": 106,
+          "kind": "direct",
+          "label": "Arthur, FS_Player, [22, 40], [23, 40], 4, MAP_SPRITE_BLUE"
+        }
+      ],
+      "profile": {
+        "start": 1167850,
+        "length": 180,
+        "masks": [
+          [
+            95,
+            5
+          ],
+          [
+            110,
+            5
+          ],
+          [
+            122,
+            3
+          ]
+        ],
+        "hash": "b25a05ebe5f0a6af9680644dbf3b871387a97cd6713003d2d269bf772c9a4b46"
+      }
+    },
+    {
+      "id": 221,
+      "chapter": 6,
+      "label": "Chapter06Schmidt Spawn",
+      "units": [
+        {
+          "offset": 44,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 57,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 70,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 83,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 96,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 109,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 122,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 135,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 148,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 161,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 174,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 187,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 1168030,
+        "length": 227,
+        "masks": [
+          [
+            48,
+            3
+          ],
+          [
+            61,
+            3
+          ],
+          [
+            74,
+            3
+          ],
+          [
+            87,
+            3
+          ],
+          [
+            100,
+            3
+          ],
+          [
+            113,
+            3
+          ],
+          [
+            126,
+            3
+          ],
+          [
+            139,
+            3
+          ],
+          [
+            152,
+            3
+          ],
+          [
+            165,
+            3
+          ],
+          [
+            178,
+            3
+          ],
+          [
+            191,
+            3
+          ],
+          [
+            208,
+            3
+          ],
+          [
+            218,
+            3
+          ]
+        ],
+        "hash": "5cf7e272b39198aec149edf1120687c65624e604221327c47acb0acc1696bf29"
+      }
+    },
+    {
+      "id": 246,
+      "chapter": 7,
+      "label": "Chapter07Opening",
+      "units": [
+        {
+          "offset": 158,
+          "kind": "direct",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 179,
+          "kind": "direct",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 194,
+          "kind": "direct",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 211,
+          "kind": "direct",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 255,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 268,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 281,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 294,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 307,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 320,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 333,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 346,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 357,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 366,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        },
+        {
+          "offset": 375,
+          "kind": "group",
+          "label": "Spawn 15 (expanded group script)"
+        },
+        {
+          "offset": 386,
+          "kind": "group",
+          "label": "Spawn 16 (expanded group script)"
+        },
+        {
+          "offset": 557,
+          "kind": "group",
+          "label": "Spawn 17 (expanded group script)"
+        },
+        {
+          "offset": 570,
+          "kind": "group",
+          "label": "Spawn 18 (expanded group script)"
+        },
+        {
+          "offset": 583,
+          "kind": "group",
+          "label": "Spawn 19 (expanded group script)"
+        },
+        {
+          "offset": 596,
+          "kind": "group",
+          "label": "Spawn 20 (expanded group script)"
+        },
+        {
+          "offset": 609,
+          "kind": "group",
+          "label": "Spawn 21 (expanded group script)"
+        },
+        {
+          "offset": 622,
+          "kind": "group",
+          "label": "Spawn 22 (expanded group script)"
+        },
+        {
+          "offset": 635,
+          "kind": "group",
+          "label": "Spawn 23 (expanded group script)"
+        },
+        {
+          "offset": 644,
+          "kind": "group",
+          "label": "Spawn 24 (expanded group script)"
+        },
+        {
+          "offset": 653,
+          "kind": "group",
+          "label": "Spawn 25 (expanded group script)"
+        },
+        {
+          "offset": 664,
+          "kind": "group",
+          "label": "Spawn 26 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 3311580,
+        "length": 806,
+        "masks": [
+          [
+            162,
+            5
+          ],
+          [
+            183,
+            5
+          ],
+          [
+            198,
+            5
+          ],
+          [
+            215,
+            5
+          ],
+          [
+            259,
+            3
+          ],
+          [
+            272,
+            3
+          ],
+          [
+            285,
+            3
+          ],
+          [
+            298,
+            3
+          ],
+          [
+            311,
+            3
+          ],
+          [
+            324,
+            3
+          ],
+          [
+            337,
+            3
+          ],
+          [
+            350,
+            3
+          ],
+          [
+            361,
+            3
+          ],
+          [
+            370,
+            3
+          ],
+          [
+            379,
+            3
+          ],
+          [
+            390,
+            3
+          ],
+          [
+            561,
+            3
+          ],
+          [
+            574,
+            3
+          ],
+          [
+            587,
+            3
+          ],
+          [
+            600,
+            3
+          ],
+          [
+            613,
+            3
+          ],
+          [
+            626,
+            3
+          ],
+          [
+            639,
+            3
+          ],
+          [
+            648,
+            3
+          ],
+          [
+            657,
+            3
+          ],
+          [
+            668,
+            3
+          ],
+          [
+            437,
+            3
+          ],
+          [
+            468,
+            3
+          ]
+        ],
+        "hash": "1cb67dcb6738289863ff6f00f546c965b82da7d3ee9d8edbaa8bb67f46d68827"
+      }
+    },
+    {
+      "id": 249,
+      "chapter": 7,
+      "label": "Chapter07Melgen Spawn",
+      "units": [
+        {
+          "offset": 40,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 49,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 58,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 67,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 176,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 187,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 196,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 205,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 216,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 3312497,
+        "length": 241,
+        "masks": [
+          [
+            44,
+            3
+          ],
+          [
+            53,
+            3
+          ],
+          [
+            62,
+            3
+          ],
+          [
+            71,
+            3
+          ],
+          [
+            180,
+            3
+          ],
+          [
+            191,
+            3
+          ],
+          [
+            200,
+            3
+          ],
+          [
+            209,
+            3
+          ],
+          [
+            220,
+            3
+          ]
+        ],
+        "hash": "65aa57e21b01d29f069290c309959305d9f944ec90b9cce05a6b3df988303dc3"
+      }
+    },
+    {
+      "id": 253,
+      "chapter": 7,
+      "label": "Chapter07Ulster Spawn",
+      "units": [
+        {
+          "offset": 57,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 70,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 83,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 96,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 109,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 122,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 135,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 148,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 161,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 174,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 187,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 200,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 227,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 263,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        },
+        {
+          "offset": 272,
+          "kind": "group",
+          "label": "Spawn 15 (expanded group script)"
+        },
+        {
+          "offset": 281,
+          "kind": "group",
+          "label": "Spawn 16 (expanded group script)"
+        },
+        {
+          "offset": 292,
+          "kind": "group",
+          "label": "Spawn 17 (expanded group script)"
+        },
+        {
+          "offset": 367,
+          "kind": "group",
+          "label": "Spawn 18 (expanded group script)"
+        },
+        {
+          "offset": 380,
+          "kind": "group",
+          "label": "Spawn 19 (expanded group script)"
+        },
+        {
+          "offset": 393,
+          "kind": "group",
+          "label": "Spawn 20 (expanded group script)"
+        },
+        {
+          "offset": 406,
+          "kind": "group",
+          "label": "Spawn 21 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 3312803,
+        "length": 445,
+        "masks": [
+          [
+            61,
+            3
+          ],
+          [
+            74,
+            3
+          ],
+          [
+            87,
+            3
+          ],
+          [
+            100,
+            3
+          ],
+          [
+            113,
+            3
+          ],
+          [
+            126,
+            3
+          ],
+          [
+            139,
+            3
+          ],
+          [
+            152,
+            3
+          ],
+          [
+            165,
+            3
+          ],
+          [
+            178,
+            3
+          ],
+          [
+            191,
+            3
+          ],
+          [
+            204,
+            3
+          ],
+          [
+            231,
+            3
+          ],
+          [
+            267,
+            3
+          ],
+          [
+            276,
+            3
+          ],
+          [
+            285,
+            3
+          ],
+          [
+            296,
+            3
+          ],
+          [
+            371,
+            3
+          ],
+          [
+            384,
+            3
+          ],
+          [
+            397,
+            3
+          ],
+          [
+            410,
+            3
+          ]
+        ],
+        "hash": "e27e9fe35df90e6d58bfbd31c92882e5a398ffce4f6385c676d2131dc93301eb"
+      }
+    },
+    {
+      "id": 262,
+      "chapter": 7,
+      "label": "Chapter07Ares Dahna Visit",
+      "units": [
+        {
+          "offset": 39,
+          "kind": "direct",
+          "label": "Laylea, FS_Player, [15, 24], [16, 24], 4, MAP_SPRITE_BLUE"
+        },
+        {
+          "offset": 54,
+          "kind": "direct",
+          "label": "Lene, FS_Player, [15, 24], [16, 24], 4, MAP_SPRITE_BLUE"
+        }
+      ],
+      "profile": {
+        "start": 3313589,
+        "length": 86,
+        "masks": [
+          [
+            43,
+            5
+          ],
+          [
+            58,
+            5
+          ]
+        ],
+        "hash": "56d3614ccec25a77ec2f1db01fdd2468c45944ce5ae7e403cfb1642237252c23"
+      }
+    },
+    {
+      "id": 297,
+      "chapter": 8,
+      "label": "Chapter08Ishtar Spawn",
+      "units": [
+        {
+          "offset": 39,
+          "kind": "direct",
+          "label": "IshtarCh08, FS_Ch08Connacht, [49, 10], [47, 11], 4, MAP_SPRITE_RED, false, 8"
+        }
+      ],
+      "profile": {
+        "start": 1030800,
+        "length": 152,
+        "masks": [
+          [
+            43,
+            5
+          ]
+        ],
+        "hash": "a6b8502e8d8cbe52b283f7ce58be0e1bf585a2dee3e76741ec15cfd1b0602390"
+      }
+    },
+    {
+      "id": 332,
+      "chapter": 9,
+      "label": "Chapter09Leif Altena Talk",
+      "units": [
+        {
+          "offset": 81,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 94,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 107,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 120,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 133,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 3266120,
+        "length": 169,
+        "masks": [
+          [
+            85,
+            3
+          ],
+          [
+            98,
+            3
+          ],
+          [
+            111,
+            3
+          ],
+          [
+            124,
+            3
+          ],
+          [
+            137,
+            3
+          ],
+          [
+            14,
+            3
+          ]
+        ],
+        "hash": "af1011c9496de0601b12a6a7df8a3424d2af32237f478da2be93c7a9c8397915"
+      }
+    },
+    {
+      "id": 333,
+      "chapter": 9,
+      "label": "Chapter09Altena Respawn",
+      "units": [
+        {
+          "offset": 20,
+          "kind": "direct",
+          "label": "Altena, FS_Ch09Thracia, [52, 43], [54, 43], 4, MAP_SPRITE_RED, false, 1"
+        }
+      ],
+      "profile": {
+        "start": 3266289,
+        "length": 48,
+        "masks": [
+          [
+            24,
+            5
+          ]
+        ],
+        "hash": "9b73d03e8b801f137732bf522e31b996e726648e9e65b9508d6ce65244eadcc0"
+      }
+    },
+    {
+      "id": 334,
+      "chapter": 9,
+      "label": "Chapter09Travant Spawn Altena Dead",
+      "units": [
+        {
+          "offset": 50,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 63,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 76,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 89,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 103,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 3266337,
+        "length": 128,
+        "masks": [
+          [
+            54,
+            3
+          ],
+          [
+            67,
+            3
+          ],
+          [
+            80,
+            3
+          ],
+          [
+            93,
+            3
+          ],
+          [
+            107,
+            3
+          ]
+        ],
+        "hash": "b7c51281a918c8b919b5ca7ff4b32d12104db5c38258f86832b534414bef747d"
+      }
+    },
+    {
+      "id": 338,
+      "chapter": 9,
+      "label": "Chapter09Luthecia Seized",
+      "units": [
+        {
+          "offset": 51,
+          "kind": "direct",
+          "label": "Charlot, FS_Player, [10, 29], [10, 29], 4, MAP_SPRITE_BLUE"
+        },
+        {
+          "offset": 66,
+          "kind": "direct",
+          "label": "Coirpre, FS_Player, [10, 29], [10, 29], 4, MAP_SPRITE_BLUE"
+        }
+      ],
+      "profile": {
+        "start": 3266551,
+        "length": 109,
+        "masks": [
+          [
+            55,
+            5
+          ],
+          [
+            70,
+            5
+          ]
+        ],
+        "hash": "1068758be0b8fe6fff9d6f9e44fc8e6bba6a9d37d9d85a896772f4d4964a6c40"
+      }
+    },
+    {
+      "id": 340,
+      "chapter": 9,
+      "label": "Chapter09Grutia Spawn",
+      "units": [
+        {
+          "offset": 73,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 99,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 108,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 117,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 126,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 135,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 144,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 153,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 162,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 171,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 180,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 189,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 198,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 3266708,
+        "length": 234,
+        "masks": [
+          [
+            77,
+            3
+          ],
+          [
+            103,
+            3
+          ],
+          [
+            112,
+            3
+          ],
+          [
+            121,
+            3
+          ],
+          [
+            130,
+            3
+          ],
+          [
+            139,
+            3
+          ],
+          [
+            148,
+            3
+          ],
+          [
+            157,
+            3
+          ],
+          [
+            166,
+            3
+          ],
+          [
+            175,
+            3
+          ],
+          [
+            184,
+            3
+          ],
+          [
+            193,
+            3
+          ],
+          [
+            202,
+            3
+          ],
+          [
+            210,
+            3
+          ]
+        ],
+        "hash": "94ff697876a6b0513262e3d05c07a5479416289de3f9cb3fd49f90ff69cd9fe6"
+      }
+    },
+    {
+      "id": 342,
+      "chapter": 9,
+      "label": "Chapter09Thracia Spawn",
+      "units": [
+        {
+          "offset": 74,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 83,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 92,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 101,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 110,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 119,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 128,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 141,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 150,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 159,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 168,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 177,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 186,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 195,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        },
+        {
+          "offset": 208,
+          "kind": "group",
+          "label": "Spawn 15 (expanded group script)"
+        },
+        {
+          "offset": 217,
+          "kind": "group",
+          "label": "Spawn 16 (expanded group script)"
+        },
+        {
+          "offset": 226,
+          "kind": "group",
+          "label": "Spawn 17 (expanded group script)"
+        },
+        {
+          "offset": 235,
+          "kind": "group",
+          "label": "Spawn 18 (expanded group script)"
+        },
+        {
+          "offset": 244,
+          "kind": "group",
+          "label": "Spawn 19 (expanded group script)"
+        },
+        {
+          "offset": 253,
+          "kind": "group",
+          "label": "Spawn 20 (expanded group script)"
+        },
+        {
+          "offset": 262,
+          "kind": "group",
+          "label": "Spawn 21 (expanded group script)"
+        },
+        {
+          "offset": 275,
+          "kind": "group",
+          "label": "Spawn 22 (expanded group script)"
+        },
+        {
+          "offset": 288,
+          "kind": "group",
+          "label": "Spawn 23 (expanded group script)"
+        },
+        {
+          "offset": 301,
+          "kind": "group",
+          "label": "Spawn 24 (expanded group script)"
+        },
+        {
+          "offset": 314,
+          "kind": "group",
+          "label": "Spawn 25 (expanded group script)"
+        },
+        {
+          "offset": 327,
+          "kind": "group",
+          "label": "Spawn 26 (expanded group script)"
+        },
+        {
+          "offset": 340,
+          "kind": "group",
+          "label": "Spawn 27 (expanded group script)"
+        },
+        {
+          "offset": 353,
+          "kind": "group",
+          "label": "Spawn 28 (expanded group script)"
+        },
+        {
+          "offset": 366,
+          "kind": "group",
+          "label": "Spawn 29 (expanded group script)"
+        },
+        {
+          "offset": 379,
+          "kind": "group",
+          "label": "Spawn 30 (expanded group script)"
+        },
+        {
+          "offset": 392,
+          "kind": "group",
+          "label": "Spawn 31 (expanded group script)"
+        },
+        {
+          "offset": 401,
+          "kind": "group",
+          "label": "Spawn 32 (expanded group script)"
+        },
+        {
+          "offset": 410,
+          "kind": "group",
+          "label": "Spawn 33 (expanded group script)"
+        },
+        {
+          "offset": 419,
+          "kind": "group",
+          "label": "Spawn 34 (expanded group script)"
+        },
+        {
+          "offset": 428,
+          "kind": "group",
+          "label": "Spawn 35 (expanded group script)"
+        },
+        {
+          "offset": 437,
+          "kind": "group",
+          "label": "Spawn 36 (expanded group script)"
+        },
+        {
+          "offset": 446,
+          "kind": "group",
+          "label": "Spawn 37 (expanded group script)"
+        },
+        {
+          "offset": 459,
+          "kind": "group",
+          "label": "Spawn 38 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 3267021,
+        "length": 484,
+        "masks": [
+          [
+            78,
+            3
+          ],
+          [
+            87,
+            3
+          ],
+          [
+            96,
+            3
+          ],
+          [
+            105,
+            3
+          ],
+          [
+            114,
+            3
+          ],
+          [
+            123,
+            3
+          ],
+          [
+            132,
+            3
+          ],
+          [
+            145,
+            3
+          ],
+          [
+            154,
+            3
+          ],
+          [
+            163,
+            3
+          ],
+          [
+            172,
+            3
+          ],
+          [
+            181,
+            3
+          ],
+          [
+            190,
+            3
+          ],
+          [
+            199,
+            3
+          ],
+          [
+            212,
+            3
+          ],
+          [
+            221,
+            3
+          ],
+          [
+            230,
+            3
+          ],
+          [
+            239,
+            3
+          ],
+          [
+            248,
+            3
+          ],
+          [
+            257,
+            3
+          ],
+          [
+            266,
+            3
+          ],
+          [
+            279,
+            3
+          ],
+          [
+            292,
+            3
+          ],
+          [
+            305,
+            3
+          ],
+          [
+            318,
+            3
+          ],
+          [
+            331,
+            3
+          ],
+          [
+            344,
+            3
+          ],
+          [
+            357,
+            3
+          ],
+          [
+            370,
+            3
+          ],
+          [
+            383,
+            3
+          ],
+          [
+            396,
+            3
+          ],
+          [
+            405,
+            3
+          ],
+          [
+            414,
+            3
+          ],
+          [
+            423,
+            3
+          ],
+          [
+            432,
+            3
+          ],
+          [
+            441,
+            3
+          ],
+          [
+            450,
+            3
+          ],
+          [
+            463,
+            3
+          ]
+        ],
+        "hash": "986a56dd3ca7dba4b2e2a53eecbcc0ea79c7d7b7dfa25d3a375ac0f329ccef9c"
+      }
+    },
+    {
+      "id": 362,
+      "chapter": 10,
+      "label": "Chapter10Opening",
+      "units": [
+        {
+          "offset": 106,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 119,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 211,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 224,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 237,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 250,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 263,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 276,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 289,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 302,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 315,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 328,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 339,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 348,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        },
+        {
+          "offset": 357,
+          "kind": "group",
+          "label": "Spawn 15 (expanded group script)"
+        },
+        {
+          "offset": 368,
+          "kind": "group",
+          "label": "Spawn 16 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 886335,
+        "length": 463,
+        "masks": [
+          [
+            110,
+            3
+          ],
+          [
+            123,
+            3
+          ],
+          [
+            215,
+            3
+          ],
+          [
+            228,
+            3
+          ],
+          [
+            241,
+            3
+          ],
+          [
+            254,
+            3
+          ],
+          [
+            267,
+            3
+          ],
+          [
+            280,
+            3
+          ],
+          [
+            293,
+            3
+          ],
+          [
+            306,
+            3
+          ],
+          [
+            319,
+            3
+          ],
+          [
+            332,
+            3
+          ],
+          [
+            343,
+            3
+          ],
+          [
+            352,
+            3
+          ],
+          [
+            361,
+            3
+          ],
+          [
+            372,
+            3
+          ],
+          [
+            160,
+            3
+          ]
+        ],
+        "hash": "bfda7715f2360b2855e282a65dadce564ced6f5cf56f4c3f6360d3ae0d79569c"
+      }
+    },
+    {
+      "id": 372,
+      "chapter": 10,
+      "label": "Chapter10Miletos Spawn",
+      "units": [
+        {
+          "offset": 105,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 114,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 123,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 132,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 141,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 150,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 159,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 168,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 179,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 194,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 203,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 887068,
+        "length": 232,
+        "masks": [
+          [
+            109,
+            3
+          ],
+          [
+            118,
+            3
+          ],
+          [
+            127,
+            3
+          ],
+          [
+            136,
+            3
+          ],
+          [
+            145,
+            3
+          ],
+          [
+            154,
+            3
+          ],
+          [
+            163,
+            3
+          ],
+          [
+            172,
+            3
+          ],
+          [
+            183,
+            3
+          ],
+          [
+            198,
+            3
+          ],
+          [
+            207,
+            3
+          ]
+        ],
+        "hash": "c61e7373c2cfb08395234edaf0f2316c00112fe0036f3bfe4456340089e93747"
+      }
+    },
+    {
+      "id": 374,
+      "chapter": 10,
+      "label": "Chapter10Chalphy Spawn",
+      "units": [
+        {
+          "offset": 138,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 150,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 163,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 176,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 189,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 202,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 215,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 228,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 239,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 248,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 257,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 266,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 275,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 284,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        },
+        {
+          "offset": 295,
+          "kind": "group",
+          "label": "Spawn 15 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 887403,
+        "length": 338,
+        "masks": [
+          [
+            142,
+            3
+          ],
+          [
+            154,
+            3
+          ],
+          [
+            167,
+            3
+          ],
+          [
+            180,
+            3
+          ],
+          [
+            193,
+            3
+          ],
+          [
+            206,
+            3
+          ],
+          [
+            219,
+            3
+          ],
+          [
+            232,
+            3
+          ],
+          [
+            243,
+            3
+          ],
+          [
+            252,
+            3
+          ],
+          [
+            261,
+            3
+          ],
+          [
+            270,
+            3
+          ],
+          [
+            279,
+            3
+          ],
+          [
+            288,
+            3
+          ],
+          [
+            299,
+            3
+          ],
+          [
+            323,
+            3
+          ]
+        ],
+        "hash": "fb9a927075633b68ca03d3e046d0ff55874b0d20f55bd7d7a1ea5dc05e7b7bac"
+      }
+    },
+    {
+      "id": 400,
+      "chapter": 11,
+      "label": "Chapter Final Dozel Spawn",
+      "units": [
+        {
+          "offset": 88,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 101,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 114,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 127,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 140,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 153,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 164,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 177,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 190,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 203,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 216,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 229,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 242,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 255,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        },
+        {
+          "offset": 268,
+          "kind": "group",
+          "label": "Spawn 15 (expanded group script)"
+        },
+        {
+          "offset": 281,
+          "kind": "group",
+          "label": "Spawn 16 (expanded group script)"
+        },
+        {
+          "offset": 292,
+          "kind": "group",
+          "label": "Spawn 17 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 3268460,
+        "length": 308,
+        "masks": [
+          [
+            92,
+            3
+          ],
+          [
+            105,
+            3
+          ],
+          [
+            118,
+            3
+          ],
+          [
+            131,
+            3
+          ],
+          [
+            144,
+            3
+          ],
+          [
+            157,
+            3
+          ],
+          [
+            168,
+            3
+          ],
+          [
+            181,
+            3
+          ],
+          [
+            194,
+            3
+          ],
+          [
+            207,
+            3
+          ],
+          [
+            220,
+            3
+          ],
+          [
+            233,
+            3
+          ],
+          [
+            246,
+            3
+          ],
+          [
+            259,
+            3
+          ],
+          [
+            272,
+            3
+          ],
+          [
+            285,
+            3
+          ],
+          [
+            296,
+            3
+          ]
+        ],
+        "hash": "b95ed7fde86cae672c5f647e58bd68702723c9cfb549b694275b65a72237d7a4"
+      }
+    },
+    {
+      "id": 402,
+      "chapter": 11,
+      "label": "Chapter Final Friege Spawn",
+      "units": [
+        {
+          "offset": 90,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 105,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 118,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 131,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 144,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 157,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 170,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 181,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 192,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 203,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 216,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 229,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 242,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 255,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        },
+        {
+          "offset": 264,
+          "kind": "group",
+          "label": "Spawn 15 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 3268797,
+        "length": 284,
+        "masks": [
+          [
+            94,
+            3
+          ],
+          [
+            109,
+            3
+          ],
+          [
+            122,
+            3
+          ],
+          [
+            135,
+            3
+          ],
+          [
+            148,
+            3
+          ],
+          [
+            161,
+            3
+          ],
+          [
+            174,
+            3
+          ],
+          [
+            185,
+            3
+          ],
+          [
+            196,
+            3
+          ],
+          [
+            207,
+            3
+          ],
+          [
+            220,
+            3
+          ],
+          [
+            233,
+            3
+          ],
+          [
+            246,
+            3
+          ],
+          [
+            259,
+            3
+          ],
+          [
+            268,
+            3
+          ]
+        ],
+        "hash": "55af4b3f802b678bc9e99d95bfe8fa6ed04f3eb3550b367c86d07aa0dff21ac1"
+      }
+    },
+    {
+      "id": 403,
+      "chapter": 11,
+      "label": "Chapter Final Yngvi Spawn",
+      "units": [
+        {
+          "offset": 44,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 53,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 62,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 71,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 80,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 89,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 98,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 107,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 116,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 125,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 134,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 143,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 152,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 161,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        },
+        {
+          "offset": 170,
+          "kind": "group",
+          "label": "Spawn 15 (expanded group script)"
+        },
+        {
+          "offset": 179,
+          "kind": "group",
+          "label": "Spawn 16 (expanded group script)"
+        },
+        {
+          "offset": 188,
+          "kind": "group",
+          "label": "Spawn 17 (expanded group script)"
+        },
+        {
+          "offset": 199,
+          "kind": "group",
+          "label": "Spawn 18 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 3269081,
+        "length": 229,
+        "masks": [
+          [
+            48,
+            3
+          ],
+          [
+            57,
+            3
+          ],
+          [
+            66,
+            3
+          ],
+          [
+            75,
+            3
+          ],
+          [
+            84,
+            3
+          ],
+          [
+            93,
+            3
+          ],
+          [
+            102,
+            3
+          ],
+          [
+            111,
+            3
+          ],
+          [
+            120,
+            3
+          ],
+          [
+            129,
+            3
+          ],
+          [
+            138,
+            3
+          ],
+          [
+            147,
+            3
+          ],
+          [
+            156,
+            3
+          ],
+          [
+            165,
+            3
+          ],
+          [
+            174,
+            3
+          ],
+          [
+            183,
+            3
+          ],
+          [
+            192,
+            3
+          ],
+          [
+            203,
+            3
+          ],
+          [
+            211,
+            3
+          ]
+        ],
+        "hash": "4a3c6573fc88d775b3e17115e0824ed2681e3f7c176174c7b25902e7d3d377b7"
+      }
+    },
+    {
+      "id": 405,
+      "chapter": 11,
+      "label": "Chapter Final Belhalla Spawn",
+      "units": [
+        {
+          "offset": 111,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 124,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 137,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 150,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 163,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 176,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        },
+        {
+          "offset": 189,
+          "kind": "group",
+          "label": "Spawn 7 (expanded group script)"
+        },
+        {
+          "offset": 202,
+          "kind": "group",
+          "label": "Spawn 8 (expanded group script)"
+        },
+        {
+          "offset": 215,
+          "kind": "group",
+          "label": "Spawn 9 (expanded group script)"
+        },
+        {
+          "offset": 228,
+          "kind": "group",
+          "label": "Spawn 10 (expanded group script)"
+        },
+        {
+          "offset": 241,
+          "kind": "group",
+          "label": "Spawn 11 (expanded group script)"
+        },
+        {
+          "offset": 254,
+          "kind": "group",
+          "label": "Spawn 12 (expanded group script)"
+        },
+        {
+          "offset": 265,
+          "kind": "group",
+          "label": "Spawn 13 (expanded group script)"
+        },
+        {
+          "offset": 300,
+          "kind": "group",
+          "label": "Spawn 14 (expanded group script)"
+        },
+        {
+          "offset": 311,
+          "kind": "group",
+          "label": "Spawn 15 (expanded group script)"
+        },
+        {
+          "offset": 320,
+          "kind": "group",
+          "label": "Spawn 16 (expanded group script)"
+        },
+        {
+          "offset": 329,
+          "kind": "group",
+          "label": "Spawn 17 (expanded group script)"
+        },
+        {
+          "offset": 338,
+          "kind": "group",
+          "label": "Spawn 18 (expanded group script)"
+        },
+        {
+          "offset": 347,
+          "kind": "group",
+          "label": "Spawn 19 (expanded group script)"
+        },
+        {
+          "offset": 356,
+          "kind": "group",
+          "label": "Spawn 20 (expanded group script)"
+        },
+        {
+          "offset": 367,
+          "kind": "group",
+          "label": "Spawn 21 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 3269349,
+        "length": 392,
+        "masks": [
+          [
+            115,
+            3
+          ],
+          [
+            128,
+            3
+          ],
+          [
+            141,
+            3
+          ],
+          [
+            154,
+            3
+          ],
+          [
+            167,
+            3
+          ],
+          [
+            180,
+            3
+          ],
+          [
+            193,
+            3
+          ],
+          [
+            206,
+            3
+          ],
+          [
+            219,
+            3
+          ],
+          [
+            232,
+            3
+          ],
+          [
+            245,
+            3
+          ],
+          [
+            258,
+            3
+          ],
+          [
+            269,
+            3
+          ],
+          [
+            304,
+            3
+          ],
+          [
+            315,
+            3
+          ],
+          [
+            324,
+            3
+          ],
+          [
+            333,
+            3
+          ],
+          [
+            342,
+            3
+          ],
+          [
+            351,
+            3
+          ],
+          [
+            360,
+            3
+          ],
+          [
+            371,
+            3
+          ]
+        ],
+        "hash": "c7e45d3b212a678c4738225a1e9ba5fcfbc153e153e0c117017f5b9cc667eb75"
+      }
+    },
+    {
+      "id": 406,
+      "chapter": 11,
+      "label": "Chapter Final Thracia Spawn",
+      "units": [
+        {
+          "offset": 49,
+          "kind": "group",
+          "label": "Spawn 1 (expanded group script)"
+        },
+        {
+          "offset": 58,
+          "kind": "group",
+          "label": "Spawn 2 (expanded group script)"
+        },
+        {
+          "offset": 67,
+          "kind": "group",
+          "label": "Spawn 3 (expanded group script)"
+        },
+        {
+          "offset": 76,
+          "kind": "group",
+          "label": "Spawn 4 (expanded group script)"
+        },
+        {
+          "offset": 85,
+          "kind": "group",
+          "label": "Spawn 5 (expanded group script)"
+        },
+        {
+          "offset": 96,
+          "kind": "group",
+          "label": "Spawn 6 (expanded group script)"
+        }
+      ],
+      "profile": {
+        "start": 3269741,
+        "length": 126,
+        "masks": [
+          [
+            53,
+            3
+          ],
+          [
+            62,
+            3
+          ],
+          [
+            71,
+            3
+          ],
+          [
+            80,
+            3
+          ],
+          [
+            89,
+            3
+          ],
+          [
+            100,
+            3
+          ],
+          [
+            108,
+            3
+          ]
+        ],
+        "hash": "29aeb63f87fafc823cc6cad8d2a70407ea0523e47761cc933c7775e07710a971"
+      }
+    }
+  ],
+  "chapters": [
+    {
+      "start": 1081344,
+      "length": 416,
+      "masks": [
+        [
+          340,
+          1
+        ],
+        [
+          353,
+          1
+        ],
+        [
+          371,
+          1
+        ],
+        [
+          384,
+          1
+        ],
+        [
+          397,
+          1
+        ]
+      ],
+      "hash": "654552b63508c2b79dae3897e3e441728adf66e40c3a156c75ed3ad37181a307"
+    },
+    {
+      "start": 444508,
+      "length": 765,
+      "masks": [
+        [
+          553,
+          1
+        ],
+        [
+          566,
+          1
+        ],
+        [
+          584,
+          1
+        ],
+        [
+          606,
+          1
+        ],
+        [
+          624,
+          1
+        ],
+        [
+          667,
+          1
+        ],
+        [
+          685,
+          1
+        ],
+        [
+          703,
+          1
+        ],
+        [
+          723,
+          1
+        ],
+        [
+          743,
+          1
+        ]
+      ],
+      "hash": "fa91d9c6154b13ad6fc590a4a20c02b60dcd5f2a3cf67c6d9b973e8394683046"
+    },
+    {
+      "start": 445690,
+      "length": 1106,
+      "masks": [
+        [
+          806,
+          1
+        ],
+        [
+          819,
+          1
+        ],
+        [
+          832,
+          1
+        ],
+        [
+          845,
+          1
+        ],
+        [
+          858,
+          1
+        ],
+        [
+          876,
+          1
+        ],
+        [
+          894,
+          1
+        ],
+        [
+          912,
+          1
+        ],
+        [
+          930,
+          1
+        ],
+        [
+          1006,
+          1
+        ],
+        [
+          1084,
+          1
+        ]
+      ],
+      "hash": "a4bc8157a9af6660a3b231bf75c1e1dcaac112e5d0a8e21e76f644c728329d72"
+    },
+    {
+      "start": 447381,
+      "length": 723,
+      "masks": [
+        [
+          587,
+          1
+        ],
+        [
+          605,
+          1
+        ],
+        [
+          625,
+          1
+        ],
+        [
+          645,
+          1
+        ],
+        [
+          665,
+          1
+        ],
+        [
+          683,
+          1
+        ],
+        [
+          701,
+          1
+        ]
+      ],
+      "hash": "eb47320991c27b12e09e6a76e65f7fb65a759bff7a63cc17187e0266a1f7c1d3"
+    },
+    {
+      "start": 448533,
+      "length": 1124,
+      "masks": [
+        [
+          803,
+          1
+        ],
+        [
+          816,
+          1
+        ],
+        [
+          829,
+          1
+        ],
+        [
+          862,
+          1
+        ],
+        [
+          880,
+          1
+        ],
+        [
+          898,
+          1
+        ],
+        [
+          916,
+          1
+        ],
+        [
+          958,
+          1
+        ],
+        [
+          976,
+          1
+        ],
+        [
+          994,
+          1
+        ],
+        [
+          1012,
+          1
+        ],
+        [
+          1032,
+          1
+        ],
+        [
+          1102,
+          1
+        ]
+      ],
+      "hash": "3017d0737cda2f42075d45541f48fefd84a92a882a7bab561563e4783f1c9dda"
+    },
+    {
+      "start": 450113,
+      "length": 1743,
+      "masks": [
+        [
+          1099,
+          1
+        ],
+        [
+          1119,
+          1
+        ],
+        [
+          1153,
+          1
+        ],
+        [
+          1171,
+          1
+        ],
+        [
+          1245,
+          1
+        ],
+        [
+          1283,
+          1
+        ],
+        [
+          1317,
+          1
+        ],
+        [
+          1613,
+          1
+        ],
+        [
+          1705,
+          1
+        ]
+      ],
+      "hash": "edeee94f4874773a5033987dcf98360c6ecd1c3a3132704f332b8e4f59700bad"
+    },
+    {
+      "start": 3309568,
+      "length": 762,
+      "masks": [
+        [
+          619,
+          1
+        ],
+        [
+          632,
+          1
+        ],
+        [
+          650,
+          1
+        ],
+        [
+          668,
+          1
+        ],
+        [
+          742,
+          1
+        ]
+      ],
+      "hash": "07d2cfb9f1832f83dd844da4a0f02fb02eb835439fc7f09c2558c9ffd3cf59b0"
+    },
+    {
+      "start": 452351,
+      "length": 1237,
+      "masks": [
+        [
+          1041,
+          1
+        ],
+        [
+          1054,
+          1
+        ],
+        [
+          1073,
+          1
+        ],
+        [
+          1091,
+          1
+        ],
+        [
+          1109,
+          1
+        ],
+        [
+          1127,
+          1
+        ],
+        [
+          1145,
+          1
+        ],
+        [
+          1163,
+          1
+        ],
+        [
+          1176,
+          1
+        ],
+        [
+          1209,
+          1
+        ]
+      ],
+      "hash": "cb353db5aa6e104a694c34bc9431db060aab7f198166c593dcede06d37e09068"
+    },
+    {
+      "start": 454259,
+      "length": 1138,
+      "masks": [
+        [
+          911,
+          1
+        ],
+        [
+          924,
+          1
+        ],
+        [
+          937,
+          1
+        ],
+        [
+          950,
+          1
+        ],
+        [
+          963,
+          1
+        ],
+        [
+          976,
+          1
+        ],
+        [
+          995,
+          1
+        ],
+        [
+          1013,
+          1
+        ],
+        [
+          1031,
+          1
+        ],
+        [
+          1110,
+          1
+        ]
+      ],
+      "hash": "0c9d2f14dfe2bc92b615841f5e244baa0ccf655c0f70dc9b91fd1d10ac845c6e"
+    },
+    {
+      "start": 455881,
+      "length": 934,
+      "masks": [
+        [
+          713,
+          1
+        ],
+        [
+          726,
+          1
+        ],
+        [
+          739,
+          1
+        ],
+        [
+          752,
+          1
+        ],
+        [
+          772,
+          1
+        ],
+        [
+          792,
+          1
+        ],
+        [
+          827,
+          1
+        ],
+        [
+          845,
+          1
+        ],
+        [
+          863,
+          1
+        ],
+        [
+          906,
+          1
+        ]
+      ],
+      "hash": "81042d4c140ac952ab455e89d209086d180a3e9b399eacb64006b48f9d34e395"
+    },
+    {
+      "start": 3178496,
+      "length": 815,
+      "masks": [
+        [
+          722,
+          1
+        ],
+        [
+          735,
+          1
+        ],
+        [
+          755,
+          1
+        ],
+        [
+          793,
+          1
+        ]
+      ],
+      "hash": "7c7e2c4d1b6b5e16b851ed0836473dac6c663632dcc0cd8f2747c66f99b49016"
+    },
+    {
+      "start": 3253112,
+      "length": 1577,
+      "masks": [
+        [
+          1255,
+          1
+        ],
+        [
+          1273,
+          1
+        ],
+        [
+          1291,
+          1
+        ],
+        [
+          1313,
+          1
+        ],
+        [
+          1331,
+          1
+        ],
+        [
+          1357,
+          1
+        ],
+        [
+          1404,
+          1
+        ],
+        [
+          1440,
+          1
+        ],
+        [
+          1494,
+          1
+        ]
+      ],
+      "hash": "30e9c4511e505c3bfe0364a38e2ad70b54fcf982fcb559ae4aed7cd7438f66b5"
+    }
+  ],
+  "triggers": [
+    {
+      "event": 2,
+      "chapter": 0,
+      "address": 1081683
+    },
+    {
+      "event": 6,
+      "chapter": 0,
+      "address": 1081696
+    },
+    {
+      "event": 3,
+      "chapter": 0,
+      "address": 1081714
+    },
+    {
+      "event": 4,
+      "chapter": 0,
+      "address": 1081727
+    },
+    {
+      "event": 7,
+      "chapter": 0,
+      "address": 1081740
+    },
+    {
+      "event": 34,
+      "chapter": 1,
+      "address": 445060
+    },
+    {
+      "event": 58,
+      "chapter": 1,
+      "address": 445073
+    },
+    {
+      "event": 59,
+      "chapter": 1,
+      "address": 445091
+    },
+    {
+      "event": 56,
+      "chapter": 1,
+      "address": 445113
+    },
+    {
+      "event": 38,
+      "chapter": 1,
+      "address": 445174
+    },
+    {
+      "event": 39,
+      "chapter": 1,
+      "address": 445192
+    },
+    {
+      "event": 55,
+      "chapter": 1,
+      "address": 445210
+    },
+    {
+      "event": 41,
+      "chapter": 1,
+      "address": 445230
+    },
+    {
+      "event": 70,
+      "chapter": 2,
+      "address": 446495
+    },
+    {
+      "event": 71,
+      "chapter": 2,
+      "address": 446508
+    },
+    {
+      "event": 69,
+      "chapter": 2,
+      "address": 446521
+    },
+    {
+      "event": 101,
+      "chapter": 2,
+      "address": 446534
+    },
+    {
+      "event": 73,
+      "chapter": 2,
+      "address": 446547
+    },
+    {
+      "event": 98,
+      "chapter": 2,
+      "address": 446565
+    },
+    {
+      "event": 72,
+      "chapter": 2,
+      "address": 446583
+    },
+    {
+      "event": 74,
+      "chapter": 2,
+      "address": 446601
+    },
+    {
+      "event": 78,
+      "chapter": 2,
+      "address": 446619
+    },
+    {
+      "event": 80,
+      "chapter": 2,
+      "address": 446695
+    },
+    {
+      "event": 116,
+      "chapter": 3,
+      "address": 447967
+    },
+    {
+      "event": 122,
+      "chapter": 3,
+      "address": 447985
+    },
+    {
+      "event": 123,
+      "chapter": 3,
+      "address": 448005
+    },
+    {
+      "event": 125,
+      "chapter": 3,
+      "address": 448025
+    },
+    {
+      "event": 127,
+      "chapter": 3,
+      "address": 448045
+    },
+    {
+      "event": 128,
+      "chapter": 3,
+      "address": 448063
+    },
+    {
+      "event": 151,
+      "chapter": 4,
+      "address": 449335
+    },
+    {
+      "event": 152,
+      "chapter": 4,
+      "address": 449348
+    },
+    {
+      "event": 153,
+      "chapter": 4,
+      "address": 449361
+    },
+    {
+      "event": 159,
+      "chapter": 4,
+      "address": 449394
+    },
+    {
+      "event": 155,
+      "chapter": 4,
+      "address": 449412
+    },
+    {
+      "event": 156,
+      "chapter": 4,
+      "address": 449430
+    },
+    {
+      "event": 160,
+      "chapter": 4,
+      "address": 449448
+    },
+    {
+      "event": 161,
+      "chapter": 4,
+      "address": 449490
+    },
+    {
+      "event": 164,
+      "chapter": 4,
+      "address": 449508
+    },
+    {
+      "event": 163,
+      "chapter": 4,
+      "address": 449526
+    },
+    {
+      "event": 166,
+      "chapter": 4,
+      "address": 449544
+    },
+    {
+      "event": 181,
+      "chapter": 4,
+      "address": 449564
+    },
+    {
+      "event": 188,
+      "chapter": 5,
+      "address": 451211
+    },
+    {
+      "event": 189,
+      "chapter": 5,
+      "address": 451231
+    },
+    {
+      "event": 191,
+      "chapter": 5,
+      "address": 451265
+    },
+    {
+      "event": 192,
+      "chapter": 5,
+      "address": 451283
+    },
+    {
+      "event": 193,
+      "chapter": 5,
+      "address": 451357
+    },
+    {
+      "event": 199,
+      "chapter": 5,
+      "address": 451395
+    },
+    {
+      "event": 197,
+      "chapter": 5,
+      "address": 451429
+    },
+    {
+      "event": 218,
+      "chapter": 6,
+      "address": 3310186
+    },
+    {
+      "event": 220,
+      "chapter": 6,
+      "address": 3310199
+    },
+    {
+      "event": 221,
+      "chapter": 6,
+      "address": 3310217
+    },
+    {
+      "event": 226,
+      "chapter": 6,
+      "address": 3310235
+    },
+    {
+      "event": 247,
+      "chapter": 7,
+      "address": 453391
+    },
+    {
+      "event": 277,
+      "chapter": 7,
+      "address": 453404
+    },
+    {
+      "event": 250,
+      "chapter": 7,
+      "address": 453423
+    },
+    {
+      "event": 249,
+      "chapter": 7,
+      "address": 453441
+    },
+    {
+      "event": 254,
+      "chapter": 7,
+      "address": 453459
+    },
+    {
+      "event": 253,
+      "chapter": 7,
+      "address": 453477
+    },
+    {
+      "event": 255,
+      "chapter": 7,
+      "address": 453495
+    },
+    {
+      "event": 256,
+      "chapter": 7,
+      "address": 453513
+    },
+    {
+      "event": 263,
+      "chapter": 7,
+      "address": 453526
+    },
+    {
+      "event": 293,
+      "chapter": 8,
+      "address": 455169
+    },
+    {
+      "event": 294,
+      "chapter": 8,
+      "address": 455182
+    },
+    {
+      "event": 295,
+      "chapter": 8,
+      "address": 455195
+    },
+    {
+      "event": 296,
+      "chapter": 8,
+      "address": 455208
+    },
+    {
+      "event": 297,
+      "chapter": 8,
+      "address": 455221
+    },
+    {
+      "event": 298,
+      "chapter": 8,
+      "address": 455234
+    },
+    {
+      "event": 301,
+      "chapter": 8,
+      "address": 455253
+    },
+    {
+      "event": 302,
+      "chapter": 8,
+      "address": 455271
+    },
+    {
+      "event": 303,
+      "chapter": 8,
+      "address": 455289
+    },
+    {
+      "event": 329,
+      "chapter": 9,
+      "address": 456593
+    },
+    {
+      "event": 330,
+      "chapter": 9,
+      "address": 456606
+    },
+    {
+      "event": 331,
+      "chapter": 9,
+      "address": 456619
+    },
+    {
+      "event": 333,
+      "chapter": 9,
+      "address": 456632
+    },
+    {
+      "event": 334,
+      "chapter": 9,
+      "address": 456652
+    },
+    {
+      "event": 335,
+      "chapter": 9,
+      "address": 456672
+    },
+    {
+      "event": 340,
+      "chapter": 9,
+      "address": 456707
+    },
+    {
+      "event": 342,
+      "chapter": 9,
+      "address": 456725
+    },
+    {
+      "event": 343,
+      "chapter": 9,
+      "address": 456743
+    },
+    {
+      "event": 363,
+      "chapter": 10,
+      "address": 3179217
+    },
+    {
+      "event": 372,
+      "chapter": 10,
+      "address": 3179230
+    },
+    {
+      "event": 374,
+      "chapter": 10,
+      "address": 3179250
+    },
+    {
+      "event": 400,
+      "chapter": 11,
+      "address": 3254366
+    },
+    {
+      "event": 402,
+      "chapter": 11,
+      "address": 3254384
+    },
+    {
+      "event": 403,
+      "chapter": 11,
+      "address": 3254402
+    },
+    {
+      "event": 406,
+      "chapter": 11,
+      "address": 3254424
+    },
+    {
+      "event": 405,
+      "chapter": 11,
+      "address": 3254442
+    }
+  ],
+  "skipped": [
+    "Prologue Opening",
+    "Chapter02Opening",
+    "Chapter04Opening",
+    "Chapter05Opening",
+    "Chapter05Ending",
+    "Chapter06Opening",
+    "Chapter08Opening",
+    "Chapter08Febail Asaello_Spawn",
+    "Chapter08Meath Spawn",
+    "Chapter09Opening",
+    "Chapter Final Opening"
+  ]
+}

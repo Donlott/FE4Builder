@@ -1,0 +1,1039 @@
+{
+  "commands": {
+    "0": {
+      "name": "AI_00",
+      "fields": [],
+      "note": "Clears wAIUnknown7E201A",
+      "uncertain": true
+    },
+    "1": {
+      "name": "AI_JUMP",
+      "fields": [
+        [
+          "Address",
+          2
+        ]
+      ],
+      "note": "",
+      "uncertain": false
+    },
+    "2": {
+      "name": "AI_02",
+      "fields": [
+        [
+          "Unknown",
+          1
+        ]
+      ],
+      "note": "Sets wAIUnknown7E2002",
+      "uncertain": true
+    },
+    "3": {
+      "name": "MODIFY_GROUP_LEADER_FIELD_MOVEMENT",
+      "fields": [
+        [
+          "Multiplier",
+          1
+        ]
+      ],
+      "note": "If 0, use default field movement. Other values are fractions over 256 used as multipliers",
+      "uncertain": false
+    },
+    "4": {
+      "name": "AI_SET_IGNORED_GENERATION_ID",
+      "fields": [
+        [
+          "GenerationID",
+          1
+        ]
+      ],
+      "note": "",
+      "uncertain": false
+    },
+    "5": {
+      "name": "AI_05",
+      "fields": [],
+      "note": "Sets $200 in wAIUnknownBitfield7E2000",
+      "uncertain": true
+    },
+    "6": {
+      "name": "AI_06",
+      "fields": [
+        [
+          "LocationID",
+          1
+        ],
+        [
+          "Unknown",
+          1
+        ]
+      ],
+      "note": "Do something if castle held by foes faction value for $7E2002",
+      "uncertain": true
+    },
+    "7": {
+      "name": "AI_07",
+      "fields": [
+        [
+          "LocationID",
+          1
+        ],
+        [
+          "Unknown",
+          1
+        ]
+      ],
+      "note": "Do something if castle held by own faction if 5 = run AI_0B, else write to wAIUnknown7E2002",
+      "uncertain": true
+    },
+    "8": {
+      "name": "AI_TARGET_VILLAGE",
+      "fields": [
+        [
+          "LocationID",
+          1
+        ]
+      ],
+      "note": "",
+      "uncertain": false
+    },
+    "9": {
+      "name": "AI_FLAG_IF_LEADER_ON_COORDS",
+      "fields": [
+        [
+          "ChapterID",
+          2
+        ],
+        [
+          "EventFlag",
+          1
+        ],
+        [
+          "LeaderCoordinates[0]",
+          1
+        ],
+        [
+          "LeaderCoordinates[1]",
+          1
+        ]
+      ],
+      "note": "If flag set, skip If group leader on coords, set flag, else target coords",
+      "uncertain": false
+    },
+    "10": {
+      "name": "AI_0A",
+      "fields": [],
+      "note": "",
+      "uncertain": true
+    },
+    "11": {
+      "name": "AI_0B",
+      "fields": [],
+      "note": "",
+      "uncertain": true
+    },
+    "12": {
+      "name": "AI_SET_FORMATION",
+      "fields": [
+        [
+          "FormationType",
+          1
+        ],
+        [
+          "FormationDirection",
+          1
+        ]
+      ],
+      "note": "",
+      "uncertain": false
+    },
+    "13": {
+      "name": "AI_TARGET_SPECIFIED_UNIT",
+      "fields": [
+        [
+          "CharacterID",
+          2
+        ]
+      ],
+      "note": "",
+      "uncertain": false
+    },
+    "14": {
+      "name": "AI_INTERACT_WITH_UNIT",
+      "fields": [
+        [
+          "CharacterID",
+          2
+        ],
+        [
+          "Unknown",
+          1
+        ]
+      ],
+      "note": "",
+      "uncertain": true
+    },
+    "15": {
+      "name": "AI_0F",
+      "fields": [],
+      "note": "",
+      "uncertain": true
+    },
+    "16": {
+      "name": "AI_10",
+      "fields": [],
+      "note": "",
+      "uncertain": true
+    },
+    "17": {
+      "name": "AI_CHARGE_IF_LEADERLESS_BELOW_UNIT_RATIO",
+      "fields": [
+        [
+          "Ratio",
+          1
+        ]
+      ],
+      "note": "If leaderless/leader dead, skip If group has less units than ratio, run AI_18",
+      "uncertain": true
+    },
+    "18": {
+      "name": "AI_12",
+      "fields": [],
+      "note": "",
+      "uncertain": true
+    },
+    "19": {
+      "name": "AI_13",
+      "fields": [],
+      "note": "",
+      "uncertain": true
+    },
+    "20": {
+      "name": "AI_CHECK_GROUP_COMPLETE_BY_TURN_DIVISIBLE",
+      "fields": [
+        [
+          "Unknown",
+          1
+        ]
+      ],
+      "note": "Sets flag $80 in wAIUnknownBitfield7E2000 if at least one group member is dead.",
+      "uncertain": true
+    },
+    "21": {
+      "name": "AI_SET_CHAPTER_EVENT_FLAG",
+      "fields": [
+        [
+          "ChapterID",
+          2
+        ],
+        [
+          "EventFlag",
+          1
+        ]
+      ],
+      "note": "Any chapter but the active one doesnt work",
+      "uncertain": false
+    },
+    "22": {
+      "name": "AI_UNSET_CHAPTER_EVENT_FLAG",
+      "fields": [
+        [
+          "ChapterID",
+          2
+        ],
+        [
+          "EventFlag",
+          1
+        ]
+      ],
+      "note": "Any chapter but the active one doesnt work",
+      "uncertain": false
+    },
+    "23": {
+      "name": "AI_TARGET_REMAINING_VILLAGES",
+      "fields": [],
+      "note": "",
+      "uncertain": false
+    },
+    "24": {
+      "name": "AI_TARGET_ALL_FOES",
+      "fields": [],
+      "note": "Except wAIIgnoredGenerationID",
+      "uncertain": false
+    },
+    "25": {
+      "name": "AI_19",
+      "fields": [],
+      "note": "Same as last but 7 in wAIUnknown7E2002 ?",
+      "uncertain": true
+    },
+    "26": {
+      "name": "AI_1A",
+      "fields": [],
+      "note": "Unused.",
+      "uncertain": true
+    },
+    "27": {
+      "name": "AI_1B",
+      "fields": [],
+      "note": "Unused.",
+      "uncertain": true
+    },
+    "28": {
+      "name": "AI_1C",
+      "fields": [],
+      "note": "Unused.",
+      "uncertain": true
+    },
+    "29": {
+      "name": "AI_1D",
+      "fields": [],
+      "note": "",
+      "uncertain": true
+    },
+    "30": {
+      "name": "AI_CHARGE_IF_LEADER_BELOW_THRESHOLD",
+      "fields": [
+        [
+          "AlwaysThreshold",
+          1
+        ],
+        [
+          "FieldedThreshold",
+          2
+        ]
+      ],
+      "note": "Skip if leader dead/no leader If leaders HP is above threshold, run AI_18 and AI_0F",
+      "uncertain": true
+    },
+    "31": {
+      "name": "AI_JUMP_IF_TURN_REACHED",
+      "fields": [
+        [
+          "Turn",
+          1
+        ],
+        [
+          "Address",
+          2
+        ]
+      ],
+      "note": "",
+      "uncertain": false
+    },
+    "32": {
+      "name": "AI_JUMP_IF_CHAPTER_EVENT_FLAG_SET",
+      "fields": [
+        [
+          "ChapterID",
+          2
+        ],
+        [
+          "EventFlag",
+          1
+        ],
+        [
+          "Address",
+          2
+        ]
+      ],
+      "note": "Any chapter but the active one doesnt work",
+      "uncertain": false
+    },
+    "33": {
+      "name": "AI_JUMP_IF_CHAPTER_EVENT_FLAG_UNSET",
+      "fields": [
+        [
+          "ChapterID",
+          2
+        ],
+        [
+          "EventFlag",
+          1
+        ],
+        [
+          "Address",
+          2
+        ]
+      ],
+      "note": "Any chapter but the active one doesnt work",
+      "uncertain": false
+    },
+    "34": {
+      "name": "AI_22",
+      "fields": [
+        [
+          "Address",
+          2
+        ]
+      ],
+      "note": "",
+      "uncertain": true
+    },
+    "35": {
+      "name": "AI_ASMC_CHECK",
+      "fields": [
+        [
+          "Routine",
+          3
+        ],
+        [
+          "Address",
+          2
+        ]
+      ],
+      "note": "",
+      "uncertain": false
+    },
+    "255": {
+      "name": "AI_END",
+      "fields": [],
+      "note": "",
+      "uncertain": false
+    }
+  },
+  "groups": [
+    {
+      "id": 0,
+      "chapter": 0,
+      "label": "Sigurd",
+      "slots": [
+        0
+      ],
+      "symbol": "FG_PrologueSigurd"
+    },
+    {
+      "id": 1,
+      "chapter": 0,
+      "label": "Yngvi",
+      "slots": [
+        2
+      ],
+      "symbol": "FG_PrologueYngvi"
+    },
+    {
+      "id": 2,
+      "chapter": 0,
+      "label": "Evans",
+      "slots": [
+        1
+      ],
+      "symbol": "FG_PrologueEvans"
+    },
+    {
+      "id": 3,
+      "chapter": 0,
+      "label": "Arvis",
+      "slots": [
+        3
+      ],
+      "symbol": "FG_PrologueArvis"
+    },
+    {
+      "id": 4,
+      "chapter": 1,
+      "label": "Sigurd",
+      "slots": [
+        0
+      ],
+      "symbol": "FG_Ch01Sigurd"
+    },
+    {
+      "id": 5,
+      "chapter": 1,
+      "label": "Genoa",
+      "slots": [
+        1
+      ],
+      "symbol": "FG_Ch01Genoa"
+    },
+    {
+      "id": 6,
+      "chapter": 1,
+      "label": "Marpha",
+      "slots": [
+        2
+      ],
+      "symbol": "FG_Ch01Marpha"
+    },
+    {
+      "id": 7,
+      "chapter": 1,
+      "label": "Verdane",
+      "slots": [
+        3
+      ],
+      "symbol": "FG_Ch01Verdane"
+    },
+    {
+      "id": 8,
+      "chapter": 1,
+      "label": "Nordion",
+      "slots": [
+        4
+      ],
+      "symbol": "FG_Ch01Nordion"
+    },
+    {
+      "id": 9,
+      "chapter": 1,
+      "label": "Heirhein",
+      "slots": [
+        5
+      ],
+      "symbol": "FG_Ch01Heirhein"
+    },
+    {
+      "id": 10,
+      "chapter": 2,
+      "label": "Sigurd",
+      "slots": [
+        0
+      ],
+      "symbol": "FG_Ch02Sigurd"
+    },
+    {
+      "id": 11,
+      "chapter": 2,
+      "label": "Nordion",
+      "slots": [
+        1
+      ],
+      "symbol": "FG_Ch02Nordion"
+    },
+    {
+      "id": 12,
+      "chapter": 2,
+      "label": "Heirhein",
+      "slots": [
+        2
+      ],
+      "symbol": "FG_Ch02Heirhein"
+    },
+    {
+      "id": 13,
+      "chapter": 2,
+      "label": "Infini",
+      "slots": [
+        3
+      ],
+      "symbol": "FG_Ch02Infini"
+    },
+    {
+      "id": 14,
+      "chapter": 2,
+      "label": "Mackily",
+      "slots": [
+        4
+      ],
+      "symbol": "FG_Ch02Mackily"
+    },
+    {
+      "id": 15,
+      "chapter": 2,
+      "label": "Agusti",
+      "slots": [
+        5
+      ],
+      "symbol": "FG_Ch02Agusti"
+    },
+    {
+      "id": 16,
+      "chapter": 3,
+      "label": "Sigurd",
+      "slots": [
+        0
+      ],
+      "symbol": "FG_Ch03Sigurd"
+    },
+    {
+      "id": 17,
+      "chapter": 3,
+      "label": "Sylvale",
+      "slots": [
+        1
+      ],
+      "symbol": "FG_Ch03Sylvale"
+    },
+    {
+      "id": 18,
+      "chapter": 3,
+      "label": "Madino",
+      "slots": [
+        2
+      ],
+      "symbol": "FG_Ch03Madino"
+    },
+    {
+      "id": 19,
+      "chapter": 3,
+      "label": "Orgahil",
+      "slots": [
+        3
+      ],
+      "symbol": "FG_Ch03Orgahil"
+    },
+    {
+      "id": 20,
+      "chapter": 3,
+      "label": "DozelFriege",
+      "slots": [
+        4
+      ],
+      "symbol": "FG_Ch03DozelFriege"
+    },
+    {
+      "id": 21,
+      "chapter": 4,
+      "label": "Sigurd",
+      "slots": [
+        0
+      ],
+      "symbol": "FG_Ch04Sigurd"
+    },
+    {
+      "id": 22,
+      "chapter": 4,
+      "label": "Tofa",
+      "slots": [
+        2
+      ],
+      "symbol": "FG_Ch04Tofa"
+    },
+    {
+      "id": 23,
+      "chapter": 4,
+      "label": "Zaxon",
+      "slots": [
+        3
+      ],
+      "symbol": "FG_Ch04Zaxon"
+    },
+    {
+      "id": 24,
+      "chapter": 4,
+      "label": "Silesse",
+      "slots": [
+        4
+      ],
+      "symbol": "FG_Ch04Silesse"
+    },
+    {
+      "id": 25,
+      "chapter": 4,
+      "label": "Civilians",
+      "slots": [
+        1
+      ],
+      "symbol": "FG_Ch04Civilians"
+    },
+    {
+      "id": 26,
+      "chapter": 5,
+      "label": "Sigurd",
+      "slots": [
+        0
+      ],
+      "symbol": "FG_Ch05Sigurd"
+    },
+    {
+      "id": 27,
+      "chapter": 5,
+      "label": "Lubeck",
+      "slots": [
+        2
+      ],
+      "symbol": "FG_Ch05Lubeck"
+    },
+    {
+      "id": 28,
+      "chapter": 5,
+      "label": "Phinora",
+      "slots": [
+        3
+      ],
+      "symbol": "FG_Ch05Phinora"
+    },
+    {
+      "id": 29,
+      "chapter": 5,
+      "label": "Velthomer",
+      "slots": [
+        4
+      ],
+      "symbol": "FG_Ch05Velthomer"
+    },
+    {
+      "id": 30,
+      "chapter": 5,
+      "label": "Belhalla",
+      "slots": [
+        6
+      ],
+      "symbol": "FG_Ch05Belhalla"
+    },
+    {
+      "id": 31,
+      "chapter": 5,
+      "label": "Byron",
+      "slots": [
+        1
+      ],
+      "symbol": "FG_Ch05Byron"
+    },
+    {
+      "id": 32,
+      "chapter": 5,
+      "label": "Friege",
+      "slots": [
+        5
+      ],
+      "symbol": "FG_Ch05Friege"
+    },
+    {
+      "id": 33,
+      "chapter": 5,
+      "label": "Leonster",
+      "slots": [
+        1
+      ],
+      "symbol": "FG_Ch05Leonster"
+    },
+    {
+      "id": 34,
+      "chapter": 5,
+      "label": "Thracia",
+      "slots": [
+        2
+      ],
+      "symbol": "FG_Ch05Thracia"
+    },
+    {
+      "id": 35,
+      "chapter": 6,
+      "label": "Seliph",
+      "slots": [
+        0
+      ],
+      "symbol": "FG_Ch06Seliph"
+    },
+    {
+      "id": 36,
+      "chapter": 6,
+      "label": "Ganeishire",
+      "slots": [
+        1
+      ],
+      "symbol": "FG_Ch06Ganeishire"
+    },
+    {
+      "id": 37,
+      "chapter": 6,
+      "label": "Sofala1",
+      "slots": [
+        2
+      ],
+      "symbol": "FG_Ch06Sofala1"
+    },
+    {
+      "id": 38,
+      "chapter": 6,
+      "label": "Isaach1",
+      "slots": [
+        3
+      ],
+      "symbol": "FG_Ch06Isaach1"
+    },
+    {
+      "id": 39,
+      "chapter": 6,
+      "label": "Ribaut",
+      "slots": [
+        4
+      ],
+      "symbol": "FG_Ch06Ribaut"
+    },
+    {
+      "id": 40,
+      "chapter": 7,
+      "label": "Seliph",
+      "slots": [
+        0
+      ],
+      "symbol": "FG_Ch07Seliph"
+    },
+    {
+      "id": 41,
+      "chapter": 7,
+      "label": "Aed",
+      "slots": [
+        1
+      ],
+      "symbol": "FG_Ch07Aed"
+    },
+    {
+      "id": 42,
+      "chapter": 7,
+      "label": "Dahna",
+      "slots": [
+        2
+      ],
+      "symbol": "FG_Ch07Dahna"
+    },
+    {
+      "id": 43,
+      "chapter": 7,
+      "label": "Melgen",
+      "slots": [
+        3
+      ],
+      "symbol": "FG_Ch07Melgen"
+    },
+    {
+      "id": 44,
+      "chapter": 7,
+      "label": "Ulster",
+      "slots": [
+        4
+      ],
+      "symbol": "FG_Ch07Ulster"
+    },
+    {
+      "id": 45,
+      "chapter": 8,
+      "label": "Seliph",
+      "slots": [
+        0
+      ],
+      "symbol": "FG_Ch08Seliph"
+    },
+    {
+      "id": 46,
+      "chapter": 8,
+      "label": "Connacht",
+      "slots": [
+        1
+      ],
+      "symbol": "FG_Ch08Connacht"
+    },
+    {
+      "id": 47,
+      "chapter": 8,
+      "label": "Munster1",
+      "slots": [
+        2
+      ],
+      "symbol": "FG_Ch08Munster1"
+    },
+    {
+      "id": 48,
+      "chapter": 8,
+      "label": "Meath",
+      "slots": [
+        3
+      ],
+      "symbol": "FG_Ch08Meath"
+    },
+    {
+      "id": 49,
+      "chapter": 9,
+      "label": "Seliph",
+      "slots": [
+        0
+      ],
+      "symbol": "FG_Ch09Seliph"
+    },
+    {
+      "id": 50,
+      "chapter": 9,
+      "label": "Kapathogia",
+      "slots": [
+        1
+      ],
+      "symbol": "FG_Ch09Kapathogia"
+    },
+    {
+      "id": 51,
+      "chapter": 9,
+      "label": "Luthecia",
+      "slots": [
+        2
+      ],
+      "symbol": "FG_Ch09Luthecia"
+    },
+    {
+      "id": 52,
+      "chapter": 9,
+      "label": "Grutia",
+      "slots": [
+        3
+      ],
+      "symbol": "FG_Ch09Grutia"
+    },
+    {
+      "id": 53,
+      "chapter": 9,
+      "label": "Thracia",
+      "slots": [
+        4
+      ],
+      "symbol": "FG_Ch09Thracia"
+    },
+    {
+      "id": 54,
+      "chapter": 10,
+      "label": "Seliph",
+      "slots": [
+        0
+      ],
+      "symbol": "FG_Ch10Seliph"
+    },
+    {
+      "id": 55,
+      "chapter": 10,
+      "label": "Civilians",
+      "slots": [
+        1
+      ],
+      "symbol": "FG_Ch10Civilians"
+    },
+    {
+      "id": 56,
+      "chapter": 10,
+      "label": "Chronos",
+      "slots": [
+        2
+      ],
+      "symbol": "FG_Ch10Chronos"
+    },
+    {
+      "id": 57,
+      "chapter": 10,
+      "label": "Rados",
+      "slots": [
+        3
+      ],
+      "symbol": "FG_Ch10Rados"
+    },
+    {
+      "id": 58,
+      "chapter": 10,
+      "label": "Miletos",
+      "slots": [
+        4
+      ],
+      "symbol": "FG_Ch10Miletos"
+    },
+    {
+      "id": 59,
+      "chapter": 10,
+      "label": "Chalphy",
+      "slots": [
+        5
+      ],
+      "symbol": "FG_Ch10Chalphy"
+    },
+    {
+      "id": 60,
+      "chapter": 11,
+      "label": "Seliph",
+      "slots": [
+        0
+      ],
+      "symbol": "FG_FinalSeliph"
+    },
+    {
+      "id": 61,
+      "chapter": 11,
+      "label": "Edda",
+      "slots": [
+        1
+      ],
+      "symbol": "FG_FinalEdda"
+    },
+    {
+      "id": 62,
+      "chapter": 11,
+      "label": "Friege",
+      "slots": [
+        3
+      ],
+      "symbol": "FG_FinalFriege"
+    },
+    {
+      "id": 63,
+      "chapter": 11,
+      "label": "Dozel",
+      "slots": [
+        2
+      ],
+      "symbol": "FG_FinalDozel"
+    },
+    {
+      "id": 64,
+      "chapter": 11,
+      "label": "Velthomer",
+      "slots": [
+        5
+      ],
+      "symbol": "FG_FinalVelthomer"
+    },
+    {
+      "id": 65,
+      "chapter": 11,
+      "label": "Belhalla",
+      "slots": [
+        6
+      ],
+      "symbol": "FG_FinalBelhalla"
+    },
+    {
+      "id": 66,
+      "chapter": 11,
+      "label": "Yngvi",
+      "slots": [
+        4
+      ],
+      "symbol": "FG_FinalYngvi"
+    },
+    {
+      "id": 67,
+      "chapter": 11,
+      "label": "Thracia",
+      "slots": [
+        1
+      ],
+      "symbol": "FG_FinalThracia"
+    },
+    {
+      "id": 68,
+      "chapter": 6,
+      "label": "Sofala2",
+      "slots": [],
+      "symbol": "FG_Ch06Sofala2"
+    },
+    {
+      "id": 69,
+      "chapter": 6,
+      "label": "Isaach2",
+      "slots": [],
+      "symbol": "FG_Ch06Isaach2"
+    },
+    {
+      "id": 70,
+      "chapter": 8,
+      "label": "Munster2",
+      "slots": [],
+      "symbol": "FG_Ch08Munster2"
+    },
+    {
+      "id": 71,
+      "chapter": 7,
+      "label": "Leif",
+      "slots": [
+        5
+      ],
+      "symbol": "FG_Ch07Leif"
+    }
+  ]
+}

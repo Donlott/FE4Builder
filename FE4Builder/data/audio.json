@@ -1,0 +1,1929 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "kind": "music",
+      "value": 1,
+      "label": "Intro",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 2,
+      "label": "Intro + Title",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 3,
+      "label": "FE Theme",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 4,
+      "label": "Jugdral History",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 6,
+      "label": "Yuria's Theme",
+      "uses": [
+        "EventChapterFinalJuliaVelthomerVisit"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 13,
+      "label": "The Arrival of Peace (Rank A)",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 15,
+      "label": "Track $0F",
+      "uses": [
+        "EventChapterEpilogueWorldMap"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 17,
+      "label": "Chapter Prologue",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 18,
+      "label": "Chapter 6",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 19,
+      "label": "Chapter 1",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 20,
+      "label": "Chapter 4",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 21,
+      "label": "Loptous Dying",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 23,
+      "label": "Army of Grandbell 2",
+      "uses": [
+        "EventChapterFinalDozelSpawn",
+        "EventChapterFinalFriegeSpawn"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 24,
+      "label": "Chapter 7",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 25,
+      "label": "Army of Grandbell 1",
+      "uses": [
+        "EventChapter04AndreyLeave",
+        "EventChapter04AndreySpawn",
+        "EventChapter04AnnandDeathAndreyResponse",
+        "EventChapter09GrutiaSpawn"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 26,
+      "label": "To the One with the Light",
+      "uses": [
+        "EventChapter05AyraArdenTalk",
+        "EventChapter05AyraChulainnTalk",
+        "EventChapter05AyraLexTalk",
+        "EventChapter05LachesisBeowulfTalk",
+        "EventChapter05LachesisNaoiseTalk",
+        "EventChapter05SigurdAyraTalk",
+        "EventChapter08CedSeliphTalk",
+        "EventChapterFinalJeanneLeifTalk",
+        "EventChapterFinalNannaJeanne_SeliphTalk",
+        "EventChapterFinalNannaLeifTalk",
+        "EventChapterFinalWorldMap"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 27,
+      "label": "Chapter 10",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 28,
+      "label": "Chapter 3",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 29,
+      "label": "The Allied Forces",
+      "uses": [
+        "EventChapter01NordionSpawn"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 30,
+      "label": "Chapter 8",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 31,
+      "label": "Army of Silesia",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 32,
+      "label": "Close to Victory",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 33,
+      "label": "Army of Verdane",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 34,
+      "label": "Army of Agustria",
+      "uses": [
+        "EventChapter01HeirheinSpawn",
+        "EventChapter03SylvaleSpawn"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 35,
+      "label": "Army of Orgahil",
+      "uses": [
+        "EventChapter03Opening"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 36,
+      "label": "Chapter 9",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 37,
+      "label": "Army of Yied",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 38,
+      "label": "Army of Isaac",
+      "uses": [
+        "EventChapter06BrotherRecruitedDanannResponse"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 39,
+      "label": "Army of Manster",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 40,
+      "label": "Army of Thracia",
+      "uses": [
+        "EventChapter03SylvaleSeized",
+        "EventChapter03ThraciaSpawn",
+        "EventChapter03TravantLeave",
+        "EventChapter08MunsterSavedMaykovReaction",
+        "EventChapter09ArionCharge",
+        "EventChapter09GrutiaSpawn"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 41,
+      "label": "Army of Miletos",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 42,
+      "label": "Neutral Forces",
+      "uses": [
+        "EventChapter02InfiniBrigandsSpawn"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 43,
+      "label": "Chapter 5",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 44,
+      "label": "Chapter 2",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 45,
+      "label": "Chapter 11 (no intro)",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 46,
+      "label": "Chapter 11 (with intro)",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 49,
+      "label": "Attack",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 50,
+      "label": "Defend",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 51,
+      "label": "Boss",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 52,
+      "label": "vs. Alvis",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 53,
+      "label": "vs. Yurius",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 54,
+      "label": "Boss 2",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 55,
+      "label": "Dance",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 56,
+      "label": "Dancer Fight",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 57,
+      "label": "Level Up",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 58,
+      "label": "Healing",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 59,
+      "label": "Arena",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 60,
+      "label": "Promote",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 61,
+      "label": "Valkyrie",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 62,
+      "label": "Recruitable Fight",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 63,
+      "label": "Level up 2",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 64,
+      "label": "Level up (no music)",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 65,
+      "label": "Attack",
+      "uses": [
+        "EventChapter07UlsterSpawn"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 66,
+      "label": "Defend",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 67,
+      "label": "Boss",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 68,
+      "label": "vs. Alvis",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 69,
+      "label": "vs. Yurius",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 70,
+      "label": "Boss 2",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 71,
+      "label": "Dance",
+      "uses": [
+        "EventChapter04VillageSafeguardSilvia"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 72,
+      "label": "Dancer Fight",
+      "uses": [
+        "EventChapter02AlecSilviaTalk",
+        "EventChapter02SilviaSigurdTalk",
+        "EventChapter07AresThreatensBramsel",
+        "EventChapter07LeneLaylea_SeliphTalk",
+        "EventChapter09LayleaCharlotTalk"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 73,
+      "label": "Level Up",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 74,
+      "label": "Healing",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 75,
+      "label": "Arena",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 76,
+      "label": "Attack",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 77,
+      "label": "Promote",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 78,
+      "label": "Valkyrie",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 79,
+      "label": "Recruitable Fight",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 80,
+      "label": "Lopto Cult Theme",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 81,
+      "label": "Telling the Legend",
+      "uses": [
+        "EventChapter01Village3",
+        "EventChapter03ClaudTailtiuSpawn",
+        "EventChapterFinalVillage1"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 82,
+      "label": "Loved One",
+      "uses": [
+        "EventChapter05Ending"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 83,
+      "label": "Wandering Feelings",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 84,
+      "label": "Diadora's Theme",
+      "uses": [
+        "EventChapter01DeirdreSpawn",
+        "EventChapter01MarphaSeized",
+        "EventChapter02DeirdreEthlynTalk",
+        "EventChapter03MadinoSeized",
+        "EventChapter08JuliaSeliphTalk"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 85,
+      "label": "Agustria Castle",
+      "uses": [
+        "EventChapter01NordionSpawn",
+        "EventChapterFinalEnding"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 86,
+      "label": "Silesia Castle",
+      "uses": [
+        "EventChapter02ErinysGroupArrive",
+        "EventChapter02LewynErinysTalk",
+        "EventChapter06FeeArthurSpawn",
+        "EventChapter08FeeCedTalk",
+        "EventChapterFinalEnding"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 87,
+      "label": "City of Thracia",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 88,
+      "label": "Unlisted",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 89,
+      "label": "Destiny 3",
+      "uses": [
+        "EventChapter05LubeckSeized"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 90,
+      "label": "Golden Axe, Silver Axe (Water)",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 91,
+      "label": "Lover 2",
+      "uses": [
+        "EventChapter04ErinysSilviaAdjacent",
+        "EventChapter06DeimneIsaachVisit",
+        "EventChapter07BramselWaiting",
+        "EventChapter07VillageBarrierBladeLaylea",
+        "EventChapter08ArthurAmid_FeeHerminaTalk",
+        "EventChapter10FebailAsaello_LanaMuirneTalk"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 92,
+      "label": "Time to Attack",
+      "uses": [
+        "EventChapter06WorldMap",
+        "EventChapter07WorldMap",
+        "EventChapter08WorldMap",
+        "EventChapter09WorldMap",
+        "EventChapter10WorldMap"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 93,
+      "label": "Game Over",
+      "uses": [
+        "EventChapter03EldiganDeathSigurdResponse",
+        "EventChapter04AnnandDeathPlayerResponses"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 94,
+      "label": "Glory of Grandbell",
+      "uses": [
+        "EventChapter01WorldMap",
+        "EventChapter02WorldMap",
+        "EventChapter03WorldMap",
+        "EventChapter04WorldMap",
+        "EventPrologueWorldMap"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 95,
+      "label": "Lover 4",
+      "uses": [
+        "EventChapter08MuirneSeliphAdjacent"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 96,
+      "label": "Aideen's Theme",
+      "uses": [
+        "EventChapter01AzelleEdainTalk",
+        "EventChapter01EdainEthlynTalk",
+        "EventChapter02BeowulfLachesisTalk",
+        "EventChapter03MidirBrigidTalk",
+        "EventChapter04EdainAzelleTalk",
+        "EventChapter04EdainJamkeTalk",
+        "EventChapter04EdainMidirTalk",
+        "EventChapter06DeimneMuirneTalk",
+        "EventChapter06Seliph_LanaMuirneTalk",
+        "EventChapter07FinnLanaTalk",
+        "EventChapter07FinnLarceiTalk",
+        "EventChapter07FinnNannaTalk",
+        "EventChapterFinalLanaFebailTalk",
+        "EventChapterFinalLanaMuirne_ScathachDalvinTalk",
+        "EventChapterFinalLanaMuirne_SeliphTalk"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 97,
+      "label": "Flow of Time",
+      "uses": [
+        "EventChapter05WorldMap"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 98,
+      "label": "Conversation 1",
+      "uses": [
+        "EventChapter01MidirEdainTalk",
+        "EventChapter03EdainBrigidTalk",
+        "EventChapter03LachesisEldiganTalk",
+        "EventChapter04LewynSigurdTalk",
+        "EventChapter04LewynSilesseVisit",
+        "EventChapter04SilviaClaudTalk",
+        "EventChapter05AlecNaoiseTalk",
+        "EventChapter05BrigidAlecTalk",
+        "EventChapter05BrigidJamkeTalk",
+        "EventChapter05BrigidMidirTalk",
+        "EventChapter05DewJamkeTalk",
+        "EventChapter05EdainBrigidTalk",
+        "EventChapter05ErinysArdenTalk",
+        "EventChapter05ErinysLewynTalk",
+        "EventChapter05ErinysNaoiseTalk",
+        "EventChapter05LachesisDewTalk",
+        "EventChapter05SigurdByronTalk",
+        "EventChapter05SilviaAlecTalk",
+        "EventChapter05SilviaLewynTalk",
+        "EventChapter07ArthurAmid_TineLindaTalk",
+        "EventChapter07DiarmuidNannaTalk",
+        "EventChapter07TristanJeanneTalk",
+        "EventChapter08NannaAresTalk",
+        "EventChapter09FebailPattyTalk",
+        "EventChapter09FinnAltenaTalk",
+        "EventChapter09HannibalAltenaTalk",
+        "EventChapter09LeifAltenaTalk",
+        "EventChapter09LeneCoirpreTalk",
+        "EventChapter09Opening",
+        "EventChapter09SeliphAltenaTalk",
+        "EventChapter10SeliphPalmarchTalk"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 99,
+      "label": "Enemy Message 2",
+      "uses": [
+        "EventChapter01Opening",
+        "EventChapter01VerdaneSpawn",
+        "EventChapter02AgustiSpawn",
+        "EventChapter02InfiniSpawn",
+        "EventChapter02MackilySpawn",
+        "EventChapter03Ending",
+        "EventChapter04DaccarAndreyPreparing",
+        "EventChapter04PamelaSpawn",
+        "EventChapter04ZaxonSpawn",
+        "EventChapter05AidaBetrayal",
+        "EventChapter05Opening",
+        "EventChapter05PhinoraSeized",
+        "EventChapter07BramselWaiting",
+        "EventChapter07MelgenSpawn",
+        "EventChapter07Opening",
+        "EventChapter07UlsterSpawn",
+        "EventChapter08FebailAsaello_Spawn",
+        "EventChapter08IshtarSpawn",
+        "EventChapterFinalYngviSpawn"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 100,
+      "label": "The Dumb Soldiers",
+      "uses": [
+        "EventChapter02ArdenPursuitRing",
+        "EventChapter05ArdenOnCliff",
+        "EventChapter06LarceiCreidne_IucharTalk",
+        "EventChapter06LarceiCreidne_IucharbaTalk"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 101,
+      "label": "Lover 3",
+      "uses": [
+        "EventChapter04ErinysLewynTalk",
+        "EventChapterFinalDaisyDeimneTalk",
+        "EventChapterFinalFeeHermina_ArthurAmidTalk",
+        "EventChapterFinalFeeHermina_SeliphTalk",
+        "EventChapterFinalFeeOifeyTalk",
+        "EventChapterFinalLarceiCreidne_IucharTalk",
+        "EventChapterFinalLarceiCreidne_IucharbaTalk",
+        "EventChapterFinalLarceiCreidne_SeliphTalk",
+        "EventChapterFinalLarceiCreidne_ShannanTalk",
+        "EventChapterFinalMuirneAsaelloTalk",
+        "EventChapterFinalNannaAresTalk"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 102,
+      "label": "Crisis 2",
+      "uses": [
+        "EventChapter02Opening",
+        "EventChapter03EldiganApproachesSigurd",
+        "EventChapter03LachesisEldiganTalk",
+        "EventChapter03SigurdApproachesEldigan",
+        "EventChapter03SylvaleSpawn",
+        "EventChapter05Opening",
+        "EventChapter08Opening",
+        "EventChapter10ChalphySpawn"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 103,
+      "label": "Lover 1",
+      "uses": [
+        "EventChapter10LeifAltenaTalk",
+        "EventChapter10NannaJeanne_LeifTalk",
+        "EventChapter10SeliphFeeTalk",
+        "EventChapter10SeliphLeneTalk"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 104,
+      "label": "Another Assault",
+      "uses": [
+        "EventChapter03ClaudSigurdTalk",
+        "EventChapter07AresSeliphTalk",
+        "EventChapter07LeifSeliphTalk",
+        "EventChapter07Opening",
+        "EventChapter07SeliphShannanTalk",
+        "EventChapter09Opening",
+        "EventChapter10OifeySeliphTalk",
+        "EventChapter10ShannanSeliphTalk",
+        "EventPrologueAzelleSigurdTalk",
+        "EventPrologueEthlynSigurdTalk",
+        "EventPrologueLexSigurdTalk",
+        "EventPrologueQuanSigurdTalk"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 105,
+      "label": "Destiny 1",
+      "uses": [
+        "EventChapter04SigurdClaudTalk",
+        "EventChapter05ClaudEdainTalk",
+        "EventChapter05LexAzelleTalk",
+        "EventChapter05SilviaClaudTalk",
+        "EventChapter05TailtiuAzelleTalk",
+        "EventChapter05TailtiuClaudTalk",
+        "EventChapter05TailtiuLexTalk",
+        "EventChapterFinalDozelSeized"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 106,
+      "label": "A Time of Sadness",
+      "uses": [
+        "EventChapter01EthlynDied",
+        "EventChapter01FinnDied",
+        "EventChapter01QuanDied",
+        "EventChapter02EthlynDied",
+        "EventChapter02FinnDied",
+        "EventChapter02QuanDied",
+        "EventChapter03EthlynDied",
+        "EventChapter03FinnDied",
+        "EventChapter03QuanDied",
+        "EventGen1HomeCastleSeized",
+        "EventGen2HomeCastleSeized",
+        "EventPrologueEthlynDied",
+        "EventPrologueFinnDied",
+        "EventPrologueQuanDied",
+        "EventSeliphDeathReaction",
+        "EventSigurdDeathReaction"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 107,
+      "label": "Crisis 1",
+      "uses": [
+        "EventChapter02LewynSilviaSpawn",
+        "EventChapter02Opening",
+        "EventChapter03Ending",
+        "EventChapter03Opening",
+        "EventChapter04AnnandPamelaCloseByTalk",
+        "EventChapter04AnnandSpawn",
+        "EventChapter04ZaxonSpawn",
+        "EventChapter05ThraciaSpawn",
+        "EventChapter06Opening",
+        "EventChapter08MeathSpawn",
+        "EventChapter10Opening"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 108,
+      "label": "Enemy Message 1",
+      "uses": [
+        "EventChapter01EdainGroupSpawn",
+        "EventChapter03OrgahilSpawn",
+        "EventChapter04DonovanSpawn",
+        "EventChapter04Opening",
+        "EventChapter04RaiseBridge",
+        "EventChapter04SilesseSeizedDaccarResponse",
+        "EventChapter07AresRecruitment",
+        "EventChapter09CoirpreHostage",
+        "EventPrologueEdainAbduction"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 109,
+      "label": "City of Grandbell",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 110,
+      "label": "City of Agustria",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 111,
+      "label": "Dew and Patty",
+      "uses": [
+        "EventChapter01DewEdainTalk",
+        "EventChapter02DewLachesisTalk",
+        "EventChapter06Village2Seliph",
+        "EventChapter07DaisyShannanAdjacent",
+        "EventChapter07PattyDaisy_SeliphTalk",
+        "EventChapter09HawkLutheciaVisit",
+        "EventChapter09PattyDaisy_CoirpreCharlotTalk",
+        "EventChapter10LesterDeimne_PattyDaisyTalk",
+        "EventChapterFinalPattyDaisy_SeliphTalk",
+        "EventChapterFinalPattyDaisy_ShannanTalk",
+        "EventChapterFinalPattyLesterTalk"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 112,
+      "label": "Manster Castle",
+      "uses": [
+        "EventChapter01QuanFinnTalk",
+        "EventChapter02QuanFinnTalk",
+        "EventChapter03EthlynQuanTalk",
+        "EventChapter04Opening",
+        "EventChapter05LeonsterSpawn",
+        "EventChapter08FinnLeifTalk"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 113,
+      "label": "City of Miletos",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 114,
+      "label": "Game Over",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 115,
+      "label": "New Allies",
+      "uses": [
+        "EventChapter01EdainJamkeTalk",
+        "EventChapter01SigurdAyraTalk",
+        "EventChapter01SigurdEdainTalk",
+        "EventChapter02BeowulfTalkSuccess",
+        "EventChapter02ChulainnRecruitmentEvans",
+        "EventChapter02ChulainnRecruitmentHeirhein",
+        "EventChapter02ChulainnRecruitmentInfini",
+        "EventChapter02ChulainnRecruitmentMackily",
+        "EventChapter02ChulainnRecruitmentNordion",
+        "EventChapter02ErinysSigurdTalk",
+        "EventChapter02SigurdLewynTalk",
+        "EventChapter03SigurdBrigidTalk",
+        "EventChapter06ArthurAmid_SeliphTalk",
+        "EventChapter06FeeSeliphTalk",
+        "EventChapter06HerminaSeliphTalk",
+        "EventChapter06LesterLanaTalk",
+        "EventChapter06OifeyGroupSpawn",
+        "EventChapter07AresDahnaVisit",
+        "EventChapter07AresRecruitment",
+        "EventChapter07LarceiCreidne_ShannanTalk",
+        "EventChapter08FebailAsaello_SeliphTalk",
+        "EventChapter08HerminaHawkTalk",
+        "EventChapter08PattyDaisy_FebailAsaelloTalk",
+        "EventChapter08Seliph_CedHawkTalk",
+        "EventChapter09CoirpreCharlot_HannibalTalk",
+        "EventPrologueLexAzelleSpawn",
+        "EventPrologueQuanGroupSpawn",
+        "EventPrologueUnusedMidirAzelleTalk",
+        "EventPrologueYngviSeized"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 116,
+      "label": "Emperor Alvis",
+      "uses": [
+        "EventChapter05BelhallaConversation",
+        "EventChapter05Ending",
+        "EventChapter05PhinoraSpawn",
+        "EventChapter10MiletosSpawn",
+        "EventPrologueArvisSpawn",
+        "EventPrologueSigurdArvisTalk"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 117,
+      "label": "Conversation 2",
+      "uses": [
+        "EventChapter03ChulainnAyraTalk",
+        "EventChapter03LexAyraTalk",
+        "EventChapter06DalvinCreidneTalk",
+        "EventChapter06ScathachLarceiTalk",
+        "EventChapter07Oifey_DiarmuidTristanTalk",
+        "EventChapter09AsaelloDaisyTalk",
+        "EventPrologueUnusedAlecEthlynTalk",
+        "EventPrologueUnusedNaoiseAlecTalk"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 118,
+      "label": "Victory 1 (End of Map)",
+      "uses": [
+        "EventChapter02InfiniSeized",
+        "EventChapter03Ending",
+        "EventChapter04Ending",
+        "EventChapter05Ending",
+        "EventChapter07Ending",
+        "EventChapter10Ending",
+        "EventPrologueEnding"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 119,
+      "label": "Victory 2",
+      "uses": [
+        "EventChapter01Ending",
+        "EventChapter01GenoaSeized",
+        "EventChapter02Ending",
+        "EventChapter02SigurdLachesisTalk",
+        "EventChapter03SylvaleSeized",
+        "EventChapter04SilesseSeized",
+        "EventChapter07MelgenSeized",
+        "EventChapter08Ending",
+        "EventChapter09GrutiaSeized",
+        "EventChapter09HannibalNotRecruited",
+        "EventChapter09LutheciaSeized",
+        "EventChapter10ChronosSeized",
+        "EventChapter10MiletosSeized",
+        "EventChapter10RadosSeized",
+        "EventChapterFinalEddaSeized"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 120,
+      "label": "A Disappointing Outcome",
+      "uses": [
+        "EventChapter05Ending"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 121,
+      "label": "Chapter Prologue",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 122,
+      "label": "Lopto Cult Theme",
+      "uses": [
+        "EventChapter03MadinoSeized",
+        "EventChapter07KutuzovFenrirFound",
+        "EventChapter07Opening",
+        "EventChapterFinalSeliphJuliaTalkManfroyAlive"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 123,
+      "label": "Tinny's Theme",
+      "uses": [
+        "EventChapter04TailtiuAzelleTalk",
+        "EventChapter07TineLinda_SeliphTalk",
+        "EventChapter08Seliph_TineLindaTalk",
+        "EventChapter10SeliphTineTalk",
+        "EventChapterFinalAmidLindaTalk",
+        "EventChapterFinalArthurTineTalk",
+        "EventChapterFinalTineLinda_CedHawkTalk",
+        "EventChapterFinalTineLinda_LeifTalk",
+        "EventChapterFinalTineLinda_SeliphTalk"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 124,
+      "label": "Victory 1 (no intro)",
+      "uses": [
+        "EventChapter01GenoaSeized",
+        "EventChapter02HeirheinSeized",
+        "EventChapter02MackilySeized",
+        "EventChapter03MadinoSeized",
+        "EventChapter04TofaSeized",
+        "EventChapter05PhinoraSeized",
+        "EventChapter06GaneishireSeized",
+        "EventChapter06IsaachSeized",
+        "EventChapter06SofalaSeized",
+        "EventChapter07LeonsterSeized",
+        "EventChapter08ConnachtSeized"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 125,
+      "label": "Victory 1 (Rivough conquered)",
+      "uses": [
+        "EventChapter06Ending"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 126,
+      "label": "Celice's Theme (Ending)",
+      "uses": [
+        "EventChapterFinalEnding"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 129,
+      "label": "Destiny 2",
+      "uses": [
+        "EventChapter09AltenaRespawn",
+        "EventChapter09HannibalCharge",
+        "EventChapter09LeifAltenaTalk",
+        "EventChapter09TravantSpawnAltenaDead",
+        "EventChapter10CoirpreCharlot_AltenaTalk",
+        "EventChapterFinalAltenaArionTalk"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 130,
+      "label": "The Final Challenge, Assault",
+      "uses": [
+        "EventChapter07Shannan_PattyDaisyTalk",
+        "EventChapter09SeliphHannibalTalk",
+        "EventChapterFinalFriegeSeized",
+        "EventChapterFinalOpening"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 131,
+      "label": "Yurius's Theme",
+      "uses": [
+        "EventChapter08IshtarDied",
+        "EventChapter08IshtarLeave",
+        "EventChapter09ArionDied",
+        "EventChapter10IshtarDied",
+        "EventChapter10IshtarKilledUnit",
+        "EventChapter10JuliusDied",
+        "EventChapter10JuliusKilledUnit",
+        "EventChapterFinalBelhallaSpawn",
+        "EventChapterFinalOpening",
+        "EventChapterFinalVelthomerSeized"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 132,
+      "label": "Yuria's Theme",
+      "uses": [
+        "EventChapter06JuliaSeliphTalk",
+        "EventChapter06LanaMuirne_JuliaTalk",
+        "EventChapter09JuliaSeliphTalk",
+        "EventChapterFinalJuliusDied",
+        "EventChapterFinalSeliphJuliaTalkManfroyDead"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 133,
+      "label": "Enemy Message 3",
+      "uses": [
+        "EventChapter05EthlynDied",
+        "EventChapter05QuanAndEthlynDead",
+        "EventChapter05ThraciaSpawn",
+        "EventChapter08CoulterCharge",
+        "EventChapter08MeathSpawn",
+        "EventChapter08Opening",
+        "EventChapter09HannibalDefend",
+        "EventChapter09Opening",
+        "EventChapter09ThraciaSpawn",
+        "EventChapterFinalThraciaSpawn"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 134,
+      "label": "Levin Speaks",
+      "uses": [
+        "EventChapter07AedSeized",
+        "EventChapter07DahnaSeized",
+        "EventChapter09ThraciaSeized"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 135,
+      "label": "Celice's Theme (Normal)",
+      "uses": [
+        "EventChapter06OifeySeliphTalk",
+        "EventChapterFinalVillage2"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 136,
+      "label": "City of Verdane",
+      "uses": [
+        "EventChapter02ChulainnRecruitmentEvans"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 137,
+      "label": "City of Silesia",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 138,
+      "label": "City of Isaac",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 139,
+      "label": "City of Yied",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 140,
+      "label": "City of Manster",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 141,
+      "label": "Conspiracy",
+      "uses": []
+    },
+    {
+      "kind": "music",
+      "value": 142,
+      "label": "Golden Axe, Silver Axe (Water)",
+      "uses": [
+        "EventChapter01LexBraveAxe"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 145,
+      "label": "Isaac Castle",
+      "uses": [
+        "EventChapter01AyraQuanTalk",
+        "EventChapterFinalEnding"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 146,
+      "label": "Thracia Castle",
+      "uses": [
+        "EventChapterFinalEnding"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 147,
+      "label": "Verdane Castle",
+      "uses": [
+        "EventChapterFinalEnding"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 148,
+      "label": "Jungby Castle",
+      "uses": [
+        "EventChapterFinalEnding"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 149,
+      "label": "Freege Castle",
+      "uses": [
+        "EventChapterFinalEnding"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 150,
+      "label": "Dozel Castle",
+      "uses": [
+        "EventChapterFinalEnding"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 151,
+      "label": "Edda Castle",
+      "uses": [
+        "EventChapterFinalEnding"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 152,
+      "label": "Velthomer Castle",
+      "uses": [
+        "EventChapterFinalEnding"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 153,
+      "label": "Chalphy Castle",
+      "uses": [
+        "EventChapterFinalEnding"
+      ]
+    },
+    {
+      "kind": "music",
+      "value": 154,
+      "label": "The Warrior of the Wind",
+      "uses": [
+        "EventChapterFinalEnding"
+      ]
+    },
+    {
+      "kind": "byte",
+      "value": 26,
+      "label": "Byte effect $1A",
+      "uses": [
+        "Game code: TempStuff"
+      ]
+    },
+    {
+      "kind": "byte",
+      "value": 33,
+      "label": "Byte effect $21",
+      "uses": [
+        "Game code: TempStuff"
+      ]
+    },
+    {
+      "kind": "byte",
+      "value": 73,
+      "label": "Byte effect $49",
+      "uses": [
+        "Game code: TempStuff"
+      ]
+    },
+    {
+      "kind": "byte",
+      "value": 106,
+      "label": "Byte effect $6A",
+      "uses": [
+        "EventChapter04LowerBridge",
+        "EventChapter04RaiseBridge",
+        "EventChapter04TofaSeized",
+        "EventPrologueEdainAbduction"
+      ]
+    },
+    {
+      "kind": "byte",
+      "value": 107,
+      "label": "Byte effect $6B",
+      "uses": [
+        "EventChapter03OrgahilSpawn",
+        "EventPrologueEvansSpawn"
+      ]
+    },
+    {
+      "kind": "word",
+      "value": 10,
+      "label": "Menu confirmation cue",
+      "uses": [
+        "Game code: TempStuff"
+      ],
+      "description": "Used when accepting a map-menu action with A. Plays a sound sequence; it does not change the music volume. Its sound depends on the loaded sound bank.",
+      "evidence": "Use verified in native menu code; exact sound-bank identity is not independently named.",
+      "confidence": "Verified for native FE4"
+    },
+    {
+      "kind": "word",
+      "value": 20,
+      "label": "Dialogue text blip (variant 3)",
+      "uses": [
+        "Game code: Dialogue"
+      ],
+      "description": "The dialogue text-sound routine uses this cue for text-sound setting 3. This is a text/voice blip, not a music fade. Its sound depends on the loaded bank.",
+      "evidence": "Verified in rsDialoguePlayTextSound at CPU $9189B4.",
+      "confidence": "Verified for native FE4"
+    },
+    {
+      "kind": "word",
+      "value": 33,
+      "label": "Menu cancel / back cue",
+      "uses": [
+        "Game code: TempStuff"
+      ],
+      "description": "Used when backing out of a map-menu action with B. Plays a sound sequence without changing the music volume; its sound depends on the loaded bank.",
+      "evidence": "Use verified in native menu code; exact sound-bank identity is not independently named.",
+      "confidence": "Verified for native FE4"
+    },
+    {
+      "kind": "word",
+      "value": 208,
+      "label": "Music synchronization signal",
+      "uses": [
+        "Game code: Events"
+      ],
+      "description": "Sets an audio-driver synchronization flag, which a waiting music sequence can check. It does not select a track or perform a fade. The precise audible cue affected in each scene is not fully verified.",
+      "evidence": "Flag write and sequence wait check verified in SPC code; scene-specific musical purpose remains partly understood.",
+      "confidence": "Partly understood"
+    },
+    {
+      "kind": "word",
+      "value": 224,
+      "label": "Fade out / stop music (~0.5 s)",
+      "uses": [
+        "Bank91",
+        "EventChapter01AyraQuanTalk",
+        "EventChapter01AzelleEdainTalk",
+        "EventChapter01DeirdreSpawn",
+        "EventChapter01DewEdainTalk",
+        "EventChapter01EdainEthlynTalk",
+        "EventChapter01EdainGroupSpawn",
+        "EventChapter01EdainJamkeTalk",
+        "EventChapter01Ending",
+        "EventChapter01EthlynDied",
+        "EventChapter01FinnDied",
+        "EventChapter01GenoaSeized",
+        "EventChapter01HeirheinSpawn",
+        "EventChapter01LexBraveAxe",
+        "EventChapter01MarphaSeized",
+        "EventChapter01MidirEdainTalk",
+        "EventChapter01NordionSpawn",
+        "EventChapter01Opening",
+        "EventChapter01QuanDied",
+        "EventChapter01QuanFinnTalk",
+        "EventChapter01SigurdAyraTalk",
+        "EventChapter01SigurdEdainTalk",
+        "EventChapter01VerdaneSpawn",
+        "EventChapter01Village3",
+        "EventChapter02AlecSilviaTalk",
+        "EventChapter02ArdenPursuitRing",
+        "EventChapter02BeowulfLachesisTalk",
+        "EventChapter02BeowulfTalkSuccess",
+        "EventChapter02ChulainnRecruitmentEvans",
+        "EventChapter02ChulainnRecruitmentHeirhein",
+        "EventChapter02ChulainnRecruitmentInfini",
+        "EventChapter02ChulainnRecruitmentMackily",
+        "EventChapter02ChulainnRecruitmentNordion",
+        "EventChapter02DeirdreEthlynTalk",
+        "EventChapter02DewLachesisTalk",
+        "EventChapter02Ending",
+        "EventChapter02ErinysGroupArrive",
+        "EventChapter02ErinysSigurdTalk",
+        "EventChapter02EthlynDied",
+        "EventChapter02FinnDied",
+        "EventChapter02HeirheinSeized",
+        "EventChapter02InfiniBrigandsSpawn",
+        "EventChapter02InfiniSeized",
+        "EventChapter02InfiniSpawn",
+        "EventChapter02LewynErinysTalk",
+        "EventChapter02LewynSilviaSpawn",
+        "EventChapter02MackilySeized",
+        "EventChapter02MackilySpawn",
+        "EventChapter02Opening",
+        "EventChapter02QuanDied",
+        "EventChapter02QuanFinnTalk",
+        "EventChapter02SigurdLachesisTalk",
+        "EventChapter02SigurdLewynTalk",
+        "EventChapter02SilviaSigurdTalk",
+        "EventChapter03ChulainnAyraTalk",
+        "EventChapter03ClaudSigurdTalk",
+        "EventChapter03ClaudTailtiuSpawn",
+        "EventChapter03EdainBrigidTalk",
+        "EventChapter03EldiganApproachesSigurd",
+        "EventChapter03EldiganDeathSigurdResponse",
+        "EventChapter03Ending",
+        "EventChapter03EthlynDied",
+        "EventChapter03EthlynQuanTalk",
+        "EventChapter03FinnDied",
+        "EventChapter03LachesisEldiganTalk",
+        "EventChapter03LexAyraTalk",
+        "EventChapter03MadinoSeized",
+        "EventChapter03MidirBrigidTalk",
+        "EventChapter03Opening",
+        "EventChapter03OrgahilSpawn",
+        "EventChapter03QuanDied",
+        "EventChapter03SigurdApproachesEldigan",
+        "EventChapter03SigurdBrigidTalk",
+        "EventChapter03SylvaleSeized",
+        "EventChapter03SylvaleSpawn",
+        "EventChapter03ThraciaSpawn",
+        "EventChapter03TravantLeave",
+        "EventChapter04AndreyLeave",
+        "EventChapter04AndreySpawn",
+        "EventChapter04AnnandDeathAndreyResponse",
+        "EventChapter04AnnandDeathPlayerResponses",
+        "EventChapter04AnnandPamelaCloseByTalk",
+        "EventChapter04AnnandSpawn",
+        "EventChapter04DaccarAndreyPreparing",
+        "EventChapter04DonovanSpawn",
+        "EventChapter04EdainAzelleTalk",
+        "EventChapter04EdainJamkeTalk",
+        "EventChapter04EdainMidirTalk",
+        "EventChapter04Ending",
+        "EventChapter04ErinysLewynTalk",
+        "EventChapter04ErinysSilviaAdjacent",
+        "EventChapter04LewynSigurdTalk",
+        "EventChapter04LewynSilesseVisit",
+        "EventChapter04Opening",
+        "EventChapter04PamelaSpawn",
+        "EventChapter04RaiseBridge",
+        "EventChapter04SigurdClaudTalk",
+        "EventChapter04SilesseSeized",
+        "EventChapter04SilesseSeizedDaccarResponse",
+        "EventChapter04SilviaClaudTalk",
+        "EventChapter04TailtiuAzelleTalk",
+        "EventChapter04TofaSeized",
+        "EventChapter04VillageSafeguardSilvia",
+        "EventChapter04ZaxonSpawn",
+        "EventChapter05AidaBetrayal",
+        "EventChapter05AlecNaoiseTalk",
+        "EventChapter05ArdenOnCliff",
+        "EventChapter05AyraArdenTalk",
+        "EventChapter05AyraChulainnTalk",
+        "EventChapter05AyraLexTalk",
+        "EventChapter05BelhallaConversation",
+        "EventChapter05BrigidAlecTalk",
+        "EventChapter05BrigidJamkeTalk",
+        "EventChapter05BrigidMidirTalk",
+        "EventChapter05ClaudEdainTalk",
+        "EventChapter05DewJamkeTalk",
+        "EventChapter05EdainBrigidTalk",
+        "EventChapter05Ending",
+        "EventChapter05ErinysArdenTalk",
+        "EventChapter05ErinysLewynTalk",
+        "EventChapter05ErinysNaoiseTalk",
+        "EventChapter05EthlynDied",
+        "EventChapter05LachesisBeowulfTalk",
+        "EventChapter05LachesisDewTalk",
+        "EventChapter05LachesisNaoiseTalk",
+        "EventChapter05LeonsterSpawn",
+        "EventChapter05LexAzelleTalk",
+        "EventChapter05LubeckSeized",
+        "EventChapter05Opening",
+        "EventChapter05PhinoraSeized",
+        "EventChapter05PhinoraSpawn",
+        "EventChapter05QuanAndEthlynDead",
+        "EventChapter05SigurdAyraTalk",
+        "EventChapter05SigurdByronTalk",
+        "EventChapter05SilviaAlecTalk",
+        "EventChapter05SilviaClaudTalk",
+        "EventChapter05SilviaLewynTalk",
+        "EventChapter05TailtiuAzelleTalk",
+        "EventChapter05TailtiuClaudTalk",
+        "EventChapter05TailtiuLexTalk",
+        "EventChapter05ThraciaSpawn",
+        "EventChapter06ArthurAmid_SeliphTalk",
+        "EventChapter06DalvinCreidneTalk",
+        "EventChapter06DeimneIsaachVisit",
+        "EventChapter06DeimneMuirneTalk",
+        "EventChapter06Ending",
+        "EventChapter06FeeArthurSpawn",
+        "EventChapter06FeeSeliphTalk",
+        "EventChapter06GaneishireSeized",
+        "EventChapter06HerminaSeliphTalk",
+        "EventChapter06IsaachSeized",
+        "EventChapter06JuliaSeliphTalk",
+        "EventChapter06LanaMuirne_JuliaTalk",
+        "EventChapter06LarceiCreidne_IucharTalk",
+        "EventChapter06LarceiCreidne_IucharbaTalk",
+        "EventChapter06LesterLanaTalk",
+        "EventChapter06OifeyGroupSpawn",
+        "EventChapter06OifeySeliphTalk",
+        "EventChapter06Opening",
+        "EventChapter06ScathachLarceiTalk",
+        "EventChapter06Seliph_LanaMuirneTalk",
+        "EventChapter06SofalaSeized",
+        "EventChapter06Village2Seliph",
+        "EventChapter07AedSeized",
+        "EventChapter07AresDahnaVisit",
+        "EventChapter07AresRecruitment",
+        "EventChapter07AresSeliphTalk",
+        "EventChapter07AresThreatensBramsel",
+        "EventChapter07ArthurAmid_TineLindaTalk",
+        "EventChapter07BramselWaiting",
+        "EventChapter07DahnaSeized",
+        "EventChapter07DaisyShannanAdjacent",
+        "EventChapter07DiarmuidNannaTalk",
+        "EventChapter07Ending",
+        "EventChapter07FinnLanaTalk",
+        "EventChapter07FinnLarceiTalk",
+        "EventChapter07FinnNannaTalk",
+        "EventChapter07KutuzovFenrirFound",
+        "EventChapter07LarceiCreidne_ShannanTalk",
+        "EventChapter07LeifSeliphTalk",
+        "EventChapter07LeneLaylea_SeliphTalk",
+        "EventChapter07LeonsterSeized",
+        "EventChapter07MelgenSeized",
+        "EventChapter07MelgenSpawn",
+        "EventChapter07Oifey_DiarmuidTristanTalk",
+        "EventChapter07Opening",
+        "EventChapter07PattyDaisy_SeliphTalk",
+        "EventChapter07SeliphShannanTalk",
+        "EventChapter07Shannan_PattyDaisyTalk",
+        "EventChapter07TineLinda_SeliphTalk",
+        "EventChapter07TristanJeanneTalk",
+        "EventChapter07UlsterSpawn",
+        "EventChapter07VillageBarrierBladeLaylea",
+        "EventChapter08ArthurAmid_FeeHerminaTalk",
+        "EventChapter08CedSeliphTalk",
+        "EventChapter08ConnachtSeized",
+        "EventChapter08CoulterCharge",
+        "EventChapter08Ending",
+        "EventChapter08FebailAsaello_SeliphTalk",
+        "EventChapter08FebailAsaello_Spawn",
+        "EventChapter08FeeCedTalk",
+        "EventChapter08FinnLeifTalk",
+        "EventChapter08HerminaHawkTalk",
+        "EventChapter08IshtarDied",
+        "EventChapter08IshtarLeave",
+        "EventChapter08IshtarSpawn",
+        "EventChapter08JuliaSeliphTalk",
+        "EventChapter08MeathSpawn",
+        "EventChapter08MuirneSeliphAdjacent",
+        "EventChapter08NannaAresTalk",
+        "EventChapter08Opening",
+        "EventChapter08PattyDaisy_FebailAsaelloTalk",
+        "EventChapter08Seliph_CedHawkTalk",
+        "EventChapter08Seliph_TineLindaTalk",
+        "EventChapter09AltenaRespawn",
+        "EventChapter09ArionDied",
+        "EventChapter09AsaelloDaisyTalk",
+        "EventChapter09CoirpreCharlot_HannibalTalk",
+        "EventChapter09CoirpreHostage",
+        "EventChapter09FebailPattyTalk",
+        "EventChapter09FinnAltenaTalk",
+        "EventChapter09GrutiaSeized",
+        "EventChapter09GrutiaSpawn",
+        "EventChapter09HannibalAltenaTalk",
+        "EventChapter09HannibalCharge",
+        "EventChapter09HannibalDefend",
+        "EventChapter09HannibalNotRecruited",
+        "EventChapter09HawkLutheciaVisit",
+        "EventChapter09JuliaSeliphTalk",
+        "EventChapter09LayleaCharlotTalk",
+        "EventChapter09LeifAltenaTalk",
+        "EventChapter09LeneCoirpreTalk",
+        "EventChapter09LutheciaSeized",
+        "EventChapter09Opening",
+        "EventChapter09PattyDaisy_CoirpreCharlotTalk",
+        "EventChapter09SeliphAltenaTalk",
+        "EventChapter09SeliphHannibalTalk",
+        "EventChapter09ThraciaSeized",
+        "EventChapter09ThraciaSpawn",
+        "EventChapter09TravantSpawnAltenaDead",
+        "EventChapter10ChalphySpawn",
+        "EventChapter10ChronosSeized",
+        "EventChapter10CoirpreCharlot_AltenaTalk",
+        "EventChapter10Ending",
+        "EventChapter10FebailAsaello_LanaMuirneTalk",
+        "EventChapter10IshtarDied",
+        "EventChapter10IshtarKilledUnit",
+        "EventChapter10JuliusDied",
+        "EventChapter10JuliusKilledUnit",
+        "EventChapter10LeifAltenaTalk",
+        "EventChapter10LesterDeimne_PattyDaisyTalk",
+        "EventChapter10MiletosSeized",
+        "EventChapter10MiletosSpawn",
+        "EventChapter10NannaJeanne_LeifTalk",
+        "EventChapter10OifeySeliphTalk",
+        "EventChapter10Opening",
+        "EventChapter10RadosSeized",
+        "EventChapter10SeliphFeeTalk",
+        "EventChapter10SeliphLeneTalk",
+        "EventChapter10SeliphPalmarchTalk",
+        "EventChapter10SeliphTineTalk",
+        "EventChapter10ShannanSeliphTalk",
+        "EventChapterFinalAltenaArionTalk",
+        "EventChapterFinalAmidLindaTalk",
+        "EventChapterFinalArthurTineTalk",
+        "EventChapterFinalBelhallaSpawn",
+        "EventChapterFinalDaisyDeimneTalk",
+        "EventChapterFinalDozelSeized",
+        "EventChapterFinalEddaSeized",
+        "EventChapterFinalFeeHermina_ArthurAmidTalk",
+        "EventChapterFinalFeeHermina_SeliphTalk",
+        "EventChapterFinalFeeOifeyTalk",
+        "EventChapterFinalFriegeSeized",
+        "EventChapterFinalFriegeSpawn",
+        "EventChapterFinalJeanneLeifTalk",
+        "EventChapterFinalJuliaVelthomerVisit",
+        "EventChapterFinalJuliusDied",
+        "EventChapterFinalLanaFebailTalk",
+        "EventChapterFinalLanaMuirne_ScathachDalvinTalk",
+        "EventChapterFinalLanaMuirne_SeliphTalk",
+        "EventChapterFinalLarceiCreidne_IucharTalk",
+        "EventChapterFinalLarceiCreidne_IucharbaTalk",
+        "EventChapterFinalLarceiCreidne_SeliphTalk",
+        "EventChapterFinalLarceiCreidne_ShannanTalk",
+        "EventChapterFinalMuirneAsaelloTalk",
+        "EventChapterFinalNannaAresTalk",
+        "EventChapterFinalNannaJeanne_SeliphTalk",
+        "EventChapterFinalNannaLeifTalk",
+        "EventChapterFinalOpening",
+        "EventChapterFinalPattyDaisy_SeliphTalk",
+        "EventChapterFinalPattyDaisy_ShannanTalk",
+        "EventChapterFinalPattyLesterTalk",
+        "EventChapterFinalSeliphJuliaTalkManfroyAlive",
+        "EventChapterFinalSeliphJuliaTalkManfroyDead",
+        "EventChapterFinalThraciaSpawn",
+        "EventChapterFinalTineLinda_CedHawkTalk",
+        "EventChapterFinalTineLinda_LeifTalk",
+        "EventChapterFinalTineLinda_SeliphTalk",
+        "EventChapterFinalVelthomerSeized",
+        "EventChapterFinalVillage1",
+        "EventChapterFinalVillage2",
+        "EventChapterFinalYngviSpawn",
+        "EventGen1HomeCastleSeized",
+        "EventGen2HomeCastleSeized",
+        "EventPrologueAzelleSigurdTalk",
+        "EventPrologueEdainAbduction",
+        "EventPrologueEnding",
+        "EventPrologueEthlynDied",
+        "EventPrologueEthlynSigurdTalk",
+        "EventPrologueFinnDied",
+        "EventPrologueLexAzelleSpawn",
+        "EventPrologueLexSigurdTalk",
+        "EventPrologueOpening",
+        "EventPrologueQuanDied",
+        "EventPrologueQuanGroupSpawn",
+        "EventPrologueQuanSigurdTalk",
+        "EventPrologueSigurdArvisTalk",
+        "EventPrologueUnusedAlecEthlynTalk",
+        "EventPrologueUnusedMidirAzelleTalk",
+        "EventPrologueUnusedNaoiseAlecTalk",
+        "EventPrologueYngviSeized",
+        "EventSeliphDeathReaction",
+        "EventSigurdDeathReaction",
+        "Game code: TempStuff"
+      ],
+      "description": "Fades music volume to zero over 31 driver ticks (about 0.5 seconds in the preview), then stops the current music sequence. $00E0 is fastest; $00E7 is slowest. To hear music again after completion, use Play Song; $00E8 alone does not restart the stopped track.",
+      "evidence": "SPC fade handler, countdown and stopped-sequence traces verified. Times are approximate and specific to the native driver.",
+      "ticks": 31,
+      "target": 0,
+      "confidence": "Verified for native FE4"
+    },
+    {
+      "kind": "word",
+      "value": 225,
+      "label": "Fade out / stop music (~1.0 s)",
+      "uses": [
+        "EventChapter01EthlynDied",
+        "EventChapter01FinnDied",
+        "EventChapter01QuanDied",
+        "EventChapter01WorldMap",
+        "EventChapter02EthlynDied",
+        "EventChapter02FinnDied",
+        "EventChapter02QuanDied",
+        "EventChapter02WorldMap",
+        "EventChapter03DewBragiTower",
+        "EventChapter03EthlynDied",
+        "EventChapter03FinnDied",
+        "EventChapter03QuanDied",
+        "EventChapter03WorldMap",
+        "EventChapter04WorldMap",
+        "EventChapter05WorldMap",
+        "EventChapter06WorldMap",
+        "EventChapter07WorldMap",
+        "EventChapter08WorldMap",
+        "EventChapter09WorldMap",
+        "EventChapter10SeliphAtSea",
+        "EventChapter10WorldMap",
+        "EventPrologueArvisSpawn",
+        "EventPrologueEthlynDied",
+        "EventPrologueFinnDied",
+        "EventPrologueQuanDied",
+        "EventPrologueWorldMap"
+      ],
+      "description": "Fades music volume to zero over 63 driver ticks (about 1.0 seconds in the preview), then stops the current music sequence. $00E0 is fastest; $00E7 is slowest. To hear music again after completion, use Play Song; $00E8 alone does not restart the stopped track.",
+      "evidence": "SPC fade handler, countdown and stopped-sequence traces verified. Times are approximate and specific to the native driver.",
+      "ticks": 63,
+      "target": 0,
+      "confidence": "Verified for native FE4"
+    },
+    {
+      "kind": "word",
+      "value": 226,
+      "label": "Fade out / stop music (~1.5 s)",
+      "uses": [
+        "EventChapter03MadinoSeized",
+        "EventChapter05PhinoraSeized",
+        "EventChapter05ThraciaSpawn",
+        "EventChapter07UlsterSpawn",
+        "EventChapter10SeliphAtSea",
+        "EventChapterFinalEnding"
+      ],
+      "description": "Fades music volume to zero over 95 driver ticks (about 1.5 seconds in the preview), then stops the current music sequence. $00E0 is fastest; $00E7 is slowest. To hear music again after completion, use Play Song; $00E8 alone does not restart the stopped track.",
+      "evidence": "SPC fade handler, countdown and stopped-sequence traces verified. Times are approximate and specific to the native driver.",
+      "ticks": 95,
+      "target": 0,
+      "confidence": "Verified for native FE4"
+    },
+    {
+      "kind": "word",
+      "value": 227,
+      "label": "Fade out / stop music (~2.0 s)",
+      "uses": [
+        "EventChapter03Opening",
+        "EventChapter07Opening",
+        "EventChapter08Opening",
+        "EventChapterFinalOpening"
+      ],
+      "description": "Fades music volume to zero over 127 driver ticks (about 2.0 seconds in the preview), then stops the current music sequence. $00E0 is fastest; $00E7 is slowest. To hear music again after completion, use Play Song; $00E8 alone does not restart the stopped track.",
+      "evidence": "SPC fade handler, countdown and stopped-sequence traces verified. Times are approximate and specific to the native driver.",
+      "ticks": 127,
+      "target": 0,
+      "confidence": "Verified for native FE4"
+    },
+    {
+      "kind": "word",
+      "value": 228,
+      "label": "Fade out / stop music (~2.5 s)",
+      "uses": [
+        "EventChapter03Opening",
+        "EventChapter04Opening",
+        "EventChapter05Ending"
+      ],
+      "description": "Fades music volume to zero over 159 driver ticks (about 2.5 seconds in the preview), then stops the current music sequence. $00E0 is fastest; $00E7 is slowest. To hear music again after completion, use Play Song; $00E8 alone does not restart the stopped track.",
+      "evidence": "SPC fade handler, countdown and stopped-sequence traces verified. Times are approximate and specific to the native driver.",
+      "ticks": 159,
+      "target": 0,
+      "confidence": "Verified for native FE4"
+    },
+    {
+      "kind": "word",
+      "value": 229,
+      "label": "Fade out / stop music (~3.1 s)",
+      "uses": [
+        "EventChapter03Ending",
+        "EventChapter03Opening",
+        "EventChapter07UlsterSpawn",
+        "EventChapter09Opening"
+      ],
+      "description": "Fades music volume to zero over 191 driver ticks (about 3.1 seconds in the preview), then stops the current music sequence. $00E0 is fastest; $00E7 is slowest. To hear music again after completion, use Play Song; $00E8 alone does not restart the stopped track.",
+      "evidence": "SPC fade handler, countdown and stopped-sequence traces verified. Times are approximate and specific to the native driver.",
+      "ticks": 191,
+      "target": 0,
+      "confidence": "Verified for native FE4"
+    },
+    {
+      "kind": "word",
+      "value": 230,
+      "label": "Fade out / stop music (~3.6 s)",
+      "uses": [
+        "EventChapter01Opening",
+        "EventChapter06Opening",
+        "EventChapter07Opening",
+        "EventChapter09GrutiaSpawn"
+      ],
+      "description": "Fades music volume to zero over 223 driver ticks (about 3.6 seconds in the preview), then stops the current music sequence. $00E0 is fastest; $00E7 is slowest. To hear music again after completion, use Play Song; $00E8 alone does not restart the stopped track.",
+      "evidence": "SPC fade handler, countdown and stopped-sequence traces verified. Times are approximate and specific to the native driver.",
+      "ticks": 223,
+      "target": 0,
+      "confidence": "Verified for native FE4"
+    },
+    {
+      "kind": "word",
+      "value": 231,
+      "label": "Fade out / stop music (~4.1 s)",
+      "uses": [
+        "EventChapter02Opening",
+        "EventChapter05Ending",
+        "EventChapterFinalJuliaVelthomerVisit"
+      ],
+      "description": "Fades music volume to zero over 255 driver ticks (about 4.1 seconds in the preview), then stops the current music sequence. $00E0 is fastest; $00E7 is slowest. To hear music again after completion, use Play Song; $00E8 alone does not restart the stopped track.",
+      "evidence": "SPC fade handler, countdown and stopped-sequence traces verified. Times are approximate and specific to the native driver.",
+      "ticks": 255,
+      "target": 0,
+      "confidence": "Verified for native FE4"
+    },
+    {
+      "kind": "word",
+      "value": 232,
+      "label": "Restore music volume (~0.5 s)",
+      "uses": [
+        "EventChapter03Village4",
+        "EventChapter03VillageDefense",
+        "EventChapter03VillageStrength",
+        "EventChapter06CreidneIucharAdjacent",
+        "EventChapter06CreidneIucharbaAdjacent",
+        "EventChapter07DalvinTristanAdjacent",
+        "EventChapter08AmidOnTree",
+        "EventChapter08LindaOnTree",
+        "EventChapter08Village3Asaello",
+        "EventChapter09Village4Special"
+      ],
+      "description": "Fades music volume up to its full internal level of 255 over 31 driver ticks (about 0.5 seconds in the preview). It restores music ducked by $00F7 / $7FF7. It does not choose a track or restart music already stopped by a completed fade-out.",
+      "evidence": "SPC handler and volume traces verified; native village scripts pair $7FF7 with $00E8.",
+      "ticks": 31,
+      "target": 255,
+      "preview_note": "With background music selected, the preview first reduces its volume so this restoration can be heard.",
+      "confidence": "Verified for native FE4"
+    },
+    {
+      "kind": "word",
+      "value": 247,
+      "label": "Duck music to 60/255 (~24%)",
+      "uses": [
+        "Game code: TempStuff"
+      ],
+      "description": "Fades music volume to internal level 60 over 24 driver ticks (about 0.4 seconds), leaving the track running. With a zero high byte, the driver uses 60 as its default target. $00E8 restores full volume.",
+      "evidence": "SPC parameter handler and final-volume trace verified.",
+      "ticks": 24,
+      "target": 60,
+      "confidence": "Verified for native FE4"
+    },
+    {
+      "kind": "word",
+      "value": 32759,
+      "label": "Duck music to 127/255 (~50%)",
+      "uses": [
+        "EventChapter02MountainArmorTalk",
+        "EventChapter03DewBragiTower",
+        "EventChapter03Village4",
+        "EventChapter03VillageDefense",
+        "EventChapter03VillageStrength",
+        "EventChapter04VillageSafeguardSilvia",
+        "EventChapter06CreidneIucharAdjacent",
+        "EventChapter06CreidneIucharbaAdjacent",
+        "EventChapter07DalvinTristanAdjacent",
+        "EventChapter08AmidOnTree",
+        "EventChapter08LindaOnTree",
+        "EventChapter08Village3Asaello",
+        "EventChapter09Village4Special"
+      ],
+      "description": "Fades music volume to internal level 127 over 24 driver ticks (about 0.4 seconds), leaving the track running. The high byte $7F supplies the target level: this is not interchangeable with $00F7. Commonly used to lower background music during village dialogue/rewards; $00E8 restores it.",
+      "evidence": "SPC high-byte parameter handling, native village call sites and final-volume trace verified.",
+      "ticks": 24,
+      "target": 127,
+      "confidence": "Verified for native FE4"
+    }
+  ],
+  "guards": [
+    {
+      "start": 36771,
+      "length": 154,
+      "hash": "1092249ad0b484197e1ccfa5fadfe820df7bbc1f09fd83fe53371f622bd1b5f2"
+    },
+    {
+      "start": 38484,
+      "length": 35,
+      "hash": "9deb049666596b28898730018ee56f4a7a98a3c360d03651377f3bb3249191f2"
+    },
+    {
+      "start": 33343,
+      "length": 10,
+      "hash": "a2826d7f45a1bd6a093b4494747ba882b9ae35c168dc4518e2c956bc841da214"
+    },
+    {
+      "start": 36584,
+      "length": 14,
+      "hash": "c5263d91a648cc6745d9be2cb0b01c9c332c1a78b7df16c9a12f4d5f7b86449f"
+    }
+  ]
+}

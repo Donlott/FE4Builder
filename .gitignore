@@ -1,0 +1,74 @@
+# Publish only the editor source and its required static companion files.
+/*
+!/.gitignore
+!/README.md
+!/FE4Builder/
+!/Nightmare Modules/
+
+/FE4Builder/*
+!/FE4Builder/README.md
+!/FE4Builder/src/
+!/FE4Builder/data/
+!/FE4Builder/assets/
+!/FE4Builder/scripts/
+!/FE4Builder/tests/
+!/FE4Builder/vendor/
+
+/FE4Builder/src/*
+!/FE4Builder/src/*.py
+/FE4Builder/data/*
+!/FE4Builder/data/ai.json
+!/FE4Builder/data/army_groups.json
+!/FE4Builder/data/audio.json
+!/FE4Builder/data/conversations.json
+!/FE4Builder/data/dialogue.json
+!/FE4Builder/data/event_commands.json
+!/FE4Builder/data/events.json
+!/FE4Builder/data/intro_assets.json
+!/FE4Builder/data/logo_layouts.json
+!/FE4Builder/data/objectives.json
+!/FE4Builder/data/reinforcements.json
+!/FE4Builder/data/villages.json
+/FE4Builder/assets/*
+!/FE4Builder/assets/sigurd.ico
+!/FE4Builder/assets/sigurd-standing.png
+/FE4Builder/scripts/*
+!/FE4Builder/scripts/build_release.py
+!/FE4Builder/scripts/run_tests.py
+!/FE4Builder/scripts/Launcher.cmd
+!/FE4Builder/scripts/create_launcher.ps1
+/FE4Builder/tests/*
+!/FE4Builder/tests/*.py
+/FE4Builder/vendor/*
+!/FE4Builder/vendor/snes9x/
+/FE4Builder/vendor/snes9x/*
+!/FE4Builder/vendor/snes9x/LICENSE
+!/FE4Builder/vendor/snes9x/README.md
+!/FE4Builder/vendor/snes9x/snes9x_libretro.dll
+
+/Nightmare Modules/*
+!/Nightmare Modules/README.md
+!/Nightmare Modules/FE4 Nightmare modules/
+/Nightmare Modules/FE4 Nightmare modules/**
+!/Nightmare Modules/FE4 Nightmare modules/**/
+!/Nightmare Modules/FE4 Nightmare modules/**/*.txt
+!/Nightmare Modules/FE4 Nightmare modules/**/*.nmm
+
+# Never publish game files, generated content, credentials or user state.
+**/__pycache__/
+*.py[cod]
+*.sfc
+*.smc
+*.gba
+*.gbc
+*.sav
+*.srm
+*.state
+*.state*
+*.bak
+*.log
+*.tmp
+.env
+.env.*
+*.pem
+*.key

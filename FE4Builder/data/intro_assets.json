@@ -1,0 +1,598 @@
+{
+  "profile": "Project Naga beta 7",
+  "assets": [
+    {
+      "key": "nintendo",
+      "name": "Nintendo splash",
+      "original_pointer": 14625534,
+      "refs": [
+        {
+          "kind": "split",
+          "low": 1833981,
+          "bank": 1833986
+        }
+      ],
+      "kind": "gfx",
+      "palette": "nintendo",
+      "decoded_size": 2080,
+      "map_pointer": 14627049,
+      "map_refs": [
+        {
+          "kind": "split",
+          "low": 1834063,
+          "bank": 1834068
+        }
+      ],
+      "width": 256,
+      "height": 224,
+      "tile_capacity": 65,
+      "view": "screen"
+    },
+    {
+      "key": "nintendo_palette_alt",
+      "name": "Nintendo logo: alternate palette",
+      "kind": "raw_palette",
+      "address": 2107485,
+      "decoded_size": 30,
+      "palette": "nintendo",
+      "view": "palette",
+      "refs": []
+    },
+    {
+      "key": "nintendo_palette",
+      "name": "Nintendo logo: primary palette",
+      "kind": "raw_palette",
+      "address": 2107455,
+      "decoded_size": 30,
+      "palette": "nintendo",
+      "view": "palette",
+      "refs": []
+    },
+    {
+      "key": "title",
+      "name": "Title screen: background",
+      "original_pointer": 10256384,
+      "refs": [
+        {
+          "kind": "split",
+          "low": 1437652,
+          "bank": 1437657
+        },
+        {
+          "kind": "long",
+          "address": 1569837
+        }
+      ],
+      "kind": "gfx",
+      "palette": "title",
+      "decoded_size": 18432,
+      "map_pointer": 10271671,
+      "map_refs": [
+        {
+          "kind": "split",
+          "low": 1437693,
+          "bank": 1437698
+        }
+      ],
+      "width": 256,
+      "height": 224,
+      "scroll_y": 32,
+      "tile_capacity": 512,
+      "view": "screen"
+    },
+    {
+      "key": "title_english",
+      "name": "Title screen: English logo",
+      "original_pointer": 4390912,
+      "refs": [
+        {
+          "kind": "split",
+          "low": 1437304,
+          "bank": 1437309
+        },
+        {
+          "kind": "long",
+          "address": 1569730
+        }
+      ],
+      "kind": "gfx",
+      "palette": "title",
+      "decoded_size": 8704,
+      "view": "sheet",
+      "default_palette": 3
+    },
+    {
+      "key": "title_sheet",
+      "name": "Title screen: background/cloud tile sheet",
+      "original_pointer": 10256384,
+      "refs": [
+        {
+          "kind": "split",
+          "low": 1437652,
+          "bank": 1437657
+        },
+        {
+          "kind": "long",
+          "address": 1569837
+        }
+      ],
+      "kind": "gfx",
+      "palette": "title",
+      "decoded_size": 18432,
+      "view": "sheet",
+      "default_palette": 5
+    },
+    {
+      "key": "title_logo",
+      "name": "Title screen: sword / original logo",
+      "original_pointer": 16088644,
+      "refs": [
+        {
+          "kind": "split",
+          "low": 1437734,
+          "bank": 1437739
+        },
+        {
+          "kind": "long",
+          "address": 1569741
+        }
+      ],
+      "kind": "gfx",
+      "palette": "title",
+      "decoded_size": 11392,
+      "view": "sheet",
+      "default_palette": 10
+    },
+    {
+      "key": "title_subtitle",
+      "name": "Title screen: English subtitle tile sheet",
+      "original_pointer": 4335200,
+      "refs": [
+        {
+          "kind": "split",
+          "low": 1437529,
+          "bank": 1437534
+        },
+        {
+          "kind": "long",
+          "address": 1569826
+        }
+      ],
+      "kind": "gfx",
+      "palette": "title",
+      "decoded_size": 2816,
+      "view": "sheet"
+    },
+    {
+      "key": "title_palette",
+      "name": "Title screen: palette",
+      "original_pointer": 10272673,
+      "refs": [
+        {
+          "kind": "split",
+          "low": 1437474,
+          "bank": 1437479
+        }
+      ],
+      "kind": "palette",
+      "palette": "gray",
+      "decoded_size": 512,
+      "view": "palette"
+    },
+    {
+      "key": "caption1",
+      "name": "Intro caption 01",
+      "original_pointer": 4282240,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569180
+        }
+      ],
+      "kind": "caption",
+      "palette": "gray",
+      "decoded_size": 2048,
+      "view": "caption"
+    },
+    {
+      "key": "caption2",
+      "name": "Intro caption 02",
+      "original_pointer": 4283248,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569224
+        }
+      ],
+      "kind": "caption",
+      "palette": "gray",
+      "decoded_size": 2048,
+      "view": "caption"
+    },
+    {
+      "key": "caption3",
+      "name": "Intro caption 03",
+      "original_pointer": 4284448,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569246
+        }
+      ],
+      "kind": "caption",
+      "palette": "gray",
+      "decoded_size": 2048,
+      "view": "caption"
+    },
+    {
+      "key": "caption4",
+      "name": "Intro caption 04",
+      "original_pointer": 4285680,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569323
+        }
+      ],
+      "kind": "caption",
+      "palette": "gray",
+      "decoded_size": 2048,
+      "view": "caption"
+    },
+    {
+      "key": "caption5",
+      "name": "Intro caption 05",
+      "original_pointer": 4287056,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569367
+        }
+      ],
+      "kind": "caption",
+      "palette": "gray",
+      "decoded_size": 2048,
+      "view": "caption"
+    },
+    {
+      "key": "caption6",
+      "name": "Intro caption 06",
+      "original_pointer": 4288400,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569389
+        }
+      ],
+      "kind": "caption",
+      "palette": "gray",
+      "decoded_size": 2048,
+      "view": "caption"
+    },
+    {
+      "key": "caption7",
+      "name": "Intro caption 07",
+      "original_pointer": 4289712,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569433
+        }
+      ],
+      "kind": "caption",
+      "palette": "gray",
+      "decoded_size": 2048,
+      "view": "caption"
+    },
+    {
+      "key": "caption8",
+      "name": "Intro caption 08",
+      "original_pointer": 4291024,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569521
+        }
+      ],
+      "kind": "caption",
+      "palette": "gray",
+      "decoded_size": 2048,
+      "view": "caption"
+    },
+    {
+      "key": "caption9",
+      "name": "Intro caption 09",
+      "original_pointer": 4325392,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569609
+        }
+      ],
+      "kind": "caption",
+      "palette": "gray",
+      "decoded_size": 2048,
+      "view": "caption"
+    },
+    {
+      "key": "caption10",
+      "name": "Intro caption 10",
+      "original_pointer": 4293792,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569653
+        }
+      ],
+      "kind": "caption",
+      "palette": "gray",
+      "decoded_size": 2048,
+      "view": "caption"
+    },
+    {
+      "key": "caption11",
+      "name": "Intro caption 11",
+      "original_pointer": 4294960,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569708
+        }
+      ],
+      "kind": "caption",
+      "palette": "gray",
+      "decoded_size": 2048,
+      "view": "caption"
+    },
+    {
+      "key": "caption12",
+      "name": "Intro caption 12",
+      "original_pointer": 4295344,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569763
+        }
+      ],
+      "kind": "caption",
+      "palette": "gray",
+      "decoded_size": 2048,
+      "view": "caption"
+    },
+    {
+      "key": "caption13",
+      "name": "Intro caption 13",
+      "original_pointer": 4296128,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569785
+        }
+      ],
+      "kind": "caption",
+      "palette": "gray",
+      "decoded_size": 2048,
+      "view": "caption"
+    },
+    {
+      "key": "art1",
+      "name": "Intro artwork: lava landscape",
+      "original_pointer": 16152318,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569202
+        }
+      ],
+      "kind": "gfx",
+      "palette": "gray",
+      "decoded_size": 16384,
+      "view": "screen",
+      "map_pointer": 16065719,
+      "map_refs": [
+        {
+          "kind": "long",
+          "address": 1569213
+        }
+      ],
+      "width": 256,
+      "height": 256,
+      "map_page": 1,
+      "tile_capacity": 512
+    },
+    {
+      "key": "art3",
+      "name": "Intro artwork: ancient temple",
+      "original_pointer": 16140185,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569268
+        }
+      ],
+      "kind": "gfx",
+      "palette": "gray",
+      "decoded_size": 16384,
+      "view": "screen",
+      "map_pointer": 16065069,
+      "map_refs": [
+        {
+          "kind": "long",
+          "address": 1569279
+        }
+      ],
+      "width": 256,
+      "height": 256,
+      "map_page": 1,
+      "tile_capacity": 512
+    },
+    {
+      "key": "art5",
+      "name": "Intro artwork: cloud effects",
+      "original_pointer": 16023125,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569290
+        }
+      ],
+      "kind": "gfx",
+      "palette": "gray",
+      "decoded_size": 4096,
+      "view": "sheet"
+    },
+    {
+      "key": "art6",
+      "name": "Intro artwork: flame sprites",
+      "original_pointer": 16059016,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569312
+        }
+      ],
+      "kind": "gfx",
+      "palette": "gray",
+      "decoded_size": 8192,
+      "view": "sheet"
+    },
+    {
+      "key": "art9",
+      "name": "Intro artwork: ray effects 1",
+      "original_pointer": 15737446,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569411
+        }
+      ],
+      "kind": "gfx",
+      "palette": "gray",
+      "decoded_size": 8192,
+      "view": "sheet"
+    },
+    {
+      "key": "art10",
+      "name": "Intro artwork: dragon overlay",
+      "original_pointer": 15735284,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569422
+        }
+      ],
+      "kind": "gfx",
+      "palette": "gray",
+      "decoded_size": 6144,
+      "view": "sheet"
+    },
+    {
+      "key": "art12",
+      "name": "Intro artwork: dragon",
+      "original_pointer": 15998776,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1553853
+        },
+        {
+          "kind": "long",
+          "address": 1569477
+        }
+      ],
+      "kind": "gfx",
+      "palette": "gray",
+      "decoded_size": 13312,
+      "view": "screen",
+      "map_pointer": 16005123,
+      "map_refs": [
+        {
+          "kind": "long",
+          "address": 1553673
+        },
+        {
+          "kind": "long",
+          "address": 1569488
+        }
+      ],
+      "width": 256,
+      "height": 256,
+      "tile_capacity": 416
+    },
+    {
+      "key": "art13",
+      "name": "Intro artwork: ray effects 2",
+      "original_pointer": 15743516,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569499
+        }
+      ],
+      "kind": "gfx",
+      "palette": "gray",
+      "decoded_size": 8192,
+      "view": "sheet"
+    },
+    {
+      "key": "art15",
+      "name": "Intro artwork: figure layer",
+      "original_pointer": 15928943,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569543
+        }
+      ],
+      "kind": "gfx",
+      "palette": "gray",
+      "decoded_size": 16384,
+      "view": "sheet"
+    },
+    {
+      "key": "art17",
+      "name": "Intro artwork: ray effects 3",
+      "original_pointer": 15892082,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569565
+        }
+      ],
+      "kind": "gfx",
+      "palette": "gray",
+      "decoded_size": 6144,
+      "view": "sheet"
+    },
+    {
+      "key": "art20",
+      "name": "Intro artwork: wheel markings",
+      "original_pointer": 16067331,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569675
+        }
+      ],
+      "kind": "gfx",
+      "palette": "gray",
+      "decoded_size": 8192,
+      "view": "sheet"
+    },
+    {
+      "key": "art22",
+      "name": "Intro artwork: star and wheel effects",
+      "original_pointer": 16074708,
+      "refs": [
+        {
+          "kind": "long",
+          "address": 1569697
+        }
+      ],
+      "kind": "gfx",
+      "palette": "gray",
+      "decoded_size": 6144,
+      "view": "sheet"
+    }
+  ]
+}

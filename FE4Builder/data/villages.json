@@ -1,0 +1,782 @@
+[
+  {
+    "chapter": 1,
+    "label": "Village 1",
+    "event_id": 52,
+    "ref": 1042779,
+    "start": 1084033,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 1,
+    "label": "Village 2",
+    "event_id": 53,
+    "ref": 1042782,
+    "start": 1084047,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 1,
+    "label": "Village 3",
+    "event_id": 54,
+    "ref": 1042785,
+    "start": 1084061,
+    "length": 26,
+    "reward": null,
+    "signature": "8a0cf465d5249c782304ebf6d0bd87cd7fed7285834c5e3317aa0b6d3a97751d"
+  },
+  {
+    "chapter": 2,
+    "label": "Village 1",
+    "event_id": 102,
+    "ref": 1042929,
+    "start": 952595,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 2,
+    "label": "Village 2",
+    "event_id": 87,
+    "ref": 1042884,
+    "start": 952034,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 2,
+    "label": "Village 3",
+    "event_id": 103,
+    "ref": 1042932,
+    "start": 952609,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 2,
+    "label": "Village 4",
+    "event_id": 88,
+    "ref": 1042887,
+    "start": 952048,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 2,
+    "label": "Village 5",
+    "event_id": 86,
+    "ref": 1042881,
+    "start": 952020,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 2,
+    "label": "Village 6",
+    "event_id": 89,
+    "ref": 1042890,
+    "start": 952062,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 2,
+    "label": "Village 7",
+    "event_id": 90,
+    "ref": 1042893,
+    "start": 952076,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 2,
+    "label": "Village 8",
+    "event_id": 83,
+    "ref": 1042872,
+    "start": 951968,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 2,
+    "label": "Village Armorslayer",
+    "event_id": 85,
+    "ref": 1042878,
+    "start": 952001,
+    "length": 19,
+    "reward": 0,
+    "signature": "0e699ef763537c20926136ef039af06e18211a8ff5a4f058b20b8854128082fe"
+  },
+  {
+    "chapter": 2,
+    "label": "Village Bargain Band",
+    "event_id": 84,
+    "ref": 1042875,
+    "start": 951982,
+    "length": 19,
+    "reward": 0,
+    "signature": "0e699ef763537c20926136ef039af06e18211a8ff5a4f058b20b8854128082fe"
+  },
+  {
+    "chapter": 3,
+    "label": "Village 1",
+    "event_id": 140,
+    "ref": 1043043,
+    "start": 1937868,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 3,
+    "label": "Village 2",
+    "event_id": 133,
+    "ref": 1043022,
+    "start": 1937676,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 3,
+    "label": "Village 3",
+    "event_id": 138,
+    "ref": 1043037,
+    "start": 1937801,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 3,
+    "label": "Village 4",
+    "event_id": 137,
+    "ref": 1043034,
+    "start": 1937774,
+    "length": 27,
+    "reward": null,
+    "signature": "b6d1f4e004e08fda7e2c7e3a47d9c584b7d3dd5fa349383f3b7f20a3c5883032"
+  },
+  {
+    "chapter": 3,
+    "label": "Village Defense",
+    "event_id": 136,
+    "ref": 1043031,
+    "start": 1937728,
+    "length": 27,
+    "reward": 12,
+    "signature": "d61e8ed552539b4f2c0a519c874b3f96148abd90d4f9edb594228096e7dde151"
+  },
+  {
+    "chapter": 3,
+    "label": "Village Restore",
+    "event_id": 135,
+    "ref": 1043028,
+    "start": 1937709,
+    "length": 19,
+    "reward": 0,
+    "signature": "0e699ef763537c20926136ef039af06e18211a8ff5a4f058b20b8854128082fe"
+  },
+  {
+    "chapter": 3,
+    "label": "Village Strength",
+    "event_id": 139,
+    "ref": 1043040,
+    "start": 1937815,
+    "length": 34,
+    "reward": 19,
+    "signature": "80565930bd1ff611da0c3bfdfc603cdac778672aedf6ecac42b003b54a41db87"
+  },
+  {
+    "chapter": 3,
+    "label": "Village Wingclipper",
+    "event_id": 134,
+    "ref": 1043025,
+    "start": 1937690,
+    "length": 19,
+    "reward": 0,
+    "signature": "0e699ef763537c20926136ef039af06e18211a8ff5a4f058b20b8854128082fe"
+  },
+  {
+    "chapter": 4,
+    "label": "Village 1",
+    "event_id": 178,
+    "ref": 1043157,
+    "start": 957023,
+    "length": 35,
+    "reward": null,
+    "signature": "c808130fbf34e22b005a13e6859950e762ec88e45d7fdbf09a0d7ea3294c7aff"
+  },
+  {
+    "chapter": 4,
+    "label": "Village 2",
+    "event_id": 175,
+    "ref": 1043148,
+    "start": 956981,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 4,
+    "label": "Village 3",
+    "event_id": 174,
+    "ref": 1043145,
+    "start": 956967,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 4,
+    "label": "Village 4",
+    "event_id": 172,
+    "ref": 1043139,
+    "start": 956939,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 4,
+    "label": "Village 5",
+    "event_id": 173,
+    "ref": 1043142,
+    "start": 956953,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 4,
+    "label": "Village 6",
+    "event_id": 177,
+    "ref": 1043154,
+    "start": 957009,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 4,
+    "label": "Village 7",
+    "event_id": 171,
+    "ref": 1043136,
+    "start": 956925,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 4,
+    "label": "Village Safeguard Anyone",
+    "event_id": 176,
+    "ref": 1043151,
+    "start": 956995,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 4,
+    "label": "Village Safeguard Silvia",
+    "event_id": 182,
+    "ref": 1043169,
+    "start": 957142,
+    "length": 84,
+    "reward": 68,
+    "signature": "21d20cb8fe4b4d52d2d9ca8237c70cfccdd3456bb8f4dab281c33521e76664c1"
+  },
+  {
+    "chapter": 5,
+    "label": "Village 1",
+    "event_id": 203,
+    "ref": 1043232,
+    "start": 1952314,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 5,
+    "label": "Village 2",
+    "event_id": 204,
+    "ref": 1043235,
+    "start": 1952328,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 5,
+    "label": "Village 3",
+    "event_id": 205,
+    "ref": 1043238,
+    "start": 1952342,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 5,
+    "label": "Village 4",
+    "event_id": 206,
+    "ref": 1043241,
+    "start": 1952356,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 5,
+    "label": "Village 5",
+    "event_id": 207,
+    "ref": 1043244,
+    "start": 1952370,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 5,
+    "label": "Village 6",
+    "event_id": 208,
+    "ref": 1043247,
+    "start": 1952384,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 5,
+    "label": "Village 7",
+    "event_id": 212,
+    "ref": 1043259,
+    "start": 1952408,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 6,
+    "label": "Village 1",
+    "event_id": 228,
+    "ref": 1043307,
+    "start": 1168630,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 6,
+    "label": "Village 2",
+    "event_id": 229,
+    "ref": 1043310,
+    "start": 1168644,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 6,
+    "label": "Village 2Seliph",
+    "event_id": 241,
+    "ref": 1043346,
+    "start": 1168815,
+    "length": 26,
+    "reward": null,
+    "signature": "ba30faa42c4adb673f621361c0b2031491ab70b7dffb33b4f4133cb66fc0d774"
+  },
+  {
+    "chapter": 6,
+    "label": "Village 3",
+    "event_id": 230,
+    "ref": 1043313,
+    "start": 1168658,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 6,
+    "label": "Village 4",
+    "event_id": 231,
+    "ref": 1043316,
+    "start": 1168672,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 6,
+    "label": "Village 5",
+    "event_id": 233,
+    "ref": 1043322,
+    "start": 1168705,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 6,
+    "label": "Village Skill Ring",
+    "event_id": 232,
+    "ref": 1043319,
+    "start": 1168686,
+    "length": 19,
+    "reward": 12,
+    "signature": "6f1388d6133b722c0415e7c53e584c50de20cb316083c243f65507a3fe7f0e9c"
+  },
+  {
+    "chapter": 7,
+    "label": "Village 1",
+    "event_id": 266,
+    "ref": 1043421,
+    "start": 3313740,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 7,
+    "label": "Village 2",
+    "event_id": 267,
+    "ref": 1043424,
+    "start": 3313754,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 7,
+    "label": "Village 3",
+    "event_id": 268,
+    "ref": 1043427,
+    "start": 3313768,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 7,
+    "label": "Village Barrier Blade Anyone",
+    "event_id": 265,
+    "ref": 1043418,
+    "start": 3313726,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 7,
+    "label": "Village Barrier Blade Laylea",
+    "event_id": 289,
+    "ref": 1043490,
+    "start": 3313978,
+    "length": 31,
+    "reward": 15,
+    "signature": "fe655da70f95409f6ad6c9affefe9015940a5cd82b73302683122d45a92635c5"
+  },
+  {
+    "chapter": 7,
+    "label": "Village Shield Ring",
+    "event_id": 269,
+    "ref": 1043430,
+    "start": 3313782,
+    "length": 19,
+    "reward": 12,
+    "signature": "6f1388d6133b722c0415e7c53e584c50de20cb316083c243f65507a3fe7f0e9c"
+  },
+  {
+    "chapter": 7,
+    "label": "Village Speed Ring",
+    "event_id": 264,
+    "ref": 1043415,
+    "start": 3313707,
+    "length": 19,
+    "reward": 12,
+    "signature": "6f1388d6133b722c0415e7c53e584c50de20cb316083c243f65507a3fe7f0e9c"
+  },
+  {
+    "chapter": 8,
+    "label": "Village 1",
+    "event_id": 307,
+    "ref": 1043544,
+    "start": 1032001,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 8,
+    "label": "Village 2",
+    "event_id": 309,
+    "ref": 1043550,
+    "start": 1032034,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 8,
+    "label": "Village 3",
+    "event_id": 310,
+    "ref": 1043553,
+    "start": 1032048,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 8,
+    "label": "Village 3Asaello",
+    "event_id": 322,
+    "ref": 1043589,
+    "start": 1032289,
+    "length": 31,
+    "reward": 12,
+    "signature": "f40b47a945129ed1fd003295a2c3e7f1476bd14cb8c134b60e4e3d698fb4a32c"
+  },
+  {
+    "chapter": 8,
+    "label": "Village 4",
+    "event_id": 311,
+    "ref": 1043556,
+    "start": 1032062,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 8,
+    "label": "Village Power Ring",
+    "event_id": 308,
+    "ref": 1043547,
+    "start": 1032015,
+    "length": 19,
+    "reward": 12,
+    "signature": "6f1388d6133b722c0415e7c53e584c50de20cb316083c243f65507a3fe7f0e9c"
+  },
+  {
+    "chapter": 8,
+    "label": "Village Thief Band",
+    "event_id": 312,
+    "ref": 1043559,
+    "start": 1032076,
+    "length": 19,
+    "reward": 0,
+    "signature": "0e699ef763537c20926136ef039af06e18211a8ff5a4f058b20b8854128082fe"
+  },
+  {
+    "chapter": 9,
+    "label": "Village 1",
+    "event_id": 347,
+    "ref": 1043664,
+    "start": 3267708,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 9,
+    "label": "Village 2",
+    "event_id": 348,
+    "ref": 1043667,
+    "start": 3267722,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 9,
+    "label": "Village 3",
+    "event_id": 349,
+    "ref": 1043670,
+    "start": 3267736,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 9,
+    "label": "Village 4",
+    "event_id": 350,
+    "ref": 1043673,
+    "start": 3267750,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 9,
+    "label": "Village 4Special",
+    "event_id": 358,
+    "ref": 1043697,
+    "start": 3267839,
+    "length": 27,
+    "reward": 12,
+    "signature": "7f728ce0dd4261e62baa24749a0d3d1338b61735c02da4524ab812913df47803"
+  },
+  {
+    "chapter": 9,
+    "label": "Village 5",
+    "event_id": 352,
+    "ref": 1043679,
+    "start": 3267783,
+    "length": 35,
+    "reward": null,
+    "signature": "05d027a05b59f7e197ce5ff6fae03771118db59a6decafef10a5be7d4fe9c105"
+  },
+  {
+    "chapter": 9,
+    "label": "Village Barrier Ring",
+    "event_id": 351,
+    "ref": 1043676,
+    "start": 3267764,
+    "length": 19,
+    "reward": 12,
+    "signature": "6f1388d6133b722c0415e7c53e584c50de20cb316083c243f65507a3fe7f0e9c"
+  },
+  {
+    "chapter": 10,
+    "label": "Village 1",
+    "event_id": 382,
+    "ref": 1043769,
+    "start": 888118,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 10,
+    "label": "Village 2",
+    "event_id": 383,
+    "ref": 1043772,
+    "start": 888132,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 10,
+    "label": "Village 3",
+    "event_id": 384,
+    "ref": 1043775,
+    "start": 888146,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 10,
+    "label": "Village 4",
+    "event_id": 386,
+    "ref": 1043781,
+    "start": 888179,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 10,
+    "label": "Village 5",
+    "event_id": 387,
+    "ref": 1043784,
+    "start": 888193,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 10,
+    "label": "Village Magic Ring",
+    "event_id": 385,
+    "ref": 1043778,
+    "start": 888160,
+    "length": 19,
+    "reward": 12,
+    "signature": "6f1388d6133b722c0415e7c53e584c50de20cb316083c243f65507a3fe7f0e9c"
+  },
+  {
+    "chapter": 11,
+    "label": "Village 1",
+    "event_id": 413,
+    "ref": 1043862,
+    "start": 3270566,
+    "length": 26,
+    "reward": null,
+    "signature": "8a0cf465d5249c782304ebf6d0bd87cd7fed7285834c5e3317aa0b6d3a97751d"
+  },
+  {
+    "chapter": 11,
+    "label": "Village 2",
+    "event_id": 414,
+    "ref": 1043865,
+    "start": 3270592,
+    "length": 26,
+    "reward": null,
+    "signature": "e5996c146d1285a911af6ad71a834e823e2d9aa884e917f9909b9ef203a61a20"
+  },
+  {
+    "chapter": 0,
+    "label": "Village 1",
+    "event_id": 20,
+    "ref": 1042683,
+    "start": 3245551,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 0,
+    "label": "Village 2",
+    "event_id": 21,
+    "ref": 1042686,
+    "start": 3245565,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 0,
+    "label": "Village 3",
+    "event_id": 23,
+    "ref": 1042692,
+    "start": 3245593,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 0,
+    "label": "Village 4",
+    "event_id": 22,
+    "ref": 1042689,
+    "start": 3245579,
+    "length": 14,
+    "reward": null,
+    "signature": "02c8c6a5b1c808d30b6b55544e98826a281e3c73c88b35416bf3f7df882c2182"
+  },
+  {
+    "chapter": 0,
+    "label": "Village Speed Ring",
+    "event_id": 24,
+    "ref": 1042695,
+    "start": 3245607,
+    "length": 19,
+    "reward": 0,
+    "signature": "0e699ef763537c20926136ef039af06e18211a8ff5a4f058b20b8854128082fe"
+  }
+]
