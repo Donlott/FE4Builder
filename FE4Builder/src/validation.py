@@ -25,7 +25,7 @@ def explain_field(module,field):
     elif field.reference=='FE4 Classes.txt':
         meaning='Class ID. Class base stats, movement, ranks and skills are shared by all characters using that class. Click the link to edit its profile.'
     elif field.reference=='FE4 Character Skills 3.txt':
-        meaning='Personal skill bitmask. Bit 0x04 is Escape: defeated/retreat handling instead of normal death. Finn, Quan and Ethlyn use it in generation 1. Their departure scripts are separate: Quan/Ethlyn leave together, Finn independently. Keep the flag for their standard story behavior.'
+        meaning='Personal skill bitmask. Bit 0x04 is Escape: defeated/retreat handling instead of normal death. Finn, Quan and Ethlyn use it in generation 1. Their departure scripts are separate: Quan/Ethlyn leave together, Finn independently. Keep the flag for their standard story behavior. Recover (0x08) restores HP to maximum at turn start; Return (0x20) enables the return-to-home-castle command when its normal conditions permit. Both work as personal skills without their rings. Life and Elite retain their existing names. Canto is supplied by class/item skills, not a personal bit in the standard ROM.'
     elif name.startswith(('Skills','Class Skills','Skill Set')):
         meaning='Bitmask: each named skill is a flag, and one option can contain several skills. Unknown or unused bits are flagged rather than silently removed.'
     elif name.startswith('Blood'):

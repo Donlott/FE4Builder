@@ -70,6 +70,10 @@ def load_module(path):
             # SAFEGUARD/Characters.h: UnitSkill3Escape = $04; battle code
             # routes it to rlActionStructSetUnitDefeatedEscape, not normal death.
             options[0x04] = 'Escape (retreat on defeat)'
+            # Native personal-skill lookup and consumers also accept these
+            # ring effects directly; Canto has no personal mask in that table.
+            options[0x08] = 'Recover'
+            options[0x20] = 'Return'
         if label.startswith(('Skills', 'Class Skills')):
             options = skill_combinations(options, number(size))
         if path.parent.name=='Item Editors' and label in ('Stat Bonus','Stat Bonuses'):
