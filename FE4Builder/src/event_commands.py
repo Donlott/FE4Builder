@@ -6,13 +6,17 @@ from portraits import pc_address
 from event_layouts import checked
 
 # (Label, operand offset, bytes, minimum, maximum)
-FIELDS={0x0c:[('Dialogue scene',1,3,0,0xffffff)],0x0e:[('Music track',1,1,0,255)],0x11:[('Byte sound effect',1,1,0,255)],0x12:[('Word sound command',1,2,0,65535)],0x34:[('Pause ticks',1,2,1,65535)],0x3a:[('Camera X',1,1,0,63),('Camera Y',2,1,0,63)],
+BACKGROUNDS={0:'Fountain',1:'Gate',2:'Alley',3:'Throne',4:'Hallway',5:'Cloister'}
+FIELDS={0x14:[('Dialogue scene',1,3,0,0xffffff),('Background',4,1,0,5),('Fade timing',6,1,1,255)],0x0c:[('Dialogue scene',1,3,0,0xffffff)],0x0e:[('Music track',1,1,0,255)],0x11:[('Byte sound effect',1,1,0,255)],0x12:[('Word sound command',1,2,0,65535)],0x34:[('Pause ticks',1,2,1,65535)],0x3a:[('Camera X',1,1,0,63),('Camera Y',2,1,0,63)],
         0x24:[('Character',1,2,1,696),('Faction slot',3,1,0,3),('Start X',4,1,0,63),('Start Y',5,1,0,63),('Destination X',6,1,0,63),('Destination Y',7,1,0,63),('Movement speed',8,1,0,7),('Sprite color',9,1,2,6),('Group leader',10,1,0,1),('AI setting',10,1,0,15)],
+        0x42:[('Character',1,2,1,696),('Slot',3,1,0,1)],
         0x40:[('Camera X',1,1,0,63),('Camera Y',2,1,0,63),('Scroll speed',3,1,1,255)],
         0x46:[('Fade timing',1,1,1,255)],0x47:[('Fade timing',1,1,1,255)],
+        'talk_target':[('Initiator',2,1,1,255),('Target',3,1,0,255)],
         'character_sprite':[('Prepare map sprite for',2,2,1,696)]}
 def schema(command):
-    return 'character_sprite' if command['opcode']==0x4a and command.get('condition')==0x49 else command['opcode']
+    if command['opcode']==0x4a:return {0x49:'character_sprite',0x68:'talk_target'}.get(command.get('condition'),command['opcode'])
+    return command['opcode']
 
 def audio_kind(command):return {0x0e:'music',0x11:'byte',0x12:'word'}.get(command['opcode'])
 
@@ -32,7 +36,7 @@ def character_options(rom):
         result[value]=name
     return result
 
-HELP={0x0c:'Choose a dialogue by chapter, scene name or text using Find dialogue. This replaces only the existing command’s 3-byte pointer. Open in Dialogue Editor edits the text used by this command; settle pending event changes first. Dialogue controls portraits, speakers and pauses inside its own script.',0x29:'Read-only, no parameters. Wait until sprite decompression has finished and the unit movement setup engine is idle. This allows pending graphics/loading setup to complete; it does not guarantee that all units have finished walking. Use Wait Until Map Sprites Halting to synchronize scripted movement.',
+HELP={0x42:'Look up an existing character and store its unit reference and current map coordinates in Event Unit Slot 1 or 2. This replaces the previous contents of that slot; it does not spawn or move the character. A failed lookup clears its reference and marks the coordinates invalid. Coordinates are captured when this command runs, so fill the slot again after movement if later commands need an updated position.',0x39:'Read-only, no parameters. Use Event Unit Slot 1’s stored coordinates as the map cursor/camera focus. The native handler updates cursor offsets relative to the current view, rather than directly writing camera scroll coordinates. If either stored coordinate is invalid, nothing happens. Fill Slot 1 first. There is no separate Slot 2 counterpart in the standard event command set.',0x41:'Read-only. Smoothly scroll the camera toward Event Unit Slot 1’s stored coordinates. This command has one native scroll-speed parameter. Invalid stored coordinates leave the view unchanged. Fill Slot 1 before using it; this does not track a unit’s later movement automatically. There is no separate Slot 2 counterpart in the standard event command set.',0x14:'Play a dialogue scene against the selected background. Find dialogue searches scene names and text; Open in Dialogue Editor edits this command’s text reference. Fade timing is the native transition parameter, not seconds. Dialogue Type is shown read-only and preserved because its presentation modes are not fully verified. Test the complete scene in-game.',0xffff:'Read-only, no parameters. End this event script and return control to the event engine. This is the two-byte terminator FF FF; it does not by itself end the chapter or choose an objective, dialogue or music track.',0x13:'Read-only, no parameters. Restore the map music stored for the current phase after an event temporarily plays another song. The stored phase track can reflect the chapter, active faction or victory situation; this does not simply restore the last song played. Use Play Song to select a specific track.', 'talk_target':'Set the initiator’s talk-target information. This replaces their previous target and is directional: A → B does not also set B → A. Target None clears the stored target. Both IDs are one byte. This does not create a conversation, recruit a character or select dialogue; keep the separate chapter talk trigger aligned using Recruitment & Conversations. The initiator must exist when this event executes.',0x0c:'Choose a dialogue by chapter, scene name or text using Find dialogue. This replaces only the existing command’s 3-byte pointer. Open in Dialogue Editor edits the text used by this command; settle pending event changes first. Dialogue controls portraits, speakers and pauses inside its own script.',0x29:'Read-only, no parameters. Wait until sprite decompression has finished and the unit movement setup engine is idle. This allows pending graphics/loading setup to complete; it does not guarantee that all units have finished walking. Use Wait Until Map Sprites Halting to synchronize scripted movement.',
       0xfd:'Read-only, no parameters. Yield ends the current event-processing pass and resumes at the following command on a later update, normally the next frame when the event engine is ready. It gives other game systems time to update. It is not a fixed-duration pause or a wait for a particular animation, movement or dialogue to finish.',
       0x2a:'Read-only, no parameters. Wait until every active scripted moving map sprite has finished moving or reached a halt point in its movement script. This covers event-controlled sprites, not every unit on the map. If no scripted sprites are active, continue immediately. A halt can be temporary: Continue From Map Sprite Halt resumes halted movement scripts. This command waits for movement readiness; it does not stop sprites itself.',
       0x0e:'Choose the music played by this existing command. Preview audio auditions the selected draft without saving it.',
@@ -77,9 +81,19 @@ class EventCommands:
         values=self.values(index)
         if schema(command)=='character_sprite':
             return 'Prepare character map sprite · '+character_options(self.rom).get(values[0],f'Character 0x{values[0]:04X}')
-        if command['opcode']==0x0c:
+        if command['opcode']==0x42:
+            names=character_options(self.rom)
+            return 'Fill Event Unit Slot · '+names.get(values[0],f'Character ${values[0]:04X}')+f' → Slot {1 if values[1]==0 else 2}'
+        if schema(command)=='talk_target':
+            names=talk_options(self.rom,0);targets=talk_options(self.rom,1)
+            return 'Set Talk Target · '+names.get(values[0],f'Character ${values[0]:02X}')+' → '+targets.get(values[1],f'Character ${values[1]:02X}')
+        if command['opcode'] in (0x0c,0x14):
             labels={o['pointer']:o['label'] for o in self.dialogues()}
-            return 'Dialogue · '+labels.get(values[0],f'Existing scene ${values[0]:06X}')
+            label=labels.get(values[0],f'Existing scene ${values[0]:06X}')
+            if command['opcode']==0x14:
+                mode=self.snapshot[command['offset']+5]
+                return 'Dialogue with BG · '+label+' · '+BACKGROUNDS.get(values[1],f'Background {values[1]}')+f' · Type {mode} (read-only) · Fade {values[2]}'
+            return 'Dialogue · '+label
         if audio_kind(command):
             return command['name'].replace('_',' ').title()+' · '+audio_options(command).get(values[0],f'Existing unknown ${values[0]:04X}')+f' (${values[0]:04X})'
         return command['name'].replace('_',' ').title()+(' · '+', '.join(f'{field[0]}: {value}' for field,value in zip(fields,values)) if fields else '')
@@ -97,9 +111,15 @@ class EventCommands:
             if len(values)!=len(fields):raise ValueError('Incorrect command parameter count.')
             for field_index,((label,offset,size,low,high),value,old) in enumerate(zip(fields,values,self.values(index))):
                 if type(value) is not int or (not low<=value<=high and value!=old):raise ValueError(f'{label} must be {low}–{high}.')
+                if command['opcode']==0x42 and field_index==0 and value!=old and value not in character_options(self.rom):
+                    raise ValueError('Choose a character with a valid unit assignment.')
+                if command['opcode']==0x14 and field_index==1 and value!=old and value not in BACKGROUNDS:
+                    raise ValueError('Choose a listed dialogue background.')
+                if schema(command)=='talk_target' and value!=old and value not in talk_options(self.rom,field_index):
+                    raise ValueError(f'{label}: choose a named character with a one-byte ID.')
                 if command['opcode']==0x24 and deployment_options(self.rom,field_index) and value!=old and value not in deployment_options(self.rom,field_index):
                     raise ValueError(f'{label}: choose a listed option.')
-                if command['opcode']==0x0c and value!=old and value not in {o['pointer'] for o in self.dialogues()}:
+                if command['opcode'] in (0x0c,0x14) and field_index==0 and value!=old and value not in {o['pointer'] for o in self.dialogues()}:
                     raise ValueError('Dialogue scene: choose a supported scene from Find dialogue.')
                 if value!=old and audio_kind(command) and value not in audio_options(command):
                     raise ValueError(f'{label}: choose an ID from the audio catalogue. Existing unknown values may be kept unchanged.')
@@ -122,4 +142,11 @@ def dialogue_options(rom):
         try:model=Dialogue(rom,entry)
         except ValueError:continue
         result.append(dict(entry=entry,pointer=int.from_bytes(model.pointer,'little'),label=entry['group']+' · '+entry['label'],text=readable(model.text)))
+    return result
+
+
+def talk_options(rom,index):
+    from conversations import character_names
+    result={value:name for value,name in character_names(rom).items() if 1<=value<=255}
+    if index==1:result={0:'None (clear talk target)',**result}
     return result

@@ -38,8 +38,24 @@
             2
           ],
           [
+            156,
+            4
+          ],
+          [
+            161,
+            1
+          ],
+          [
             164,
             2
+          ],
+          [
+            238,
+            4
+          ],
+          [
+            243,
+            1
           ],
           [
             246,
@@ -78,7 +94,7 @@
             2
           ]
         ],
-        "hash": "5ce45f4ba7b4f80ab6d85de82a9ad28d828794135d0309ea8085eadf3200a0d9"
+        "hash": "d8317bf8a7633fe82fc29c35e86ebda41f91186ee509e11a8295edd12b9e4427"
       },
       "commands": [
         {
@@ -407,7 +423,7 @@
           "size": 7,
           "name": "DIALOGUE_WITH_BG",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 162,
@@ -575,7 +591,7 @@
           "size": 7,
           "name": "DIALOGUE_WITH_BG",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 244,
@@ -1148,7 +1164,7 @@
           "size": 4,
           "name": "RUN_EVENT_CONDITION / SET_TALK_TARGET",
           "condition": 104,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 83,
@@ -1156,7 +1172,7 @@
           "size": 4,
           "name": "RUN_EVENT_CONDITION / SET_TALK_TARGET",
           "condition": 104,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 87,
@@ -1450,7 +1466,7 @@
           "size": 4,
           "name": "RUN_EVENT_CONDITION / SET_TALK_TARGET",
           "condition": 104,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 63,
@@ -1458,7 +1474,7 @@
           "size": 4,
           "name": "RUN_EVENT_CONDITION / SET_TALK_TARGET",
           "condition": 104,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 67,
@@ -1534,6 +1550,14 @@
             2
           ],
           [
+            15,
+            4
+          ],
+          [
+            20,
+            1
+          ],
+          [
             22,
             2
           ],
@@ -1546,6 +1570,10 @@
             5
           ],
           [
+            40,
+            3
+          ],
+          [
             45,
             2
           ],
@@ -1554,7 +1582,7 @@
             2
           ]
         ],
-        "hash": "99fcb22b59feadd493bfb9c2a6c690ad27c11b40070c069f3b49b618b171a570",
+        "hash": "a5434dfc0b5fbb21b81b50953e5d6343394ad0da5209131d1c3867e57e0faaeb",
         "switches": []
       },
       "commands": [
@@ -1612,7 +1640,7 @@
           "size": 7,
           "name": "DIALOGUE_WITH_BG",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 21,
@@ -1668,7 +1696,7 @@
           "size": 4,
           "name": "FILL_EVENT_UNIT_SLOT",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 43,
@@ -2520,6 +2548,14 @@
             1
           ],
           [
+            68,
+            4
+          ],
+          [
+            73,
+            1
+          ],
+          [
             76,
             2
           ],
@@ -2540,11 +2576,19 @@
             2
           ],
           [
+            125,
+            4
+          ],
+          [
+            130,
+            1
+          ],
+          [
             132,
             2
           ]
         ],
-        "hash": "fd151c7d533375fe62016d28ddb7eca023ebe7d361f87d28bb277eadfaa97761"
+        "hash": "7ebca93012fd3dc2c61a4864bbb2d6068deb1048f485f79b5ee1b47aba83a539"
       },
       "commands": [
         {
@@ -2697,7 +2741,7 @@
           "size": 7,
           "name": "DIALOGUE_WITH_BG",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 74,
@@ -2849,7 +2893,7 @@
           "size": 7,
           "name": "DIALOGUE_WITH_BG",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 131,
@@ -2929,6 +2973,10 @@
             3
           ],
           [
+            35,
+            3
+          ],
+          [
             56,
             2
           ],
@@ -2937,7 +2985,7 @@
             2
           ]
         ],
-        "hash": "5b3fa48d745ddd5ed8beb749c1f26047454294210d1e8bbb64d2dcd348bbdf4a",
+        "hash": "d7329cdcd4ba0d5268ee7dd3032081a1fdb3961650d6b80059b8e2a60fe2c74f",
         "switches": []
       },
       "commands": [
@@ -3051,7 +3099,7 @@
           "size": 4,
           "name": "FILL_EVENT_UNIT_SLOT",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 38,
@@ -3179,6 +3227,14 @@
             2
           ],
           [
+            26,
+            4
+          ],
+          [
+            31,
+            1
+          ],
+          [
             33,
             2
           ],
@@ -3203,7 +3259,7 @@
             2
           ]
         ],
-        "hash": "458fccb43577f52ccd2acdbdd831b66a571f4bd45d933f570e88ca8c8787fdf0"
+        "hash": "e7fefbeda0847557ce984906d00ef9652d88851040b3461ae4bdf05b5299d4b9"
       },
       "commands": [
         {
@@ -3300,7 +3356,7 @@
           "size": 7,
           "name": "DIALOGUE_WITH_BG",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 32,
@@ -3500,6 +3556,14 @@
             2
           ],
           [
+            26,
+            4
+          ],
+          [
+            31,
+            1
+          ],
+          [
             33,
             2
           ],
@@ -3524,7 +3588,7 @@
             2
           ]
         ],
-        "hash": "d4f44c464a771af9022e3615e0ca2be92274d7bd75393d62ca89fc1eefa3320a"
+        "hash": "f0e53d8321a0322f8dfe2eb1ee5b526f0de738dea52bdff7243ac1c9c8a8aac7"
       },
       "commands": [
         {
@@ -3621,7 +3685,7 @@
           "size": 7,
           "name": "DIALOGUE_WITH_BG",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 32,
@@ -5127,8 +5191,24 @@
           2
         ],
         [
+          156,
+          4
+        ],
+        [
+          161,
+          1
+        ],
+        [
           164,
           2
+        ],
+        [
+          238,
+          4
+        ],
+        [
+          243,
+          1
         ],
         [
           246,
@@ -5167,7 +5247,7 @@
           2
         ]
       ],
-      "hash": "5ce45f4ba7b4f80ab6d85de82a9ad28d828794135d0309ea8085eadf3200a0d9"
+      "hash": "d8317bf8a7633fe82fc29c35e86ebda41f91186ee509e11a8295edd12b9e4427"
     },
     {
       "start": 3244770,
@@ -5350,6 +5430,14 @@
           2
         ],
         [
+          15,
+          4
+        ],
+        [
+          20,
+          1
+        ],
+        [
           22,
           2
         ],
@@ -5362,6 +5450,10 @@
           5
         ],
         [
+          40,
+          3
+        ],
+        [
           45,
           2
         ],
@@ -5370,7 +5462,7 @@
           2
         ]
       ],
-      "hash": "99fcb22b59feadd493bfb9c2a6c690ad27c11b40070c069f3b49b618b171a570",
+      "hash": "a5434dfc0b5fbb21b81b50953e5d6343394ad0da5209131d1c3867e57e0faaeb",
       "switches": []
     },
     {
@@ -5542,6 +5634,14 @@
           1
         ],
         [
+          68,
+          4
+        ],
+        [
+          73,
+          1
+        ],
+        [
           76,
           2
         ],
@@ -5562,11 +5662,19 @@
           2
         ],
         [
+          125,
+          4
+        ],
+        [
+          130,
+          1
+        ],
+        [
           132,
           2
         ]
       ],
-      "hash": "fd151c7d533375fe62016d28ddb7eca023ebe7d361f87d28bb277eadfaa97761"
+      "hash": "7ebca93012fd3dc2c61a4864bbb2d6068deb1048f485f79b5ee1b47aba83a539"
     },
     {
       "start": 3245485,
@@ -5593,6 +5701,10 @@
           3
         ],
         [
+          35,
+          3
+        ],
+        [
           56,
           2
         ],
@@ -5601,7 +5713,7 @@
           2
         ]
       ],
-      "hash": "5b3fa48d745ddd5ed8beb749c1f26047454294210d1e8bbb64d2dcd348bbdf4a",
+      "hash": "d7329cdcd4ba0d5268ee7dd3032081a1fdb3961650d6b80059b8e2a60fe2c74f",
       "switches": []
     },
     {
@@ -5629,6 +5741,14 @@
           2
         ],
         [
+          26,
+          4
+        ],
+        [
+          31,
+          1
+        ],
+        [
           33,
           2
         ],
@@ -5653,7 +5773,7 @@
           2
         ]
       ],
-      "hash": "458fccb43577f52ccd2acdbdd831b66a571f4bd45d933f570e88ca8c8787fdf0"
+      "hash": "e7fefbeda0847557ce984906d00ef9652d88851040b3461ae4bdf05b5299d4b9"
     },
     {
       "start": 3245739,
@@ -5680,6 +5800,14 @@
           2
         ],
         [
+          26,
+          4
+        ],
+        [
+          31,
+          1
+        ],
+        [
           33,
           2
         ],
@@ -5704,7 +5832,7 @@
           2
         ]
       ],
-      "hash": "d4f44c464a771af9022e3615e0ca2be92274d7bd75393d62ca89fc1eefa3320a"
+      "hash": "f0e53d8321a0322f8dfe2eb1ee5b526f0de738dea52bdff7243ac1c9c8a8aac7"
     },
     {
       "start": 3245852,

@@ -3,12 +3,12 @@ import tkinter as tk
 from tkinter import ttk,messagebox
 from rom import number
 from events import hex_dump
-from event_commands import EventCommands,catalogue,FIELDS,HELP,schema,character_options,audio_kind,audio_options,deployment_options
+from event_commands import EventCommands,catalogue,FIELDS,HELP,schema,character_options,audio_kind,audio_options,deployment_options,talk_options,BACKGROUNDS
 from ui_common import ask_unsaved,scrollable_frame
 
 class EventCommandWindow(tk.Toplevel):
     def __init__(self,app,event_id=None):
-        super().__init__(app);self.app=app;self.rom=app.rom;self.current=None;self.model=None;self.command=None;self.variables=[];self.field_options=[];self.drafts={};self.loaded={}
+        super().__init__(app);self.app=app;self.rom=app.rom;self.current=None;self.model=None;self.command=None;self.variables=[];self.field_options=[];self.drafts={};self.loaded={};self._parameter_reset=None
         self.title('FE4Builder — Event Editor (Prologue)');self.geometry('1200x780');self.minsize(940,620)
         self.names=character_options(self.rom)
         self.transient(app);self.grab_set()
@@ -35,12 +35,13 @@ class EventCommandWindow(tk.Toplevel):
         self.commands.config(yscrollcommand=bar.set);self.commands.pack(fill='both',expand=True)
         self.commands.bind('<<TreeviewSelect>>',self.select_command)
         shell=ttk.Frame(right,height=190);shell.pack(fill='both',expand=True)
-        self.parameters=scrollable_frame(shell,padding=8)
+        self.parameters=scrollable_frame(shell,padding=8);self.parameter_canvas=self.parameters.master
         self.command_heading=tk.StringVar();ttk.Label(self.parameters,textvariable=self.command_heading,font=('Segoe UI',11,'bold')).pack(anchor='w')
-        self.help=tk.StringVar();self.help_label=ttk.Label(self.parameters,textvariable=self.help,wraplength=680)
+        self.help=tk.StringVar();self.help_label=ttk.Label(self.parameters,textvariable=self.help,wraplength=680,justify='left',anchor='nw')
         self.fields=ttk.Frame(self.parameters);self.fields.pack(fill='x')
         self.help_label.pack(anchor='w',pady=8)
-        self.raw=tk.StringVar();ttk.Label(self.parameters,textvariable=self.raw,font=('Consolas',10),wraplength=680).pack(anchor='w',pady=8)
+        self.raw=tk.StringVar();self.raw_label=ttk.Label(self.parameters,textvariable=self.raw,font=('Consolas',10),wraplength=680,justify='left');self.raw_label.pack(anchor='w',pady=8)
+        self.parameters.bind('<Configure>',self.wrap_parameter_help,add='+')
         actions=ttk.Frame(right);actions.pack(fill='x',pady=8)
         self.dialogue_button=ttk.Button(actions,text='Open in Dialogue Editor…',command=self.open_dialogue,state='disabled');self.dialogue_button.pack(side='right',padx=6)
         self.ai_button=ttk.Button(actions,text='Inspect selected AI…',command=self.inspect_ai,state='disabled');self.ai_button.pack(side='right',padx=6)
@@ -79,7 +80,7 @@ class EventCommandWindow(tk.Toplevel):
     def load(self,index):
         self.current=index;self.model=None;self.command=None;self.variables=[];self.field_options=[];self.drafts={};self.loaded={}
         self.commands.delete(*self.commands.get_children());self.command_heading.set('');self.help.set('');self.raw.set('')
-        for widget in self.fields.winfo_children():widget.destroy()
+        self.clear_parameter_fields()
         self.audio_button.config(state='disabled');self.ai_button.config(state='disabled');self.dialogue_button.config(state='disabled')
         self.heading.set(catalogue()['entries'][index]['label'])
         try:self.model=EventCommands(self.rom,index)
@@ -96,13 +97,23 @@ class EventCommandWindow(tk.Toplevel):
         index=int(selected[0])
         if index==self.command:return
         self.remember_command();self.command=index;self.variables=[];self.field_options=[]
-        for widget in self.fields.winfo_children():widget.destroy()
-        c=self.model.commands[index];self.dialogue_button.config(state='normal' if c['opcode']==0x0c else 'disabled');self.ai_button.config(state='normal' if c['opcode']==0x24 else 'disabled');self.command_heading.set(f'Command {index+1} · '+c['name'].replace('_',' ').title())
+        self.clear_parameter_fields()
+        c=self.model.commands[index];self.dialogue_button.config(state='normal' if c['opcode'] in (0x0c,0x14) else 'disabled');self.ai_button.config(state='normal' if c['opcode']==0x24 else 'disabled');self.command_heading.set(f'Command {index+1} · '+c['name'].replace('_',' ').title())
         self.audio_button.config(state='normal' if c['opcode'] in (0x0e,0x11,0x12) else 'disabled')
         self.help.set(HELP.get(schema(c),'Read-only command. Use the linked dialogue, reinforcement, conversation or objective editor where supported.'))
+        if FIELDS.get(schema(c)):self.fields.pack(fill='x',before=self.help_label)
         for i,(label,offset,size,low,high) in enumerate(FIELDS.get(schema(c),[])):
-            ttk.Label(self.fields,text=label+f' ({low}–{high})').grid(row=i,column=0,sticky='w',padx=(0,12),pady=4)
+            ttk.Label(self.fields,text=label if c['opcode']==0x42 and i==1 else label+f' ({low}–{high})').grid(row=i,column=0,sticky='w',padx=(0,12),pady=4)
             options={f'{name} (0x{value:04X})':value for value,name in self.names.items()} if schema(c)=='character_sprite' else {}
+            if c['opcode']==0x42:
+                known=dict(self.names) if i==0 else {0:'Slot 1',1:'Slot 2'}
+                old=self.model.values(index)[i]
+                if old not in known:known[old]=f'Existing value ${old:X}'
+                options={f'{name} (${value:04X})':value for value,name in known.items()} if i==0 else {name:value for value,name in known.items()}
+            if schema(c)=='talk_target':
+                known=talk_options(self.rom,i);old=self.model.values(index)[i]
+                if old not in known:known[old]=f'Existing unknown character ${old:02X}'
+                options={f'{name} (${value:02X})':value for value,name in known.items()}
             if c['opcode']==0x24:
                 known=deployment_options(self.rom,i)
                 if known:
@@ -114,16 +125,20 @@ class EventCommandWindow(tk.Toplevel):
                 current_value=self.model.values(index)[i]
                 if current_value not in known:known[current_value]=f'Existing unknown ${current_value:04X}'
                 options={f'{name} (0x{value:04X})':value for value,name in known.items()}
-            if c['opcode']==0x0c:
+            if c['opcode'] in (0x0c,0x14) and i==0:
                 options={o['label']+f" (${o['pointer']:06X})":o['pointer'] for o in self.model.dialogues()}
                 old=self.model.values(index)[i]
                 if old not in options.values():options[f'Existing scene (${old:06X})']=old
+            if c['opcode']==0x14 and i==1:
+                known=dict(BACKGROUNDS);old=self.model.values(index)[i]
+                if old not in known:known[old]=f'Existing unknown background {old}'
+                options={f'{name} ({value})':value for value,name in known.items()}
             value=self.drafts[index][i]
             if options:value=next((label for label,key in options.items() if str(key)==value),value)
             var=tk.StringVar(value=value);self.variables.append(var);self.field_options.append(options)
             widget=ttk.Combobox(self.fields,state='readonly',textvariable=var,values=list(options),width=38) if options else ttk.Spinbox(self.fields,from_=low,to=high,textvariable=var,width=12)
             widget.grid(row=i,column=1,sticky='w')
-            if c['opcode']==0x0c:
+            if c['opcode'] in (0x0c,0x14) and i==0:
                 widget.config(width=48)
                 ttk.Button(self.fields,text='Find dialogue…',command=self.choose_dialogue).grid(row=i,column=2,padx=6)
             if c['opcode']==0x12:
@@ -134,8 +149,27 @@ class EventCommandWindow(tk.Toplevel):
                     except ValueError:self.help.set(HELP[0x12]);return
                     self.help.set(HELP[0x12]+'\n\n'+describe_word(value))
                 var.trace_add('write',explain_word);explain_word()
+        if c['opcode']==0x14:
+            mode=self.model.snapshot[c['offset']+5]
+            ttk.Label(self.fields,text=f'Dialogue Type: {mode} (read-only; preserved)').grid(row=3,column=0,columnspan=3,sticky='w',pady=6)
         raw=self.model.snapshot[c['offset']:c['offset']+c['size']]
         self.raw.set('Loaded command bytes (read-only):\n'+hex_dump(raw,self.model.profile['start']+c['offset']))
+        if self._parameter_reset is not None:self.after_cancel(self._parameter_reset)
+        self._parameter_reset=self.after_idle(self.reset_parameter_view)
+    def clear_parameter_fields(self):
+        # An empty grid frame can retain the previous command's requested height.
+        # Recreate it, and only display it when the selected command has operands.
+        self.fields.destroy();self.fields=ttk.Frame(self.parameters)
+    def wrap_parameter_help(self,event):
+        width=max(120,event.width-16)
+        self.help_label.config(wraplength=width);self.raw_label.config(wraplength=width)
+    def reset_parameter_view(self):
+        self._parameter_reset=None
+        if not self.winfo_exists():return
+        self.update_idletasks()
+        self.parameter_canvas.configure(scrollregion=self.parameter_canvas.bbox('all'))
+        self.parameter_canvas.yview_moveto(0)
+
     def choose_dialogue(self):
         if self.model is None or self.command is None:return
         choices=self.model.dialogues()
@@ -219,6 +253,10 @@ class EventCommandWindow(tk.Toplevel):
             window.chapter.current(0);window.search.set('');window.populate()
             match=next((i for i,(trigger,e) in enumerate(window.visible) if not trigger and e['id']==self.model.entry['id']),None) if self.model else None
             if match is not None:window.list.selection_clear(0,'end');window.list.selection_set(match);window.select()
+    def destroy(self):
+        if self._parameter_reset is not None:
+            self.after_cancel(self._parameter_reset);self._parameter_reset=None
+        super().destroy()
     def close(self):
         if self.settle():self.destroy()
 
