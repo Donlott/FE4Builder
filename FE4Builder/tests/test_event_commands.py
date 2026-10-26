@@ -3,7 +3,7 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 from rom import ROOT,Rom
-from event_commands import catalogue,EventCommands,FIELDS,schema,character_options,audio_kind,audio_options,deployment_options
+from event_commands import catalogue,EventCommands,FIELDS,schema,character_options,audio_kind,audio_options,deployment_options,group_units
 
 class EventCommandTests(unittest.TestCase):
     def setUp(self):self.rom=Rom(next(ROOT.glob('*.sfc')))
@@ -18,6 +18,8 @@ class EventCommandTests(unittest.TestCase):
                 model=EventCommands(self.rom,index);values=model.values(command)
                 values=[next(value for value in audio_options(c) if value!=values[0])] if audio_kind(c) else [low if value==high else value+1 for value,(_,_,_,low,high) in zip(values,FIELDS[schema(c)])]
                 if c['opcode'] in (0x0c,0x14):values[0]=next(o['pointer'] for o in model.dialogues() if o['pointer']!=model.values(command)[0])
+                if c['opcode']==0x23:
+                    values[0]=model.values(command)[0];values[1]=next(k for k in group_units(self.rom,values[0]) if k!=model.values(command)[1])
                 if c['opcode']==0x24:
                     values=[next((v for v in deployment_options(self.rom,i) if v!=old),value) if deployment_options(self.rom,i) else value for i,(old,value) in enumerate(zip(model.values(command),values))]
                 details=model.write({command:values});self.assertTrue(details)
@@ -26,7 +28,7 @@ class EventCommandTests(unittest.TestCase):
                 self.assertTrue(changed);self.assertTrue(changed<=allowed)
                 self.assertEqual(EventCommands(self.rom,index).values(command),values)
                 self.rom.data[start:start+len(baseline)]=baseline;count+=1
-        self.assertEqual(count,176);self.assertEqual(bytes(self.rom.data),original)
+        self.assertEqual(count,209);self.assertEqual(bytes(self.rom.data),original)
     def test_direct_deployment_packed_fields_and_ui(self):
         from FE4Builder import App
         original=bytes(self.rom.data)
@@ -113,6 +115,7 @@ class EventCommandTests(unittest.TestCase):
                 if c['editable']:
                     values=model.values(command);values[0]=next(v for v in audio_options(c) if v!=values[0]) if audio_kind(c) else values[0]+1
                     if c['opcode'] in (0x0c,0x14):values[0]=next(o['pointer'] for o in model.dialogues() if o['pointer']!=model.values(command)[0])
+                    if c['opcode']==0x23:values[0]=model.values(command)[0];values[1]=next(k for k in group_units(self.rom,values[0]) if k!=model.values(command)[1])
                     model.write({command:values})
                     self.assertEqual(EventCommands(headered,index).values(command),values);break
         for index,e in enumerate(catalogue()['entries']):
@@ -120,6 +123,7 @@ class EventCommandTests(unittest.TestCase):
             c=model.commands[command]
             values=model.values(command);values[0]=next(v for v in audio_options(c) if v!=values[0]) if audio_kind(c) else values[0]+1
             if c['opcode'] in (0x0c,0x14):values[0]=next(o['pointer'] for o in model.dialogues() if o['pointer']!=model.values(command)[0])
+            if c['opcode']==0x23:values[0]=model.values(command)[0];values[1]=next(k for k in group_units(self.rom,values[0]) if k!=model.values(command)[1])
             model.write({command:values})
             for j,entry in enumerate(reinforcements()['entries']):
                 if entry['id']==e['id']:

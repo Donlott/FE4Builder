@@ -1,5 +1,4 @@
 # Publish only the editor source and its required static companion files.
-/*
 !/.gitignore
 !/README.md
 !/FE4Builder/
