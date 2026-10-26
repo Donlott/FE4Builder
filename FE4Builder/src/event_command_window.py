@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import ttk,messagebox
 from rom import number
 from events import hex_dump
-from event_commands import EventCommands,catalogue,FIELDS,HELP,schema,character_options,audio_kind,audio_options,deployment_options,talk_options,BACKGROUNDS
+from event_commands import EventCommands,catalogue,FIELDS,HELP,schema,character_options,audio_kind,audio_options,deployment_options,talk_options,BACKGROUNDS,unit_groups,group_units
 from ui_common import ask_unsaved,scrollable_frame
 
 class EventCommandWindow(tk.Toplevel):
@@ -105,6 +105,13 @@ class EventCommandWindow(tk.Toplevel):
         for i,(label,offset,size,low,high) in enumerate(FIELDS.get(schema(c),[])):
             ttk.Label(self.fields,text=label if c['opcode']==0x42 and i==1 else label+f' ({low}–{high})').grid(row=i,column=0,sticky='w',padx=(0,12),pady=4)
             options={f'{name} (0x{value:04X})':value for value,name in self.names.items()} if schema(c)=='character_sprite' else {}
+            if c['opcode']==0x23 and i in (0,1):
+                if i==0:known=unit_groups(self.rom)
+                else:
+                    group=number(self.drafts[index][0]);known={k:v['label'] for k,v in group_units(self.rom,group).items()}
+                old=number(self.drafts[index][i])
+                if old not in known:known[old]=f'Existing unknown value {old}'
+                options={name+f' [ID {value}]':value for value,name in known.items()}
             if c['opcode']==0x42:
                 known=dict(self.names) if i==0 else {0:'Slot 1',1:'Slot 2'}
                 old=self.model.values(index)[i]
@@ -151,6 +158,8 @@ class EventCommandWindow(tk.Toplevel):
                     except ValueError:self.help.set(HELP[0x12]);return
                     self.help.set(HELP[0x12]+'\n\n'+describe_word(value))
                 var.trace_add('write',explain_word);explain_word()
+        if c['opcode']==0x23:
+            self.configure_group_load(index,c)
         if c['opcode']==0x14:
             mode=self.model.snapshot[c['offset']+5]
             ttk.Label(self.fields,text=f'Dialogue Type: {mode} (read-only; preserved)').grid(row=3,column=0,columnspan=3,sticky='w',pady=6)
@@ -158,6 +167,29 @@ class EventCommandWindow(tk.Toplevel):
         self.raw.set('Loaded command bytes (read-only):\n'+hex_dump(raw,self.model.profile['start']+c['offset']))
         if self._parameter_reset is not None:self.after_cancel(self._parameter_reset)
         self._parameter_reset=self.after_idle(self.reset_parameter_view)
+    def configure_group_load(self,index,command):
+        def value(i):
+            text=self.variables[i].get()
+            return self.field_options[i][text] if text in self.field_options[i] else number(text)
+        def explain(*_):
+            if self.command!=index:return
+            try:unit=group_units(self.rom,value(0))[value(1)]
+            except (ValueError,KeyError):self.help.set(HELP[0x23]+'\n\nChoose an existing entry in the selected group.');return
+            color=self.model.snapshot[command['offset']+7]
+            self.help.set(HELP[0x23]+f"\n\nArmy record (read-only here): {unit['label']}; destination ({unit['x']}, {unit['y']}); faction slot {unit['faction']}; AI {unit['ai']}; commander {'Yes' if unit['leader'] else 'No'}; formation {unit['formation']}. Stored sprite color: {color} (preserved).")
+        def group_changed(*_):
+            if self.command!=index:return
+            try:previous=value(1)
+            except ValueError:previous=None
+            try:units=group_units(self.rom,value(0))
+            except ValueError:return
+            options={u['label']+f' [ID {k}]':k for k,u in units.items()}
+            self.field_options[1]=options
+            widget=self.fields.grid_slaves(row=1,column=1)[0];widget.config(values=list(options))
+            self.variables[1].set(next((k for k,v in options.items() if v==previous),next(iter(options),'')))
+            explain()
+        self.variables[0].trace_add('write',group_changed);self.variables[1].trace_add('write',explain);explain()
+
     def clear_parameter_fields(self):
         # An empty grid frame can retain the previous command's requested height.
         # Recreate it, and only display it when the selected command has operands.
