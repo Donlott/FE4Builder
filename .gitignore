@@ -19,6 +19,7 @@
 !/FE4Builder/src/*.py
 /FE4Builder/data/*
 !/FE4Builder/data/ai.json
+!/FE4Builder/data/backgrounds.json
 !/FE4Builder/data/army_groups.json
 !/FE4Builder/data/audio.json
 !/FE4Builder/data/conversations.json

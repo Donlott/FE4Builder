@@ -39,6 +39,7 @@ def build_home(app):
             ('Dialogue Editor','Chapter conversations, control tags and text previews.',app.edit_dialogue),
             ('Tileset Viewer / Exporter','Browse and export chapter tilesets.',app.view_tilesets),
             ('Music & Sound Player','Read-only native music, effect and word-command previews.',app.open_audio),
+            ('Background Editor','Preview, export and replace the six dialogue backgrounds.',app.edit_background),
             ('Intro & Title Editor','Opening scenes, logos and title-screen graphics.',app.edit_intro)],
         'Advanced':[
             ('Character Settings','Promotion tables and other character-related modules.',editor('Character Settings')),

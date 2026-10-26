@@ -4,7 +4,7 @@ from pathlib import Path
 
 B=Path(__file__).resolve().parents[1]
 VERSION='0.1.0-preview'
-DATA=('ai','army_groups','audio','conversations','dialogue','event_commands','events','intro_assets','logo_layouts','objectives','reinforcements','villages')
+DATA=('ai','backgrounds','army_groups','audio','conversations','dialogue','event_commands','events','intro_assets','logo_layouts','objectives','reinforcements','villages')
 
 WINDOWS=r'''@echo off
 setlocal

@@ -138,6 +138,8 @@ class EventCommandWindow(tk.Toplevel):
             var=tk.StringVar(value=value);self.variables.append(var);self.field_options.append(options)
             widget=ttk.Combobox(self.fields,state='readonly',textvariable=var,values=list(options),width=38) if options else ttk.Spinbox(self.fields,from_=low,to=high,textvariable=var,width=12)
             widget.grid(row=i,column=1,sticky='w')
+            if c['opcode']==0x14 and i==1:
+                ttk.Button(self.fields,text='Edit background…',command=self.open_background).grid(row=i,column=2,padx=6)
             if c['opcode'] in (0x0c,0x14) and i==0:
                 widget.config(width=48)
                 ttk.Button(self.fields,text='Find dialogue…',command=self.choose_dialogue).grid(row=i,column=2,padx=6)
@@ -169,6 +171,16 @@ class EventCommandWindow(tk.Toplevel):
         self.update_idletasks()
         self.parameter_canvas.configure(scrollregion=self.parameter_canvas.bbox('all'))
         self.parameter_canvas.yview_moveto(0)
+
+    def open_background(self):
+        if self.model is None or self.command is None or self.model.commands[self.command]['opcode']!=0x14:return
+        self.remember_command()
+        try:index=number(self.drafts[self.command][1])
+        except ValueError:return
+        window=self.app.edit_background(index)
+        if window:
+            window.transient(self)
+            window.bind('<Destroy>',lambda event:self.grab_set() if event.widget is window and self.winfo_exists() else None,add='+')
 
     def choose_dialogue(self):
         if self.model is None or self.command is None:return

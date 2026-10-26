@@ -615,6 +615,10 @@ class App(tk.Tk):
         from portrait_window import open_portrait_window
         return self.prepare_window(open_portrait_window(self,portrait_id,action),restore=False)
 
+    def edit_background(self,index=0):
+        from background_window import open_background_window
+        return self.prepare_window(open_background_window(self,index),restore=False)
+
     def edit_intro(self):
         from intro_window import open_intro_window
         return self.prepare_window(open_intro_window(self))
