@@ -143,6 +143,12 @@ Format references: https://gitlab.com/robertsstuff/sfc-mapconv (`doc/game-specif
 
 Validation: `python scripts/run_tests.py`.
 
+## Working with several editor windows
+
+Normal editor windows leave the main menu and sibling editors interactive. You can keep Portrait Editor and Dialogue Editor open together in either opening order. File pickers, confirmation prompts and selection dialogs still block input temporarily while they need an answer; dismissing them does not make an editor modal again.
+
+Exiting FE4Builder or opening another ROM closes editor windows through their normal pending-change prompts. Stay/Cancel keeps the current ROM and pending editor open. If an editor saves while the same ROM is being reopened, the main window loads those newly saved bytes. Existing stale-data checks still apply: in particular, a portrait draft opened before another editor saves may require reopening Portrait Editor before it can be written. Its rejected save retains the draft, and Export sheet can preserve the imported artwork. An old portrait window cannot save or launch a different ROM.
+
 ## Player weapon / item slots
 
 In **Item Editor → Player Weapon Editor**, each list row is one persistent player item slot, numbered **01–8E** (for example `07 Thunder`). The displayed name and inventory icon follow the item type currently assigned to that slot. Each row edits exactly one assignment byte; the original two-slots-per-record presentation is no longer used. Writing retains normal backups and undo/redo.

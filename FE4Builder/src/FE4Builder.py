@@ -20,6 +20,7 @@ class App(tk.Tk):
         self.geometry('1180x820')
         self.minsize(980, 650)
         self.rom = None
+        self.editor_windows=[]
         self.modules = character_modules()
         self.mode = 'Character Editor'
         self.record = None
@@ -915,6 +916,15 @@ class App(tk.Tk):
         except (OSError, ValueError) as error:
             messagebox.showerror('Cannot open ROM', str(error))
             return
+        if not self.close_editor_windows():return False
+        # Closing an editor can save to this same path. Load again so reopening
+        # the ROM cannot replace those just-saved bytes with the earlier read.
+        try:
+            rom=Rom(path);modules=self.editor_modules(self.mode,rom)
+            for module in modules:
+                if module.count:rom.address(module,module.count-1)
+        except (OSError,ValueError) as error:
+            messagebox.showerror('Cannot open ROM',str(error));return False
         self.remember_editor()
         self.rom = rom
         self.ui_context_ready=True;self.usage_index=None
@@ -1322,9 +1332,22 @@ class App(tk.Tk):
                     self.list.yview_moveto(scroll)
                 self.refresh_draft_state()
 
+    def close_editor_windows(self):
+        for window in reversed(tuple(self.editor_windows)):
+            if not window.winfo_exists():continue
+            close=getattr(window,'close',None)
+            if callable(close):close()
+            else:
+                command=window.protocol('WM_DELETE_WINDOW')
+                if command:window.tk.call(command)
+                else:window.destroy()
+            if window.winfo_exists():return False
+        return True
+
     def close(self):
         if not self.settle():
             return
+        if not self.close_editor_windows():return
         if self.rom and self.rom.dirty and not messagebox.askyesno('Unsaved ROM', 'Exit and discard the unsaved ROM changes?'):
             return
         self.remember_editor();self.destroy()

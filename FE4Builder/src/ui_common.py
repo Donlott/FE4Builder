@@ -95,6 +95,7 @@ def scrollable_tab(notebook,title,padding=12):
     return scrollable_frame(shell,padding)
 
 def ask_unsaved(parent,message='Write the staged changes to the opened ROM?'):
+    previous=parent.grab_current()
     dialog=tk.Toplevel(parent);dialog.title('Unsaved changes');dialog.transient(parent.winfo_toplevel());dialog.grab_set();dialog.resizable(False,False)
     result=[None];body=ttk.Frame(dialog,padding=18);body.pack(fill='both',expand=True)
     ttk.Label(body,text=message,wraplength=450).pack(anchor='w',pady=(0,16))
@@ -102,12 +103,19 @@ def ask_unsaved(parent,message='Write the staged changes to the opened ROM?'):
     def choose(value):result[0]=value;dialog.destroy()
     for text,value in [('Write changes',True),('Discard changes',False),('Stay here',None)]:ttk.Button(buttons,text=text,command=lambda v=value:choose(v)).pack(side='left',padx=4)
     dialog.bind('<Escape>',lambda _:choose(None));dialog.protocol('WM_DELETE_WINDOW',lambda:choose(None));parent.wait_window(dialog)
-    if parent.winfo_exists() and isinstance(parent,tk.Toplevel):parent.grab_set()
+    if previous is not None and previous.winfo_exists():previous.grab_set()
     return result[0]
 
 def prepare_window(app,window,restore=True):
     if window is None or getattr(window,'_ux_prepared',False):return window
     window._ux_prepared=True;key=type(window).__name__;rom=app.rom;store=app.ui_context
+    # Editor constructors and legacy child-close callbacks request grabs. An
+    # app-managed editor must not lock out the main menu or sibling editors.
+    # Restrict this policy to this window instance: child prompts and pickers
+    # still use Tk's normal grab_set and remain modal while they are open.
+    if window.grab_current() is window:window.grab_release()
+    window.grab_set=lambda:None
+    app.editor_windows.append(window)
     state=store.get(rom,key) if restore else {}
     chapter=getattr(window,'chapter',None)
     if chapter is not None and restore:
@@ -161,8 +169,9 @@ def prepare_window(app,window,restore=True):
         except OSError:pass
         if schedule:job[0]=window.after(250,poll)
     def destroyed(event):
-        if event.widget is window and job[0] is not None:
-            window.after_cancel(job[0]);job[0]=None
+        if event.widget is window:
+            if window in app.editor_windows:app.editor_windows.remove(window)
+            if job[0] is not None:window.after_cancel(job[0]);job[0]=None
     original_destroy=window.destroy
     def destroy():
         if window.winfo_exists():

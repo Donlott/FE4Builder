@@ -167,7 +167,8 @@ class PortraitWindow(tk.Toplevel):
     """Studio's slot browser, full-sheet workspace and packing controls."""
     def __init__(self,app,portrait_id=0,action=None):
         self.app=app
-        self.document=PortraitDocument(app.rom)
+        self.rom=app.rom
+        self.document=PortraitDocument(self.rom)
         self.size_history=PortraitSizeHistory(self.document)
         self.current_sizes=current_sizes(self.document)
         self.projected_sizes=None
@@ -407,6 +408,7 @@ class PortraitWindow(tk.Toplevel):
         self.reservation.config(text=f'Reserved {start:06X}–{end:06X} for this write. Reservation clears after saving.')
 
     def save(self):
+        if not self.check_rom():return False
         if self.busy:return False
         if not self.pending():return True
         optimized=self.optimize.get()
@@ -437,7 +439,14 @@ class PortraitWindow(tk.Toplevel):
             if self.size_history.error:self.warn_size_config()
         return True
 
+    def check_rom(self):
+        if self.app.rom is not self.rom:
+            messagebox.showerror('ROM changed','Reopen the portrait editor for the current ROM.',parent=self)
+            return False
+        return True
+
     def launch(self):
+        if not self.check_rom():return False
         if self.busy:return False
         return self.app.save_and_launch(save_callback=self.save,parent=self)
 
