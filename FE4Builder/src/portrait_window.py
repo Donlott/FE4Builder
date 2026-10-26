@@ -12,6 +12,7 @@ from portraits import (COUNT, face_from_sheet, sheet_from_face, editable_sheet,
     native_sheet_from_editable, studio_sheet, native_sheet_from_studio,
     export_png, png_bytes, decode_tiles, decode_palette, encode_palette)
 from portrait_document import PortraitDocument
+from portrait_stats import PortraitSizeHistory, current_sizes, optimized_sizes
 from ui_common import scrollable_frame, ask_unsaved, bind_canvas_wheel
 
 
@@ -167,6 +168,9 @@ class PortraitWindow(tk.Toplevel):
     def __init__(self,app,portrait_id=0,action=None):
         self.app=app
         self.document=PortraitDocument(app.rom)
+        self.size_history=PortraitSizeHistory(self.document)
+        self.current_sizes=current_sizes(self.document)
+        self.projected_sizes=None
         super().__init__(app)
         self.title('FE4Builder — Portrait Editor');self.geometry('1130x790');self.minsize(780,600)
         self.transient(app);self.grab_set()
@@ -208,6 +212,10 @@ class PortraitWindow(tk.Toplevel):
         ttk.Label(right,text='Import either layout; it is detected from PNG dimensions. Studio: animation tiles on the right.\nFE4Builder: two mouth frames below the face. One shared palette covers the whole sheet.\nExport a template first. Transparent pixels use index 0; opaque RGB uses the top-left color.',wraplength=720).pack(anchor='w',pady=10)
         self.optimize=tk.BooleanVar(value=False)
         ttk.Checkbutton(right,text='Optimize portrait storage when writing',variable=self.optimize,command=self.set_optimize).pack(anchor='w')
+        sizes=ttk.LabelFrame(right,text='Portrait space',padding=8);sizes.pack(fill='x',pady=8)
+        self.portrait_sizes=ttk.Label(sizes,justify='left');self.portrait_sizes.grid(row=0,column=0,sticky='nw',padx=(0,20))
+        self.total_sizes=ttk.Label(sizes,justify='left');self.total_sizes.grid(row=0,column=1,sticky='nw')
+        self.size_note=ttk.Label(sizes,wraplength=700);self.size_note.grid(row=1,column=0,columnspan=2,sticky='w',pady=(6,0))
         storage=ttk.Frame(right);storage.pack(fill='x',pady=6)
         ttk.Button(storage,text='Preview packing…',command=self.preview_packing).pack(side='left',padx=(0,6))
         ttk.Button(storage,text='Reserve space…',command=self.reserve).pack(side='left')
@@ -222,6 +230,7 @@ class PortraitWindow(tk.Toplevel):
         self.protocol('WM_DELETE_WINDOW',self.close)
         self.bind('<Destroy>',self.destroyed,add='+')
         self.populate();self.show()
+        if self.size_history.error:self.after_idle(self.warn_size_config)
         if action=='import':self.after_idle(self.import_png)
         elif action=='export':self.after_idle(self.export)
 
@@ -281,7 +290,34 @@ class PortraitWindow(tk.Toplevel):
         def aliases(values):
             return ', '.join(values[:10])+ (f' … (+{len(values)-10})' if len(values)>10 else '') or 'none'
         self.detail.config(text=f'Palette: {"shared grey (14 editable colors)" if doc.shared_grey else "unlocked (15 editable colors)"}\nGraphics: {p.gfx:06X} · Palette: {p.pal:06X} · {len(p.touched)} compressed source bytes\nShared graphics: {aliases(gs)} | Shared palette: {aliases(ps)}')
+        self.show_sizes()
         self.write.config(state='normal' if self.pending() else 'disabled')
+
+    def show_sizes(self):
+        original=self.size_history.original
+        new=self.projected_sizes if self.optimize.get() else self.current_sizes
+        def value(size):return f'{size:,} bytes' if size is not None else 'Calculating…'
+        index=self.current
+        self.portrait_sizes.config(text=f'Original Portrait Size: {value(original.per_portrait[index])}\n'
+            f'New Portrait Size: {value(new.per_portrait[index] if new else None)}\n'
+            f'Portrait size saved: {value(original.per_portrait[index]-new.per_portrait[index] if new else None)}')
+        self.total_sizes.config(text=f'Original total size used by Portraits: {value(original.total)}\n'
+            f'New total size used by Portraits: {value(new.total if new else None)}\n'
+            f'Total portrait size saved: {value(original.total-new.total if new else None)}')
+        mode='Projected optimized sizes' if self.optimize.get() and (not self.document.optimization_applied or self.document.pending) else 'Current ROM sizes'
+        self.size_note.config(text=mode+'. Compressed graphics only; shared bytes count once in totals. Negative savings mean growth.'
+            +(' Enable optimization to include staged repacking.' if self.document.pending and not self.optimize.get() else ''))
+
+    def refresh_sizes(self):
+        self.projected_sizes=None
+        self.show_sizes()
+        if self.optimize.get():self.calculate_packing('sizes')
+
+    def warn_size_config(self):
+        messagebox.showwarning('Portrait size config',
+            f'Could not read or save portrait size history at {self.size_history.path}.\n'
+            'Original sizes or the first-use report setting may not persist across sessions.\n'
+            'Existing config contents were preserved.\n\n'+self.size_history.error,parent=self)
 
     def checker_photo(self,rows,colors):
         # Composite index-zero transparency for previews only, never exports.
@@ -307,6 +343,7 @@ class PortraitWindow(tk.Toplevel):
         except (ValueError,OSError,tk.TclError) as error:
             messagebox.showerror('Cannot import portrait',str(error),parent=self);return
         self.populate();self.show()
+        self.refresh_sizes()
         self.status.set(f'Staged {Path(path).name}. ROM unchanged.'+(' Static mouth fallback.' if static else '')+(' Colors reduced; inspect the preview.' if reduced else ''))
 
     def export(self):
@@ -322,33 +359,43 @@ class PortraitWindow(tk.Toplevel):
     def undo(self):
         if self.busy:return
         self.document.pending.pop(self.current,None);self.populate();self.show();self.status.set('Slot restored to the current ROM; other staged slots are retained.')
+        self.refresh_sizes()
 
     def set_optimize(self):
         if self.busy:
             self.optimize.set(self.document.optimize_portraits);return
         self.document.optimize_portraits=self.optimize.get();self.show()
+        self.refresh_sizes()
 
     def preview_packing(self):
+        self.calculate_packing('packing')
+
+    def calculate_packing(self,kind):
         if self.busy:return
         self.busy=True;self.config(cursor='watch')
         self.status.set('Calculating portrait packing… This may take a minute on the first preview.')
         def work():
-            try:self.pack_results.put((self.document.packing_plan(),None))
-            except Exception as error:self.pack_results.put((None,error))
+            try:
+                sizes=optimized_sizes(self.document)
+                plan=self.document.packing_plan() if kind=='packing' else None
+                self.pack_results.put((kind,sizes,plan,None))
+            except Exception as error:self.pack_results.put((kind,None,None,error))
         threading.Thread(target=work,daemon=True).start()
         self.pack_job=self.after(100,self.poll_packing)
 
     def poll_packing(self):
         self.pack_job=None
-        try:plan,error=self.pack_results.get_nowait()
+        try:kind,sizes,plan,error=self.pack_results.get_nowait()
         except queue.Empty:
             self.pack_job=self.after(100,self.poll_packing);return
         self.busy=False;self.config(cursor='')
         if error:
             self.status.set(str(error));messagebox.showerror('Cannot pack portraits',str(error),parent=self)
         else:
-            self.status.set('Packing preview ready. Enable optimization to use it when writing.')
-            messagebox.showinfo('Portrait storage preview',plan.summary+'\n\nPreview only; enable optimization to use this plan when writing.',parent=self)
+            self.projected_sizes=sizes;self.show_sizes()
+            self.status.set('Optimized portrait sizes ready.' if kind=='sizes' else 'Packing preview ready. Enable optimization to use this plan when writing.')
+            if kind=='packing':
+                messagebox.showinfo('Portrait storage preview',plan.summary+'\n\nPreview only; enable optimization to use this plan when writing.',parent=self)
 
     def reserve(self):
         if self.busy:return
@@ -362,17 +409,33 @@ class PortraitWindow(tk.Toplevel):
     def save(self):
         if self.busy:return False
         if not self.pending():return True
+        optimized=self.optimize.get()
         try:
             self.config(cursor='watch');self.update_idletasks()
             self.document.commit(self.app.rom)
         except (ValueError,OSError) as error:
             messagebox.showerror('Cannot write portrait',str(error),parent=self);return False
         finally:self.config(cursor='')
-        self.document=PortraitDocument(self.app.rom);self.optimize.set(False)
+        self.document=PortraitDocument(self.app.rom)
+        self.document.optimize_portraits=optimized
+        self.document.optimization_applied=optimized
+        self.current_sizes=current_sizes(self.document)
+        self.projected_sizes=self.current_sizes if optimized else None
         self.reservation.config(text='Writing uses exclusive existing space when possible.')
         self.populate();self.show();self.app.refresh_after_history()
         self.status.set('Portraits written to ROM. Backup and undo history updated.')
-        self.app.status.set(self.status.get());return True
+        self.app.status.set(self.status.get())
+        if optimized and not self.size_history.report_shown:
+            original=self.size_history.original;new=self.current_sizes
+            messagebox.showinfo('Portrait optimization report',
+                f'Original total size used by Portraits: {original.total:,} bytes\n'
+                f'New total size used by Portraits: {new.total:,} bytes\n'
+                f'Total portrait size saved: {original.total-new.total:,} bytes\n\n'
+                f'New Portrait Size (slot {self.current:02X}): {new.per_portrait[self.current]:,} bytes\n'
+                'Compressed graphics only; shared bytes count once in totals.',parent=self)
+            self.size_history.mark_report_shown()
+            if self.size_history.error:self.warn_size_config()
+        return True
 
     def launch(self):
         if self.busy:return False

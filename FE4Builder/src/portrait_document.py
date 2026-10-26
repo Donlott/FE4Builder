@@ -43,7 +43,7 @@ class PortraitDocument:
             if len(raw)!=2048 or p+32>len(body):raise EditorError(f'Portrait {i:02X} has an unsupported size or pointer.')
             self.portraits.append(Portrait(i,g,p,raw,bytes(body[p:p+32]),touched,self.shared_grey))
         self.pending={};self.arena=None
-        self.optimize_portraits=False;self._compression_cache={}
+        self.optimize_portraits=False;self.optimization_applied=False;self._compression_cache={}
     @staticmethod
     def validate_profile(body):
         if body[0xab335:0xab33c]!=bytes.fromhex('bf f9 b4 8a 85 65 bf'):raise EditorError('Portrait loader differs from the supported FE4 layout.')
@@ -89,7 +89,15 @@ class PortraitDocument:
         else:self.pending[idx]=(raw,palette)
 
     @property
-    def dirty(self):return bool(self.pending or self.optimize_portraits)
+    def dirty(self):return bool(self.pending or (self.optimize_portraits and not self.optimization_applied))
+
+    def compressed_graphics(self,raw):
+        if raw not in self._compression_cache:
+            blob=compress(raw)
+            if decompress(blob,0,2048)[0]!=raw:
+                raise EditorError('Encoder verification failed.')
+            self._compression_cache[raw]=blob
+        return self._compression_cache[raw]
 
     def commit(self,rom):
         # Other editors/history or an external program may have changed the ROM.

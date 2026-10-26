@@ -18,6 +18,7 @@ from portraits import (COUNT, decode_tiles, encode_tiles, encode_palette, decode
 from portrait_codec import compress, decompress
 from portrait_document import PortraitDocument, GFX_TABLE, PAL_TABLE
 from portrait_window import load_png, open_portrait_window
+from portrait_stats import PortraitSizeHistory, current_sizes, optimized_sizes
 
 
 def fixture(path,header=False):
@@ -50,13 +51,14 @@ class LayoutTests(unittest.TestCase):
 class WorkspaceTests(unittest.TestCase):
     def setUp(self):
         self.folder=tempfile.TemporaryDirectory();self.root=Path(self.folder.name)
+        self.stats_dir=patch('portrait_stats.DATA_DIR',self.root);self.stats_dir.start()
         self.path=self.root/'fixture.sfc';self.raw,self.palette=fixture(self.path)
         self.profile=patch.object(PortraitDocument,'validate_profile',return_value=False);self.profile.start()
         self.rom=Rom(self.path)
         self.tk=tk.Tk();self.tk.withdraw()
 
     def tearDown(self):
-        self.tk.destroy();self.profile.stop();self.folder.cleanup()
+        self.tk.destroy();self.profile.stop();self.stats_dir.stop();self.folder.cleanup()
 
     def doc(self):return PortraitDocument(self.rom)
 
@@ -244,6 +246,101 @@ class WorkspaceTests(unittest.TestCase):
             self.assertFalse(dialog.optimize.get());self.assertFalse(dialog.pending())
             self.assertEqual(self.path.read_bytes(),before)
             dialog.close()
+        finally:app.destroy()
+
+    def wait_for_sizes(self,app,dialog):
+        import time
+        deadline=time.monotonic()+10
+        while dialog.busy and time.monotonic()<deadline:
+            app.update();time.sleep(.01)
+        self.assertFalse(dialog.busy)
+
+    def test_size_totals_count_aliases_once_and_deduplicate_identical_streams(self):
+        doc=self.doc();original=current_sizes(doc)
+        self.assertEqual(original.total,original.per_portrait[0])
+        self.assertEqual(len(original.per_portrait),COUNT)
+        blob=compress(self.raw);self.rom.data[0xb0000:0xb0000+len(blob)]=blob
+        self.rom.data[GFX_TABLE+3:GFX_TABLE+6]=(0xcb0000).to_bytes(3,'little')
+        doc=self.doc();original=current_sizes(doc)
+        self.assertEqual(original.total,len(blob)*2)
+        with patch('portrait_document.compress',wraps=compress) as compressed:
+            new=optimized_sizes(doc);plan=doc.packing_plan()
+            compressed.assert_called_once_with(self.raw)
+        self.assertEqual(new.total,len(blob));self.assertEqual(new.total,plan.graphics_required)
+        self.assertEqual(new.per_portrait,tuple([len(blob)]*COUNT))
+
+    def test_per_portrait_savings_can_coexist_with_total_growth_when_alias_splits(self):
+        doc=self.doc();original=current_sizes(doc)
+        doc.stage(0,[[0]*128 for _ in range(32)],decode_palette(self.palette))
+        new=optimized_sizes(doc)
+        self.assertLess(new.per_portrait[0],original.per_portrait[0])
+        self.assertGreater(new.total,original.total)
+        doc.optimize_portraits=True;doc.reserve(0x7c0000,0x7c8000);doc.commit(self.rom)
+        self.assertEqual(current_sizes(self.doc()),new)
+
+    def test_original_sizes_and_report_setting_persist_after_optimization_and_reopen(self):
+        doc=self.doc();history=PortraitSizeHistory(doc);original=history.original
+        self.assertTrue(history.path.is_file());self.assertIsNone(history.error)
+        for idx in range(COUNT):doc.stage(idx,[[0]*128 for _ in range(32)],decode_palette(self.palette))
+        doc.optimize_portraits=True;doc.commit(self.rom)
+        optimized=self.doc();self.assertLess(current_sizes(optimized).total,original.total)
+        reopened=PortraitSizeHistory(optimized)
+        self.assertEqual(reopened.original,original);self.assertFalse(reopened.report_shown)
+        reopened.mark_report_shown()
+        self.assertTrue(PortraitSizeHistory(optimized).report_shown)
+        other_path=self.root/'other.sfc';other_path.write_bytes(self.path.read_bytes())
+        other=PortraitSizeHistory(PortraitDocument(Rom(other_path)))
+        self.assertEqual(other.original,current_sizes(optimized));self.assertFalse(other.report_shown)
+        self.assertEqual(PortraitSizeHistory(optimized).original,original)
+        self.assertTrue(PortraitSizeHistory(optimized).report_shown)
+
+    def test_damaged_config_and_failed_atomic_write_preserve_existing_baseline(self):
+        path=self.root/'portrait-sizes.json';path.write_text('invalid JSON')
+        history=PortraitSizeHistory(self.doc());self.assertIsNotNone(history.error)
+        history.mark_report_shown();self.assertEqual(path.read_text(),'invalid JSON')
+        path.unlink();history=PortraitSizeHistory(self.doc());before=path.read_bytes()
+        with patch('portrait_stats.os.replace',side_effect=OSError('read-only config')):
+            history.mark_report_shown()
+        self.assertIsNotNone(history.error);self.assertEqual(path.read_bytes(),before)
+        reopened=PortraitSizeHistory(self.doc())
+        self.assertFalse(reopened.report_shown);self.assertEqual(reopened.original,history.original)
+        self.assertEqual(list(self.root.glob('portrait-sizes-*.tmp')),[])
+
+    def test_optimized_write_keeps_checkbox_reports_once_and_retains_baseline(self):
+        from FE4Builder import App
+        app=App();app.withdraw();app.rom=self.rom
+        try:
+            with patch('portrait_window.PortraitWindow.slot_names',return_value={}):dialog=app.edit_portrait(0)
+            original=dialog.size_history.original
+            dialog.document.stage(0,[[0]*128 for _ in range(32)],decode_palette(self.palette))
+            dialog.document.reserve(0x7c0000,0x7c8000)
+            with patch('portrait_window.messagebox.showinfo') as report:
+                dialog.optimize.set(True);dialog.set_optimize();self.wait_for_sizes(app,dialog)
+                report.assert_not_called()
+                projected=dialog.projected_sizes
+                self.assertIn(f'New Portrait Size: {projected.per_portrait[0]:,} bytes',dialog.portrait_sizes.cget('text'))
+                self.assertIn(f'Total portrait size saved: {original.total-projected.total:,} bytes',dialog.total_sizes.cget('text'))
+                with patch.object(dialog.document,'commit',side_effect=OSError('disk full')),patch('portrait_window.messagebox.showerror'):
+                    self.assertFalse(dialog.save())
+                report.assert_not_called();self.assertFalse(dialog.size_history.report_shown)
+                self.assertTrue(dialog.optimize.get());self.assertTrue(dialog.pending())
+                self.assertTrue(dialog.save());report.assert_called_once()
+                self.assertEqual(report.call_args.args[0],'Portrait optimization report')
+                self.assertIn(f'{original.total:,} bytes',report.call_args.args[1])
+                self.assertEqual(dialog.current_sizes,projected)
+                self.assertTrue(dialog.optimize.get());self.assertTrue(dialog.document.optimize_portraits)
+                self.assertFalse(dialog.pending())
+                self.assertEqual(dialog.size_history.original,original)
+                dialog.document.stage(1,[[0]*128 for _ in range(32)],decode_palette(self.palette))
+                dialog.document.reserve(0x7c8000,0x7d0000)
+                dialog.refresh_sizes();self.wait_for_sizes(app,dialog)
+                self.assertTrue(dialog.save());self.assertEqual(report.call_count,1)
+                self.assertTrue(dialog.optimize.get());self.assertFalse(dialog.pending())
+            with patch('portrait_window.ask_unsaved') as unsaved:
+                dialog.close();unsaved.assert_not_called()
+            with patch('portrait_window.PortraitWindow.slot_names',return_value={}):reopened=app.edit_portrait(0)
+            self.assertEqual(reopened.size_history.original,original);self.assertTrue(reopened.size_history.report_shown)
+            reopened.close()
         finally:app.destroy()
 
     def test_unknown_loader_rejected_before_any_write(self):

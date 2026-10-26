@@ -1,5 +1,5 @@
 """Portrait-only packing. Never infer ownership from blank bytes or pointer gaps."""
-from portrait_codec import compress, decompress
+from portrait_codec import decompress
 from portrait_document import EditorError, GFX_TABLE, PAL_TABLE, COUNT
 
 # Original FE4 portrait graphics area: lower halves of banks CA through D0.
@@ -47,14 +47,9 @@ class Plan:
             raw,pal=rom.pending.get(p.id,(p.raw,p.palette))
             groups.setdefault(raw,[]).append(p.id)
         # Cache compression across preview/save; content is the key, not slot ID.
-        cache=rom._compression_cache
         items=[]
         for raw,ids in groups.items():
-            if raw not in cache:
-                blob=compress(raw)
-                if decompress(blob,0,2048)[0]!=raw:raise EditorError('Encoder verification failed.')
-                cache[raw]=blob
-            items.append((cache[raw],ids))
+            items.append((rom.compressed_graphics(raw),ids))
         self.graphics_required=sum(len(blob) for blob,_ in items)
         def allocate(blob,label):
             fits=[(b-a,a,i) for i,(a,b) in enumerate(free) if b-a>=len(blob)]
