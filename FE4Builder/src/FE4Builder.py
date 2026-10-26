@@ -185,7 +185,7 @@ class App(tk.Tk):
         self.window = self.canvas.create_window(0, 0, window=self.fields_frame, anchor='nw')
         self.fields_frame.bind('<Configure>', lambda e: self.canvas.configure(scrollregion=self.canvas.bbox('all')))
         self.canvas.bind('<Configure>', lambda e: self.canvas.itemconfigure(self.window, width=e.width))
-        self.bind('<MouseWheel>', self.scroll_editor)
+        for sequence in ('<MouseWheel>','<Button-4>','<Button-5>'):self.bind(sequence,self.scroll_editor)
         self.status = tk.StringVar(value='Ready — Write to ROM saves directly to the opened file.')
         self.status_label = ttk.Label(self, textvariable=self.status, relief='sunken', padding=6)
         self.status_label.pack(fill='x', side='bottom')
@@ -573,7 +573,8 @@ class App(tk.Tk):
         bounds = self.canvas.bbox('all')
         if not bounds or bounds[3] - bounds[1] <= self.canvas.winfo_height():
             return
-        steps = -int(event.delta / 120)
+        from ui_common import wheel_steps
+        steps = wheel_steps(event)
         if steps:
             self.canvas.yview_scroll(steps, 'units')
             return 'break'

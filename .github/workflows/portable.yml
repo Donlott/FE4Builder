@@ -1,0 +1,28 @@
+name: Windows and Ubuntu portable checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ubuntu:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install desktop test dependencies
+        run: sudo apt-get update && sudo apt-get install -y python3-tk xvfb xauth
+      - name: Validate launchers
+        run: |
+          sh -n Launcher.sh
+          sh -n "Setup Ubuntu.sh"
+          sh -n "FE4_Modding_Studio_v0.5_Windows/Setup Ubuntu.sh"
+          sh -n "FE4_Modding_Studio_v0.5_Windows/Start Studio.sh"
+      - name: Run ROM-free desktop and package checks
+        run: xvfb-run -a python3 FE4Builder/scripts/run_tests.py --portable
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run ROM-free desktop and package checks
+        run: python FE4Builder/scripts/run_tests.py --portable

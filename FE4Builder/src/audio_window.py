@@ -1,14 +1,15 @@
 """Read-only native FE4 music and sound preview browser."""
-import time,wave
+import os,time,wave
 import tkinter as tk
 from tkinter import ttk,messagebox
 from audio_preview import catalogue,PreviewJob,playback_available
+from audio_platform import WavPlayer,playback_problem
 
 KINDS={'Music':'music','Sound effects (byte)':'byte','Sound commands (word)':'word'}
 class AudioWindow(tk.Toplevel):
     def __init__(self,app,kind=None,value=None,autoplay=False):
         super().__init__(app);self.app=app;self.rom=app.rom;self.previous_grab=app.grab_current()
-        self.job=None;self.timer=None;self.playing_until=0;self.current=None;self.visible=[];self.entries=catalogue()['entries']
+        self.player=WavPlayer();self.job=None;self.timer=None;self.playing_until=0;self.current=None;self.visible=[];self.entries=catalogue()['entries']
         self.title('FE4Builder — Music & Sound Player');self.geometry('950x700');self.minsize(760,520);self.transient(app);self.grab_set()
         top=ttk.Frame(self,padding=12);top.pack(fill='x');ttk.Label(top,text='Music & Sound Player',style='Title.TLabel').pack(side='left')
         ttk.Label(self,text='Read-only playback from the opened ROM. No event parameters, ROM bytes or game saves are changed.',padding=(12,0)).pack(anchor='w')
@@ -48,7 +49,7 @@ class AudioWindow(tk.Toplevel):
         self.protocol('WM_DELETE_WINDOW',self.close)
         self.bind('<Escape>',lambda _:self.close())
         if not playback_available():
-            self.play_button.config(state='disabled');self.status.set('Built-in playback requires 64-bit Windows. You can still browse sounds and edit event audio commands on this platform.')
+            self.play_button.config(state='disabled');self.status.set(playback_problem())
         elif autoplay:self.after_idle(self.play)
     def target(self,kind,value):
         if kind is None:return
@@ -96,25 +97,24 @@ class AudioWindow(tk.Toplevel):
             self.job.cancel();self.job=None;self.status.set('Preview unavailable: '+str(error));return
         if output is None:self.timer=self.after(100,self.check_job);return
         try:
-            import winsound
-            flags=winsound.SND_FILENAME|winsound.SND_ASYNC|winsound.SND_NODEFAULT
-            if self.loop.get():flags|=winsound.SND_LOOP
-            winsound.PlaySound(str(output),flags)
+            self.player.play(output,self.loop.get())
             with wave.open(str(output),'rb') as sound:duration=sound.getnframes()/sound.getframerate()
-        except (OSError,RuntimeError,ImportError,wave.Error) as error:self.status.set('Cannot play preview: '+str(error));self.job=None;return
+        except (OSError,ValueError,RuntimeError,ImportError,wave.Error) as error:self.status.set('Cannot play preview: '+str(error));self.job=None;return
         self.playing_until=0 if self.loop.get() else time.monotonic()+duration
         self.status.set('Playing '+self.active_label+(' · repeating clip' if self.loop.get() else f' · {duration:.0f}-second preview'))
-        if self.playing_until:self.timer=self.after(200,self.check_playback)
+        if self.playing_until or os.name!='nt':self.timer=self.after(200,self.check_playback)
     def check_playback(self):
         self.timer=None
-        if time.monotonic()>=self.playing_until:self.status.set('Preview finished.');return
+        if os.name!='nt':
+            try:active=self.player.poll()
+            except ValueError as error:self.status.set(str(error));return
+            if not active:self.status.set('Preview finished.');return
+        elif time.monotonic()>=self.playing_until:self.status.set('Preview finished.');return
         self.timer=self.after(200,self.check_playback)
     def stop(self,update=True):
         if self.timer is not None:self.after_cancel(self.timer);self.timer=None
         if self.job is not None:self.job.cancel();self.job=None
-        try:
-            import winsound
-            winsound.PlaySound(None,0)
+        try:self.player.stop()
         except (ImportError,RuntimeError):pass
         self.playing_until=0
         if update:self.status.set('Stopped.')

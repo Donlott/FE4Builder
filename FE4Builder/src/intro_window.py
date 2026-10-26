@@ -45,7 +45,8 @@ class IntroWindow(tk.Toplevel):
         self.canvas=tk.Canvas(area,bg='#182331',highlightthickness=0);self.canvas.grid(row=0,column=0,sticky='nsew')
         xs=ttk.Scrollbar(area,orient='horizontal',command=self.canvas.xview);xs.grid(row=1,column=0,sticky='ew')
         ys=ttk.Scrollbar(area,command=self.canvas.yview);ys.grid(row=0,column=1,sticky='ns');self.canvas.configure(xscrollcommand=xs.set,yscrollcommand=ys.set)
-        self.canvas.bind('<MouseWheel>',lambda e:self.canvas.yview_scroll(-int(e.delta/120),'units'))
+        from ui_common import bind_canvas_wheel
+        bind_canvas_wheel(self.canvas)
         self.info=tk.StringVar();ttk.Label(right,textvariable=self.info,wraplength=730,justify='left').pack(anchor='w',pady=8)
         ttk.Label(self,text='Edit exported sheets without moving tile positions. Scene previews show individual layers; logos, clouds and effects have separate resources. Scene order and timing remain unchanged.',padding=10,wraplength=1050).pack(fill='x')
         self.status=tk.StringVar();ttk.Label(self,textvariable=self.status,padding=6,relief='sunken').pack(fill='x')

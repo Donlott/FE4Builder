@@ -89,3 +89,14 @@
 !/FE4_Modding_Studio_v0.5_Windows/fe4_modding_studio/data/
 /FE4_Modding_Studio_v0.5_Windows/fe4_modding_studio/data/*
 !/FE4_Modding_Studio_v0.5_Windows/fe4_modding_studio/data/*.json
+
+# Cross-platform launchers and CI; generated local environments remain private.
+!/Launcher.sh
+!/Setup Ubuntu.sh
+!/LINUX.md
+!/.gitattributes
+!/.github/
+!/FE4Builder/scripts/start.py
+!/FE4_Modding_Studio_v0.5_Windows/*.sh
+**/.venv-linux/
+**/.venv/

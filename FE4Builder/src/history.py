@@ -91,7 +91,7 @@ def apply_entry(data,entry,redo):
 class History:
     def __init__(self,path,current):
         path=Path(path).resolve()
-        key=hashlib.sha256(str(path).casefold().encode()).hexdigest()[:16]
+        key=hashlib.sha256((str(path).casefold() if os.name=='nt' else str(path)).encode()).hexdigest()[:16]
         self.folder=path.parent/'FE4Builder Backups'/key
         self.file=self.folder/'history.json'
         self.pending=self.folder/'history.pending.json'

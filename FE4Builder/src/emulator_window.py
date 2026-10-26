@@ -1,4 +1,5 @@
 """Configure an existing emulator; no downloads or game files are required."""
+import os
 import tkinter as tk
 from tkinter import ttk,filedialog,messagebox
 from emulator import load_config,save_config,default_config
@@ -17,7 +18,7 @@ def configure_emulator(app,parent=None):
     executable=tk.StringVar(value=config['executable'])
     ttk.Entry(row,textvariable=executable).pack(side='left',fill='x',expand=True)
     def browse():
-        path=filedialog.askopenfilename(parent=dialog,title='Choose emulator',filetypes=[('Windows executable','*.exe'),('All files','*')])
+        path=filedialog.askopenfilename(parent=dialog,title='Choose emulator',filetypes=([('Windows executable','*.exe'),('All files','*')] if os.name=='nt' else [('Executable or script','*')]))
         if path:executable.set(path)
     ttk.Button(row,text='Browse...',command=browse).pack(side='right',padx=(8,0))
     ttk.Label(body,text='Arguments (one per line)').pack(anchor='w')

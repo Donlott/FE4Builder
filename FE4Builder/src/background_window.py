@@ -4,7 +4,7 @@ from pathlib import Path
 from tkinter import ttk,filedialog,messagebox
 from backgrounds import Background
 from event_commands import BACKGROUNDS
-from ui_common import ask_unsaved
+from ui_common import ask_unsaved,bind_canvas_wheel
 
 class BackgroundWindow(tk.Toplevel):
     def __init__(self,app,index=0):
@@ -23,7 +23,7 @@ class BackgroundWindow(tk.Toplevel):
         ttk.Button(bar,text='Export PNG…',command=self.export).pack(side='left');ttk.Button(bar,text='Import PNG…',command=self.import_image).pack(side='left',padx=8)
         ttk.Label(bar,text='Zoom').pack(side='left');self.zoom=ttk.Combobox(bar,state='readonly',values=['1×','2×','3×'],width=5);self.zoom.current(1);self.zoom.pack(side='left',padx=8);self.zoom.bind('<<ComboboxSelected>>',lambda _:self.display())
         area=ttk.Frame(right);area.pack(fill='both',expand=True);area.columnconfigure(0,weight=1);area.rowconfigure(0,weight=1)
-        self.canvas=tk.Canvas(area,background='#20242a',highlightthickness=0);self.canvas.grid(row=0,column=0,sticky='nsew')
+        self.canvas=tk.Canvas(area,background='#20242a',highlightthickness=0);self.canvas.grid(row=0,column=0,sticky='nsew');bind_canvas_wheel(self.canvas)
         x=ttk.Scrollbar(area,orient='horizontal',command=self.canvas.xview);x.grid(row=1,column=0,sticky='ew');y=ttk.Scrollbar(area,command=self.canvas.yview);y.grid(row=0,column=1,sticky='ns');self.canvas.config(xscrollcommand=x.set,yscrollcommand=y.set)
         self.info=tk.StringVar();ttk.Label(right,textvariable=self.info,wraplength=700,justify='left').pack(anchor='w',pady=8)
         ttk.Label(right,text='Import an opaque 256 × 88 PNG. Colors are matched to the existing 16-color palette for each tile; export first as a template.\nArtwork is shared by every scene selecting this background ID. Portraits, text boxes, animation code and palettes are preserved.',wraplength=700,justify='left').pack(anchor='w')

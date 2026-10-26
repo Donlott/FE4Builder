@@ -4,12 +4,13 @@ from functools import lru_cache
 from pathlib import Path
 from rom import BUILDER_DIR,DATA_DIR
 
-CORE=BUILDER_DIR/'vendor/snes9x/snes9x_libretro.dll'
+from audio_platform import core_path,playback_problem
+CORE=core_path()
 CACHE=DATA_DIR/'audio-cache'
 VERSION=2
 @lru_cache(maxsize=1)
 def catalogue():return json.loads((DATA_DIR/'audio.json').read_text(encoding='utf-8'))
-def playback_available():return os.name=='nt' and sys.maxsize>2**32
+def playback_available():return not playback_problem()
 
 def clean_rom(data):
     raw=bytes(data);header=len(raw)%0x8000
@@ -26,10 +27,11 @@ def validate(kind,value,seconds,context):
     if type(seconds) is not int or not 1<=seconds<=120:raise ValueError('Preview length must be 1–120 seconds.')
     if context and not any(e['kind']=='music' and e['value']==context for e in catalogue()['entries']):raise ValueError('Choose a known background track.')
 
-def render(data,kind,value,seconds,context,output,core_path=CORE):
+def render(data,kind,value,seconds,context,output,core_path=None):
     from audio_core import AudioCore
     validate(kind,value,seconds,context);raw=clean_rom(data)
-    if os.name!='nt' or sys.maxsize<=2**32:raise ValueError('Audio playback currently requires 64-bit Windows Python.')
+    if sys.maxsize<=2**32:raise ValueError('Audio previews require 64-bit Python.')
+    if core_path is None:core_path=CORE
     if not Path(core_path).is_file():raise ValueError('The bundled Snes9x audio core is missing.')
     host=AudioCore(core_path,raw,Path(output).parent)
     try:
@@ -59,7 +61,7 @@ def render(data,kind,value,seconds,context,output,core_path=CORE):
 
 class PreviewJob:
     def __init__(self,data,kind,value,seconds,context=0,cache=CACHE):
-        if not playback_available():raise ValueError('Built-in audio playback is available on 64-bit Windows only. Audio browsing and event editing remain available on Linux.')
+        if not playback_available():raise ValueError(playback_problem())
         validate(kind,value,seconds,context);raw=clean_rom(data)
         if not CORE.is_file():raise ValueError('The bundled Snes9x audio core is missing.')
         self.cache=Path(cache);self.cache.mkdir(parents=True,exist_ok=True)
