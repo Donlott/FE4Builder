@@ -143,6 +143,18 @@ Format references: https://gitlab.com/robertsstuff/sfc-mapconv (`doc/game-specif
 
 Validation: `python scripts/run_tests.py`.
 
+## Player weapon / item slots
+
+In **Item Editor → Player Weapon Editor**, each list row is one persistent player item slot, numbered **01–8E** (for example `07 Thunder`). The displayed name and inventory icon follow the item type currently assigned to that slot. Each row edits exactly one assignment byte; the original two-slots-per-record presentation is no longer used. Writing retains normal backups and undo/redo.
+
+The **Appearances of player item slot** notes follow the slot ID across the current ROM's player starting inventories, shop lists, village rewards (including private Village Rewards editor scripts), ordinary event item-grant commands, and generic/special enemy drop fields. Two slots containing the same weapon type keep separate occurrence lists. Locations refresh after ROM changes; item names also follow edited item-name assignments. Chapter hints use live deployment groups and decoded direct event deployments where available. Undeployed records remain visible with an unknown chapter rather than an invented one.
+
+Each appearance has a **Go to location** button. Character, enemy and shop links open the source record and focus its slot field; village links select the matching reward; event links select the event and highlight the live command bytes. The Back button returns from record links to the selected player slot.
+
+Slots can be claimed once per generation. The notes list possible sources, including later fallback opportunities when an earlier village, drop or event was missed. Sources in the same chapter are not assigned a fabricated execution order. Potential parent inheritance is listed before ordinary generation-2 sources for slots obtainable in generation 1. Eligibility uses the current item type/rank and the native routine's explicit holy-weapon exception operands where recognized. The notes identify current generation-1 starting holders and link to inheritance settings. Actual pairing, parent ownership (including personal supply), child class/blood and whether a source succeeds depend on the played save; the ROM alone cannot establish them. If the slot is not inherited, an ordinary generation-2 source can supply it.
+
+Event grants are decoded at live command boundaries and pointers, not searched as arbitrary byte patterns or inferred from historical script annotations. **Coverage notes** report unsupported/truncated scripts and unresolved deployment/village layouts. Arbitrary ASM callbacks and save-state gameplay are not simulated, so a custom ASM item grant needs a supported decoder before its location can be included. Location indexing is read-only and does not rewrite event scripts or move item ownership.
+
 ## Portrait previews and importing
 
 Character records now show a live portrait preview, with **Preview / Import portrait…** opening the selected portrait. Class records show their class portrait. The main menu also has a standalone **Portrait Editor** for all 248 portrait IDs.

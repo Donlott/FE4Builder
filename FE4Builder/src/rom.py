@@ -119,6 +119,15 @@ def category_modules(mode):
                key=lambda p: tuple(int(part) if part.isdigit() else part.casefold()
                                    for part in re.split(r'(\d+)', p.name)))]
     if mode == 'Item Editor':
+        for module in modules:
+            if module.name=='FE4 Player Weapon Editor':
+                # The upstream module pairs bytes for presentation. The game
+                # addresses each persistent player item slot independently.
+                module.count=142
+                module.stride=1
+                module.fields=[Field('Item',0,1,module.fields[0].options,
+                                     reference='FE4 Weapon List.txt')]
+                module.names=[f'Player item slot {i:02X}' for i in range(1,143)]
         priority = {'FE4 Weapon/Staff Editor 1': 0, 'FE4 Weapon/Staff Editor 2': 1}
         modules.sort(key=lambda module: priority.get(module.name, 2))
     return modules

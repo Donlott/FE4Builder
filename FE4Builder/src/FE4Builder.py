@@ -306,6 +306,11 @@ class App(tk.Tk):
         module=self.modules[self.record[0]]
         from item_art import item_for_record
         item=item_for_record(module,self.record[1])
+        player_slot=module.name=='FE4 Player Weapon Editor'
+        if player_slot:
+            try:item=self.read_draft()[0]
+            except ValueError:item=None
+            if item==255:item=None
         self.item_preview_frame.pack_forget()
         if self.mode!='Item Editor' or item is None:return
         self.item_preview_frame.pack(fill='x',pady=(0,8),before=self.field_help_body.master)
@@ -320,7 +325,7 @@ class App(tk.Tk):
                 rows,colors,note=self.item_art.art(item,overrides)
             self.item_picture.image=tk.PhotoImage(master=self,data=base64.b64encode(export_png(rows,colors))).zoom(4)
             self.item_picture.configure(image=self.item_picture.image)
-            stats=dict(zip((f.name for f in module.fields),values)) if module.name!='FE4 Item Sprite Editor by Lorena' else None
+            stats=dict(zip((f.name for f in module.fields),values)) if module.name not in ('FE4 Item Sprite Editor by Lorena','FE4 Player Weapon Editor') else None
             self.item_description.set(self.item_art.name(item,stats)+'\n'+self.item_art.summary(item,stats)+'\n'+note)
         except (ValueError,OverflowError) as error:
             self.item_picture.configure(image='')
@@ -434,10 +439,15 @@ class App(tk.Tk):
 
     def update_shared_feedback(self):
         if not self.rom or self.record is None:return
+        module=self.modules[self.record[0]]
+        if module.name=='FE4 Player Weapon Editor' and hasattr(self,'slot_locations'):
+            rows=self.slot_locations.rows[self.record[1]+1]
+            self.shared_rows=[(row.title,row.target[1:]) for row in rows if row.target[0]=='record']
+            self.shared_text.set(f'Slot {self.record[1]+1:02X}: {len(rows)} indexed appearances. Reward and inheritance details are listed below.')
+            return
         from usage import UsageIndex
         stamp=id(self.rom.original)
         if self.usage_index is None or self.usage_index.stamp!=stamp:self.usage_index=UsageIndex(self.rom)
-        module=self.modules[self.record[0]]
         try:values=self.read_draft()
         except ValueError:values=self.rom.values(module,self.record[1])
         self.shared_rows=self.usage_index.for_record(module,self.record[1],values)
@@ -929,12 +939,22 @@ class App(tk.Tk):
         module = self.modules[self.table.current()]
         query = self.search.get().lower()
         names = [self.record_name(module,i) for i in range(module.count)]
-        self.visible = [i for i, name in enumerate(names) if query in f'{i:02X} {name}'.lower()]
+        first=1 if module.name=='FE4 Player Weapon Editor' else 0
+        self.visible = [i for i, name in enumerate(names) if query in f'{i+first:02X} {name}'.lower()]
         self.list.delete(0, 'end')
         for i in self.visible:
-            self.list.insert('end', f'{i:02X}  {names[i]}')
+            self.list.insert('end', f'{i+first:02X}  {names[i]}')
 
     def record_name(self, module, index):
+        if self.rom and module.name=='FE4 Player Weapon Editor':
+            from item_art import ItemArt
+            item=self.rom.values(module,index)[0]
+            if item==255:return 'Nothing'
+            engine=getattr(self,'item_art',None)
+            if engine is None or engine.rom is not self.rom:
+                engine=ItemArt(self.rom);self.item_art=engine
+            try:return engine.name(item)
+            except ValueError:return module.fields[0].options.get(item,f'Unknown item {item:02X}')
         if self.rom:
             from names import NameEditor
             field_index = next((i for i,f in enumerate(module.fields)
@@ -992,6 +1012,8 @@ class App(tk.Tk):
         self.item_browser_button.pack_forget()
         if module.name=='FE4 Item Sprite Editor by Lorena':
             self.item_preview_view.current(1)
+        elif module.name=='FE4 Player Weapon Editor':
+            self.item_preview_view.current(0)
         if self.mode=='Item Editor':
             self.item_browser_button.configure(state='normal')
             self.item_browser_button.pack(side='left',padx=8)
@@ -1002,6 +1024,9 @@ class App(tk.Tk):
         self.linked_buttons = {}
         self.heading.config(text=self.record_name(module,index))
         self.address.config(text=f'Record {index:02X}  •  File address 0x{self.rom.address(module, index):06X}  •  Size {module.stride} bytes')
+        if module.name=='FE4 Player Weapon Editor':
+            self.heading.config(text=f'{index+1:02X} {self.record_name(module,index)}')
+            self.address.config(text=f'Player item slot {index+1:02X} · File address 0x{self.rom.address(module,index):06X} · 1 byte')
         groups = {}
         counts = {}
         self.advanced_shell=ttk.Frame(self.fields_frame)
@@ -1118,11 +1143,85 @@ class App(tk.Tk):
             ttk.Label(self.fields_frame, text='Class changes affect all characters using this class.\nPromotion-Into Level is the minimum character level to promote into this destination class (normally 20).\nGold is stored in units of 100. Weapon ranks use the ROM’s A / B / C / unavailable values.', style='Subtitle.TLabel').pack(anchor='w', pady=8)
         elif self.mode == 'Character Editor' and table >= 4:
             ttk.Label(self.fields_frame, text='Children inherit stats, growths, skills and holy blood from their parents.\nThis table edits only their stored starting fields.', style='Subtitle.TLabel').pack(anchor='w', pady=8)
+        elif module.name=='FE4 Player Weapon Editor':
+            self.show_item_slot_locations(index+1)
         elif self.mode in EDITOR_CATEGORIES:
             ttk.Label(self.fields_frame, text='Fields and labels follow the selected Nightmare module.\nPointer / graphics tables edit data values; they do not preview or import graphics.\nNumbers accept decimal or 0x hexadecimal. Table sizes remain fixed.', style='Subtitle.TLabel').pack(anchor='w', pady=8)
         self._rendering=False
         self.update_validation()
         self.canvas.yview_moveto(0)
+
+    def show_item_slot_locations(self,slot):
+        import hashlib
+        from player_items import SlotLocations
+        stamp=hashlib.sha256(self.rom.data).digest()
+        if getattr(self,'slot_location_stamp',None)!=stamp:
+            self.slot_locations=SlotLocations(self.rom);self.slot_location_stamp=stamp
+        index=self.slot_locations
+        panel=ttk.LabelFrame(self.fields_frame,text=f'Appearances of player item slot {slot:02X}',padding=10)
+        panel.pack(fill='x',pady=8)
+        ttk.Label(panel,text=index.summary(slot),wraplength=690,justify='left').pack(anchor='w',pady=(0,8))
+        self.slot_appearance_rows=index.rows[slot]
+        for location in self.slot_appearance_rows:
+            row=ttk.Frame(panel);row.pack(fill='x',pady=6)
+            ttk.Button(row,text='Go to location',command=lambda target=location:self.open_item_slot_location(target)).pack(side='right',padx=(8,0))
+            ttk.Label(row,text=location.title,wraplength=540,justify='left').pack(anchor='w')
+            ttk.Label(row,text=location.note,wraplength=540,justify='left',style='Subtitle.TLabel').pack(anchor='w')
+        if not self.slot_appearance_rows:
+            ttk.Label(panel,text='No appearances found in the decoded inventories, drops, rewards or inheritance routes.').pack(anchor='w')
+        ttk.Label(panel,text='Locations follow the current ROM. ASM callbacks and actual save-state ownership/pairings are not simulated.',wraplength=690,style='Subtitle.TLabel').pack(anchor='w',pady=(10,0))
+        if index.warnings:
+            ttk.Button(panel,text=f'Coverage notes ({len(index.warnings)})',command=self.show_item_slot_coverage).pack(anchor='w',pady=6)
+
+    def show_item_slot_coverage(self):
+        dialog=tk.Toplevel(self);dialog.title('Player item slot coverage');dialog.geometry('850x480')
+        area=tk.Text(dialog,wrap='word');area.pack(fill='both',expand=True)
+        area.insert('end','These paths could not be fully decoded; their slot appearances may be incomplete.\n\n'+'\n'.join(self.slot_locations.warnings));area.config(state='disabled')
+        self.prepare_window(dialog,restore=False)
+
+    def open_item_slot_location(self,location):
+        if not self.settle_link():return False
+        target=location.target;origin=self.navigation_context()
+        if target[0]=='record':
+            if self.go_to_record(*target[1:]):
+                self.navigation.append(origin);self.back_button.config(state='normal')
+                if location.address is not None:
+                    module=self.modules[self.record[0]]
+                    base=self.rom.address(module,self.record[1])
+                    field=next((i for i,f in enumerate(module.fields) if base+f.offset==location.address),None)
+                    if field is not None:
+                        self.update_idletasks();widget=self.field_controls[field]['widget'];widget.focus_set()
+                        self.canvas.yview_moveto(max(0,widget.winfo_rooty()-self.fields_frame.winfo_rooty()-20)/max(1,self.fields_frame.winfo_height()))
+                return True
+            return False
+        if target[0]=='village':
+            dialog=self.edit_villages()
+            if dialog is None:return False
+            dialog.chapter.current(target[1]);dialog.populate()
+            if not dialog.load(target[2]):return False
+            dialog.list.selection_clear(0,'end');dialog.list.selection_set(dialog.visible.index(target[2]));dialog.list.see(dialog.visible.index(target[2]))
+            return True
+        if target[0]=='event':
+            dialog=self.view_events()
+            if dialog is None:return False
+            dialog.chapter.current(target[1]);dialog.search.set('');dialog.populate()
+            position=next((i for i,(trigger,entry) in enumerate(dialog.visible) if not trigger and entry['id']==target[2]),None)
+            if position is None:return False
+            dialog.list.selection_clear(0,'end');dialog.list.selection_set(position);dialog.list.see(position);dialog.select()
+            # Show the live bytes, where the slot operand can be inspected even
+            # when the historical symbolic event annotation no longer matches.
+            dialog.raw.master.master.select(dialog.raw.master)
+            from events import inspect,hex_dump
+            state=inspect(self.rom,dialog.visible[position][1]);start=state['start']
+            if target[3]+7>start+len(state['raw']):
+                end=min(target[3]+7,len(self.rom.data)-self.rom.header)
+                dialog.put(dialog.raw,hex_dump(bytes(self.rom.data[start+self.rom.header:end+self.rom.header]),start))
+                dialog.status.set(dialog.status.get()+f'\nSlot reference at PC ${target[3]:06X}; live byte view extended to include it.')
+            line=(target[3]-start)//16+1
+            dialog.raw.tag_configure('item-slot-reference',background='#ffe6a3',foreground='#151515')
+            dialog.raw.tag_add('item-slot-reference',f'{line}.0',f'{line}.end');dialog.raw.see(f'{line}.0')
+            return True
+        return False
 
     def toggle_advanced(self):
         self.advanced_expanded=not self.advanced_expanded
@@ -1181,6 +1280,12 @@ class App(tk.Tk):
             self.refresh_draft_state()
             return False
         self.status.set(f'Written directly to {self.rom.path.name}')
+        if self.modules[self.record[0]].name=='FE4 Player Weapon Editor':
+            selected=self.record[1]
+            self.populate()
+            if selected in self.visible:
+                self.list.selection_set(self.visible.index(selected));self.list.see(self.visible.index(selected))
+            self.render()
         self.update_equipment_visuals()
         self.update_history_controls()
         self.load_promotion()
