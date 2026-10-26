@@ -1,5 +1,7 @@
 # FE4Builder
 
+Donlot was here!
+
 A Python/Tkinter editor for Fire Emblem: Genealogy of the Holy War ROMs, inspired by FEBuilderGBA.
 
 Edit characters, classes, equipment, armies, portraits, maps, dialogue and selected event commands. Includes backups and undo history, linked editors, an AI viewer, and external emulator launching. This is an early preview with feature-specific ROM compatibility checks.
