@@ -30,19 +30,7 @@ if ! command -v python3 >/dev/null 2>&1; then
 fi
 exec python3 FE4Builder/scripts/start.py "$@"
 '''
-START='''"""Validate the local Python/Tk installation and start the portable editor."""
-import runpy,sys
-from pathlib import Path
-if sys.version_info < (3,10):
-    raise SystemExit('FE4Builder requires Python 3.10 or newer.')
-try:
-    import tkinter
-except ImportError:
-    raise SystemExit('Tkinter is missing. Linux: install your distribution python3-tk/python3-tkinter package. Windows: install Python with Tcl/Tk enabled.')
-source=Path(__file__).resolve().parents[1]/'src'
-sys.path.insert(0,str(source))
-runpy.run_path(str(source/'FE4Builder.py'),run_name='__main__')
-'''
+START=(B/'scripts/start.py').read_text(encoding='utf-8')
 SHORTCUT=r'''# Optional: create an icon-bearing Launcher shortcut after extracting/moving.
 $ErrorActionPreference = 'Stop'
 $releaseDirectory = Split-Path -Parent $PSScriptRoot
@@ -78,7 +66,7 @@ Open your own legally obtained FE4 ROM in the ROM selector. No ROM, emulator fro
 
 The editor recognizes FE4 ROMs with and without a 512-byte copier header. Several graphics/text/patch features require the supported 8 MiB Project Naga beta 7 layout and reject other layouts. Opening a ROM does not imply every feature supports it.
 
-Windows includes a 64-bit Snes9x core for built-in music/SFX previews. Linux supports the editors, audio catalogue/command editing and external emulator launch, but built-in music/SFX playback is unavailable. No Windows binary is shipped in the Linux package. Linux source compatibility has been reviewed; the Linux GUI has not been executed on a Linux host for this release.
+Windows includes a 64-bit Snes9x core for built-in music/SFX previews. Linux supports the editors and external emulator launch. Built-in audio previews additionally require a system Snes9x libretro core and a WAV player such as paplay; see LINUX.md. No Windows binary is shipped in the Linux package. Ubuntu 22.04 smoke checks are configured in GitHub Actions. This development host is Windows; Linux GUI/audio behavior must be verified on Ubuntu or in CI.
 
 ## Saving and portability
 
@@ -118,7 +106,11 @@ def payload(platform):
         for name in ('LICENSE','README.md','snes9x_libretro.dll'):add(B/'vendor/snes9x'/name,'FE4Builder/vendor/snes9x/'+name)
         files['Launcher.cmd']=WINDOWS.replace('\n','\r\n').encode()
         files['scripts/CreateShortcut.ps1']=SHORTCUT.encode()
-    else:files['Launcher']=LINUX.encode()
+    else:
+        files['Launcher']=LINUX.encode()
+        files['Launcher.sh']=(B.parent/'Launcher.sh').read_bytes()
+        files['Setup Ubuntu.sh']=(B.parent/'Setup Ubuntu.sh').read_bytes()
+        files['LINUX.md']=(B.parent/'LINUX.md').read_bytes()
     files['FE4Builder/scripts/start.py']=START.encode()
     files['START_HERE.md']=instructions(platform).encode()
     files['THIRD_PARTY.md']=THIRD.encode()
@@ -137,7 +129,7 @@ def build(out):
             path=out/(root+'.tar.gz')
             with tarfile.open(path,'w:gz') as archive:
                 for name,data in sorted(files.items()):
-                    info=tarfile.TarInfo(root+'/'+name);info.size=len(data);info.mode=0o755 if name=='Launcher' else 0o644;info.mtime=1792627200
+                    info=tarfile.TarInfo(root+'/'+name);info.size=len(data);info.mode=0o755 if name=='Launcher' or name.endswith('.sh') else 0o644;info.mtime=1792627200
                     archive.addfile(info,io.BytesIO(data))
         archives.append(path)
         print(path.name,len(files),'files',path.stat().st_size,'bytes')

@@ -1,6 +1,7 @@
 """Persistent emulator configuration and argument-safe process launching."""
 import json
 import os
+import shutil
 from pathlib import Path
 import subprocess
 import tempfile
@@ -9,7 +10,8 @@ from rom import DATA_DIR
 SETTINGS=DATA_DIR/'emulator.json'
 
 def default_config():
-    candidates=[Path(r'C:\Games\Snes\snes9x-x64.exe'),Path(r'C:\Games\Snes\snes9x.exe')]
+    candidates=[Path(p) for name in ('snes9x','snes9x-gtk','bsnes') if (p:=shutil.which(name))]
+    if os.name=='nt':candidates += [Path(r'C:\Games\Snes\snes9x-x64.exe'),Path(r'C:\Games\Snes\snes9x.exe')]
     executable=next((str(p) for p in candidates if p.is_file()),'')
     return {'executable':executable,'arguments':['{rom}']}
 

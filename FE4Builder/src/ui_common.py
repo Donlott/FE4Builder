@@ -14,12 +14,12 @@ class ContextStore:
         except (OSError,ValueError):pass
 
     def get(self,rom,key):
-        group=self.data.get(str(rom.path.resolve()).casefold(),{}) if rom else {}
+        group=self.data.get((str(rom.path.resolve()).casefold() if os.name=='nt' else str(rom.path.resolve())),{}) if rom else {}
         value=group.get(key,{}) if isinstance(group,dict) else {}
         return value if isinstance(value,dict) else {}
     def put(self,rom,key,value,persist=False):
         if not rom:return
-        identity=str(rom.path.resolve()).casefold()
+        identity=(str(rom.path.resolve()).casefold() if os.name=='nt' else str(rom.path.resolve()))
         if not isinstance(self.data.get(identity),dict):self.data[identity]={}
         group=self.data[identity]
         if group.get(key)==value:return
@@ -52,6 +52,25 @@ def fit_window(window):
     old=window.minsize();window.minsize(min(old[0],width-24),min(old[1],height-56))
     window.geometry(f'{max(320,w)}x{max(240,h)}+{left+max(8,(width-w)//2)}+{top+max(8,(height-h)//2)}')
 
+def wheel_steps(event):
+    """Normalize Windows/macOS wheel deltas and Linux/X11 buttons."""
+    number=getattr(event,'num',None)
+    if number==4:return -1
+    if number==5:return 1
+    delta=getattr(event,'delta',0)
+    return -int(delta/120) if abs(delta)>=120 else (-1 if delta>0 else 1 if delta<0 else 0)
+
+
+def bind_canvas_wheel(canvas,horizontal=True):
+    def scroll(event,axis='y'):
+        steps=wheel_steps(event)
+        if steps:getattr(canvas,axis+'view_scroll')(steps,'units')
+        return 'break'
+    for sequence in ('<MouseWheel>','<Button-4>','<Button-5>'):
+        canvas.bind(sequence,scroll)
+        if horizontal:canvas.bind('<Shift-'+sequence[1:],lambda event:scroll(event,'x'))
+
+
 def scrollable_frame(parent,padding=0):
     area=ttk.Frame(parent);area.pack(fill='both',expand=True)
     canvas=tk.Canvas(area,highlightthickness=0);bar=ttk.Scrollbar(area,command=canvas.yview)
@@ -63,10 +82,11 @@ def scrollable_frame(parent,padding=0):
     def wheel(event):
         if isinstance(event.widget,(ttk.Combobox,ttk.Spinbox,tk.Listbox,tk.Text,ttk.Treeview)):return
         if str(event.widget).startswith(str(content)) or event.widget is canvas:
-            canvas.yview_scroll(-int(event.delta/120),'units');return 'break'
-    top=parent.winfo_toplevel();binding=top.bind('<MouseWheel>',wheel,add='+')
+            canvas.yview_scroll(wheel_steps(event),'units');return 'break'
+    top=parent.winfo_toplevel();bindings=[(sequence,top.bind(sequence,wheel,add='+')) for sequence in ('<MouseWheel>','<Button-4>','<Button-5>')]
     def cleanup(event):
-        if event.widget is content:top.unbind('<MouseWheel>',binding)
+        if event.widget is content:
+            for sequence,binding in bindings:top.unbind(sequence,binding)
     content.bind('<Destroy>',cleanup,add='+')
     return content
 

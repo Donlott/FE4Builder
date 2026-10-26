@@ -68,7 +68,8 @@ class SpriteWindow(tk.Toplevel):
             scroll.pack(side='right',fill='y')
             canvas.configure(yscrollcommand=scroll.set)
             canvas.pack(fill='both',expand=True)
-            canvas.bind('<MouseWheel>',lambda e,c=canvas:c.yview_scroll(-int(e.delta/120),'units'))
+            from ui_common import bind_canvas_wheel
+            bind_canvas_wheel(canvas)
 
             self.pages.append(canvas)
 

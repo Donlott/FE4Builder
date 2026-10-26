@@ -129,8 +129,8 @@ class MapWindow(tk.Toplevel):
         ttk.Scrollbar(area,orient='vertical',command=self.canvas.yview).grid(row=0,column=1,sticky='ns')
         ttk.Scrollbar(area,orient='horizontal',command=self.canvas.xview).grid(row=1,column=0,sticky='ew')
         # Keep wheel events local to the map canvas.
-        self.canvas.bind('<MouseWheel>',lambda e:self.canvas.yview_scroll(-int(e.delta/120),'units'))
-        self.canvas.bind('<Shift-MouseWheel>',lambda e:self.canvas.xview_scroll(-int(e.delta/120),'units'))
+        from ui_common import bind_canvas_wheel
+        bind_canvas_wheel(self.canvas)
         self.canvas.bind('<ButtonPress-1>',self.press)
         self.canvas.bind('<B1-Motion>',self.motion)
         self.canvas.bind('<ButtonRelease-1>',self.release)

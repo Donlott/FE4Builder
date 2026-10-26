@@ -67,7 +67,8 @@ class TilesetWindow(tk.Toplevel):
         ys=ttk.Scrollbar(area,orient='vertical',command=self.canvas.yview);ys.grid(row=0,column=1,sticky='ns')
         xs=ttk.Scrollbar(area,orient='horizontal',command=self.canvas.xview);xs.grid(row=1,column=0,sticky='ew')
         self.canvas.configure(yscrollcommand=ys.set,xscrollcommand=xs.set)
-        self.canvas.bind('<MouseWheel>',lambda e:self.canvas.yview_scroll(-int(e.delta/120),'units'))
+        from ui_common import bind_canvas_wheel
+        bind_canvas_wheel(self.canvas)
         self.canvas.bind('<Button-1>',self.select)
         side=ttk.Frame(body,width=260,padding=12);body.add(side,weight=0)
         self.preview=ttk.Label(side);self.preview.pack(anchor='w',pady=8)

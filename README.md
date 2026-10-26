@@ -11,11 +11,11 @@ Edit characters, classes, equipment, armies, portraits, maps, dialogue and selec
 Requires Python 3.10+ and Tkinter. No pip dependencies are needed.
 
 - Windows: run `FE4Builder/scripts/Launcher.cmd`.
-- Linux: install Python/Tkinter, then run `python3 FE4Builder/src/FE4Builder.py` from the repository root. Debian/Ubuntu packages: `python3 python3-tk`.
+- Ubuntu 22.04: run `sh "Setup Ubuntu.sh"`, then `sh Launcher.sh`. See [LINUX.md](LINUX.md) for optional audio and testing instructions.
 
 Select your own ROM at startup. Several text and graphics features require the 8 MiB Project Naga beta 7 layout. The editor supports ROMs with or without copier headers where the individual feature permits it.
 
-Built-in music/SFX playback currently requires 64-bit Windows. Linux retains audio browsing and event command editing, but its GUI has not yet been verified on a Linux host. Configure a separately installed emulator for Save & Launch.
+Built-in music/SFX playback supports 64-bit Windows and a Linux backend using a separately installed Snes9x libretro core plus paplay/aplay/ffplay. Ubuntu GUI/audio verification still needs a native run; ROM-free CI checks are configured for Ubuntu 22.04 and Windows. Configure a separately installed emulator for Save & Launch.
 
 Read [the feature documentation](FE4Builder/README.md) before editing. Keep an untouched original ROM; Write to ROM overwrites the selected file using automatic backups and history.
 
@@ -25,7 +25,7 @@ Run `python FE4Builder/scripts/build_release.py`. The `releases/` directory rece
 
 ## Tests
 
-`python FE4Builder/scripts/run_tests.py test_release.py` checks packaging and clean startup without a ROM. Most other tests require a local reference Project Naga beta 7 ROM in the repository root and a graphical desktop; ROM fixtures are never distributed. Some developer tests also need research material excluded from this repository. The native audio checks require 64-bit Windows.
+`python FE4Builder/scripts/run_tests.py --portable` checks platform handling, packaging and clean startup without a ROM. On headless Linux, prefix it with `xvfb-run -a`. Most other tests require a local reference Project Naga beta 7 ROM in the repository root and a graphical desktop; ROM fixtures are never distributed. Some developer tests also need research material excluded from this repository. The legacy native audio snapshot tests require 64-bit Windows; the portable suite tests Linux process control without playing sound.
 
 ## Included material
 
@@ -38,6 +38,6 @@ A project-wide source license has not yet been selected; third-party files retai
 
 [FE4_Modding_Studio_v0.5_Windows](FE4_Modding_Studio_v0.5_Windows/) preserves the contributed FE4 Modding Studio project alongside FE4Builder while integration is in progress. The two applications remain separate; FE4Builder's existing launchers and release packages are unchanged.
 
-The Studio snapshot includes its original source, data catalogues, documentation, regression tests, setup script and Windows launchers. For its portrait storage optimization, Project Naga text and animation tools, follow [README_WINDOWS.txt](FE4_Modding_Studio_v0.5_Windows/README_WINDOWS.txt). On Windows, run **Setup Windows.bat** in that folder first, then **Start Studio.bat**. It has its own pinned Pillow dependency and local virtual environment; FE4Builder's dependency instructions do not apply to it.
+The Studio snapshot includes its original source, data catalogues, documentation, regression tests, setup script and Windows launchers. For its portrait storage optimization, Project Naga text and animation tools, follow [README_WINDOWS.txt](FE4_Modding_Studio_v0.5_Windows/README_WINDOWS.txt). On Windows, run **Setup Windows.bat** in that folder first, then **Start Studio.bat**. It has its own pinned Pillow dependency and local virtual environment; see [LINUX.md](LINUX.md) for separate Ubuntu setup/launch scripts. FE4Builder's dependency instructions do not apply to it.
 
 Local virtual environments, Python caches, build outputs and game files are excluded. The snapshot is stored for collaboration and future integration; adding it does not validate its ROM-writing behavior or change the original project's terms.
