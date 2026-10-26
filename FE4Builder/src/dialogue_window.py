@@ -6,7 +6,8 @@ import re
 import tkinter as tk
 from tkinter import ttk,filedialog,messagebox
 from dialogue import Dialogue,catalogue,encode,readable,preview,check_profile
-from portraits import png_bytes
+from portraits import png_bytes,Portrait,character_portrait_id
+from dialogue_characters import character_choices,portrait_command_at
 
 
 class DialogueWindow(tk.Toplevel):
@@ -18,6 +19,7 @@ class DialogueWindow(tk.Toplevel):
         self.entries=catalogue()['entries']
         target=next((i for i,e in enumerate(self.entries) if entry and e['address']==entry['address']),None)
         if entry and target is None:target=len(self.entries);self.entries.append(entry)
+        self.characters=character_choices(app)
         self.cache={};self.errors={}
         for i,entry in enumerate(self.entries):
             try:self.cache[i]=Dialogue(self.rom,entry).text
@@ -60,6 +62,16 @@ class DialogueWindow(tk.Toplevel):
         scroll=ttk.Scrollbar(area,command=self.text.yview);scroll.pack(side='right',fill='y')
         self.text.config(yscrollcommand=scroll.set);self.text.pack(fill='both',expand=True)
         self.text.bind('<<Modified>>',self.modified)
+        for event in ('<KeyRelease>','<ButtonRelease-1>','<<Selection>>'):
+            self.text.bind(event,lambda _:self.update_character())
+        character_bar=ttk.LabelFrame(right,text='Dialogue character portrait',padding=6);character_bar.pack(fill='x',pady=6)
+        self.character_image=ttk.Label(character_bar);self.character_image.pack(side='left',padx=6)
+        details=ttk.Frame(character_bar);details.pack(side='left',fill='x',expand=True)
+        self.character_info=tk.StringVar()
+        ttk.Label(details,textvariable=self.character_info,wraplength=450).pack(anchor='w')
+        self.choose_character_button=ttk.Button(details,text='Choose character…',command=lambda:self.choose_character(False));self.choose_character_button.pack(side='left',pady=4)
+        self.insert_character_button=ttk.Button(details,text='Insert character portrait…',command=lambda:self.choose_character(True));self.insert_character_button.pack(side='left',padx=6)
+
         preview_bar=ttk.Frame(right);preview_bar.pack(fill='x',pady=(10,4))
         ttk.Label(preview_bar,text='Text-only font preview · page').pack(side='left')
         self.page=ttk.Combobox(preview_bar,state='readonly',width=7,values=['1']);self.page.current(0)
@@ -117,11 +129,12 @@ class DialogueWindow(tk.Toplevel):
         except ValueError as error:
             self.model=None;self.loaded='';self.info.set(str(error));self.text.config(state='disabled')
         self.text.edit_reset();self.text.edit_modified(False);self.page.current(0)
-        self.update_preview()
+        self.update_preview();self.update_character()
 
     def modified(self,_=None):
         if not self.text.edit_modified():return
         self.text.edit_modified(False)
+        self.update_character()
         if self.job is not None:self.after_cancel(self.job)
         self.job=self.after(300,self.update_preview)
 
@@ -142,6 +155,76 @@ class DialogueWindow(tk.Toplevel):
 
     def insert_tag(self):
         if self.model:self.text.insert('insert',self.tag.get());self.text.focus_set()
+
+    def character_target(self):
+        offset=int(self.text.count('1.0','insert','chars')[0] or 0)
+        selection=None
+        if self.text.tag_ranges('sel'):
+            selection=tuple(int(self.text.count('1.0',index,'chars')[0] or 0) for index in ('sel.first','sel.last'))
+        return portrait_command_at(self.contents(),offset,selection)
+
+    def show_character(self,identity,label,image):
+        name,class_id=self.characters.get(identity,('Unknown character',None))
+        label.set(f'{name} · Character ID {identity:04X}')
+        image.config(image='');image.photo=None
+        try:
+            graphics=character_portrait_id(self.rom,identity,class_id)
+            portrait=Portrait(self.rom,graphics)
+            photo=tk.PhotoImage(master=self,data=base64.b64encode(png_bytes(portrait.rows,portrait.colors)))
+            image.config(image=photo);image.photo=photo
+            label.set(label.get()+f' · Portrait graphics {graphics:02X}')
+        except (ValueError,IndexError):label.set(label.get()+' · Preview unavailable (class-dependent or unsupported ID).')
+
+    def update_character(self):
+        enabled=self.model is not None
+        target=self.character_target() if enabled else None
+        self.choose_character_button.config(state='normal' if target else 'disabled')
+        self.insert_character_button.config(state='normal' if enabled else 'disabled')
+        if target:self.show_character(target[2],self.character_info,self.character_image)
+        else:
+            self.character_image.config(image='');self.character_image.photo=None
+            self.character_info.set('Place the cursor inside a [Portrait …] command to identify or replace its character. IDs are hexadecimal.')
+
+    def choose_character(self,insert=False):
+        if self.model is None:return
+        target=None if insert else self.character_target()
+        if not insert and target is None:return
+        position=self.text.index('insert')
+        dialog=tk.Toplevel(self);dialog.title('Choose dialogue character');dialog.geometry('620x540');dialog.transient(self);dialog.grab_set()
+        query=tk.StringVar();ttk.Label(dialog,text='Search name or hexadecimal character ID').pack(anchor='w',padx=12,pady=(12,4))
+        search=ttk.Entry(dialog,textvariable=query);search.pack(fill='x',padx=12)
+        area=ttk.Frame(dialog);area.pack(fill='both',expand=True,padx=12,pady=8)
+        listing=tk.Listbox(area,exportselection=False);listing.pack(side='left',fill='both',expand=True)
+        scroll=ttk.Scrollbar(area,command=listing.yview);scroll.pack(side='right',fill='y');listing.config(yscrollcommand=scroll.set)
+        image=ttk.Label(dialog);image.pack()
+        info=tk.StringVar();ttk.Label(dialog,textvariable=info,wraplength=590).pack(padx=12,pady=6)
+        visible=[]
+        choices=dict(self.characters)
+        if target and target[2] not in choices:choices[target[2]]=('Unknown character',None)
+        def selected(_=None):
+            if listing.curselection():self.show_character(visible[listing.curselection()[0]],info,image)
+        def populate(*_):
+            visible[:]=[i for i,(name,_) in sorted(choices.items()) if query.get().casefold() in f'{i:04X} {name}'.casefold()]
+            listing.delete(0,'end')
+            for identity in visible:listing.insert('end',f'{choices[identity][0]} · {identity:04X}')
+            if visible:
+                index=visible.index(target[2]) if target and target[2] in visible else 0
+                listing.selection_set(index);listing.see(index);selected()
+            else:info.set('No matching characters.');image.config(image='')
+        def accept():
+            if not listing.curselection():return
+            identity=visible[listing.curselection()[0]]
+            self.text.edit_separator();self.text.config(autoseparators=False)
+            if target:
+                start,end,_=target
+                self.text.delete(f'1.0+{start}c',f'1.0+{end}c');at=f'1.0+{start}c'
+            else:at=position
+            self.text.insert(at,f'[Portrait {identity:04X}]');self.text.config(autoseparators=True);self.text.edit_separator()
+            dialog.destroy();self.grab_set();self.text.focus_set();self.update_character();self.update_preview()
+        ttk.Button(dialog,text='Insert portrait' if insert else 'Replace character',command=accept).pack(pady=8)
+        listing.bind('<<ListboxSelect>>',selected);listing.bind('<Double-Button-1>',lambda _:accept())
+        query.trace_add('write',populate);populate();search.focus_set()
+        dialog.protocol('WM_DELETE_WINDOW',lambda:(dialog.destroy(),self.grab_set()))
 
     def save(self):
         if self.app.rom is not self.rom:

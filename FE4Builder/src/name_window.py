@@ -16,15 +16,32 @@ def open_name_window(app, name_id=0):
         return
     dialog = tk.Toplevel(app)
     dialog.title('FE4Builder — Character Name Editor')
-    dialog.geometry('690x440')
+    dialog.geometry('960x440')
     dialog.transient(app)
     dialog.grab_set()
-    body = ttk.Frame(dialog,padding=20)
-    body.pack(fill='both',expand=True)
+    layout = ttk.Frame(dialog,padding=20)
+    layout.pack(fill='both',expand=True)
+    sidebar = ttk.Frame(layout)
+    sidebar.pack(side='left',fill='y',padx=(0,20))
+    ttk.Label(sidebar,text='Slot — character name').pack(anchor='w',pady=(0,8))
+    listing = ttk.Frame(sidebar)
+    listing.pack(fill='both',expand=True)
+    labels = tk.StringVar(value=[f'{i:02X} — {m.current}' for i,m in enumerate(models)])
+    selector = tk.Listbox(listing,listvariable=labels,width=26,exportselection=False)
+    selector.pack(side='left',fill='both',expand=True)
+    scrollbar = ttk.Scrollbar(listing,command=selector.yview)
+    scrollbar.pack(side='right',fill='y')
+    selector.config(yscrollcommand=scrollbar.set)
+
+    def select_name(name_id):
+        selector.selection_clear(0,'end')
+        selector.selection_set(name_id)
+        selector.see(name_id)
+
+    select_name(name_id)
+    body = ttk.Frame(layout)
+    body.pack(side='left',fill='both',expand=True)
     ttk.Label(body,text='Edit the actual character name',style='Title.TLabel').pack(anchor='w')
-    selector = ttk.Combobox(body,state='readonly',values=[f'{i:02X} — {m.current}' for i,m in enumerate(models)],width=40)
-    selector.current(name_id)
-    selector.pack(anchor='w',pady=(14,10))
     text = tk.StringVar(value=model.current)
     entry = ttk.Entry(body,textvariable=text,font=('Segoe UI',16))
     entry.pack(fill='x')
@@ -62,10 +79,13 @@ def open_name_window(app, name_id=0):
 
     def choose(_=None):
         nonlocal model,initial
-        if text.get()!=initial and not messagebox.askyesno('Unwritten name','Discard the current unwritten name?',parent=dialog):
-            selector.current(model.name_id)
+        selected = selector.curselection()
+        if not selected or selected[0]==model.name_id:
             return
-        model = NameEditor(app.rom,selector.current())
+        if text.get()!=initial and not messagebox.askyesno('Unwritten name','Discard the current unwritten name?',parent=dialog):
+            select_name(model.name_id)
+            return
+        model = NameEditor(app.rom,selected[0])
         initial = model.current
         text.set(initial)
 
@@ -92,7 +112,8 @@ def open_name_window(app, name_id=0):
             return False
         initial = text.get()
         model = NameEditor(app.rom,model.name_id)
-        selector.config(values=[f'{i:02X} — {NameEditor(app.rom,i).current}' for i in range(63)])
+        labels.set([f'{i:02X} — {NameEditor(app.rom,i).current}' for i in range(63)])
+        select_name(model.name_id)
         app.status.set(f'Name written directly to {app.rom.path.name}; ROM size unchanged.')
         app.update_history_controls()
         if app.record is not None:
@@ -112,7 +133,7 @@ def open_name_window(app, name_id=0):
     write = ttk.Button(actions,text='Write to ROM',command=save)
     write.pack(side='right')
     ttk.Button(actions,text='Close',command=close).pack(side='right',padx=10)
-    selector.bind('<<ComboboxSelected>>',choose)
+    selector.bind('<<ListboxSelect>>',choose)
     text.trace_add('write',update)
     dialog.protocol('WM_DELETE_WINDOW',close)
     update()

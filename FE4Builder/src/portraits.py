@@ -114,6 +114,18 @@ def native_sheet_from_editable(rows):
     return [rows[y][:48]+rows[y+32][:48]+rows[64+y%16][(y//16)*32:(y//16+1)*32] for y in range(32)]
 
 
+def studio_sheet(sheet):
+    """Studio 64x64: face at left, four animation tile columns at right."""
+    face=face_from_sheet(sheet)
+    return [face[y]+sheet[y%32][96+(y//32)*16:112+(y//32)*16] for y in range(64)]
+
+
+def native_sheet_from_studio(rows):
+    if len(rows)!=64 or any(len(row)!=64 for row in rows):
+        raise ValueError('Studio portrait sheets must be exactly 64 x 64 pixels.')
+    return [rows[y][:48]+rows[y+32][:48]+rows[y][48:64]+rows[y+32][48:64] for y in range(32)]
+
+
 class Portrait:
     def __init__(self,rom,portrait_id):
         if not 0<=portrait_id<COUNT:

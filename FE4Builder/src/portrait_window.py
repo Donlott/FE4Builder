@@ -1,14 +1,26 @@
+"""Studio-based portrait workspace integrated with FE4Builder's ROM/history."""
 import base64
+import struct
+import zlib
+import queue
+import threading
 import tkinter as tk
-from tkinter import ttk,filedialog,messagebox
+from tkinter import ttk, filedialog, messagebox, simpledialog
 from pathlib import Path
 from collections import Counter
-from portraits import Portrait,COUNT,face_from_sheet,sheet_from_face,editable_sheet,native_sheet_from_editable,export_png,png_bytes
+from portraits import (COUNT, face_from_sheet, sheet_from_face, editable_sheet,
+    native_sheet_from_editable, studio_sheet, native_sheet_from_studio,
+    export_png, png_bytes, decode_tiles, decode_palette, encode_palette)
+from portrait_document import PortraitDocument
+from portrait_stats import PortraitSizeHistory, current_sizes, optimized_sizes
+from ui_common import scrollable_frame, ask_unsaved, bind_canvas_wheel
 
-def photo(master,rows,colors,scale=3):
-    return tk.PhotoImage(master=master,data=base64.b64encode(png_bytes(rows,colors,scale)))
 
-def quantize(pixels,transparent,background):
+def photo(master, rows, colors, scale=3):
+    return tk.PhotoImage(master=master, data=base64.b64encode(png_bytes(rows, colors, scale)))
+
+
+def quantize(pixels,transparent,background,limit=15):
     # Work in the SNES's native five-bit color space before choosing a palette.
     def snes(color):
         return tuple(round(value*31/255) for value in color)
@@ -18,7 +30,7 @@ def quantize(pixels,transparent,background):
     masks=[[transparent[y][x] if has_alpha else value==bg for x,value in enumerate(row)] for y,row in enumerate(converted)]
     counts=Counter(value for y,row in enumerate(converted) for x,value in enumerate(row) if not masks[y][x])
     boxes=[list(counts)] if counts else []
-    while len(boxes)<15:
+    while len(boxes)<limit:
         choices=[(max(max(c[k] for c in box)-min(c[k] for c in box) for k in range(3)),sum(counts[c] for c in box),i)
                  for i,box in enumerate(boxes) if len(box)>1]
         if not choices:
@@ -44,180 +56,418 @@ def quantize(pixels,transparent,background):
     colors=[tuple(component*255//31 for component in color) for color in palette]
     return rows,colors,len(counts)>15
 
-def load_png(master,path):
+def load_png(master, path, allow_reduction=True, shared_grey=False, palette=None):
+    """Read both artist layouts without adding Pillow as a runtime dependency."""
+    data=Path(path).read_bytes()
+    if not data.startswith(b'\x89PNG\r\n\x1a\n'):
+        raise ValueError('Choose a PNG file.')
+    # Let Tk validate the PNG before inspecting optional indexed information.
     image=tk.PhotoImage(master=master,file=str(path))
     width,height=image.width(),image.height()
-    if (width,height) not in ((64,80),(48,64),(128,32)):
-        raise ValueError('Import a 64 x 80 portrait sheet: 48 x 64 face at the top-left, with two 32 x 16 mouth frames side by side below. Export a sheet for a template. Legacy 48 x 64 faces and 128 x 32 native sheets are also accepted.')
-    pixels=[[image.get(x,y) for x in range(width)] for y in range(height)]
-    transparency=[[image.transparency_get(x,y) for x in range(width)] for y in range(height)]
-    background=pixels[0][0]
+    sizes=((64,64),(64,80),(48,64),(128,32))
+    if (width,height) not in sizes:
+        raise ValueError('Use a Studio 64 x 64 sheet (animation strip on the right), a FE4Builder 64 x 80 sheet (mouth frames below), a 48 x 64 face, or a native 128 x 32 sheet. No resizing is performed.')
     static=(width,height)==(48,64)
-    if (width,height)==(64,80):
-        # Ignore the unused top-right padding before selecting the palette.
-        pixels=native_sheet_from_editable(pixels)
-        transparency=native_sheet_from_editable(transparency)
-    rows,colors,reduced=quantize(pixels,transparency,background)
-    return sheet_from_face(rows) if static else rows,colors,static,reduced
+    def native(rows):
+        if (width,height)==(64,64):return native_sheet_from_studio(rows)
+        if (width,height)==(64,80):return native_sheet_from_editable(rows)
+        if static:return sheet_from_face(rows)
+        return rows
+    pixels=native([[image.get(x,y) for x in range(width)] for y in range(height)])
+    alpha=native([[image.transparency_get(x,y) for x in range(width)] for y in range(height)])
+    # Preserve exact palette indices (including duplicate colors) for exported
+    # indexed templates. Other indexed PNGs go through the RGB path below.
+    from intro_graphics import indexed_png
+    try:indexed=indexed_png(path)
+    except (ValueError,IndexError,struct.error,zlib.error):indexed=None
+    grey=tuple(((0x35ad>>s)&31)*255//31 for s in (0,5,10))
+    if indexed:
+        rows,colors=indexed;rows=native(rows)
+        colors=colors[:16]+[(0,0,0)]*max(0,16-len(colors))
+        used={v for row in rows for v in row}
+        # Check alpha chunk too: Tk's boolean accessor cannot distinguish
+        # partial alpha from opaque on every Tcl/Tk version.
+        position=8;transparency=None
+        while position+12<=len(data):
+            length=int.from_bytes(data[position:position+4],'big')
+            if data[position+4:position+8]==b'tRNS':transparency=data[position+8:position+8+length]
+            position+=length+12
+        alpha_ok=transparency is None or (transparency[:1]==b'\0' and all(v==255 for v in transparency[1:]))
+        if used and max(used)<16 and alpha_ok:
+            colors=decode_palette(encode_palette(colors))
+            if shared_grey:
+                if 14 in used and colors[14]!=grey:
+                    raise ValueError('Index 14 is the shared grey color in this ROM. Retain the exported palette or use an RGB PNG.')
+                colors[14]=grey
+            return rows,colors,static,False
+    # Reject partial transparency, including RGBA PNGs, using Tk's RGBA reader.
+    # Tk 8.6 exposes alpha through `data -format` only on newer releases.
+    # PNG alpha is checked by the small reader below, independent of Tk version.
+    _check_png_alpha(data)
+    def word(c):return tuple(round(v*31/255) for v in c)
+    has_alpha=any(any(row) for row in alpha)
+    bg=pixels[0][0]
+    masks=[[alpha[y][x] if has_alpha else c==bg for x,c in enumerate(row)] for y,row in enumerate(pixels)]
+    words=[[word(c) for c in row] for row in pixels]
+    grey_word=word(grey)
+    counts=Counter(c for y,row in enumerate(words) for x,c in enumerate(row)
+                   if not masks[y][x] and not (shared_grey and c==grey_word))
+    slots=list(range(1,14))+[15] if shared_grey else list(range(1,16))
+    reduced=len(counts)>len(slots)
+    if reduced and not allow_reduction:
+        raise ValueError(f'PNG uses {len(counts)} editable colors after SNES conversion; this ROM allows {len(slots)}. Enable color reduction and inspect the preview.')
+    if reduced:
+        # Reuse FE4Builder's median-cut quantizer, excluding shared grey pixels.
+        extra=[[masks[y][x] or (shared_grey and c==grey_word) for x,c in enumerate(row)] for y,row in enumerate(words)]
+        # quantize accepts a selectable limit for the shared-grey profile.
+        _,chosen,_=quantize(pixels,extra,bg,limit=len(slots))
+        selected=[word(c) for c in chosen[1:1+len(slots)]]
+    else:selected=sorted(counts)
+    colors=list(palette) if palette is not None else [(0,0,0)]*16
+    colors[0]=tuple(v*255//31 for v in word(bg))
+    for slot,c in zip(slots,selected):colors[slot]=tuple(v*255//31 for v in c)
+    if shared_grey:colors[14]=grey
+    mapping={c:slots[min(range(len(selected)),key=lambda i:sum((a-b)**2 for a,b in zip(c,selected[i])))] for c in counts}
+    if shared_grey:mapping[grey_word]=14
+    rows=[[0 if masks[y][x] else mapping[c] for x,c in enumerate(row)] for y,row in enumerate(words)]
+    return rows,colors,static,reduced
+
+
+def _check_png_alpha(data):
+    """Reject partial alpha; decode with stdlib for RGBA/gray-alpha PNGs only."""
+    position=8;compressed=bytearray();header=None
+    while position+12<=len(data):
+        n=int.from_bytes(data[position:position+4],'big');kind=data[position+4:position+8];body=data[position+8:position+8+n];position+=n+12
+        if kind==b'IHDR':header=struct.unpack('>IIBBBBB',body)
+        elif kind==b'IDAT':compressed.extend(body)
+        elif kind==b'tRNS' and header and header[3]==3 and any(v not in (0,255) for v in body):
+            raise ValueError('Use fully opaque or transparent pixels; partial transparency is unsupported.')
+    if not header or header[3] not in (4,6):return
+    width,height,depth,kind,_,_,interlace=header
+    if depth!=8 or interlace:
+        raise ValueError('Save RGBA PNGs as non-interlaced 8-bit images, or use an exported indexed template.')
+    channels=4 if kind==6 else 2;stride=width*channels
+    raw=zlib.decompress(compressed);previous=bytearray(stride);pos=0
+    for _ in range(height):
+        filt=raw[pos];line=bytearray(raw[pos+1:pos+1+stride]);pos+=stride+1
+        for x in range(stride):
+            a=line[x-channels] if x>=channels else 0;b=previous[x];c=previous[x-channels] if x>=channels else 0
+            if filt==1:line[x]=(line[x]+a)&255
+            elif filt==2:line[x]=(line[x]+b)&255
+            elif filt==3:line[x]=(line[x]+(a+b)//2)&255
+            elif filt==4:
+                p=a+b-c;ds=(abs(p-a),abs(p-b),abs(p-c));line[x]=(line[x]+(a,b,c)[ds.index(min(ds))])&255
+            elif filt!=0:raise ValueError('Unsupported PNG filter.')
+        if any(v not in (0,255) for v in line[channels-1::channels]):
+            raise ValueError('Use fully opaque or transparent pixels; partial transparency is unsupported.')
+        previous=line
+
+
+class PortraitWindow(tk.Toplevel):
+    """Studio's slot browser, full-sheet workspace and packing controls."""
+    def __init__(self,app,portrait_id=0,action=None):
+        self.app=app
+        self.rom=app.rom
+        self.document=PortraitDocument(self.rom)
+        self.size_history=PortraitSizeHistory(self.document)
+        self.current_sizes=current_sizes(self.document)
+        self.projected_sizes=None
+        super().__init__(app)
+        self.title('FE4Builder — Portrait Editor');self.geometry('1130x790');self.minsize(780,600)
+        self.transient(app);self.grab_set()
+        self.current=portrait_id;self.photos=[];self.animation_job=None;self.animation_step=0;self.busy=False;self.pack_job=None;self.pack_results=queue.Queue()
+        self.names=self.slot_names()
+        top=ttk.Frame(self,padding=(16,12));top.pack(fill='x')
+        ttk.Label(top,text='Portrait Editor',style='Title.TLabel').pack(side='left')
+        ttk.Label(top,text=app.rom.path.name).pack(side='right')
+        body=ttk.Panedwindow(self,orient='horizontal');body.pack(fill='both',expand=True,padx=16)
+        left=ttk.Frame(body);shell=ttk.Frame(body);body.add(left,weight=1);body.add(shell,weight=4)
+        ttk.Label(left,text='Portrait slot — hex ID or name').pack(anchor='w')
+        self.search=tk.StringVar();self.search.trace_add('write',lambda *_:self.populate())
+        ttk.Entry(left,textvariable=self.search).pack(fill='x',pady=6)
+        listing=ttk.Frame(left);listing.pack(fill='both',expand=True)
+        self.list=tk.Listbox(listing,width=25,exportselection=False);self.list.pack(side='left',fill='both',expand=True)
+        bar=ttk.Scrollbar(listing,command=self.list.yview);bar.pack(side='right',fill='y');self.list.config(yscrollcommand=bar.set)
+        self.list.bind('<<ListboxSelect>>',self.select)
+        ttk.Label(left,text='* = staged replacement\nNames follow the loaded ROM’s character records.',wraplength=200).pack(anchor='w',pady=8)
+        right=scrollable_frame(shell)
+        self.slot_title=ttk.Label(right,font=('Sans',14,'bold'));self.slot_title.pack(anchor='w')
+        # Horizontal scrolling keeps all three panels accessible on smaller screens.
+        preview=ttk.Frame(right);preview.pack(fill='x',pady=10)
+        self.canvas=tk.Canvas(preview,height=380,bg='#222833',highlightthickness=0)
+        self.canvas.pack(fill='x',expand=True)
+        scroll=ttk.Scrollbar(preview,orient='horizontal',command=self.canvas.xview);scroll.pack(fill='x')
+        self.canvas.config(xscrollcommand=scroll.set);bind_canvas_wheel(self.canvas)
+        self.frame=ttk.Combobox(right,state='readonly',values=('Animate talking','Normal face','Talking frame 1','Talking frame 2'),width=24)
+        self.frame.current(0);self.frame.pack(anchor='w');self.frame.bind('<<ComboboxSelected>>',lambda _:self.show())
+        layout_bar=ttk.Frame(right);layout_bar.pack(fill='x',pady=8)
+        ttk.Label(layout_bar,text='Complete PNG sheet / export layout:').pack(side='left')
+        self.layout=ttk.Combobox(layout_bar,state='readonly',values=('Studio — 64 x 64','FE4Builder — 64 x 80'),width=25)
+        self.layout.current(0);self.layout.pack(side='left',padx=6);self.layout.bind('<<ComboboxSelected>>',lambda _:self.show())
+        self.detail=ttk.Label(right,wraplength=720);self.detail.pack(anchor='w',pady=4)
+        actions=ttk.Frame(right);actions.pack(fill='x',pady=8)
+        for label,command in (('Export sheet…',self.export),('Import PNG…',self.import_png),('Undo slot',self.undo)):
+            ttk.Button(actions,text=label,command=command).pack(side='left',padx=(0,6))
+        self.reduce=tk.BooleanVar(value=False)
+        ttk.Checkbutton(right,text='Allow color reduction on PNG import (inspect preview before writing)',variable=self.reduce).pack(anchor='w')
+        ttk.Label(right,text='Import either layout; it is detected from PNG dimensions. Studio: animation tiles on the right.\nFE4Builder: two mouth frames below the face. One shared palette covers the whole sheet.\nExport a template first. Transparent pixels use index 0; opaque RGB uses the top-left color.',wraplength=720).pack(anchor='w',pady=10)
+        self.optimize=tk.BooleanVar(value=False)
+        ttk.Checkbutton(right,text='Optimize portrait storage when writing',variable=self.optimize,command=self.set_optimize).pack(anchor='w')
+        sizes=ttk.LabelFrame(right,text='Portrait space',padding=8);sizes.pack(fill='x',pady=8)
+        self.portrait_sizes=ttk.Label(sizes,justify='left');self.portrait_sizes.grid(row=0,column=0,sticky='nw',padx=(0,20))
+        self.total_sizes=ttk.Label(sizes,justify='left');self.total_sizes.grid(row=0,column=1,sticky='nw')
+        self.size_note=ttk.Label(sizes,wraplength=700);self.size_note.grid(row=1,column=0,columnspan=2,sticky='w',pady=(6,0))
+        storage=ttk.Frame(right);storage.pack(fill='x',pady=6)
+        ttk.Button(storage,text='Preview packing…',command=self.preview_packing).pack(side='left',padx=(0,6))
+        ttk.Button(storage,text='Reserve space…',command=self.reserve).pack(side='left')
+        self.reservation=ttk.Label(right,text='Writing uses exclusive existing space when possible.',wraplength=720);self.reservation.pack(anchor='w')
+        bottom=ttk.Frame(self,padding=(16,10));bottom.pack(fill='x')
+        ttk.Button(bottom,text='Close',command=self.close).pack(side='right')
+        ttk.Button(bottom,text='Save & Launch (F5)',command=self.launch).pack(side='right',padx=8)
+        self.write=ttk.Button(bottom,text='Write Portrait to ROM',command=self.save);self.write.pack(side='right')
+        self.status=tk.StringVar(value='Ready — imports are staged until written to ROM.')
+        ttk.Label(self,textvariable=self.status,padding=(16,4),wraplength=1050).pack(fill='x')
+        self.bind('<F5>',lambda _:(self.launch(),'break')[1])
+        self.protocol('WM_DELETE_WINDOW',self.close)
+        self.bind('<Destroy>',self.destroyed,add='+')
+        self.populate();self.show()
+        if self.size_history.error:self.after_idle(self.warn_size_config)
+        if action=='import':self.after_idle(self.import_png)
+        elif action=='export':self.after_idle(self.export)
+
+    def slot_names(self):
+        from rom import character_modules
+        from portraits import character_portrait_id
+        names={}
+        for table in character_modules():
+            for record in range(table.count):
+                values={f.name:v for f,v in zip(table.fields,self.app.rom.values(table,record))}
+                try:idx=character_portrait_id(self.app.rom,values['Char no.'],values.get('Class'))
+                except (ValueError,KeyError):continue
+                name=self.app.record_name(table,record)
+                if name not in names.setdefault(idx,[]):names[idx].append(name)
+        return {idx:', '.join(group[:3])+('…' if len(group)>3 else '') for idx,group in names.items()}
+
+    def pending(self):return self.document.dirty
+
+    def populate(self):
+        query=self.search.get().casefold();self.list.delete(0,'end');self.visible=[]
+        for idx in range(COUNT):
+            label=f'{idx:02X}  {self.names.get(idx,"Portrait")}' + (' *' if idx in self.document.pending else '')
+            if query in label.casefold():self.visible.append(idx);self.list.insert('end',label)
+        if self.current in self.visible:
+            index=self.visible.index(self.current);self.list.selection_set(index);self.list.see(index)
+
+    def select(self,_=None):
+        if self.busy:return
+        selected=self.list.curselection()
+        if selected:self.current=self.visible[selected[0]];self.show()
+
+    def colors(self,palette):
+        colors=decode_palette(palette)
+        if self.document.shared_grey:colors[14]=(106,106,106)
+        return colors
+
+    def show(self):
+        if self.animation_job is not None:self.after_cancel(self.animation_job);self.animation_job=None
+        doc=self.document;p=doc.portraits[self.current]
+        raw,palette=doc.pending.get(self.current,(p.raw,p.palette));sheet=decode_tiles(raw);colors=self.colors(palette)
+        source=decode_tiles(p.raw);source_colors=self.colors(p.palette)
+        self.slot_title.config(text=f'Slot {self.current:02X} — {self.names.get(self.current,"Portrait")}'+(' *' if self.current in doc.pending else ''))
+        self.canvas.delete('all');self.photos=[]
+        rows=studio_sheet(sheet) if self.layout.current()==0 else editable_sheet(sheet)
+        # Store pre-rendered talking frames; a timer only swaps canvas images.
+        self.talking=[self.checker_photo(face_from_sheet(sheet,i),colors) for i in range(3)]
+        for x,rows_,colors_,label in ((12,face_from_sheet(source),source_colors,'Current ROM portrait'),(230,rows,colors,'Complete PNG sheet')):
+            image=self.checker_photo(rows_,colors_);self.photos.append(image)
+            self.canvas.create_text(x,18,text=label,fill='#e5e9f0',anchor='w')
+            self.canvas.create_image(x,38,image=image,anchor='nw')
+        self.canvas.create_text(512,18,text='Talking preview — staged portrait',fill='#e5e9f0',anchor='w')
+        self.talking_item=self.canvas.create_image(512,38,image=self.talking[0],anchor='nw')
+        self.canvas.config(height=max(310,len(rows)*4+50),scrollregion=(0,0,735,max(310,len(rows)*4+50)))
+        self.animation_step=0;self.animate()
+        gs=[f'{q.id:02X}' for q in doc.portraits if q.id!=p.id and q.gfx==p.gfx]
+        ps=[f'{q.id:02X}' for q in doc.portraits if q.id!=p.id and q.pal==p.pal]
+        def aliases(values):
+            return ', '.join(values[:10])+ (f' … (+{len(values)-10})' if len(values)>10 else '') or 'none'
+        self.detail.config(text=f'Palette: {"shared grey (14 editable colors)" if doc.shared_grey else "unlocked (15 editable colors)"}\nGraphics: {p.gfx:06X} · Palette: {p.pal:06X} · {len(p.touched)} compressed source bytes\nShared graphics: {aliases(gs)} | Shared palette: {aliases(ps)}')
+        self.show_sizes()
+        self.write.config(state='normal' if self.pending() else 'disabled')
+
+    def show_sizes(self):
+        original=self.size_history.original
+        new=self.projected_sizes if self.optimize.get() else self.current_sizes
+        def value(size):return f'{size:,} bytes' if size is not None else 'Calculating…'
+        index=self.current
+        self.portrait_sizes.config(text=f'Original Portrait Size: {value(original.per_portrait[index])}\n'
+            f'New Portrait Size: {value(new.per_portrait[index] if new else None)}\n'
+            f'Portrait size saved: {value(original.per_portrait[index]-new.per_portrait[index] if new else None)}')
+        self.total_sizes.config(text=f'Original total size used by Portraits: {value(original.total)}\n'
+            f'New total size used by Portraits: {value(new.total if new else None)}\n'
+            f'Total portrait size saved: {value(original.total-new.total if new else None)}')
+        mode='Projected optimized sizes' if self.optimize.get() and (not self.document.optimization_applied or self.document.pending) else 'Current ROM sizes'
+        self.size_note.config(text=mode+'. Compressed graphics only; shared bytes count once in totals. Negative savings mean growth.'
+            +(' Enable optimization to include staged repacking.' if self.document.pending and not self.optimize.get() else ''))
+
+    def refresh_sizes(self):
+        self.projected_sizes=None
+        self.show_sizes()
+        if self.optimize.get():self.calculate_packing('sizes')
+
+    def warn_size_config(self):
+        messagebox.showwarning('Portrait size config',
+            f'Could not read or save portrait size history at {self.size_history.path}.\n'
+            'Original sizes or the first-use report setting may not persist across sessions.\n'
+            'Existing config contents were preserved.\n\n'+self.size_history.error,parent=self)
+
+    def checker_photo(self,rows,colors):
+        # Composite index-zero transparency for previews only, never exports.
+        preview_colors=list(colors)+[(65,72,84),(46,53,65)]
+        pixels=[[value if value else 16+(x//4+y//4)%2 for x,value in enumerate(row)] for y,row in enumerate(rows)]
+        return photo(self,pixels,preview_colors,4)
+
+    def animate(self):
+        mode=self.frame.current()
+        variant=(0,1,2,1)[self.animation_step%4] if mode==0 else mode-1
+        self.canvas.itemconfigure(self.talking_item,image=self.talking[variant])
+        if mode==0:
+            self.animation_step+=1;self.animation_job=self.after(180,self.animate)
+
+    def import_png(self):
+        if self.busy:return
+        path=filedialog.askopenfilename(parent=self,filetypes=[('PNG portraits','*.png')])
+        if not path:return
+        try:
+            p=self.document.portraits[self.current]
+            sheet,colors,static,reduced=load_png(self,path,self.reduce.get(),self.document.shared_grey,self.colors(p.palette))
+            self.document.stage(self.current,sheet,colors)
+        except (ValueError,OSError,tk.TclError) as error:
+            messagebox.showerror('Cannot import portrait',str(error),parent=self);return
+        self.populate();self.show()
+        self.refresh_sizes()
+        self.status.set(f'Staged {Path(path).name}. ROM unchanged.'+(' Static mouth fallback.' if static else '')+(' Colors reduced; inspect the preview.' if reduced else ''))
+
+    def export(self):
+        path=filedialog.asksaveasfilename(parent=self,defaultextension='.png',initialfile=f'portrait_{self.current:02X}_sheet.png',filetypes=[('PNG image','*.png')])
+        if not path:return
+        try:
+            p=self.document.portraits[self.current];raw,palette=self.document.pending.get(self.current,(p.raw,p.palette))
+            sheet=decode_tiles(raw);rows=studio_sheet(sheet) if self.layout.current()==0 else editable_sheet(sheet)
+            Path(path).write_bytes(export_png(rows,self.colors(palette)))
+        except (ValueError,OSError) as error:messagebox.showerror('Cannot export portrait',str(error),parent=self);return
+        self.status.set('Exported complete PNG sheet: '+str(path))
+
+    def undo(self):
+        if self.busy:return
+        self.document.pending.pop(self.current,None);self.populate();self.show();self.status.set('Slot restored to the current ROM; other staged slots are retained.')
+        self.refresh_sizes()
+
+    def set_optimize(self):
+        if self.busy:
+            self.optimize.set(self.document.optimize_portraits);return
+        self.document.optimize_portraits=self.optimize.get();self.show()
+        self.refresh_sizes()
+
+    def preview_packing(self):
+        self.calculate_packing('packing')
+
+    def calculate_packing(self,kind):
+        if self.busy:return
+        self.busy=True;self.config(cursor='watch')
+        self.status.set('Calculating portrait packing… This may take a minute on the first preview.')
+        def work():
+            try:
+                sizes=optimized_sizes(self.document)
+                plan=self.document.packing_plan() if kind=='packing' else None
+                self.pack_results.put((kind,sizes,plan,None))
+            except Exception as error:self.pack_results.put((kind,None,None,error))
+        threading.Thread(target=work,daemon=True).start()
+        self.pack_job=self.after(100,self.poll_packing)
+
+    def poll_packing(self):
+        self.pack_job=None
+        try:kind,sizes,plan,error=self.pack_results.get_nowait()
+        except queue.Empty:
+            self.pack_job=self.after(100,self.poll_packing);return
+        self.busy=False;self.config(cursor='')
+        if error:
+            self.status.set(str(error));messagebox.showerror('Cannot pack portraits',str(error),parent=self)
+        else:
+            self.projected_sizes=sizes;self.show_sizes()
+            self.status.set('Optimized portrait sizes ready.' if kind=='sizes' else 'Packing preview ready. Enable optimization to use this plan when writing.')
+            if kind=='packing':
+                messagebox.showinfo('Portrait storage preview',plan.summary+'\n\nPreview only; enable optimization to use this plan when writing.',parent=self)
+
+    def reserve(self):
+        if self.busy:return
+        text=simpledialog.askstring('Reserve unused portrait space','Enter a HEADERLESS hex range START-END (end exclusive).\nOnly reserve space you have verified is unused by your project.\nBlank bytes alone do not prove ownership.',parent=self)
+        if not text:return
+        try:
+            start,end=(int(v.strip(),16) for v in text.split('-'));self.document.reserve(start,end)
+        except ValueError as error:messagebox.showerror('Cannot reserve space',str(error),parent=self);return
+        self.reservation.config(text=f'Reserved {start:06X}–{end:06X} for this write. Reservation clears after saving.')
+
+    def save(self):
+        if not self.check_rom():return False
+        if self.busy:return False
+        if not self.pending():return True
+        optimized=self.optimize.get()
+        try:
+            self.config(cursor='watch');self.update_idletasks()
+            self.document.commit(self.app.rom)
+        except (ValueError,OSError) as error:
+            messagebox.showerror('Cannot write portrait',str(error),parent=self);return False
+        finally:self.config(cursor='')
+        self.document=PortraitDocument(self.app.rom)
+        self.document.optimize_portraits=optimized
+        self.document.optimization_applied=optimized
+        self.current_sizes=current_sizes(self.document)
+        self.projected_sizes=self.current_sizes if optimized else None
+        self.reservation.config(text='Writing uses exclusive existing space when possible.')
+        self.populate();self.show();self.app.refresh_after_history()
+        self.status.set('Portraits written to ROM. Backup and undo history updated.')
+        self.app.status.set(self.status.get())
+        if optimized and not self.size_history.report_shown:
+            original=self.size_history.original;new=self.current_sizes
+            messagebox.showinfo('Portrait optimization report',
+                f'Original total size used by Portraits: {original.total:,} bytes\n'
+                f'New total size used by Portraits: {new.total:,} bytes\n'
+                f'Total portrait size saved: {original.total-new.total:,} bytes\n\n'
+                f'New Portrait Size (slot {self.current:02X}): {new.per_portrait[self.current]:,} bytes\n'
+                'Compressed graphics only; shared bytes count once in totals.',parent=self)
+            self.size_history.mark_report_shown()
+            if self.size_history.error:self.warn_size_config()
+        return True
+
+    def check_rom(self):
+        if self.app.rom is not self.rom:
+            messagebox.showerror('ROM changed','Reopen the portrait editor for the current ROM.',parent=self)
+            return False
+        return True
+
+    def launch(self):
+        if not self.check_rom():return False
+        if self.busy:return False
+        return self.app.save_and_launch(save_callback=self.save,parent=self)
+
+    def close(self):
+        if self.busy:
+            messagebox.showinfo('Portrait packing','Wait for the packing preview to finish before closing.',parent=self);return
+        if self.pending():
+            choice=ask_unsaved(self,'Write all staged portrait changes to the opened ROM?')
+            if choice is None or (choice and not self.save()):return
+        self.destroy()
+
+    def destroyed(self,event):
+        if event.widget is self:
+            for name in ('animation_job','pack_job'):
+                job=getattr(self,name)
+                if job is not None:self.after_cancel(job);setattr(self,name,None)
+
 
 def open_portrait_window(app,portrait_id=0,action=None):
     if not app.rom:
-        messagebox.showinfo('Open a ROM','Open a FE4 ROM first.')
-        return
-    if not app.settle():
-        return
-    try:
-        model=Portrait(app.rom,portrait_id)
-    except ValueError as error:
-        messagebox.showerror('Portrait unavailable',str(error))
-        return
-    dialog=tk.Toplevel(app)
-    dialog.title('FE4Builder — Portrait Editor')
-    dialog.geometry('900x720')
-    dialog.minsize(820,680)
-    dialog.transient(app)
-    dialog.grab_set()
-    body=ttk.Frame(dialog,padding=16)
-    body.pack(fill='both',expand=True)
-    ttk.Label(body,text='Portrait sheet preview & import',style='Title.TLabel').pack(anchor='w')
-    from rom import character_modules
-    from portraits import character_portrait_id
-    users={}
-    for table in character_modules():
-        for record in range(table.count):
-            values={f.name:v for f,v in zip(table.fields,app.rom.values(table,record))}
-            try:portrait=character_portrait_id(app.rom,values['Char no.'],values.get('Class'))
-            except (ValueError,KeyError):continue
-            label=app.record_name(table,record)
-            if label not in users.setdefault(portrait,[]):users[portrait].append(label)
-    labels=[(', '.join(users[i][:3])+('…' if len(users[i])>3 else '') if i in users else 'Portrait')+f' (0x{i:02X})' for i in range(COUNT)]
-    selector=ttk.Combobox(body,state='readonly',values=labels,width=48)
-    selector.current(portrait_id)
-    selector.pack(anchor='w',pady=12)
-    images=ttk.Frame(body)
-    images.pack(fill='x')
-    current_box=ttk.LabelFrame(images,text='Current portrait sheet',padding=8)
-    current_box.pack(side='left',fill='x',expand=True,padx=(0,12))
-    imported_box=ttk.LabelFrame(images,text='Imported preview',padding=8)
-    imported_box.pack(side='left',fill='x',expand=True)
-    current=tk.Label(current_box,bg='#172238')
-    current.placeholder=tk.PhotoImage(master=dialog,width=192,height=240)
-    current.config(image=current.placeholder)
-    current.pack()
-    imported=tk.Label(imported_box,bg='#172238')
-    imported.placeholder=tk.PhotoImage(master=dialog,width=192,height=240)
-    imported.config(image=imported.placeholder)
-    imported.pack()
-    frame=ttk.Combobox(body,state='readonly',values=['Full sheet (64 x 80)','Normal face','Talking frame 1','Talking frame 2'],width=26)
-    frame.current(0)
-    frame.pack(anchor='w',pady=8)
-    info=tk.StringVar()
-    ttk.Label(body,textvariable=info,wraplength=810).pack(anchor='w',pady=8)
-    ttk.Label(body,text='Import/export a 64 x 80 PNG sheet: 48 x 64 face at the top-left, with two 32 x 16 mouth frames below.\nThe top-right 16 x 64 area is unused and ignored on import. Keep the face and mouth frames on one shared palette.\nExtra colors are reduced to 15 plus the background. Transparent pixels use color 0; for opaque PNGs, the top-left color is the background.\nLegacy face/native sheets are accepted. Replacement affects every character using the selected portrait ID.',wraplength=850,style='Subtitle.TLabel').pack(anchor='w',pady=8)
-    actions=ttk.Frame(body)
-    actions.pack(fill='x',pady=(0,12),before=images)
-    candidate=None
-    filename=None
-
-    def display():
-        variant=frame.current()
-        current.image=photo(dialog,editable_sheet(model.sheet) if variant==0 else face_from_sheet(model.sheet,variant-1),model.colors)
-        current.config(image=current.image)
-        if candidate:
-            sheet,colors=candidate
-            imported.image=photo(dialog,editable_sheet(sheet) if variant==0 else face_from_sheet(sheet,variant-1),colors)
-            imported.config(image=imported.image)
-        else:
-            imported.config(image=imported.placeholder)
-
-    def refresh_info():
-        info.set(f'Portrait {model.id:02X} · Graphics 0x{model.address:06X} · Palette 0x{model.palette_address:06X} · {model.compressed_size} compressed bytes')
-
-    def select(_=None):
-        nonlocal model,candidate,filename
-        if candidate and not messagebox.askyesno('Imported portrait','Discard the imported preview?',parent=dialog):
-            selector.current(model.id)
-            return
-        try:
-            updated=Portrait(app.rom,selector.current())
-        except ValueError as error:
-            selector.current(model.id)
-            messagebox.showerror('Portrait unavailable',str(error),parent=dialog)
-            return
-        model,candidate,filename=updated,None,None
-        write.config(state='disabled')
-        display()
-        refresh_info()
-
-    def import_image():
-        nonlocal candidate,filename
-        path=filedialog.askopenfilename(parent=dialog,filetypes=[('PNG portraits','*.png')])
-        if not path:
-            return
-        try:
-            sheet,colors,static,reduced=load_png(dialog,path)
-            _,plan=model.plan_import(sheet,colors)
-        except (ValueError,OSError,tk.TclError) as error:
-            messagebox.showerror('Cannot import portrait',str(error),parent=dialog)
-            return
-        candidate,filename=(sheet,colors),Path(path).name
-        display()
-        info.set(f'{filename}: {plan}'+(' Static mouth fallback.' if static else ' Talking frames imported.')+
-                 (' Colors reduced to the SNES palette.' if reduced else ''))
-        write.config(state='normal')
-
-    def export():
-        path=filedialog.asksaveasfilename(parent=dialog,initialfile=f'portrait_{model.id:02X}_sheet.png',defaultextension='.png',filetypes=[('PNG image','*.png')])
-        if path:
-            try:
-                Path(path).write_bytes(export_png(editable_sheet(model.sheet),model.colors))
-            except OSError as error:
-                messagebox.showerror('Cannot export portrait',str(error),parent=dialog)
-
-    def save():
-        nonlocal model,candidate
-        if not candidate:
-            return True
-        before=bytes(app.rom.data)
-        try:
-            sheet,colors=candidate
-            description=model.import_sheet(sheet,colors)
-            changed=app.rom.dirty
-            app.rom.save_original(f'Import portrait {model.id:02X}: {filename}',[description])
-        except (ValueError,OSError) as error:
-            app.rom.data[:]=before
-            messagebox.showerror('Cannot write portrait',str(error),parent=dialog)
-            return False
-        model=Portrait(app.rom,model.id)
-        candidate=None
-        write.config(state='disabled')
-        app.refresh_after_history()
-        app.status.set(f'Portrait {model.id:02X} saved. Backup and undo history updated.' if changed else 'Portrait already matches the ROM; no changes were written.')
-        display()
-        refresh_info()
-        return True
-
-    def close():
-        if candidate and not messagebox.askyesno('Imported portrait','Discard the unwritten imported portrait?',parent=dialog):
-            return
-        dialog.destroy()
-
-    launch=lambda:app.save_and_launch(save_callback=save,parent=dialog)
-    ttk.Button(actions,text='Save & Launch (F5)',command=launch).pack(side='right',padx=8)
-    dialog.bind('<F5>',lambda e:launch())
-    ttk.Button(actions,text='Import PNG…',command=import_image).pack(side='left')
-    ttk.Button(actions,text='Export sheet…',command=export).pack(side='left',padx=8)
-    write=ttk.Button(actions,text='Write portrait to ROM',command=save,state='disabled')
-    write.pack(side='right')
-    ttk.Button(actions,text='Close',command=close).pack(side='right',padx=8)
-    selector.bind('<<ComboboxSelected>>',select)
-    frame.bind('<<ComboboxSelected>>',lambda _:display())
-    dialog.protocol('WM_DELETE_WINDOW',close)
-    display()
-    refresh_info()
-    if action=='import':
-        dialog.after_idle(import_image)
-    elif action=='export':
-        dialog.after_idle(export)
-    dialog.save=save;dialog.pending=lambda:candidate is not None;dialog.close=close
-    return dialog
+        messagebox.showinfo('Open a ROM','Open a FE4 ROM first.');return
+    if not app.settle():return
+    try:return PortraitWindow(app,portrait_id,action)
+    except ValueError as error:messagebox.showerror('Portrait unavailable',str(error),parent=app)

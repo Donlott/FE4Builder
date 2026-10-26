@@ -180,17 +180,19 @@ class PortraitTests(unittest.TestCase):
                 app.edit_portrait(0)
                 dialog=next(w for w in app.winfo_children() if w.winfo_class()=='Toplevel')
                 exported=next(w for w in descendants(dialog) if w.winfo_class()=='TButton' and w.cget('text')=='Export sheet…')
+                dialog.layout.current(1) # FE4Builder's below-mouth template
                 export_path=Path(directory)/'full-sheet.png'
                 with patch('portrait_window.filedialog.asksaveasfilename',return_value=str(export_path)):
                     exported.invoke()
                 import struct
                 self.assertEqual(struct.unpack('>II',export_path.read_bytes()[16:24]),(64,80))
                 imported=next(w for w in descendants(dialog) if w.winfo_class()=='TButton' and w.cget('text')=='Import PNG…')
-                write=next(w for w in descendants(dialog) if w.winfo_class()=='TButton' and w.cget('text')=='Write portrait to ROM')
+                write=next(w for w in descendants(dialog) if w.winfo_class()=='TButton' and w.cget('text')=='Write Portrait to ROM')
                 with patch('portrait_window.filedialog.askopenfilename',return_value=str(png)):
                     imported.invoke()
                 self.assertFalse(write.instate(['disabled']))
                 self.assertEqual(path.read_bytes(),before)
+                dialog.document.reserve(0x7c0000,0x7c8000)
                 write.invoke()
                 self.assertTrue(app.rom.history.can_undo)
                 self.assertNotEqual(path.read_bytes(),before)
