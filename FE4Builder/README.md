@@ -55,6 +55,8 @@ The 16 verified direct recruitment commands have individual checkboxes naming th
 
 **Write to ROM** overwrites the selected original file with automatic backup and undo history. F5 saves and launches it. Edits use fixed-size fields, preserve ROM size, support copier headers, reject relocated/custom layouts and stale drafts, and cooperate with Reinforcement Editor and ordinary dialogue-pointer edits. Snes9x confirmed a Prologue Ethlyn→Sigurd conversation changed to Alec→Sigurd: Alec gained Talk and launched that conversation. A separate disposable fixture verified enabled versus disabled faction transfer. Tests cover all routes, all editable pairs, every recruitment switch, exact changed bytes, compatibility, invalid inputs, save failures and undo.
 
+The shared Prologue layout check also accepts changed dialogue pointers for its three battle quotes and Midir's cutscene-death quote (listed as **Turn1Evans Phase3** in Dialogue Editor). Changed pointers must resolve to readable dialogue in the supported Project Naga layout. Event instructions, conversation-table locations and stale-draft checks remain protected; conversation writes preserve those dialogue pointers and texts.
+
 ## Reinforcement Editor
 
 Open **Maps & Events → Reinforcement Editor**, or select a supported event in Chapter Event Viewer and click **Edit reinforcements…**. This first version covers 58 existing scripts with 542 direct/group loads across the chapters. Select a spawn to edit entry X/Y and movement speed. Direct loads also expose destination X/Y; group destinations and unit identities remain managed by Army Editor. An Army Editor shortcut settles your draft before switching tools.
