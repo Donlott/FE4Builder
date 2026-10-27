@@ -1994,9 +1994,17 @@
           [
             191,
             2
+          ],
+          [
+            164,
+            6
+          ],
+          [
+            170,
+            3
           ]
         ],
-        "hash": "4f992c4033242cad5491a361b5fdcaa179375b561f394af4f485f75c059d9527",
+        "hash": "ba28cae67c0f377042a8c4f3b5dc06fa991feb0cc10e922cb1568eb5a8126580",
         "switches": []
       },
       "commands": [
@@ -2366,7 +2374,7 @@
           "size": 10,
           "name": "MOVE_TEMPORARY_BY_SCRIPT",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 173,
@@ -2718,9 +2726,25 @@
           [
             132,
             2
+          ],
+          [
+            92,
+            6
+          ],
+          [
+            103,
+            6
+          ],
+          [
+            98,
+            3
+          ],
+          [
+            109,
+            3
           ]
         ],
-        "hash": "7ebca93012fd3dc2c61a4864bbb2d6068deb1048f485f79b5ee1b47aba83a539"
+        "hash": "5886e03513fed9be610bb242692844a9e06532cf4cfd843da9c75378767b9303"
       },
       "commands": [
         {
@@ -2953,7 +2977,7 @@
           "size": 10,
           "name": "MOVE_TEMPORARY_BY_SCRIPT",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 101,
@@ -2969,7 +2993,7 @@
           "size": 10,
           "name": "MOVE_TEMPORARY_BY_SCRIPT",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 112,
@@ -3389,9 +3413,25 @@
           [
             79,
             2
+          ],
+          [
+            41,
+            6
+          ],
+          [
+            56,
+            6
+          ],
+          [
+            47,
+            3
+          ],
+          [
+            62,
+            3
           ]
         ],
-        "hash": "e7fefbeda0847557ce984906d00ef9652d88851040b3461ae4bdf05b5299d4b9"
+        "hash": "08f4b637124a29598a2c314dc8125b21bfcd97898b0897615af3d1ef256a13d7"
       },
       "commands": [
         {
@@ -3528,7 +3568,7 @@
           "size": 10,
           "name": "MOVE_TEMPORARY_BY_SCRIPT",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 50,
@@ -3560,7 +3600,7 @@
           "size": 10,
           "name": "MOVE_TEMPORARY_BY_SCRIPT",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 65,
@@ -3718,9 +3758,25 @@
           [
             79,
             2
+          ],
+          [
+            41,
+            6
+          ],
+          [
+            56,
+            6
+          ],
+          [
+            47,
+            3
+          ],
+          [
+            62,
+            3
           ]
         ],
-        "hash": "f0e53d8321a0322f8dfe2eb1ee5b526f0de738dea52bdff7243ac1c9c8a8aac7"
+        "hash": "08f4b637124a29598a2c314dc8125b21bfcd97898b0897615af3d1ef256a13d7"
       },
       "commands": [
         {
@@ -3857,7 +3913,7 @@
           "size": 10,
           "name": "MOVE_TEMPORARY_BY_SCRIPT",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 50,
@@ -3889,7 +3945,7 @@
           "size": 10,
           "name": "MOVE_TEMPORARY_BY_SCRIPT",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 65,
@@ -4043,9 +4099,17 @@
           [
             61,
             2
+          ],
+          [
+            38,
+            6
+          ],
+          [
+            44,
+            3
           ]
         ],
-        "hash": "7d63540ba8a61c23bf3657cf39fb2ab78d5791d83e818813b4028e3b5a1769a4"
+        "hash": "fd867ce8ab8ffe775d25b3660b0fdf81a6cb9e4ed50097f0ddf774b1d28ddabc"
       },
       "commands": [
         {
@@ -4198,7 +4262,7 @@
           "size": 10,
           "name": "MOVE_TEMPORARY_BY_SCRIPT",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 47,
@@ -5832,9 +5896,17 @@
         [
           191,
           2
+        ],
+        [
+          164,
+          6
+        ],
+        [
+          170,
+          3
         ]
       ],
-      "hash": "4f992c4033242cad5491a361b5fdcaa179375b561f394af4f485f75c059d9527",
+      "hash": "ba28cae67c0f377042a8c4f3b5dc06fa991feb0cc10e922cb1568eb5a8126580",
       "switches": []
     },
     {
@@ -5936,9 +6008,25 @@
         [
           132,
           2
+        ],
+        [
+          92,
+          6
+        ],
+        [
+          103,
+          6
+        ],
+        [
+          98,
+          3
+        ],
+        [
+          109,
+          3
         ]
       ],
-      "hash": "7ebca93012fd3dc2c61a4864bbb2d6068deb1048f485f79b5ee1b47aba83a539"
+      "hash": "5886e03513fed9be610bb242692844a9e06532cf4cfd843da9c75378767b9303"
     },
     {
       "start": 3245485,
@@ -6035,9 +6123,25 @@
         [
           79,
           2
+        ],
+        [
+          41,
+          6
+        ],
+        [
+          56,
+          6
+        ],
+        [
+          47,
+          3
+        ],
+        [
+          62,
+          3
         ]
       ],
-      "hash": "e7fefbeda0847557ce984906d00ef9652d88851040b3461ae4bdf05b5299d4b9"
+      "hash": "08f4b637124a29598a2c314dc8125b21bfcd97898b0897615af3d1ef256a13d7"
     },
     {
       "start": 3245739,
@@ -6094,9 +6198,25 @@
         [
           79,
           2
+        ],
+        [
+          41,
+          6
+        ],
+        [
+          56,
+          6
+        ],
+        [
+          47,
+          3
+        ],
+        [
+          62,
+          3
         ]
       ],
-      "hash": "f0e53d8321a0322f8dfe2eb1ee5b526f0de738dea52bdff7243ac1c9c8a8aac7"
+      "hash": "08f4b637124a29598a2c314dc8125b21bfcd97898b0897615af3d1ef256a13d7"
     },
     {
       "start": 3245852,
@@ -6149,9 +6269,17 @@
         [
           61,
           2
+        ],
+        [
+          38,
+          6
+        ],
+        [
+          44,
+          3
         ]
       ],
-      "hash": "7d63540ba8a61c23bf3657cf39fb2ab78d5791d83e818813b4028e3b5a1769a4"
+      "hash": "fd867ce8ab8ffe775d25b3660b0fdf81a6cb9e4ed50097f0ddf774b1d28ddabc"
     },
     {
       "start": 3340238,
