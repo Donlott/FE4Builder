@@ -17,7 +17,7 @@ class EventCommandWindow(tk.Toplevel):
         ttk.Button(top,text='Write to ROM',command=self.save).pack(side='right')
         ttk.Button(top,text='Save & Launch (F5)',command=self.launch).pack(side='right',padx=8)
         ttk.Label(self,text='Edit unit deployments, music, sound commands, sprite preparation, cameras, pauses and fades. Other commands are read-only.\n'
-                  'Script length, command order, jumps and pointers are preserved. Test edited scenes in-game.',padding=(12,0)).pack(anchor='w')
+                  'Script length and command order are preserved. Route edits create private copies. Test edited scenes in-game.',padding=(12,0)).pack(anchor='w')
         body=ttk.Panedwindow(self,orient='horizontal');body.pack(fill='both',expand=True,padx=12,pady=8)
         left=ttk.Frame(body);body.add(left,weight=1)
         ttk.Label(left,text='Prologue scripts').pack(anchor='w')
@@ -121,8 +121,9 @@ class EventCommandWindow(tk.Toplevel):
                 known=talk_options(self.rom,i);old=self.model.values(index)[i]
                 if old not in known:known[old]=f'Existing unknown character ${old:02X}'
                 options={f'{name} (${value:02X})':value for value,name in known.items()}
-            if c['opcode']==0x24:
-                known=deployment_options(self.rom,i)
+            if c['opcode'] in (0x24,0x27):
+                from event_commands import temporary_options
+                known=temporary_options(self.rom,i) if c['opcode']==0x27 else deployment_options(self.rom,i)
                 if known:
                     current_value=self.model.values(index)[i]
                     if current_value not in known:known[current_value]=f'Existing unknown {current_value}'
@@ -158,6 +159,12 @@ class EventCommandWindow(tk.Toplevel):
                     except ValueError:self.help.set(HELP[0x12]);return
                     self.help.set(HELP[0x12]+'\n\n'+describe_word(value))
                 var.trace_add('write',explain_word);explain_word()
+        if c['opcode']==0x27:
+            from movement_routes import route_preview
+            raw_command=self.model.snapshot[c['offset']:c['offset']+c['size']]
+            pointer=int.from_bytes(raw_command[7:10],'little')
+            ttk.Button(self.fields,text='Edit movement route...',command=self.open_route).grid(row=6,column=0,columnspan=2,sticky='w',pady=8)
+            self.help.set(HELP[0x27]+'\n\n'+route_preview(self.rom,pointer))
         if c['opcode']==0x23:
             self.configure_group_load(index,c)
         if c['opcode']==0x14:
@@ -260,6 +267,16 @@ class EventCommandWindow(tk.Toplevel):
         try:value=number(self.drafts[self.command][0])
         except ValueError:messagebox.showerror('Invalid audio selection','Choose a named music/effect option before previewing.',parent=self);return
         self.app.open_audio(kind,value,autoplay=True)
+
+    def open_route(self):
+        if self.model is None or self.command is None:return
+        command=self.command
+        if self.model.commands[command]['opcode']!=0x27:return
+        if not self.settle():return
+        if self.pending():self.load(self.current)
+        from route_window import RouteWindow
+        try:RouteWindow(self,self.current,command)
+        except ValueError as error:messagebox.showerror('Route unavailable',str(error),parent=self)
 
     def save(self):
         if self.model is None:return False
