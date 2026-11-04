@@ -98,6 +98,7 @@ def payload(platform):
     for name in ('sigurd-standing.png','sigurd.ico'):add(B/'assets'/name,'FE4Builder/assets/'+name)
     add(B/'README.md','FE4Builder/README.md')
     add(B/'docs/menu-text-research.md','FE4Builder/docs/menu-text-research.md')
+    add(B/'docs/promotion-stats-research.md','FE4Builder/docs/promotion-stats-research.md')
     modules=B.parent/'Nightmare Modules'/'FE4 Nightmare modules'
     for path in sorted(modules.rglob('*')):
         if path.is_file() and path.suffix.lower() in ('.nmm','.txt'):

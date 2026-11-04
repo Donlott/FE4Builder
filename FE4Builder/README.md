@@ -169,6 +169,34 @@ Ordinary stat increases accept 0–255; very large amounts can exceed the in-gam
 
 Emulator checks on disposable ROMs: Steel Sword assigned an edited profile grants Sigurd +3 Strength/+4 Speed, and the edited Power Ring grants Seliph +9 Strength. Tests cover isolated byte changes, live labels, all native amount locations, invalid/stale data, backup/undo/redo, headered ROMs, and failed-save rollback. The normal growth-display patch remains installable after editing these bonuses.
 
+## Optional ROM patch: negative promotion stats
+
+Open **Patches → Negative promotion stats → Install: Negative promotion stats**.
+This fixes negative personal stats becoming 30 after a class change, with an
+automatic backup and undo/redo history. Restart/reload the ROM in the emulator
+after installation. **Remove patch** restores the original code.
+
+The original stat getters wrap a negative class-base-plus-personal total into
+an unsigned byte before applying the 30 cap. For example, Wendell’s stored
+Magic of −7 gives 8 with Sage’s base 15, but Sniper’s base 0 makes −7 wrap to
+249 and then become 30. The patch instead calculates the signed total and
+limits it to **0–30** before normal equipment bonuses. The six affected stats
+are Strength, Magic, Skill, Speed, Defense and Resistance. HP, Luck, movement,
+growth rates, classes, equipment and personal stat bytes retain their existing
+data. A promotion to a class with lower bases can still lower a stat; negative
+totals become 0 rather than preserving the previous class’s value. Negative
+class-change deltas skip the native unsigned **+gain** popup.
+
+The patch supports the verified 8 MiB FE4 / Project Naga layout with or without
+a copier header. It checks all six native stat routines, the promotion popup
+path and unused helper space before changing code. It is compatible with the
+previous signed personal-stat save/load fix and changes no SRAM size or save
+layout. It cannot recover personal stat bytes already lost in an older,
+uncorrected save. In the supplied ROM, the native Sage → Sniper test changed
+Magic/Resistance from 8/6 to the correct 0/0 instead of 30/30, without changing
+the personal stat bytes. Research and verification:
+[promotion-stats-research.md](docs/promotion-stats-research.md).
+
 ## Optional ROM patches: display growth rates
 
 Open **Patches** from the main menu, then **Install: Display growth rates**. This writes an optional native game-code patch to the opened ROM, with the usual automatic backup and undo/redo history. In the game, open a player unit’s normal status page and press **SNES Y** to switch between stats and growth percentages. The heading changes to **Growths %**; HP shows its growth in the header. Press Y again to return. Closing the screen, changing units or opening another status page returns to normal stats. Growths use the game’s own calculation routines, including holy blood bonuses and inherited growths. Enemy records are excluded.

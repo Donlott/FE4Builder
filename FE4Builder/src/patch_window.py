@@ -2,20 +2,25 @@
 import tkinter as tk
 from tkinter import ttk,messagebox
 import growth_patch
+import promotion_patch
 
 
-def save_patch(app,remove=False):
+def save_patch(app,remove=False,patch_name='growth'):
+    module,title,details={
+        'growth':(growth_patch,'Display growth rates',['Y toggles effective growth percentages on the normal player unit status screen.']),
+        'promotion':(promotion_patch,'Negative promotion stats',['Clamp signed personal + class stats to 0 through 30 before applying normal equipment bonuses.'])
+    }[patch_name]
     rom=app.rom
     before=bytes(rom.data)
     try:
-        updating=not remove and growth_patch.version(rom)==1
-        (growth_patch.uninstall if remove else growth_patch.install)(rom)
-        rom.save_original(('Remove' if remove else 'Update' if updating else 'Install')+' Display growth rates',
-                          ['Y toggles effective growth percentages on the normal player unit status screen.'])
+        updating=patch_name=='growth' and not remove and growth_patch.version(rom)==1
+        (module.uninstall if remove else module.install)(rom)
+        rom.save_original(('Remove' if remove else 'Update' if updating else 'Install')+' '+title,details)
     except Exception:
         rom.data[:]=before
         raise
     app.refresh_after_history()
+    if hasattr(app,'update_history_controls'):app.update_history_controls()
 
 
 def open_patch_window(app):
@@ -26,7 +31,8 @@ def open_patch_window(app):
     window=tk.Toplevel(app)
     window.title('FE4Builder — Patches')
     window.resizable(False,False)
-    frame=ttk.Frame(window,padding=22);frame.pack(fill='both',expand=True)
+    tabs=ttk.Notebook(window);tabs.pack(fill='both',expand=True)
+    frame=ttk.Frame(tabs,padding=22);tabs.add(frame,text='Growth rates')
     ttk.Label(frame,text='Display growth rates',font=('Segoe UI',15,'bold')).pack(anchor='w')
     ttk.Label(frame,text='Press SNES Y on a player unit’s normal status screen to show effective\n'
               'growth percentages. Press Y again to return to stats. HP growth appears\n'
@@ -54,6 +60,34 @@ def open_patch_window(app):
     install=ttk.Button(buttons,text='Install: Display growth rates',command=change);install.pack(side='left')
     remove=ttk.Button(buttons,text='Remove patch',command=lambda:change(True));remove.pack(side='left',padx=8)
     ttk.Button(buttons,text='Close',command=window.destroy).pack(side='right')
-    window.bind('<FocusIn>',lambda event:refresh())
+    promotion=ttk.Frame(tabs,padding=22);tabs.add(promotion,text='Negative promotion stats')
+    ttk.Label(promotion,text='Fix negative stats after promotion',font=('Segoe UI',15,'bold')).pack(anchor='w')
+    ttk.Label(promotion,text='Prevents negative stat totals from turning into 30 when a\n'
+              'promotion changes to a class with lower bases.\n\n'
+              'Class base + signed personal stat is limited to 0 through 30. A total below\n'
+              'zero becomes 0. Promotions can still lower a stat when the new\n'
+              'class has a lower base; normal equipment bonuses are applied afterward.\n\n'
+              'Preserves personal stats, skill effects and the save/load patch.\n'
+              'Supports the verified 8 MiB FE4 / Project Naga layout, with or\n'
+              'without a copier header. Installation checks all six stat routines\n'
+              'and free helper space before writing, with backup and undo history.',
+              justify='left').pack(anchor='w',pady=14)
+    promotion_status=tk.StringVar();ttk.Label(promotion,textvariable=promotion_status).pack(anchor='w',pady=8)
+    promotion_buttons=ttk.Frame(promotion);promotion_buttons.pack(fill='x')
+    def refresh_promotion():
+        active=promotion_patch.installed(app.rom)
+        promotion_status.set('Installed' if active else 'Not installed')
+        promotion_install.config(state='disabled' if active else 'normal')
+        promotion_remove.config(state='normal' if active else 'disabled')
+    def change_promotion(removing=False):
+        if not app.settle():return
+        try:save_patch(app,removing,patch_name='promotion')
+        except Exception as exc:messagebox.showerror('Patch not saved',str(exc),parent=window)
+        refresh_promotion()
+    promotion_install=ttk.Button(promotion_buttons,text='Install: Negative promotion stats',command=change_promotion);promotion_install.pack(side='left')
+    promotion_remove=ttk.Button(promotion_buttons,text='Remove patch',command=lambda:change_promotion(True));promotion_remove.pack(side='left',padx=8)
+    ttk.Button(promotion_buttons,text='Close',command=window.destroy).pack(side='right')
+    window.bind('<FocusIn>',lambda event:(refresh(),refresh_promotion()))
     refresh()
+    refresh_promotion()
     return window
