@@ -42,9 +42,9 @@ class IconWindow(tk.Toplevel):
         right_shell = ttk.Frame(body, padding=(12, 0));body.add(right_shell, weight=1)
         right = scrollable_frame(right_shell)
         row = ttk.Frame(right);row.pack(fill='x')
-        ttk.Label(row, text='Skill screen / palette').pack(side='left')
+        ttk.Label(row, text='Skill screen').pack(side='left')
         self.context = ttk.Combobox(row, state='readonly', values=CONTEXTS, width=23);self.context.current(0);self.context.pack(side='left', padx=6)
-        self.context.bind('<<ComboboxSelected>>', lambda _:self.display())
+        self.context.bind('<<ComboboxSelected>>', lambda _:self.populate(self.current))
         self.linked = tk.BooleanVar(value=True)
         self.link_button = ttk.Checkbutton(row, text='Link skill screens', variable=self.linked);self.link_button.pack(side='left')
         row = ttk.Frame(right);row.pack(fill='x', pady=8)
@@ -101,6 +101,14 @@ class IconWindow(tk.Toplevel):
             except (ValueError, KeyError):names.append(f'Item {i:02X}')
         return names
 
+    def preview_context(self, record=None):
+        if self.category != 'skills':return 0
+        context = self.context.current()
+        record = self.current if record is None else record
+        if self.view.current() == 0 and record is not None and self.document.selected('skills', record, context) is None:
+            return 1
+        return context
+
     def populate(self, selected=None):
         if self.busy:return
         self.busy = True
@@ -111,9 +119,10 @@ class IconWindow(tk.Toplevel):
             for i in range(len(self.document.art[kind]) if library else len(names)):
                 label = (f'{i:02X} / tile {tile(i):03X}' + ('  Free' if i not in active else '  Unassigned artwork' if not self.document.users(kind, i) else '')) if library else f'{i:02X} {names[i]}'
                 if query and query not in label.casefold():continue
-                index = i if library else self.document.selected(kind, i, 0)
+                context = self.preview_context(i)
+                index = i if library else self.document.selected(kind, i, context)
                 if index is None:index = self.document.selected(kind, i, 1)
-                photo = tk.PhotoImage(master=self, data=base64.b64encode(self.document.png(kind, index)))
+                photo = tk.PhotoImage(master=self, data=base64.b64encode(self.document.png(kind, index, context)))
                 self.photos.append(photo);self.list.insert('', 'end', iid=str(i), text=label, image=photo)
             children = self.list.get_children();self.assignment.config(values=[f'{i:02X} / tile {tile(i):03X}' for i in range(len(self.document.art[kind]))])
             if children:
@@ -141,7 +150,7 @@ class IconWindow(tk.Toplevel):
             missing = index is None
             if missing:index = self.document.selected(kind, self.current, 1)
             self.index = index;self.assignment.current(index)
-            colors = self.document.colors(kind, c);rows = unpack(self.document.art[kind][index])
+            colors = self.document.colors(kind, self.preview_context());rows = unpack(self.document.art[kind][index])
             for y, row in enumerate(rows):
                 for x, v in enumerate(row):
                     color = '#%02x%02x%02x' % colors[v] if v else ('#555c68' if (x + y) % 2 else '#747b87')
@@ -161,7 +170,7 @@ class IconWindow(tk.Toplevel):
             size = 128 if index in self.document.active(kind) else 0
             note = f'Graphic {index:02X} / tile {tile(index):03X} | Artwork: {size} bytes ({old_size} when this editor opened).'
             if missing:note += '\nHidden or absent in this screen; preview shows its stat-help artwork.'
-            elif kind == 'skills':note += '\nShared artwork uses the displayed screen palette. Other screens may use different colors.'
+            if kind == 'skills':note += '\nColors follow the in-game skill palette loaded for this screen.'
             if library:note += '\nLibrary edits update every listed use. Use Private copy from an item / skill to separate it.'
             self.note.set(note)
         else:self.note.set('No matching icons.')
@@ -227,12 +236,16 @@ class IconWindow(tk.Toplevel):
         except ValueError as error:messagebox.showerror('Cannot paint icon', str(error), parent=self)
 
     def refresh_thumbnails(self, index):
-        photo = tk.PhotoImage(master=self, data=base64.b64encode(self.document.png(self.category, index)))
+        photos = {}
         for iid in self.list.get_children():
             i = int(iid)
-            value = i if self.view.current() == 1 else self.document.selected(self.category, i, 0)
+            context = self.preview_context(i)
+            value = i if self.view.current() == 1 else self.document.selected(self.category, i, context)
             if value is None:value = self.document.selected(self.category, i, 1)
             if value == index:
+                if context not in photos:
+                    photos[context] = tk.PhotoImage(master=self, data=base64.b64encode(self.document.png(self.category, index, context)))
+                photo = photos[context]
                 self.list.item(iid, image=photo);self.edited_photos[iid] = photo
 
     def assign(self):
@@ -247,7 +260,7 @@ class IconWindow(tk.Toplevel):
         if self.index is None:return
         path = filedialog.asksaveasfilename(parent=self, defaultextension='.png', filetypes=[('PNG image', '*.png')], initialfile=f'{self.category}-icon-{self.index:02X}.png')
         if path:
-            try:Path(path).write_bytes(self.document.png(self.category, self.index, self.context.current()))
+            try:Path(path).write_bytes(self.document.png(self.category, self.index, self.preview_context()))
             except OSError as error:messagebox.showerror('Cannot export icon', str(error), parent=self)
 
     def import_image(self, adding=False):
@@ -257,7 +270,7 @@ class IconWindow(tk.Toplevel):
         before = deepcopy((self.document.art, self.document.refs, self.document.flags))
         try:
             self.check_target()
-            raw, reduced = import_png(self, path, self.document.colors(self.category, self.context.current()), self.reduction.get())
+            raw, reduced = import_png(self, path, self.document.colors(self.category, self.preview_context()), self.reduction.get())
             if adding:
                 index = self.document.add(self.category, raw)
                 if self.view.current() == 0 and self.current is not None:

@@ -1,7 +1,7 @@
 """Synthetic native icon loaders/data; no game artwork or ROM required."""
 from pathlib import Path
 from icons import (LOADERS, NEIGHBORS, TABLES, COMPACT_BITS, ITEM_LOOKUP,
-                   ITEM_GRAPHICS, SKILL_GRAPHICS, join_atlas, dma, tile)
+                   ITEM_GRAPHICS, SKILL_GRAPHICS, SKILL_PALETTE_LOADERS, join_atlas, dma, tile)
 
 
 def icon(value):
@@ -21,12 +21,15 @@ def fixture(directory, header=False):
     for mirror in (0, 0x400000):
         for at, destination in LOADERS:put(at - 4 + mirror, b'\x22\xBD\xA4\x80' + dma(0xDE34C0, 0xC00, destination))
         for at, raw in NEIGHBORS:put(at + mirror, bytes.fromhex(raw))
+    for at, destination in SKILL_PALETTE_LOADERS:
+        put(at, bytes.fromhex('A2 20 00 BF BE 00 DE 9D') + destination.to_bytes(2, 'little') + bytes.fromhex('CA CA D0 F5'))
     put(ITEM_GRAPHICS, join_atlas([icon(i + 1) for i in range(111)] + [bytes(128)] * 17))
     put(SKILL_GRAPHICS, join_atlas([icon(i + 160) for i in range(24)]))
     put(ITEM_LOOKUP, b''.join(tile(i % 111).to_bytes(2, 'little') for i in range(138)))
     for at, count in zip(TABLES, (29, 29, 18)):put(at, b''.join(tile(i % 24).to_bytes(2, 'little') for i in range(count)))
     for at in (0x1E0160, 0x1E01E0):
         put(at, b''.join((i + (i << 5) + (i << 10)).to_bytes(2, 'little') for i in range(16)))
+    put(0x1E00C0, b''.join(((15 - i) + (i << 5) + ((i + 8) % 16 << 10)).to_bytes(2, 'little') for i in range(16)))
     path = Path(directory) / ('icons.smc' if header else 'icons.sfc')
     path.write_bytes((bytes([43]) * 512 if header else b'') + data)
     return path

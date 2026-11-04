@@ -11,8 +11,9 @@ import zlib
 
 from FE4Builder import App
 from rom import Rom
-from icons import IconDocument, import_png, pack
+from icons import IconDocument, import_png, pack, unpack, SKILL_PALETTE_LOADERS
 from portraits import export_png
+from intro_graphics import indexed_png
 from icon_fixture import fixture
 
 
@@ -52,6 +53,47 @@ class IconUITests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'outside'):import_png(self.app, path, doc.colors('items'))
         raw, reduced = import_png(self.app, path, doc.colors('items'), True)
         self.assertTrue(reduced);self.assertNotEqual(raw, bytes(128));self.assertEqual(bytes(self.rom.data), before)
+
+    def test_default_skill_preview_thumbnails_and_png_use_the_in_game_colors(self):
+        window = self.window('skills', 0)
+        before = bytes(self.rom.data)
+        expected = [((15 - i) * 8, i * 8, ((i + 8) % 16) * 8) for i in range(16)]
+        self.assertEqual(window.context.current(), 0)
+        self.assertEqual(window.document.colors('skills'), expected)
+        rows = unpack(window.document.art['skills'][window.index])
+        x, y = next((x, y) for y, line in enumerate(rows) for x, value in enumerate(line) if value)
+        self.assertEqual(window.photos[0].get(x, y), expected[rows[y][x]])
+        rectangle = window.canvas.find_all()[y * 16 + x]
+        self.assertEqual(window.canvas.itemcget(rectangle, 'fill'), '#%02x%02x%02x' % expected[rows[y][x]])
+        path = self.root / 'export.png'
+        with patch('icon_window.filedialog.asksaveasfilename', return_value=str(path)):window.export()
+        exported, palette = indexed_png(path)
+        self.assertEqual(palette, expected);self.assertEqual(exported, rows)
+        with patch('icon_window.filedialog.askopenfilename', return_value=str(path)):window.import_image()
+        self.assertFalse(window.pending());self.assertEqual(bytes(self.rom.data), before)
+
+    def test_context_changes_refresh_thumbnails_and_missing_entries_use_help_palette(self):
+        at = SKILL_PALETTE_LOADERS[1][0]
+        self.rom.data[at + 4:at + 7] = bytes.fromhex('BE 02 DE')
+        self.rom.data[0x1E02C0:0x1E02E0] = b''.join((i | (31 - i) << 5 | 16 << 10).to_bytes(2, 'little') for i in range(16))
+        window = self.window('skills', 1);before = bytes(self.rom.data)
+        window.context.current(2);window.context.event_generate('<<ComboboxSelected>>')
+        self.assertEqual(window.current, 1)
+        self.assertEqual(window.index, window.document.refs['skills'][2][0])
+        rows = unpack(window.document.art['skills'][window.index])
+        x, y = next((x, y) for y, line in enumerate(rows) for x, value in enumerate(line) if value)
+        thumb = window.photos[list(window.list.get_children()).index('1')]
+        expected = [(i * 8, (31 - i) * 8, 128) for i in range(16)]
+        self.assertEqual(thumb.get(x, y), expected[rows[y][x]])
+        path = self.root / 'compact.png'
+        with patch('icon_window.filedialog.asksaveasfilename', return_value=str(path)):window.export()
+        self.assertEqual(indexed_png(path)[1], expected)
+        # Canto is absent from the compact menu; its fallback artwork must use
+        # stat-help colors, not the selected but unavailable compact context.
+        window.populate(0)
+        with patch('icon_window.filedialog.asksaveasfilename', return_value=str(path)):window.export()
+        self.assertEqual(indexed_png(path)[1], [((15 - i) * 8, i * 8, ((i + 8) % 16) * 8) for i in range(16)])
+        self.assertFalse(window.pending());self.assertEqual(bytes(self.rom.data), before)
 
     def test_pixel_edits_are_private_and_save_retains_optimization_and_undo(self):
         window = self.window();self.app.update()

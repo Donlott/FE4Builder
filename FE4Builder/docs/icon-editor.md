@@ -19,8 +19,8 @@ alpha and incorrectly sized images are rejected before staging any changes.
 | --- | --- | --- |
 | Item graphics | `184000` | `4000`-byte raw DMA sheet |
 | Item assignments | `00D1AE` | 138 little-endian tile numbers |
-| Inventory/compact skill palette | `1E0160` | 16 SNES colors |
-| Stat-screen skill palette | `1E01E0` | 16 SNES colors |
+| Inventory palette | `1E0160` | 16 SNES colors |
+| Skill palette | `1E00C0` by default | 16 SNES colors; follows the native copy-loop source |
 | Original skill graphics | `1E34C0` | `0C00`-byte raw sheet; 24 icons |
 | Stat-screen skill assignments | `099300` | 29 words; `FFFF` hides a skill |
 | Stat-help skill assignments | `09A52F` | 29 words |
@@ -32,6 +32,18 @@ It is not a third 29-word table: reading/writing past those eighteen words would
 overwrite unrelated data/code. Skills absent from that menu can still have
 artwork assigned to the two stat-screen contexts. New icons do not create new
 skill mechanics, item types or compact-menu entries.
+
+The skill palette is a menu override, rather than the character palette
+initially loaded into the same CGRAM bank. The copy loop at PC `00BE0A` copies
+CPU `$DE:00C0–00DF` into OBJ palette 7 for the stat screen and its help window.
+The loop at PC `00D3D8` copies the same colors into OBJ palette 3 for the compact
+Skills menu. Thus the default game uses the same multicolor skill palette in
+all three contexts. Reading the initial character palette at `1E01E0`, or the
+initial inventory palette at `1E0160` for compact skills, gives incorrect colors.
+The editor validates those copy-loop instructions and reads their live source
+operands, so relocated palette data is followed automatically. Thumbnails,
+painting swatches, imports and PNG exports all use that screen's palette. Skills
+absent from the compact menu use their stat-help artwork and palette as a fallback.
 
 ## Native rendering limits
 
@@ -106,6 +118,10 @@ affected byte ranges, duplicate packing and skill-sheet contraction, stale or
 tampered storage, copier headers, FF-filled reservations, backup/undo/redo,
 failed-write rollback, first-open baselines, config damage, indexed PNG round
 trips, color-reduction opt-in, alpha/dimension rejection and nonmodal UI flows.
+Palette regressions distinguish the skill menu override from the initial
+character/inventory colors, follow changed copy-loop source operands, cover
+copier headers and validate default preview/thumbnail/export colors, context
+changes and missing compact entries without introducing ROM edits.
 
 On a disposable copy of the supplied ROM, all nine safely available item slots
 and all eight additional skill slots were filled. The real 65816 DMA queue

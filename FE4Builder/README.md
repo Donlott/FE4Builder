@@ -368,7 +368,10 @@ Open **Graphics & Text → Icon Editor**, or **Edit inventory icon...** beside a
 item's preview. The editor supports the verified 8 MiB ExHiROM layout. Browse
 items/skills or the complete icon library, paint pixels with the native palette,
 export/import **16 × 16 PNGs**, add new artwork, and assign it to existing items
-or skills. Index 0 is transparent. Foreign colors are rejected unless **Allow
+or skills. Skill previews, thumbnails and PNGs automatically use the palette
+the game loads for the selected screen, including its palette overrides. The
+screen selector also updates the icon assignments shown in the list.
+Index 0 is transparent. Foreign colors are rejected unless **Allow
 color reduction** is enabled; reduced imports remain staged for review. Palette
 changes are not made to unrelated game graphics.
 

@@ -34,6 +34,10 @@ NEIGHBORS = ((0xBD63, '02 00 02 DE 00 08 80 00 70'),
              (0xBD7D, '02 00 0A DE 00 0C 80 00 74'),
              (0xC56D, '02 00 02 DE 00 08 80 00 64'),
              (0xD38D, '02 C0 44 DE 00 04 80 00 40'))
+# The menus overwrite their initial OBJ palettes after loading the graphics.
+# These indexed-long copy loops load the skill palette into OBJ bank 7 (stats)
+# or bank 3 (Skills menu). Their source operand points two bytes before color 0.
+SKILL_PALETTE_LOADERS = ((0xBE0A, 0x02DE), (0xD3D8, 0x025E))
 
 
 def read(rom, at, size):
@@ -106,12 +110,25 @@ def digest(block):
     return hashlib.sha256(block[:64] + block[96:]).digest()
 
 
+def skill_palette_address(rom, context=0):
+    if context not in (0, 1, 2):raise ValueError('Unknown skill display context.')
+    at, destination = SKILL_PALETTE_LOADERS[context == 2]
+    code = read(rom, at, 14)
+    if (code[:4] != bytes.fromhex('A2 20 00 BF') or code[7:10] != b'\x9D' + destination.to_bytes(2, 'little') or
+            code[10:] != bytes.fromhex('CA CA D0 F5')):
+        raise ValueError('The skill icon palette loader differs from the supported layout.')
+    source = pc_address(int.from_bytes(code[4:7], 'little') + 2)
+    read(rom, source, 32)
+    return source
+
+
 def profile(rom, expanded):
     if len(rom.data) - rom.header != 0x800000 or read(rom, 0xFFD5, 1)[0] & 0x2F != 0x25:
         raise ValueError('Icon editing requires the supported 8 MiB ExHiROM layout.')
     expected = bytes.fromhex('22 BD A4 80') + dma(0xD84000, 0x4000, 0x4200)
     if read(rom, 0xCDEC, len(expected)) != expected:
         raise ValueError('The inventory icon loader has custom code. No icons were changed.')
+    for context in (0, 2):skill_palette_address(rom, context)
     guards = ((0xD187, 'BF AE D1 80'), (0x9A397, 'BF FE 92 89'),
               (0x9A519, 'BF 2D A5 89'), (0xBDB5A, 'BF 7E DB 8B'))
     for at, sequence in guards:
@@ -193,7 +210,7 @@ class IconDocument:
         return sorted(set(range(len(self.art[kind]))) - set(self.active(kind)))
 
     def colors(self, kind, context=0):
-        at = 0x1E01E0 if kind == 'skills' and context != 2 else 0x1E0160
+        at = skill_palette_address(self.rom, context) if kind == 'skills' else 0x1E0160
         # Match the existing native inventory preview's 5-bit channel scaling.
         return [tuple(((int.from_bytes(read(self.rom, at + i * 2, 2), 'little') >> shift) & 31) << 3
                       for shift in (0, 5, 10)) for i in range(16)]

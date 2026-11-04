@@ -7,7 +7,7 @@ from unittest.mock import patch
 
 from rom import Rom
 from icons import (IconDocument, ARENA, SIZE, PRIVATE_GRAPHICS, SKILL_GRAPHICS, ITEM_GRAPHICS,
-                   ITEM_LOOKUP, LOADERS, TABLES, pack, unpack, read, tile, dma, split_atlas, join_atlas)
+                   ITEM_LOOKUP, LOADERS, TABLES, SKILL_PALETTE_LOADERS, pack, unpack, read, tile, dma, split_atlas, join_atlas)
 from icon_stats import IconSizeHistory, artwork_bytes
 from portraits import pointer_for
 from icon_fixture import fixture, icon
@@ -29,6 +29,35 @@ class IconTests(unittest.TestCase):
         self.assertEqual(bytes(self.rom.data), self.before)
         self.assertEqual(self.path.read_bytes(), self.before)
         self.assertFalse((self.root / 'FE4Builder Backups').exists())
+
+    def test_skill_colors_follow_the_actual_palette_copy_sources(self):
+        expected = [((15 - i) * 8, i * 8, ((i + 8) % 16) * 8) for i in range(16)]
+        for context in range(3):self.assertEqual(self.doc.colors('skills', context), expected)
+        inventory = [(i * 8,) * 3 for i in range(16)]
+        self.assertEqual(self.doc.colors('items'), inventory)
+        self.assertNotEqual(expected, inventory)
+        # Repoint only the native copy-loop source operand. The editor must
+        # follow the ROM rather than another guessed CGRAM-bank address.
+        stat = [(31 - i, i, 8) for i in range(16)]
+        compact = [(i, 31 - i, 16) for i in range(16)]
+        for (at, _), source, colors in zip(SKILL_PALETTE_LOADERS, (0x1E02C0, 0x1E03C0), (stat, compact)):
+            raw = b''.join((r | g << 5 | b << 10).to_bytes(2, 'little') for r, g, b in colors)
+            self.rom.data[source:source + 32] = raw
+            self.rom.data[at + 4:at + 7] = pointer_for(source - 2).to_bytes(3, 'little')
+        fresh = IconDocument(self.rom)
+        for context, colors in ((0, stat), (1, stat), (2, compact)):
+            self.assertEqual(fresh.colors('skills', context), [tuple(c * 8 for c in rgb) for rgb in colors])
+        self.assertEqual(fresh.colors('items'), inventory)
+
+    def test_palette_loader_validation_and_copier_header(self):
+        for at, _ in SKILL_PALETTE_LOADERS:
+            self.rom.data[:] = self.before;self.rom.data[at] ^= 1
+            before = bytes(self.rom.data)
+            with self.assertRaisesRegex(ValueError, 'palette loader'):IconDocument(self.rom)
+            self.assertEqual(bytes(self.rom.data), before)
+        path = fixture(self.root, True);headered = IconDocument(Rom(path))
+        expected = [((15 - i) * 8, i * 8, ((i + 8) % 16) * 8) for i in range(16)]
+        self.assertEqual(headered.colors('skills'), expected)
 
     def test_private_item_variants_and_blank_library_survive_reopening(self):
         original = self.doc.art['items'][0]
