@@ -93,6 +93,53 @@ This first implementation targets the supplied **8 MiB Project Naga beta 7** dia
 
 Verification includes all 1,624 script round trips, longer/shorter replacements, shared-script isolation, protected commands, private-area exhaustion/corruption, growth-patch coexistence, headered ROMs, backup/undo/redo and failed-save rollback. A relocated Prologue conversation was played in Snes9x with edited text and working portraits. Other chapters' event execution and callback paths have not been exhaustively played through. Implementation/reference notes: `research/dialogue-editor/README.md`.
 
+## Menu Text Editor
+
+**Main Menu → Graphics & Text → Menu Text Editor** edits names, descriptions and
+menu labels in the supported **8 MiB Project Naga beta 7** layout, including the
+supplied FE4 Archanea ROM, with or without its 512-byte copier header. The left
+list shows hexadecimal IDs and the current text. Choose a category, search,
+edit the text on the right, and compare the current/replacement native-font
+previews. **Write to ROM** creates the usual backup/history entry; **Save &
+Launch (F5)** writes before launching. The window stays usable alongside other
+editors. Renamed item/class labels appear in the main editor and applicable
+dropdowns after saving.
+
+The catalogue contains **708 entries**: 138 item names, 138 item descriptions,
+25 shared effect descriptions, 18 skill names/help panels, 72 class names,
+26 terrain names, 7 status names, 2 skill-type labels, 46 map-location labels,
+55 menu-location labels, 110 item message names and 71 class message names.
+Playable character names and story dialogue retain their existing editors.
+
+Most menu text is pre-rendered 2bpp artwork. The editor reads/renders the ROM’s
+font and writes isolated replacement artwork, preserving other entries that
+shared an original image. Item-name left/right variants and each location
+entry’s applicable alignments are updated together. Skill edits update both
+the full help panel and its name in the compact Skills menu. **Shared effect
+descriptions** intentionally change every item still using that shared effect
+image; editing its wording does not change the effect’s behavior.
+
+**Menu names and message names are separate lists with different IDs.** For
+example inventory item `1C` is Iron lance, while message-name `1A` is Iron lance.
+Edit the matching **“… — messages”** entry separately when changing both
+contexts. The two location categories and names literally written into story
+scripts also remain separate; there is no guessed global search/replace.
+
+Names have a 64-pixel limit; compact skill names have 56 pixels. Skill panels
+have three help lines of 128 pixels after the name. Item descriptions retain
+their existing one- or three-line layout, at 128 pixels per line. Message names
+have 15 encoded bytes available. Invalid characters and overflowing text are
+rejected before any ROM bytes change. Bitmap-only unknown text remains visible
+in the current preview and can be replaced explicitly. The original font draws
+uppercase I and lowercase l identically: original public artwork is matched by
+hash to verified reference labels, and new edits store their exact spelling.
+
+Private menu artwork/text uses a verified empty 320 KiB region at PC
+`5B0000–5FFFFF`, without ROM expansion or engine patches. Occupied storage,
+corrupt metadata, stale forms, foreign private pointers and exhausted capacity
+are rejected. Other ROM layouts are not silently treated as this profile.
+Research, storage details and verification: [menu-text-research.md](docs/menu-text-research.md).
+
 ## Character promotion targets
 
 **Character Editor → Identity & settings → Promotion Class** edits the selected playable character’s promotion target directly, including children and substitutes. Choose a class or **None** and use the usual **Write to ROM** button. Stat and promotion edits save together with one automatic backup/history step; reload, discard, undo/redo and failed-save rollback include the promotion field. The legacy **Character Settings → FE4 Promotion Editor** accesses the same table, so both editors stay consistent after reload.

@@ -4,7 +4,7 @@ from pathlib import Path
 
 B=Path(__file__).resolve().parents[1]
 VERSION='0.1.0-preview'
-DATA=('ai','backgrounds','army_groups','audio','conversations','dialogue','event_commands','events','intro_assets','logo_layouts','objectives','reinforcements','villages')
+DATA=('ai','backgrounds','army_groups','audio','conversations','dialogue','event_commands','events','intro_assets','logo_layouts','menu_text','menu_text_hints','objectives','reinforcements','villages')
 
 WINDOWS=r'''@echo off
 setlocal
@@ -97,6 +97,7 @@ def payload(platform):
     for name in DATA:add(B/'data'/f'{name}.json','FE4Builder/data/'+name+'.json')
     for name in ('sigurd-standing.png','sigurd.ico'):add(B/'assets'/name,'FE4Builder/assets/'+name)
     add(B/'README.md','FE4Builder/README.md')
+    add(B/'docs/menu-text-research.md','FE4Builder/docs/menu-text-research.md')
     modules=B.parent/'Nightmare Modules'/'FE4 Nightmare modules'
     for path in sorted(modules.rglob('*')):
         if path.is_file() and path.suffix.lower() in ('.nmm','.txt'):

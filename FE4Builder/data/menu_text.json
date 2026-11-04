@@ -1,0 +1,11816 @@
+{
+  "profile": "Project Naga beta 7",
+  "source": {
+    "repository": "https://github.com/Miacidae/Project-Naga-beta-v7",
+    "commit": "8924fb4ff5330b347074083736ada17940b677a5",
+    "files": [
+      "MenuText/_MenuTextInstaller.asm",
+      "MenuText/Tilemaps/Items.asm",
+      "MenuText/Tilemaps/Classes.asm",
+      "MenuText/Tilemaps/Terrains.asm",
+      "MenuText/Tilemaps/Locations.asm",
+      "MenuText/Tilemaps/Statuses.asm",
+      "MenuText/Tilemaps/Skills_Menu.asm",
+      "Dialogue/Others/Item_Names.asm",
+      "Dialogue/Others/Class_Names.asm"
+    ],
+    "note": "Description and skill pointer tables also traced in the supplied ROM. Labels are read from ROM artwork, not the source translation."
+  },
+  "entries": [
+    {
+      "key": 0,
+      "category": "Item names",
+      "id": 0,
+      "kind": "name",
+      "table": 5259264,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 1,
+      "category": "Item names",
+      "id": 1,
+      "kind": "name",
+      "table": 5259280,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 2,
+      "category": "Item names",
+      "id": 2,
+      "kind": "name",
+      "table": 5259296,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 3,
+      "category": "Item names",
+      "id": 3,
+      "kind": "name",
+      "table": 5259312,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 4,
+      "category": "Item names",
+      "id": 4,
+      "kind": "name",
+      "table": 5259328,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 5,
+      "category": "Item names",
+      "id": 5,
+      "kind": "name",
+      "table": 5259344,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 6,
+      "category": "Item names",
+      "id": 6,
+      "kind": "name",
+      "table": 5259360,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 7,
+      "category": "Item names",
+      "id": 7,
+      "kind": "name",
+      "table": 5259376,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 8,
+      "category": "Item names",
+      "id": 8,
+      "kind": "name",
+      "table": 5259392,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 9,
+      "category": "Item names",
+      "id": 9,
+      "kind": "name",
+      "table": 5259408,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 10,
+      "category": "Item names",
+      "id": 10,
+      "kind": "name",
+      "table": 5259424,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 11,
+      "category": "Item names",
+      "id": 11,
+      "kind": "name",
+      "table": 5259440,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 12,
+      "category": "Item names",
+      "id": 12,
+      "kind": "name",
+      "table": 5259456,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 13,
+      "category": "Item names",
+      "id": 13,
+      "kind": "name",
+      "table": 5259472,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 14,
+      "category": "Item names",
+      "id": 14,
+      "kind": "name",
+      "table": 5259488,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 15,
+      "category": "Item names",
+      "id": 15,
+      "kind": "name",
+      "table": 5259504,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 16,
+      "category": "Item names",
+      "id": 16,
+      "kind": "name",
+      "table": 5259520,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 17,
+      "category": "Item names",
+      "id": 17,
+      "kind": "name",
+      "table": 5259536,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 18,
+      "category": "Item names",
+      "id": 18,
+      "kind": "name",
+      "table": 5259552,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 19,
+      "category": "Item names",
+      "id": 19,
+      "kind": "name",
+      "table": 5259568,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 20,
+      "category": "Item names",
+      "id": 20,
+      "kind": "name",
+      "table": 5259584,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 21,
+      "category": "Item names",
+      "id": 21,
+      "kind": "name",
+      "table": 5259600,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 22,
+      "category": "Item names",
+      "id": 22,
+      "kind": "name",
+      "table": 5259616,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 23,
+      "category": "Item names",
+      "id": 23,
+      "kind": "name",
+      "table": 5259632,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 24,
+      "category": "Item names",
+      "id": 24,
+      "kind": "name",
+      "table": 5259648,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 25,
+      "category": "Item names",
+      "id": 25,
+      "kind": "name",
+      "table": 5259664,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 26,
+      "category": "Item names",
+      "id": 26,
+      "kind": "name",
+      "table": 5259680,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 27,
+      "category": "Item names",
+      "id": 27,
+      "kind": "name",
+      "table": 5259696,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 28,
+      "category": "Item names",
+      "id": 28,
+      "kind": "name",
+      "table": 5259712,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 29,
+      "category": "Item names",
+      "id": 29,
+      "kind": "name",
+      "table": 5259728,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 30,
+      "category": "Item names",
+      "id": 30,
+      "kind": "name",
+      "table": 5259744,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 31,
+      "category": "Item names",
+      "id": 31,
+      "kind": "name",
+      "table": 5259760,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 32,
+      "category": "Item names",
+      "id": 32,
+      "kind": "name",
+      "table": 5259776,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 33,
+      "category": "Item names",
+      "id": 33,
+      "kind": "name",
+      "table": 5259792,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 34,
+      "category": "Item names",
+      "id": 34,
+      "kind": "name",
+      "table": 5259808,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 35,
+      "category": "Item names",
+      "id": 35,
+      "kind": "name",
+      "table": 5259824,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 36,
+      "category": "Item names",
+      "id": 36,
+      "kind": "name",
+      "table": 5259840,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 37,
+      "category": "Item names",
+      "id": 37,
+      "kind": "name",
+      "table": 5259856,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 38,
+      "category": "Item names",
+      "id": 38,
+      "kind": "name",
+      "table": 5259872,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 39,
+      "category": "Item names",
+      "id": 39,
+      "kind": "name",
+      "table": 5259888,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 40,
+      "category": "Item names",
+      "id": 40,
+      "kind": "name",
+      "table": 5259904,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 41,
+      "category": "Item names",
+      "id": 41,
+      "kind": "name",
+      "table": 5259920,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 42,
+      "category": "Item names",
+      "id": 42,
+      "kind": "name",
+      "table": 5259936,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 43,
+      "category": "Item names",
+      "id": 43,
+      "kind": "name",
+      "table": 5259952,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 44,
+      "category": "Item names",
+      "id": 44,
+      "kind": "name",
+      "table": 5259968,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 45,
+      "category": "Item names",
+      "id": 45,
+      "kind": "name",
+      "table": 5259984,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 46,
+      "category": "Item names",
+      "id": 46,
+      "kind": "name",
+      "table": 5260000,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 47,
+      "category": "Item names",
+      "id": 47,
+      "kind": "name",
+      "table": 5260016,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 48,
+      "category": "Item names",
+      "id": 48,
+      "kind": "name",
+      "table": 5260032,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 49,
+      "category": "Item names",
+      "id": 49,
+      "kind": "name",
+      "table": 5260048,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 50,
+      "category": "Item names",
+      "id": 50,
+      "kind": "name",
+      "table": 5260064,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 51,
+      "category": "Item names",
+      "id": 51,
+      "kind": "name",
+      "table": 5260080,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 52,
+      "category": "Item names",
+      "id": 52,
+      "kind": "name",
+      "table": 5260096,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 53,
+      "category": "Item names",
+      "id": 53,
+      "kind": "name",
+      "table": 5260112,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 54,
+      "category": "Item names",
+      "id": 54,
+      "kind": "name",
+      "table": 5260128,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 55,
+      "category": "Item names",
+      "id": 55,
+      "kind": "name",
+      "table": 5260144,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 56,
+      "category": "Item names",
+      "id": 56,
+      "kind": "name",
+      "table": 5260160,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 57,
+      "category": "Item names",
+      "id": 57,
+      "kind": "name",
+      "table": 5260176,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 58,
+      "category": "Item names",
+      "id": 58,
+      "kind": "name",
+      "table": 5260192,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 59,
+      "category": "Item names",
+      "id": 59,
+      "kind": "name",
+      "table": 5260208,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 60,
+      "category": "Item names",
+      "id": 60,
+      "kind": "name",
+      "table": 5260224,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 61,
+      "category": "Item names",
+      "id": 61,
+      "kind": "name",
+      "table": 5260240,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 62,
+      "category": "Item names",
+      "id": 62,
+      "kind": "name",
+      "table": 5260256,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 63,
+      "category": "Item names",
+      "id": 63,
+      "kind": "name",
+      "table": 5260272,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 64,
+      "category": "Item names",
+      "id": 64,
+      "kind": "name",
+      "table": 5260288,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 65,
+      "category": "Item names",
+      "id": 65,
+      "kind": "name",
+      "table": 5260304,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 66,
+      "category": "Item names",
+      "id": 66,
+      "kind": "name",
+      "table": 5260320,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 67,
+      "category": "Item names",
+      "id": 67,
+      "kind": "name",
+      "table": 5260336,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 68,
+      "category": "Item names",
+      "id": 68,
+      "kind": "name",
+      "table": 5260352,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 69,
+      "category": "Item names",
+      "id": 69,
+      "kind": "name",
+      "table": 5260368,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 70,
+      "category": "Item names",
+      "id": 70,
+      "kind": "name",
+      "table": 5260384,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 71,
+      "category": "Item names",
+      "id": 71,
+      "kind": "name",
+      "table": 5260400,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 72,
+      "category": "Item names",
+      "id": 72,
+      "kind": "name",
+      "table": 5260416,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 73,
+      "category": "Item names",
+      "id": 73,
+      "kind": "name",
+      "table": 5260432,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 74,
+      "category": "Item names",
+      "id": 74,
+      "kind": "name",
+      "table": 5260448,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 75,
+      "category": "Item names",
+      "id": 75,
+      "kind": "name",
+      "table": 5260464,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 76,
+      "category": "Item names",
+      "id": 76,
+      "kind": "name",
+      "table": 5260480,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 77,
+      "category": "Item names",
+      "id": 77,
+      "kind": "name",
+      "table": 5260496,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 78,
+      "category": "Item names",
+      "id": 78,
+      "kind": "name",
+      "table": 5260512,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 79,
+      "category": "Item names",
+      "id": 79,
+      "kind": "name",
+      "table": 5260528,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 80,
+      "category": "Item names",
+      "id": 80,
+      "kind": "name",
+      "table": 5260544,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 81,
+      "category": "Item names",
+      "id": 81,
+      "kind": "name",
+      "table": 5260560,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 82,
+      "category": "Item names",
+      "id": 82,
+      "kind": "name",
+      "table": 5260576,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 83,
+      "category": "Item names",
+      "id": 83,
+      "kind": "name",
+      "table": 5260592,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 84,
+      "category": "Item names",
+      "id": 84,
+      "kind": "name",
+      "table": 5260608,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 85,
+      "category": "Item names",
+      "id": 85,
+      "kind": "name",
+      "table": 5260624,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 86,
+      "category": "Item names",
+      "id": 86,
+      "kind": "name",
+      "table": 5260640,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 87,
+      "category": "Item names",
+      "id": 87,
+      "kind": "name",
+      "table": 5260656,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 88,
+      "category": "Item names",
+      "id": 88,
+      "kind": "name",
+      "table": 5260672,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 89,
+      "category": "Item names",
+      "id": 89,
+      "kind": "name",
+      "table": 5260688,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 90,
+      "category": "Item names",
+      "id": 90,
+      "kind": "name",
+      "table": 5260704,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 91,
+      "category": "Item names",
+      "id": 91,
+      "kind": "name",
+      "table": 5260720,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 92,
+      "category": "Item names",
+      "id": 92,
+      "kind": "name",
+      "table": 5260736,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 93,
+      "category": "Item names",
+      "id": 93,
+      "kind": "name",
+      "table": 5260752,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 94,
+      "category": "Item names",
+      "id": 94,
+      "kind": "name",
+      "table": 5260768,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 95,
+      "category": "Item names",
+      "id": 95,
+      "kind": "name",
+      "table": 5260784,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 96,
+      "category": "Item names",
+      "id": 96,
+      "kind": "name",
+      "table": 5260800,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 97,
+      "category": "Item names",
+      "id": 97,
+      "kind": "name",
+      "table": 5260816,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 98,
+      "category": "Item names",
+      "id": 98,
+      "kind": "name",
+      "table": 5260832,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 99,
+      "category": "Item names",
+      "id": 99,
+      "kind": "name",
+      "table": 5260848,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 100,
+      "category": "Item names",
+      "id": 100,
+      "kind": "name",
+      "table": 5260864,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 101,
+      "category": "Item names",
+      "id": 101,
+      "kind": "name",
+      "table": 5260880,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 102,
+      "category": "Item names",
+      "id": 102,
+      "kind": "name",
+      "table": 5260896,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 103,
+      "category": "Item names",
+      "id": 103,
+      "kind": "name",
+      "table": 5260912,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 104,
+      "category": "Item names",
+      "id": 104,
+      "kind": "name",
+      "table": 5260928,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 105,
+      "category": "Item names",
+      "id": 105,
+      "kind": "name",
+      "table": 5260944,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 106,
+      "category": "Item names",
+      "id": 106,
+      "kind": "name",
+      "table": 5260960,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 107,
+      "category": "Item names",
+      "id": 107,
+      "kind": "name",
+      "table": 5260976,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 108,
+      "category": "Item names",
+      "id": 108,
+      "kind": "name",
+      "table": 5260992,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 109,
+      "category": "Item names",
+      "id": 109,
+      "kind": "name",
+      "table": 5261008,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 110,
+      "category": "Item names",
+      "id": 110,
+      "kind": "name",
+      "table": 5261024,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 111,
+      "category": "Item names",
+      "id": 111,
+      "kind": "name",
+      "table": 5261040,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 112,
+      "category": "Item names",
+      "id": 112,
+      "kind": "name",
+      "table": 5261056,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 113,
+      "category": "Item names",
+      "id": 113,
+      "kind": "name",
+      "table": 5261072,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 114,
+      "category": "Item names",
+      "id": 114,
+      "kind": "name",
+      "table": 5261088,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 115,
+      "category": "Item names",
+      "id": 115,
+      "kind": "name",
+      "table": 5261104,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 116,
+      "category": "Item names",
+      "id": 116,
+      "kind": "name",
+      "table": 5261120,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 117,
+      "category": "Item names",
+      "id": 117,
+      "kind": "name",
+      "table": 5261136,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 118,
+      "category": "Item names",
+      "id": 118,
+      "kind": "name",
+      "table": 5261152,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 119,
+      "category": "Item names",
+      "id": 119,
+      "kind": "name",
+      "table": 5261168,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 120,
+      "category": "Item names",
+      "id": 120,
+      "kind": "name",
+      "table": 5261184,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 121,
+      "category": "Item names",
+      "id": 121,
+      "kind": "name",
+      "table": 5261200,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 122,
+      "category": "Item names",
+      "id": 122,
+      "kind": "name",
+      "table": 5261216,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 123,
+      "category": "Item names",
+      "id": 123,
+      "kind": "name",
+      "table": 5261232,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 124,
+      "category": "Item names",
+      "id": 124,
+      "kind": "name",
+      "table": 5261248,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 125,
+      "category": "Item names",
+      "id": 125,
+      "kind": "name",
+      "table": 5261264,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 126,
+      "category": "Item names",
+      "id": 126,
+      "kind": "name",
+      "table": 5261280,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 127,
+      "category": "Item names",
+      "id": 127,
+      "kind": "name",
+      "table": 5261296,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 128,
+      "category": "Item names",
+      "id": 128,
+      "kind": "name",
+      "table": 5261312,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 129,
+      "category": "Item names",
+      "id": 129,
+      "kind": "name",
+      "table": 5261328,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 130,
+      "category": "Item names",
+      "id": 130,
+      "kind": "name",
+      "table": 5261344,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 131,
+      "category": "Item names",
+      "id": 131,
+      "kind": "name",
+      "table": 5261360,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 132,
+      "category": "Item names",
+      "id": 132,
+      "kind": "name",
+      "table": 5261376,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 133,
+      "category": "Item names",
+      "id": 133,
+      "kind": "name",
+      "table": 5261392,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 134,
+      "category": "Item names",
+      "id": 134,
+      "kind": "name",
+      "table": 5261408,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 135,
+      "category": "Item names",
+      "id": 135,
+      "kind": "name",
+      "table": 5261424,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 136,
+      "category": "Item names",
+      "id": 136,
+      "kind": "name",
+      "table": 5261440,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 137,
+      "category": "Item names",
+      "id": 137,
+      "kind": "name",
+      "table": 5261456,
+      "pool": [
+        5709824,
+        5767168
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 138,
+      "category": "Item descriptions",
+      "id": 0,
+      "kind": "description",
+      "table": 5271552,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 139,
+      "category": "Item descriptions",
+      "id": 1,
+      "kind": "description",
+      "table": 5271568,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 140,
+      "category": "Item descriptions",
+      "id": 2,
+      "kind": "description",
+      "table": 5271584,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 141,
+      "category": "Item descriptions",
+      "id": 3,
+      "kind": "description",
+      "table": 5271600,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 142,
+      "category": "Item descriptions",
+      "id": 4,
+      "kind": "description",
+      "table": 5271616,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 143,
+      "category": "Item descriptions",
+      "id": 5,
+      "kind": "description",
+      "table": 5271632,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 144,
+      "category": "Item descriptions",
+      "id": 6,
+      "kind": "description",
+      "table": 5271648,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 145,
+      "category": "Item descriptions",
+      "id": 7,
+      "kind": "description",
+      "table": 5271664,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 146,
+      "category": "Item descriptions",
+      "id": 8,
+      "kind": "description",
+      "table": 5271680,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 147,
+      "category": "Item descriptions",
+      "id": 9,
+      "kind": "description",
+      "table": 5271696,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 148,
+      "category": "Item descriptions",
+      "id": 10,
+      "kind": "description",
+      "table": 5271712,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 149,
+      "category": "Item descriptions",
+      "id": 11,
+      "kind": "description",
+      "table": 5271728,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 150,
+      "category": "Item descriptions",
+      "id": 12,
+      "kind": "description",
+      "table": 5271744,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 151,
+      "category": "Item descriptions",
+      "id": 13,
+      "kind": "description",
+      "table": 5271760,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 152,
+      "category": "Item descriptions",
+      "id": 14,
+      "kind": "description",
+      "table": 5271776,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 153,
+      "category": "Item descriptions",
+      "id": 15,
+      "kind": "description",
+      "table": 5271792,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 154,
+      "category": "Item descriptions",
+      "id": 16,
+      "kind": "description",
+      "table": 5271808,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 155,
+      "category": "Item descriptions",
+      "id": 17,
+      "kind": "description",
+      "table": 5271824,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 156,
+      "category": "Item descriptions",
+      "id": 18,
+      "kind": "description",
+      "table": 5271840,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 157,
+      "category": "Item descriptions",
+      "id": 19,
+      "kind": "description",
+      "table": 5271856,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 158,
+      "category": "Item descriptions",
+      "id": 20,
+      "kind": "description",
+      "table": 5271872,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 159,
+      "category": "Item descriptions",
+      "id": 21,
+      "kind": "description",
+      "table": 5271888,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 160,
+      "category": "Item descriptions",
+      "id": 22,
+      "kind": "description",
+      "table": 5271904,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 161,
+      "category": "Item descriptions",
+      "id": 23,
+      "kind": "description",
+      "table": 5271920,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 162,
+      "category": "Item descriptions",
+      "id": 24,
+      "kind": "description",
+      "table": 5271936,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 163,
+      "category": "Item descriptions",
+      "id": 25,
+      "kind": "description",
+      "table": 5271952,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 164,
+      "category": "Item descriptions",
+      "id": 26,
+      "kind": "description",
+      "table": 5271968,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 165,
+      "category": "Item descriptions",
+      "id": 27,
+      "kind": "description",
+      "table": 5271984,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 166,
+      "category": "Item descriptions",
+      "id": 28,
+      "kind": "description",
+      "table": 5272000,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 167,
+      "category": "Item descriptions",
+      "id": 29,
+      "kind": "description",
+      "table": 5272016,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 168,
+      "category": "Item descriptions",
+      "id": 30,
+      "kind": "description",
+      "table": 5272032,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 169,
+      "category": "Item descriptions",
+      "id": 31,
+      "kind": "description",
+      "table": 5272048,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 170,
+      "category": "Item descriptions",
+      "id": 32,
+      "kind": "description",
+      "table": 5272064,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 171,
+      "category": "Item descriptions",
+      "id": 33,
+      "kind": "description",
+      "table": 5272080,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 172,
+      "category": "Item descriptions",
+      "id": 34,
+      "kind": "description",
+      "table": 5272096,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 173,
+      "category": "Item descriptions",
+      "id": 35,
+      "kind": "description",
+      "table": 5272112,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 174,
+      "category": "Item descriptions",
+      "id": 36,
+      "kind": "description",
+      "table": 5272128,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 175,
+      "category": "Item descriptions",
+      "id": 37,
+      "kind": "description",
+      "table": 5272144,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 176,
+      "category": "Item descriptions",
+      "id": 38,
+      "kind": "description",
+      "table": 5272160,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 177,
+      "category": "Item descriptions",
+      "id": 39,
+      "kind": "description",
+      "table": 5272176,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 178,
+      "category": "Item descriptions",
+      "id": 40,
+      "kind": "description",
+      "table": 5272192,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 179,
+      "category": "Item descriptions",
+      "id": 41,
+      "kind": "description",
+      "table": 5272208,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 180,
+      "category": "Item descriptions",
+      "id": 42,
+      "kind": "description",
+      "table": 5272224,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 181,
+      "category": "Item descriptions",
+      "id": 43,
+      "kind": "description",
+      "table": 5272240,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 182,
+      "category": "Item descriptions",
+      "id": 44,
+      "kind": "description",
+      "table": 5272256,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 183,
+      "category": "Item descriptions",
+      "id": 45,
+      "kind": "description",
+      "table": 5272272,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 184,
+      "category": "Item descriptions",
+      "id": 46,
+      "kind": "description",
+      "table": 5272288,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 185,
+      "category": "Item descriptions",
+      "id": 47,
+      "kind": "description",
+      "table": 5272304,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 186,
+      "category": "Item descriptions",
+      "id": 48,
+      "kind": "description",
+      "table": 5272320,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 187,
+      "category": "Item descriptions",
+      "id": 49,
+      "kind": "description",
+      "table": 5272336,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 188,
+      "category": "Item descriptions",
+      "id": 50,
+      "kind": "description",
+      "table": 5272352,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 189,
+      "category": "Item descriptions",
+      "id": 51,
+      "kind": "description",
+      "table": 5272368,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 190,
+      "category": "Item descriptions",
+      "id": 52,
+      "kind": "description",
+      "table": 5272384,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 191,
+      "category": "Item descriptions",
+      "id": 53,
+      "kind": "description",
+      "table": 5272400,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 192,
+      "category": "Item descriptions",
+      "id": 54,
+      "kind": "description",
+      "table": 5272416,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 193,
+      "category": "Item descriptions",
+      "id": 55,
+      "kind": "description",
+      "table": 5272432,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 194,
+      "category": "Item descriptions",
+      "id": 56,
+      "kind": "description",
+      "table": 5272448,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 195,
+      "category": "Item descriptions",
+      "id": 57,
+      "kind": "description",
+      "table": 5272464,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 196,
+      "category": "Item descriptions",
+      "id": 58,
+      "kind": "description",
+      "table": 5272480,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 197,
+      "category": "Item descriptions",
+      "id": 59,
+      "kind": "description",
+      "table": 5272496,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 198,
+      "category": "Item descriptions",
+      "id": 60,
+      "kind": "description",
+      "table": 5272512,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 199,
+      "category": "Item descriptions",
+      "id": 61,
+      "kind": "description",
+      "table": 5272528,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 200,
+      "category": "Item descriptions",
+      "id": 62,
+      "kind": "description",
+      "table": 5272544,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 201,
+      "category": "Item descriptions",
+      "id": 63,
+      "kind": "description",
+      "table": 5272560,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 202,
+      "category": "Item descriptions",
+      "id": 64,
+      "kind": "description",
+      "table": 5272576,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 203,
+      "category": "Item descriptions",
+      "id": 65,
+      "kind": "description",
+      "table": 5272592,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 204,
+      "category": "Item descriptions",
+      "id": 66,
+      "kind": "description",
+      "table": 5272608,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 205,
+      "category": "Item descriptions",
+      "id": 67,
+      "kind": "description",
+      "table": 5272624,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 206,
+      "category": "Item descriptions",
+      "id": 68,
+      "kind": "description",
+      "table": 5272640,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 207,
+      "category": "Item descriptions",
+      "id": 69,
+      "kind": "description",
+      "table": 5272656,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 208,
+      "category": "Item descriptions",
+      "id": 70,
+      "kind": "description",
+      "table": 5272672,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 209,
+      "category": "Item descriptions",
+      "id": 71,
+      "kind": "description",
+      "table": 5272688,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 210,
+      "category": "Item descriptions",
+      "id": 72,
+      "kind": "description",
+      "table": 5272704,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 211,
+      "category": "Item descriptions",
+      "id": 73,
+      "kind": "description",
+      "table": 5272720,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 212,
+      "category": "Item descriptions",
+      "id": 74,
+      "kind": "description",
+      "table": 5272736,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 213,
+      "category": "Item descriptions",
+      "id": 75,
+      "kind": "description",
+      "table": 5272752,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 214,
+      "category": "Item descriptions",
+      "id": 76,
+      "kind": "description",
+      "table": 5272768,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 215,
+      "category": "Item descriptions",
+      "id": 77,
+      "kind": "description",
+      "table": 5272784,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 216,
+      "category": "Item descriptions",
+      "id": 78,
+      "kind": "description",
+      "table": 5272800,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 217,
+      "category": "Item descriptions",
+      "id": 79,
+      "kind": "description",
+      "table": 5272816,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 218,
+      "category": "Item descriptions",
+      "id": 80,
+      "kind": "description",
+      "table": 5272832,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 219,
+      "category": "Item descriptions",
+      "id": 81,
+      "kind": "description",
+      "table": 5272848,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 220,
+      "category": "Item descriptions",
+      "id": 82,
+      "kind": "description",
+      "table": 5272864,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 221,
+      "category": "Item descriptions",
+      "id": 83,
+      "kind": "description",
+      "table": 5272880,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 222,
+      "category": "Item descriptions",
+      "id": 84,
+      "kind": "description",
+      "table": 5272896,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 223,
+      "category": "Item descriptions",
+      "id": 85,
+      "kind": "description",
+      "table": 5272912,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 224,
+      "category": "Item descriptions",
+      "id": 86,
+      "kind": "description",
+      "table": 5272928,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 225,
+      "category": "Item descriptions",
+      "id": 87,
+      "kind": "description",
+      "table": 5272944,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 226,
+      "category": "Item descriptions",
+      "id": 88,
+      "kind": "description",
+      "table": 5272960,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 227,
+      "category": "Item descriptions",
+      "id": 89,
+      "kind": "description",
+      "table": 5272976,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 228,
+      "category": "Item descriptions",
+      "id": 90,
+      "kind": "description",
+      "table": 5272992,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 229,
+      "category": "Item descriptions",
+      "id": 91,
+      "kind": "description",
+      "table": 5273008,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 230,
+      "category": "Item descriptions",
+      "id": 92,
+      "kind": "description",
+      "table": 5273024,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 231,
+      "category": "Item descriptions",
+      "id": 93,
+      "kind": "description",
+      "table": 5273040,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 232,
+      "category": "Item descriptions",
+      "id": 94,
+      "kind": "description",
+      "table": 5273056,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 233,
+      "category": "Item descriptions",
+      "id": 95,
+      "kind": "description",
+      "table": 5273072,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 234,
+      "category": "Item descriptions",
+      "id": 96,
+      "kind": "description",
+      "table": 5273088,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 235,
+      "category": "Item descriptions",
+      "id": 97,
+      "kind": "description",
+      "table": 5273104,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 236,
+      "category": "Item descriptions",
+      "id": 98,
+      "kind": "description",
+      "table": 5273120,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 237,
+      "category": "Item descriptions",
+      "id": 99,
+      "kind": "description",
+      "table": 5273136,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 238,
+      "category": "Item descriptions",
+      "id": 100,
+      "kind": "description",
+      "table": 5273152,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 239,
+      "category": "Item descriptions",
+      "id": 101,
+      "kind": "description",
+      "table": 5273168,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 240,
+      "category": "Item descriptions",
+      "id": 102,
+      "kind": "description",
+      "table": 5273184,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 241,
+      "category": "Item descriptions",
+      "id": 103,
+      "kind": "description",
+      "table": 5273200,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 242,
+      "category": "Item descriptions",
+      "id": 104,
+      "kind": "description",
+      "table": 5273216,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 243,
+      "category": "Item descriptions",
+      "id": 105,
+      "kind": "description",
+      "table": 5273232,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 244,
+      "category": "Item descriptions",
+      "id": 106,
+      "kind": "description",
+      "table": 5273248,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 245,
+      "category": "Item descriptions",
+      "id": 107,
+      "kind": "description",
+      "table": 5273264,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 246,
+      "category": "Item descriptions",
+      "id": 108,
+      "kind": "description",
+      "table": 5273280,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 247,
+      "category": "Item descriptions",
+      "id": 109,
+      "kind": "description",
+      "table": 5273296,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 248,
+      "category": "Item descriptions",
+      "id": 110,
+      "kind": "description",
+      "table": 5273312,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 249,
+      "category": "Item descriptions",
+      "id": 111,
+      "kind": "description",
+      "table": 5273328,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 250,
+      "category": "Item descriptions",
+      "id": 112,
+      "kind": "description",
+      "table": 5273344,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 251,
+      "category": "Item descriptions",
+      "id": 113,
+      "kind": "description",
+      "table": 5273360,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 252,
+      "category": "Item descriptions",
+      "id": 114,
+      "kind": "description",
+      "table": 5273376,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 253,
+      "category": "Item descriptions",
+      "id": 115,
+      "kind": "description",
+      "table": 5273392,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 254,
+      "category": "Item descriptions",
+      "id": 116,
+      "kind": "description",
+      "table": 5273408,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 255,
+      "category": "Item descriptions",
+      "id": 117,
+      "kind": "description",
+      "table": 5273424,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 256,
+      "category": "Item descriptions",
+      "id": 118,
+      "kind": "description",
+      "table": 5273440,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 257,
+      "category": "Item descriptions",
+      "id": 119,
+      "kind": "description",
+      "table": 5273456,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 258,
+      "category": "Item descriptions",
+      "id": 120,
+      "kind": "description",
+      "table": 5273472,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 259,
+      "category": "Item descriptions",
+      "id": 121,
+      "kind": "description",
+      "table": 5273488,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 260,
+      "category": "Item descriptions",
+      "id": 122,
+      "kind": "description",
+      "table": 5273504,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 261,
+      "category": "Item descriptions",
+      "id": 123,
+      "kind": "description",
+      "table": 5273520,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 262,
+      "category": "Item descriptions",
+      "id": 124,
+      "kind": "description",
+      "table": 5273536,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 263,
+      "category": "Item descriptions",
+      "id": 125,
+      "kind": "description",
+      "table": 5273552,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 264,
+      "category": "Item descriptions",
+      "id": 126,
+      "kind": "description",
+      "table": 5273568,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 265,
+      "category": "Item descriptions",
+      "id": 127,
+      "kind": "description",
+      "table": 5273584,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 266,
+      "category": "Item descriptions",
+      "id": 128,
+      "kind": "description",
+      "table": 5273600,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 267,
+      "category": "Item descriptions",
+      "id": 129,
+      "kind": "description",
+      "table": 5273616,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 268,
+      "category": "Item descriptions",
+      "id": 130,
+      "kind": "description",
+      "table": 5273632,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 269,
+      "category": "Item descriptions",
+      "id": 131,
+      "kind": "description",
+      "table": 5273648,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 270,
+      "category": "Item descriptions",
+      "id": 132,
+      "kind": "description",
+      "table": 5273664,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 271,
+      "category": "Item descriptions",
+      "id": 133,
+      "kind": "description",
+      "table": 5273680,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 272,
+      "category": "Item descriptions",
+      "id": 134,
+      "kind": "description",
+      "table": 5273696,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 273,
+      "category": "Item descriptions",
+      "id": 135,
+      "kind": "description",
+      "table": 5273712,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 274,
+      "category": "Item descriptions",
+      "id": 136,
+      "kind": "description",
+      "table": 5273728,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 275,
+      "category": "Item descriptions",
+      "id": 137,
+      "kind": "description",
+      "table": 5273744,
+      "pool": [
+        5898240,
+        5963776
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 276,
+      "category": "Item effect descriptions",
+      "id": 0,
+      "kind": "effect",
+      "graphics": 5898240
+    },
+    {
+      "key": 277,
+      "category": "Item effect descriptions",
+      "id": 1,
+      "kind": "effect",
+      "graphics": 5898752
+    },
+    {
+      "key": 278,
+      "category": "Item effect descriptions",
+      "id": 2,
+      "kind": "effect",
+      "graphics": 5899264
+    },
+    {
+      "key": 279,
+      "category": "Item effect descriptions",
+      "id": 3,
+      "kind": "effect",
+      "graphics": 5899776
+    },
+    {
+      "key": 280,
+      "category": "Item effect descriptions",
+      "id": 4,
+      "kind": "effect",
+      "graphics": 5900288
+    },
+    {
+      "key": 281,
+      "category": "Item effect descriptions",
+      "id": 5,
+      "kind": "effect",
+      "graphics": 5900800
+    },
+    {
+      "key": 282,
+      "category": "Item effect descriptions",
+      "id": 6,
+      "kind": "effect",
+      "graphics": 5901312
+    },
+    {
+      "key": 283,
+      "category": "Item effect descriptions",
+      "id": 7,
+      "kind": "effect",
+      "graphics": 5901824
+    },
+    {
+      "key": 284,
+      "category": "Item effect descriptions",
+      "id": 8,
+      "kind": "effect",
+      "graphics": 5902336
+    },
+    {
+      "key": 285,
+      "category": "Item effect descriptions",
+      "id": 9,
+      "kind": "effect",
+      "graphics": 5902848
+    },
+    {
+      "key": 286,
+      "category": "Item effect descriptions",
+      "id": 10,
+      "kind": "effect",
+      "graphics": 5903360
+    },
+    {
+      "key": 287,
+      "category": "Item effect descriptions",
+      "id": 11,
+      "kind": "effect",
+      "graphics": 5903872
+    },
+    {
+      "key": 288,
+      "category": "Item effect descriptions",
+      "id": 12,
+      "kind": "effect",
+      "graphics": 5904384
+    },
+    {
+      "key": 289,
+      "category": "Item effect descriptions",
+      "id": 13,
+      "kind": "effect",
+      "graphics": 5904896
+    },
+    {
+      "key": 290,
+      "category": "Item effect descriptions",
+      "id": 14,
+      "kind": "effect",
+      "graphics": 5905408
+    },
+    {
+      "key": 291,
+      "category": "Item effect descriptions",
+      "id": 15,
+      "kind": "effect",
+      "graphics": 5905920
+    },
+    {
+      "key": 292,
+      "category": "Item effect descriptions",
+      "id": 16,
+      "kind": "effect",
+      "graphics": 5906432
+    },
+    {
+      "key": 293,
+      "category": "Item effect descriptions",
+      "id": 17,
+      "kind": "effect",
+      "graphics": 5906944
+    },
+    {
+      "key": 294,
+      "category": "Item effect descriptions",
+      "id": 18,
+      "kind": "effect",
+      "graphics": 5907456
+    },
+    {
+      "key": 295,
+      "category": "Item effect descriptions",
+      "id": 19,
+      "kind": "effect",
+      "graphics": 5907968
+    },
+    {
+      "key": 296,
+      "category": "Item effect descriptions",
+      "id": 20,
+      "kind": "effect",
+      "graphics": 5908480
+    },
+    {
+      "key": 297,
+      "category": "Item effect descriptions",
+      "id": 21,
+      "kind": "effect",
+      "graphics": 5908992
+    },
+    {
+      "key": 298,
+      "category": "Item effect descriptions",
+      "id": 22,
+      "kind": "effect",
+      "graphics": 5909504
+    },
+    {
+      "key": 299,
+      "category": "Item effect descriptions",
+      "id": 23,
+      "kind": "effect",
+      "graphics": 5910016
+    },
+    {
+      "key": 300,
+      "category": "Item effect descriptions",
+      "id": 24,
+      "kind": "effect",
+      "graphics": 5910528
+    },
+    {
+      "key": 301,
+      "category": "Skills",
+      "id": 0,
+      "kind": "skill",
+      "slot": 0,
+      "pointer": 633948,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 302,
+      "category": "Skills",
+      "id": 1,
+      "kind": "skill",
+      "slot": 1,
+      "pointer": 633951,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 303,
+      "category": "Skills",
+      "id": 2,
+      "kind": "skill",
+      "slot": 2,
+      "pointer": 633954,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 304,
+      "category": "Skills",
+      "id": 3,
+      "kind": "skill",
+      "slot": 3,
+      "pointer": 633957,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 305,
+      "category": "Skills",
+      "id": 4,
+      "kind": "skill",
+      "slot": 4,
+      "pointer": 633960,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 306,
+      "category": "Skills",
+      "id": 6,
+      "kind": "skill",
+      "slot": 5,
+      "pointer": 633966,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 307,
+      "category": "Skills",
+      "id": 10,
+      "kind": "skill",
+      "slot": 6,
+      "pointer": 633978,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 308,
+      "category": "Skills",
+      "id": 12,
+      "kind": "skill",
+      "slot": 7,
+      "pointer": 633984,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 309,
+      "category": "Skills",
+      "id": 13,
+      "kind": "skill",
+      "slot": 8,
+      "pointer": 633987,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 310,
+      "category": "Skills",
+      "id": 14,
+      "kind": "skill",
+      "slot": 9,
+      "pointer": 633990,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 311,
+      "category": "Skills",
+      "id": 15,
+      "kind": "skill",
+      "slot": 10,
+      "pointer": 633993,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 312,
+      "category": "Skills",
+      "id": 16,
+      "kind": "skill",
+      "slot": 11,
+      "pointer": 633996,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 313,
+      "category": "Skills",
+      "id": 17,
+      "kind": "skill",
+      "slot": 12,
+      "pointer": 633999,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 314,
+      "category": "Skills",
+      "id": 18,
+      "kind": "skill",
+      "slot": 13,
+      "pointer": 634002,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 315,
+      "category": "Skills",
+      "id": 19,
+      "kind": "skill",
+      "slot": 14,
+      "pointer": 634005,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 316,
+      "category": "Skills",
+      "id": 22,
+      "kind": "skill",
+      "slot": 15,
+      "pointer": 634014,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 317,
+      "category": "Skills",
+      "id": 23,
+      "kind": "skill",
+      "slot": 16,
+      "pointer": 634017,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 318,
+      "category": "Skills",
+      "id": 26,
+      "kind": "skill",
+      "slot": 17,
+      "pointer": 634026,
+      "pool": [
+        5849088,
+        5885952
+      ]
+    },
+    {
+      "key": 319,
+      "category": "Class names",
+      "id": 0,
+      "kind": "name",
+      "table": 5252096,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 320,
+      "category": "Class names",
+      "id": 1,
+      "kind": "name",
+      "table": 5252112,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 321,
+      "category": "Class names",
+      "id": 2,
+      "kind": "name",
+      "table": 5252128,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 322,
+      "category": "Class names",
+      "id": 3,
+      "kind": "name",
+      "table": 5252144,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 323,
+      "category": "Class names",
+      "id": 4,
+      "kind": "name",
+      "table": 5252160,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 324,
+      "category": "Class names",
+      "id": 5,
+      "kind": "name",
+      "table": 5252176,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 325,
+      "category": "Class names",
+      "id": 6,
+      "kind": "name",
+      "table": 5252192,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 326,
+      "category": "Class names",
+      "id": 7,
+      "kind": "name",
+      "table": 5252208,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 327,
+      "category": "Class names",
+      "id": 8,
+      "kind": "name",
+      "table": 5252224,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 328,
+      "category": "Class names",
+      "id": 9,
+      "kind": "name",
+      "table": 5252240,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 329,
+      "category": "Class names",
+      "id": 10,
+      "kind": "name",
+      "table": 5252256,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 330,
+      "category": "Class names",
+      "id": 11,
+      "kind": "name",
+      "table": 5252272,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 331,
+      "category": "Class names",
+      "id": 12,
+      "kind": "name",
+      "table": 5252288,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 332,
+      "category": "Class names",
+      "id": 13,
+      "kind": "name",
+      "table": 5252304,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 333,
+      "category": "Class names",
+      "id": 14,
+      "kind": "name",
+      "table": 5252320,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 334,
+      "category": "Class names",
+      "id": 15,
+      "kind": "name",
+      "table": 5252336,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 335,
+      "category": "Class names",
+      "id": 16,
+      "kind": "name",
+      "table": 5252352,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 336,
+      "category": "Class names",
+      "id": 17,
+      "kind": "name",
+      "table": 5252368,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 337,
+      "category": "Class names",
+      "id": 18,
+      "kind": "name",
+      "table": 5252384,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 338,
+      "category": "Class names",
+      "id": 19,
+      "kind": "name",
+      "table": 5252400,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 339,
+      "category": "Class names",
+      "id": 20,
+      "kind": "name",
+      "table": 5252416,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 340,
+      "category": "Class names",
+      "id": 21,
+      "kind": "name",
+      "table": 5252432,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 341,
+      "category": "Class names",
+      "id": 22,
+      "kind": "name",
+      "table": 5252448,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 342,
+      "category": "Class names",
+      "id": 23,
+      "kind": "name",
+      "table": 5252464,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 343,
+      "category": "Class names",
+      "id": 24,
+      "kind": "name",
+      "table": 5252480,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 344,
+      "category": "Class names",
+      "id": 25,
+      "kind": "name",
+      "table": 5252496,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 345,
+      "category": "Class names",
+      "id": 26,
+      "kind": "name",
+      "table": 5252512,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 346,
+      "category": "Class names",
+      "id": 27,
+      "kind": "name",
+      "table": 5252528,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 347,
+      "category": "Class names",
+      "id": 28,
+      "kind": "name",
+      "table": 5252544,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 348,
+      "category": "Class names",
+      "id": 29,
+      "kind": "name",
+      "table": 5252560,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 349,
+      "category": "Class names",
+      "id": 30,
+      "kind": "name",
+      "table": 5252576,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 350,
+      "category": "Class names",
+      "id": 31,
+      "kind": "name",
+      "table": 5252592,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 351,
+      "category": "Class names",
+      "id": 32,
+      "kind": "name",
+      "table": 5252608,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 352,
+      "category": "Class names",
+      "id": 33,
+      "kind": "name",
+      "table": 5252624,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 353,
+      "category": "Class names",
+      "id": 34,
+      "kind": "name",
+      "table": 5252640,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 354,
+      "category": "Class names",
+      "id": 35,
+      "kind": "name",
+      "table": 5252656,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 355,
+      "category": "Class names",
+      "id": 36,
+      "kind": "name",
+      "table": 5252672,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 356,
+      "category": "Class names",
+      "id": 37,
+      "kind": "name",
+      "table": 5252688,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 357,
+      "category": "Class names",
+      "id": 38,
+      "kind": "name",
+      "table": 5252704,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 358,
+      "category": "Class names",
+      "id": 39,
+      "kind": "name",
+      "table": 5252720,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 359,
+      "category": "Class names",
+      "id": 40,
+      "kind": "name",
+      "table": 5252736,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 360,
+      "category": "Class names",
+      "id": 41,
+      "kind": "name",
+      "table": 5252752,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 361,
+      "category": "Class names",
+      "id": 42,
+      "kind": "name",
+      "table": 5252768,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 362,
+      "category": "Class names",
+      "id": 43,
+      "kind": "name",
+      "table": 5252784,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 363,
+      "category": "Class names",
+      "id": 44,
+      "kind": "name",
+      "table": 5252800,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 364,
+      "category": "Class names",
+      "id": 45,
+      "kind": "name",
+      "table": 5252816,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 365,
+      "category": "Class names",
+      "id": 46,
+      "kind": "name",
+      "table": 5252832,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 366,
+      "category": "Class names",
+      "id": 47,
+      "kind": "name",
+      "table": 5252848,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 367,
+      "category": "Class names",
+      "id": 48,
+      "kind": "name",
+      "table": 5252864,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 368,
+      "category": "Class names",
+      "id": 49,
+      "kind": "name",
+      "table": 5252880,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 369,
+      "category": "Class names",
+      "id": 50,
+      "kind": "name",
+      "table": 5252896,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 370,
+      "category": "Class names",
+      "id": 51,
+      "kind": "name",
+      "table": 5252912,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 371,
+      "category": "Class names",
+      "id": 52,
+      "kind": "name",
+      "table": 5252928,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 372,
+      "category": "Class names",
+      "id": 53,
+      "kind": "name",
+      "table": 5252944,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 373,
+      "category": "Class names",
+      "id": 54,
+      "kind": "name",
+      "table": 5252960,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 374,
+      "category": "Class names",
+      "id": 55,
+      "kind": "name",
+      "table": 5252976,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 375,
+      "category": "Class names",
+      "id": 56,
+      "kind": "name",
+      "table": 5252992,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 376,
+      "category": "Class names",
+      "id": 57,
+      "kind": "name",
+      "table": 5253008,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 377,
+      "category": "Class names",
+      "id": 58,
+      "kind": "name",
+      "table": 5253024,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 378,
+      "category": "Class names",
+      "id": 59,
+      "kind": "name",
+      "table": 5253040,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 379,
+      "category": "Class names",
+      "id": 60,
+      "kind": "name",
+      "table": 5253056,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 380,
+      "category": "Class names",
+      "id": 61,
+      "kind": "name",
+      "table": 5253072,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 381,
+      "category": "Class names",
+      "id": 62,
+      "kind": "name",
+      "table": 5253088,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 382,
+      "category": "Class names",
+      "id": 63,
+      "kind": "name",
+      "table": 5253104,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 383,
+      "category": "Class names",
+      "id": 64,
+      "kind": "name",
+      "table": 5253120,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 384,
+      "category": "Class names",
+      "id": 65,
+      "kind": "name",
+      "table": 5253136,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 385,
+      "category": "Class names",
+      "id": 66,
+      "kind": "name",
+      "table": 5253152,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 386,
+      "category": "Class names",
+      "id": 67,
+      "kind": "name",
+      "table": 5253168,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 387,
+      "category": "Class names",
+      "id": 68,
+      "kind": "name",
+      "table": 5253184,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 388,
+      "category": "Class names",
+      "id": 69,
+      "kind": "name",
+      "table": 5253200,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 389,
+      "category": "Class names",
+      "id": 70,
+      "kind": "name",
+      "table": 5253216,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 390,
+      "category": "Class names",
+      "id": 71,
+      "kind": "name",
+      "table": 5253232,
+      "pool": [
+        5668864,
+        5705728
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 391,
+      "category": "Terrain names",
+      "id": 0,
+      "kind": "name",
+      "table": 5255168,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 392,
+      "category": "Terrain names",
+      "id": 1,
+      "kind": "name",
+      "table": 5255184,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 393,
+      "category": "Terrain names",
+      "id": 2,
+      "kind": "name",
+      "table": 5255200,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 394,
+      "category": "Terrain names",
+      "id": 3,
+      "kind": "name",
+      "table": 5255216,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 395,
+      "category": "Terrain names",
+      "id": 4,
+      "kind": "name",
+      "table": 5255232,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 396,
+      "category": "Terrain names",
+      "id": 5,
+      "kind": "name",
+      "table": 5255248,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 397,
+      "category": "Terrain names",
+      "id": 6,
+      "kind": "name",
+      "table": 5255264,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 398,
+      "category": "Terrain names",
+      "id": 7,
+      "kind": "name",
+      "table": 5255280,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 399,
+      "category": "Terrain names",
+      "id": 8,
+      "kind": "name",
+      "table": 5255296,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 400,
+      "category": "Terrain names",
+      "id": 9,
+      "kind": "name",
+      "table": 5255312,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 401,
+      "category": "Terrain names",
+      "id": 10,
+      "kind": "name",
+      "table": 5255328,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 402,
+      "category": "Terrain names",
+      "id": 11,
+      "kind": "name",
+      "table": 5255344,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 403,
+      "category": "Terrain names",
+      "id": 12,
+      "kind": "name",
+      "table": 5255360,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 404,
+      "category": "Terrain names",
+      "id": 13,
+      "kind": "name",
+      "table": 5255376,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 405,
+      "category": "Terrain names",
+      "id": 14,
+      "kind": "name",
+      "table": 5255392,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 406,
+      "category": "Terrain names",
+      "id": 15,
+      "kind": "name",
+      "table": 5255408,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 407,
+      "category": "Terrain names",
+      "id": 16,
+      "kind": "name",
+      "table": 5255424,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 408,
+      "category": "Terrain names",
+      "id": 17,
+      "kind": "name",
+      "table": 5255440,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 409,
+      "category": "Terrain names",
+      "id": 18,
+      "kind": "name",
+      "table": 5255456,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 410,
+      "category": "Terrain names",
+      "id": 19,
+      "kind": "name",
+      "table": 5255472,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 411,
+      "category": "Terrain names",
+      "id": 20,
+      "kind": "name",
+      "table": 5255488,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 412,
+      "category": "Terrain names",
+      "id": 21,
+      "kind": "name",
+      "table": 5255504,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 413,
+      "category": "Terrain names",
+      "id": 22,
+      "kind": "name",
+      "table": 5255520,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 414,
+      "category": "Terrain names",
+      "id": 23,
+      "kind": "name",
+      "table": 5255536,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 415,
+      "category": "Terrain names",
+      "id": 24,
+      "kind": "name",
+      "table": 5255552,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 416,
+      "category": "Terrain names",
+      "id": 25,
+      "kind": "name",
+      "table": 5255568,
+      "pool": [
+        5767168,
+        5780480
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 417,
+      "category": "Status names",
+      "id": 0,
+      "kind": "name",
+      "table": 5259008,
+      "pool": [
+        5529600,
+        5533184
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 418,
+      "category": "Status names",
+      "id": 1,
+      "kind": "name",
+      "table": 5259024,
+      "pool": [
+        5529600,
+        5533184
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 419,
+      "category": "Status names",
+      "id": 2,
+      "kind": "name",
+      "table": 5259040,
+      "pool": [
+        5529600,
+        5533184
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 420,
+      "category": "Status names",
+      "id": 3,
+      "kind": "name",
+      "table": 5259056,
+      "pool": [
+        5529600,
+        5533184
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 421,
+      "category": "Status names",
+      "id": 4,
+      "kind": "name",
+      "table": 5259072,
+      "pool": [
+        5529600,
+        5533184
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 422,
+      "category": "Status names",
+      "id": 5,
+      "kind": "name",
+      "table": 5259088,
+      "pool": [
+        5529600,
+        5533184
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 423,
+      "category": "Status names",
+      "id": 6,
+      "kind": "name",
+      "table": 5259104,
+      "pool": [
+        5529600,
+        5533184
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 424,
+      "category": "Skill types",
+      "id": 0,
+      "kind": "name",
+      "table": 5253376,
+      "pool": [
+        5533696,
+        5534720
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 425,
+      "category": "Skill types",
+      "id": 1,
+      "kind": "name",
+      "table": 5253392,
+      "pool": [
+        5533696,
+        5534720
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ]
+      ]
+    },
+    {
+      "key": 426,
+      "category": "Locations — map",
+      "id": 0,
+      "kind": "name",
+      "table": 5255680,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 427,
+      "category": "Locations — map",
+      "id": 1,
+      "kind": "name",
+      "table": 5255696,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 428,
+      "category": "Locations — map",
+      "id": 2,
+      "kind": "name",
+      "table": 5255712,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 429,
+      "category": "Locations — map",
+      "id": 3,
+      "kind": "name",
+      "table": 5255728,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 430,
+      "category": "Locations — map",
+      "id": 4,
+      "kind": "name",
+      "table": 5255744,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 431,
+      "category": "Locations — map",
+      "id": 5,
+      "kind": "name",
+      "table": 5255760,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 432,
+      "category": "Locations — map",
+      "id": 6,
+      "kind": "name",
+      "table": 5255776,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 433,
+      "category": "Locations — map",
+      "id": 7,
+      "kind": "name",
+      "table": 5255792,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 434,
+      "category": "Locations — map",
+      "id": 8,
+      "kind": "name",
+      "table": 5255808,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 435,
+      "category": "Locations — map",
+      "id": 9,
+      "kind": "name",
+      "table": 5255824,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 436,
+      "category": "Locations — map",
+      "id": 10,
+      "kind": "name",
+      "table": 5255840,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 437,
+      "category": "Locations — map",
+      "id": 11,
+      "kind": "name",
+      "table": 5255856,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 438,
+      "category": "Locations — map",
+      "id": 12,
+      "kind": "name",
+      "table": 5255872,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 439,
+      "category": "Locations — map",
+      "id": 13,
+      "kind": "name",
+      "table": 5255888,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 440,
+      "category": "Locations — map",
+      "id": 14,
+      "kind": "name",
+      "table": 5255904,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 441,
+      "category": "Locations — map",
+      "id": 15,
+      "kind": "name",
+      "table": 5255920,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 442,
+      "category": "Locations — map",
+      "id": 16,
+      "kind": "name",
+      "table": 5255936,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 443,
+      "category": "Locations — map",
+      "id": 17,
+      "kind": "name",
+      "table": 5255952,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 444,
+      "category": "Locations — map",
+      "id": 18,
+      "kind": "name",
+      "table": 5255968,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 445,
+      "category": "Locations — map",
+      "id": 19,
+      "kind": "name",
+      "table": 5255984,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 446,
+      "category": "Locations — map",
+      "id": 20,
+      "kind": "name",
+      "table": 5256000,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 447,
+      "category": "Locations — map",
+      "id": 21,
+      "kind": "name",
+      "table": 5256016,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 448,
+      "category": "Locations — map",
+      "id": 22,
+      "kind": "name",
+      "table": 5256032,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 449,
+      "category": "Locations — map",
+      "id": 23,
+      "kind": "name",
+      "table": 5256048,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 450,
+      "category": "Locations — map",
+      "id": 24,
+      "kind": "name",
+      "table": 5256064,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 451,
+      "category": "Locations — map",
+      "id": 25,
+      "kind": "name",
+      "table": 5256080,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 452,
+      "category": "Locations — map",
+      "id": 26,
+      "kind": "name",
+      "table": 5256096,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 453,
+      "category": "Locations — map",
+      "id": 27,
+      "kind": "name",
+      "table": 5256112,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 454,
+      "category": "Locations — map",
+      "id": 28,
+      "kind": "name",
+      "table": 5256128,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 455,
+      "category": "Locations — map",
+      "id": 29,
+      "kind": "name",
+      "table": 5256144,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 456,
+      "category": "Locations — map",
+      "id": 30,
+      "kind": "name",
+      "table": 5256160,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 457,
+      "category": "Locations — map",
+      "id": 31,
+      "kind": "name",
+      "table": 5256176,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 458,
+      "category": "Locations — map",
+      "id": 32,
+      "kind": "name",
+      "table": 5256192,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 459,
+      "category": "Locations — map",
+      "id": 33,
+      "kind": "name",
+      "table": 5256208,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 460,
+      "category": "Locations — map",
+      "id": 34,
+      "kind": "name",
+      "table": 5256224,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 461,
+      "category": "Locations — map",
+      "id": 35,
+      "kind": "name",
+      "table": 5256240,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 462,
+      "category": "Locations — map",
+      "id": 36,
+      "kind": "name",
+      "table": 5256256,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 463,
+      "category": "Locations — map",
+      "id": 37,
+      "kind": "name",
+      "table": 5256272,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 464,
+      "category": "Locations — map",
+      "id": 38,
+      "kind": "name",
+      "table": 5256288,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 465,
+      "category": "Locations — map",
+      "id": 39,
+      "kind": "name",
+      "table": 5256304,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 466,
+      "category": "Locations — map",
+      "id": 40,
+      "kind": "name",
+      "table": 5256320,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 467,
+      "category": "Locations — map",
+      "id": 41,
+      "kind": "name",
+      "table": 5256336,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 468,
+      "category": "Locations — map",
+      "id": 42,
+      "kind": "name",
+      "table": 5256352,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 469,
+      "category": "Locations — map",
+      "id": 43,
+      "kind": "name",
+      "table": 5256368,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 470,
+      "category": "Locations — map",
+      "id": 44,
+      "kind": "name",
+      "table": 5256384,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 471,
+      "category": "Locations — map",
+      "id": 45,
+      "kind": "name",
+      "table": 5256400,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ],
+        [
+          8,
+          9,
+          "right"
+        ]
+      ]
+    },
+    {
+      "key": 472,
+      "category": "Locations — menus",
+      "id": 0,
+      "kind": "name",
+      "table": 5263360,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 473,
+      "category": "Locations — menus",
+      "id": 1,
+      "kind": "name",
+      "table": 5263376,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 474,
+      "category": "Locations — menus",
+      "id": 2,
+      "kind": "name",
+      "table": 5263392,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 475,
+      "category": "Locations — menus",
+      "id": 3,
+      "kind": "name",
+      "table": 5263408,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 476,
+      "category": "Locations — menus",
+      "id": 4,
+      "kind": "name",
+      "table": 5263424,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 477,
+      "category": "Locations — menus",
+      "id": 5,
+      "kind": "name",
+      "table": 5263440,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 478,
+      "category": "Locations — menus",
+      "id": 6,
+      "kind": "name",
+      "table": 5263456,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 479,
+      "category": "Locations — menus",
+      "id": 7,
+      "kind": "name",
+      "table": 5263472,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 480,
+      "category": "Locations — menus",
+      "id": 8,
+      "kind": "name",
+      "table": 5263488,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 481,
+      "category": "Locations — menus",
+      "id": 9,
+      "kind": "name",
+      "table": 5263504,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 482,
+      "category": "Locations — menus",
+      "id": 10,
+      "kind": "name",
+      "table": 5263520,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 483,
+      "category": "Locations — menus",
+      "id": 11,
+      "kind": "name",
+      "table": 5263536,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 484,
+      "category": "Locations — menus",
+      "id": 12,
+      "kind": "name",
+      "table": 5263552,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 485,
+      "category": "Locations — menus",
+      "id": 13,
+      "kind": "name",
+      "table": 5263568,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 486,
+      "category": "Locations — menus",
+      "id": 14,
+      "kind": "name",
+      "table": 5263584,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 487,
+      "category": "Locations — menus",
+      "id": 15,
+      "kind": "name",
+      "table": 5263600,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 488,
+      "category": "Locations — menus",
+      "id": 16,
+      "kind": "name",
+      "table": 5263616,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 489,
+      "category": "Locations — menus",
+      "id": 17,
+      "kind": "name",
+      "table": 5263632,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 490,
+      "category": "Locations — menus",
+      "id": 18,
+      "kind": "name",
+      "table": 5263648,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 491,
+      "category": "Locations — menus",
+      "id": 19,
+      "kind": "name",
+      "table": 5263664,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 492,
+      "category": "Locations — menus",
+      "id": 20,
+      "kind": "name",
+      "table": 5263680,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 493,
+      "category": "Locations — menus",
+      "id": 21,
+      "kind": "name",
+      "table": 5263696,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 494,
+      "category": "Locations — menus",
+      "id": 22,
+      "kind": "name",
+      "table": 5263712,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 495,
+      "category": "Locations — menus",
+      "id": 23,
+      "kind": "name",
+      "table": 5263728,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 496,
+      "category": "Locations — menus",
+      "id": 24,
+      "kind": "name",
+      "table": 5263744,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 497,
+      "category": "Locations — menus",
+      "id": 25,
+      "kind": "name",
+      "table": 5263760,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 498,
+      "category": "Locations — menus",
+      "id": 26,
+      "kind": "name",
+      "table": 5263776,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 499,
+      "category": "Locations — menus",
+      "id": 27,
+      "kind": "name",
+      "table": 5263792,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 500,
+      "category": "Locations — menus",
+      "id": 28,
+      "kind": "name",
+      "table": 5263808,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 501,
+      "category": "Locations — menus",
+      "id": 29,
+      "kind": "name",
+      "table": 5263824,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 502,
+      "category": "Locations — menus",
+      "id": 30,
+      "kind": "name",
+      "table": 5263840,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 503,
+      "category": "Locations — menus",
+      "id": 31,
+      "kind": "name",
+      "table": 5263856,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 504,
+      "category": "Locations — menus",
+      "id": 32,
+      "kind": "name",
+      "table": 5263872,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 505,
+      "category": "Locations — menus",
+      "id": 33,
+      "kind": "name",
+      "table": 5263888,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 506,
+      "category": "Locations — menus",
+      "id": 34,
+      "kind": "name",
+      "table": 5263904,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 507,
+      "category": "Locations — menus",
+      "id": 35,
+      "kind": "name",
+      "table": 5263920,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 508,
+      "category": "Locations — menus",
+      "id": 36,
+      "kind": "name",
+      "table": 5263936,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 509,
+      "category": "Locations — menus",
+      "id": 37,
+      "kind": "name",
+      "table": 5263952,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 510,
+      "category": "Locations — menus",
+      "id": 38,
+      "kind": "name",
+      "table": 5263968,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 511,
+      "category": "Locations — menus",
+      "id": 39,
+      "kind": "name",
+      "table": 5263984,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 512,
+      "category": "Locations — menus",
+      "id": 40,
+      "kind": "name",
+      "table": 5264000,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 513,
+      "category": "Locations — menus",
+      "id": 41,
+      "kind": "name",
+      "table": 5264016,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 514,
+      "category": "Locations — menus",
+      "id": 42,
+      "kind": "name",
+      "table": 5264032,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 515,
+      "category": "Locations — menus",
+      "id": 43,
+      "kind": "name",
+      "table": 5264048,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 516,
+      "category": "Locations — menus",
+      "id": 44,
+      "kind": "name",
+      "table": 5264064,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 517,
+      "category": "Locations — menus",
+      "id": 45,
+      "kind": "name",
+      "table": 5264080,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 518,
+      "category": "Locations — menus",
+      "id": 46,
+      "kind": "name",
+      "table": 5264096,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 519,
+      "category": "Locations — menus",
+      "id": 47,
+      "kind": "name",
+      "table": 5264112,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 520,
+      "category": "Locations — menus",
+      "id": 48,
+      "kind": "name",
+      "table": 5264128,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 521,
+      "category": "Locations — menus",
+      "id": 49,
+      "kind": "name",
+      "table": 5264144,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 522,
+      "category": "Locations — menus",
+      "id": 50,
+      "kind": "name",
+      "table": 5264160,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 523,
+      "category": "Locations — menus",
+      "id": 51,
+      "kind": "name",
+      "table": 5264176,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 524,
+      "category": "Locations — menus",
+      "id": 52,
+      "kind": "name",
+      "table": 5264192,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 525,
+      "category": "Locations — menus",
+      "id": 53,
+      "kind": "name",
+      "table": 5264208,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 526,
+      "category": "Locations — menus",
+      "id": 54,
+      "kind": "name",
+      "table": 5264224,
+      "pool": [
+        5783552,
+        5832704
+      ],
+      "variants": [
+        [
+          0,
+          1,
+          "left"
+        ],
+        [
+          4,
+          5,
+          "center"
+        ]
+      ]
+    },
+    {
+      "key": 527,
+      "category": "Item names — messages",
+      "id": 0,
+      "kind": "encoded",
+      "address": 5269248
+    },
+    {
+      "key": 528,
+      "category": "Item names — messages",
+      "id": 1,
+      "kind": "encoded",
+      "address": 5269264
+    },
+    {
+      "key": 529,
+      "category": "Item names — messages",
+      "id": 2,
+      "kind": "encoded",
+      "address": 5269280
+    },
+    {
+      "key": 530,
+      "category": "Item names — messages",
+      "id": 3,
+      "kind": "encoded",
+      "address": 5269296
+    },
+    {
+      "key": 531,
+      "category": "Item names — messages",
+      "id": 4,
+      "kind": "encoded",
+      "address": 5269312
+    },
+    {
+      "key": 532,
+      "category": "Item names — messages",
+      "id": 5,
+      "kind": "encoded",
+      "address": 5269328
+    },
+    {
+      "key": 533,
+      "category": "Item names — messages",
+      "id": 6,
+      "kind": "encoded",
+      "address": 5269344
+    },
+    {
+      "key": 534,
+      "category": "Item names — messages",
+      "id": 7,
+      "kind": "encoded",
+      "address": 5269360
+    },
+    {
+      "key": 535,
+      "category": "Item names — messages",
+      "id": 8,
+      "kind": "encoded",
+      "address": 5269376
+    },
+    {
+      "key": 536,
+      "category": "Item names — messages",
+      "id": 9,
+      "kind": "encoded",
+      "address": 5269392
+    },
+    {
+      "key": 537,
+      "category": "Item names — messages",
+      "id": 10,
+      "kind": "encoded",
+      "address": 5269408
+    },
+    {
+      "key": 538,
+      "category": "Item names — messages",
+      "id": 11,
+      "kind": "encoded",
+      "address": 5269424
+    },
+    {
+      "key": 539,
+      "category": "Item names — messages",
+      "id": 12,
+      "kind": "encoded",
+      "address": 5269440
+    },
+    {
+      "key": 540,
+      "category": "Item names — messages",
+      "id": 13,
+      "kind": "encoded",
+      "address": 5269456
+    },
+    {
+      "key": 541,
+      "category": "Item names — messages",
+      "id": 14,
+      "kind": "encoded",
+      "address": 5269472
+    },
+    {
+      "key": 542,
+      "category": "Item names — messages",
+      "id": 15,
+      "kind": "encoded",
+      "address": 5269488
+    },
+    {
+      "key": 543,
+      "category": "Item names — messages",
+      "id": 16,
+      "kind": "encoded",
+      "address": 5269504
+    },
+    {
+      "key": 544,
+      "category": "Item names — messages",
+      "id": 17,
+      "kind": "encoded",
+      "address": 5269520
+    },
+    {
+      "key": 545,
+      "category": "Item names — messages",
+      "id": 18,
+      "kind": "encoded",
+      "address": 5269536
+    },
+    {
+      "key": 546,
+      "category": "Item names — messages",
+      "id": 19,
+      "kind": "encoded",
+      "address": 5269552
+    },
+    {
+      "key": 547,
+      "category": "Item names — messages",
+      "id": 20,
+      "kind": "encoded",
+      "address": 5269568
+    },
+    {
+      "key": 548,
+      "category": "Item names — messages",
+      "id": 21,
+      "kind": "encoded",
+      "address": 5269584
+    },
+    {
+      "key": 549,
+      "category": "Item names — messages",
+      "id": 22,
+      "kind": "encoded",
+      "address": 5269600
+    },
+    {
+      "key": 550,
+      "category": "Item names — messages",
+      "id": 23,
+      "kind": "encoded",
+      "address": 5269616
+    },
+    {
+      "key": 551,
+      "category": "Item names — messages",
+      "id": 24,
+      "kind": "encoded",
+      "address": 5269632
+    },
+    {
+      "key": 552,
+      "category": "Item names — messages",
+      "id": 25,
+      "kind": "encoded",
+      "address": 5269648
+    },
+    {
+      "key": 553,
+      "category": "Item names — messages",
+      "id": 26,
+      "kind": "encoded",
+      "address": 5269664
+    },
+    {
+      "key": 554,
+      "category": "Item names — messages",
+      "id": 27,
+      "kind": "encoded",
+      "address": 5269680
+    },
+    {
+      "key": 555,
+      "category": "Item names — messages",
+      "id": 28,
+      "kind": "encoded",
+      "address": 5269696
+    },
+    {
+      "key": 556,
+      "category": "Item names — messages",
+      "id": 29,
+      "kind": "encoded",
+      "address": 5269712
+    },
+    {
+      "key": 557,
+      "category": "Item names — messages",
+      "id": 30,
+      "kind": "encoded",
+      "address": 5269728
+    },
+    {
+      "key": 558,
+      "category": "Item names — messages",
+      "id": 31,
+      "kind": "encoded",
+      "address": 5269744
+    },
+    {
+      "key": 559,
+      "category": "Item names — messages",
+      "id": 32,
+      "kind": "encoded",
+      "address": 5269760
+    },
+    {
+      "key": 560,
+      "category": "Item names — messages",
+      "id": 33,
+      "kind": "encoded",
+      "address": 5269776
+    },
+    {
+      "key": 561,
+      "category": "Item names — messages",
+      "id": 34,
+      "kind": "encoded",
+      "address": 5269792
+    },
+    {
+      "key": 562,
+      "category": "Item names — messages",
+      "id": 35,
+      "kind": "encoded",
+      "address": 5269808
+    },
+    {
+      "key": 563,
+      "category": "Item names — messages",
+      "id": 36,
+      "kind": "encoded",
+      "address": 5269824
+    },
+    {
+      "key": 564,
+      "category": "Item names — messages",
+      "id": 37,
+      "kind": "encoded",
+      "address": 5269840
+    },
+    {
+      "key": 565,
+      "category": "Item names — messages",
+      "id": 38,
+      "kind": "encoded",
+      "address": 5269856
+    },
+    {
+      "key": 566,
+      "category": "Item names — messages",
+      "id": 39,
+      "kind": "encoded",
+      "address": 5269872
+    },
+    {
+      "key": 567,
+      "category": "Item names — messages",
+      "id": 40,
+      "kind": "encoded",
+      "address": 5269888
+    },
+    {
+      "key": 568,
+      "category": "Item names — messages",
+      "id": 41,
+      "kind": "encoded",
+      "address": 5269904
+    },
+    {
+      "key": 569,
+      "category": "Item names — messages",
+      "id": 42,
+      "kind": "encoded",
+      "address": 5269920
+    },
+    {
+      "key": 570,
+      "category": "Item names — messages",
+      "id": 43,
+      "kind": "encoded",
+      "address": 5269936
+    },
+    {
+      "key": 571,
+      "category": "Item names — messages",
+      "id": 44,
+      "kind": "encoded",
+      "address": 5269952
+    },
+    {
+      "key": 572,
+      "category": "Item names — messages",
+      "id": 45,
+      "kind": "encoded",
+      "address": 5269968
+    },
+    {
+      "key": 573,
+      "category": "Item names — messages",
+      "id": 46,
+      "kind": "encoded",
+      "address": 5269984
+    },
+    {
+      "key": 574,
+      "category": "Item names — messages",
+      "id": 47,
+      "kind": "encoded",
+      "address": 5270000
+    },
+    {
+      "key": 575,
+      "category": "Item names — messages",
+      "id": 48,
+      "kind": "encoded",
+      "address": 5270016
+    },
+    {
+      "key": 576,
+      "category": "Item names — messages",
+      "id": 49,
+      "kind": "encoded",
+      "address": 5270032
+    },
+    {
+      "key": 577,
+      "category": "Item names — messages",
+      "id": 50,
+      "kind": "encoded",
+      "address": 5270048
+    },
+    {
+      "key": 578,
+      "category": "Item names — messages",
+      "id": 51,
+      "kind": "encoded",
+      "address": 5270064
+    },
+    {
+      "key": 579,
+      "category": "Item names — messages",
+      "id": 52,
+      "kind": "encoded",
+      "address": 5270080
+    },
+    {
+      "key": 580,
+      "category": "Item names — messages",
+      "id": 53,
+      "kind": "encoded",
+      "address": 5270096
+    },
+    {
+      "key": 581,
+      "category": "Item names — messages",
+      "id": 54,
+      "kind": "encoded",
+      "address": 5270112
+    },
+    {
+      "key": 582,
+      "category": "Item names — messages",
+      "id": 55,
+      "kind": "encoded",
+      "address": 5270128
+    },
+    {
+      "key": 583,
+      "category": "Item names — messages",
+      "id": 56,
+      "kind": "encoded",
+      "address": 5270144
+    },
+    {
+      "key": 584,
+      "category": "Item names — messages",
+      "id": 57,
+      "kind": "encoded",
+      "address": 5270160
+    },
+    {
+      "key": 585,
+      "category": "Item names — messages",
+      "id": 58,
+      "kind": "encoded",
+      "address": 5270176
+    },
+    {
+      "key": 586,
+      "category": "Item names — messages",
+      "id": 59,
+      "kind": "encoded",
+      "address": 5270192
+    },
+    {
+      "key": 587,
+      "category": "Item names — messages",
+      "id": 60,
+      "kind": "encoded",
+      "address": 5270208
+    },
+    {
+      "key": 588,
+      "category": "Item names — messages",
+      "id": 61,
+      "kind": "encoded",
+      "address": 5270224
+    },
+    {
+      "key": 589,
+      "category": "Item names — messages",
+      "id": 62,
+      "kind": "encoded",
+      "address": 5270240
+    },
+    {
+      "key": 590,
+      "category": "Item names — messages",
+      "id": 63,
+      "kind": "encoded",
+      "address": 5270256
+    },
+    {
+      "key": 591,
+      "category": "Item names — messages",
+      "id": 64,
+      "kind": "encoded",
+      "address": 5270272
+    },
+    {
+      "key": 592,
+      "category": "Item names — messages",
+      "id": 65,
+      "kind": "encoded",
+      "address": 5270288
+    },
+    {
+      "key": 593,
+      "category": "Item names — messages",
+      "id": 66,
+      "kind": "encoded",
+      "address": 5270304
+    },
+    {
+      "key": 594,
+      "category": "Item names — messages",
+      "id": 67,
+      "kind": "encoded",
+      "address": 5270320
+    },
+    {
+      "key": 595,
+      "category": "Item names — messages",
+      "id": 68,
+      "kind": "encoded",
+      "address": 5270336
+    },
+    {
+      "key": 596,
+      "category": "Item names — messages",
+      "id": 69,
+      "kind": "encoded",
+      "address": 5270352
+    },
+    {
+      "key": 597,
+      "category": "Item names — messages",
+      "id": 70,
+      "kind": "encoded",
+      "address": 5270368
+    },
+    {
+      "key": 598,
+      "category": "Item names — messages",
+      "id": 71,
+      "kind": "encoded",
+      "address": 5270384
+    },
+    {
+      "key": 599,
+      "category": "Item names — messages",
+      "id": 72,
+      "kind": "encoded",
+      "address": 5270400
+    },
+    {
+      "key": 600,
+      "category": "Item names — messages",
+      "id": 73,
+      "kind": "encoded",
+      "address": 5270416
+    },
+    {
+      "key": 601,
+      "category": "Item names — messages",
+      "id": 74,
+      "kind": "encoded",
+      "address": 5270432
+    },
+    {
+      "key": 602,
+      "category": "Item names — messages",
+      "id": 75,
+      "kind": "encoded",
+      "address": 5270448
+    },
+    {
+      "key": 603,
+      "category": "Item names — messages",
+      "id": 76,
+      "kind": "encoded",
+      "address": 5270464
+    },
+    {
+      "key": 604,
+      "category": "Item names — messages",
+      "id": 77,
+      "kind": "encoded",
+      "address": 5270480
+    },
+    {
+      "key": 605,
+      "category": "Item names — messages",
+      "id": 78,
+      "kind": "encoded",
+      "address": 5270496
+    },
+    {
+      "key": 606,
+      "category": "Item names — messages",
+      "id": 79,
+      "kind": "encoded",
+      "address": 5270512
+    },
+    {
+      "key": 607,
+      "category": "Item names — messages",
+      "id": 80,
+      "kind": "encoded",
+      "address": 5270528
+    },
+    {
+      "key": 608,
+      "category": "Item names — messages",
+      "id": 81,
+      "kind": "encoded",
+      "address": 5270544
+    },
+    {
+      "key": 609,
+      "category": "Item names — messages",
+      "id": 82,
+      "kind": "encoded",
+      "address": 5270560
+    },
+    {
+      "key": 610,
+      "category": "Item names — messages",
+      "id": 83,
+      "kind": "encoded",
+      "address": 5270576
+    },
+    {
+      "key": 611,
+      "category": "Item names — messages",
+      "id": 84,
+      "kind": "encoded",
+      "address": 5270592
+    },
+    {
+      "key": 612,
+      "category": "Item names — messages",
+      "id": 85,
+      "kind": "encoded",
+      "address": 5270608
+    },
+    {
+      "key": 613,
+      "category": "Item names — messages",
+      "id": 86,
+      "kind": "encoded",
+      "address": 5270624
+    },
+    {
+      "key": 614,
+      "category": "Item names — messages",
+      "id": 87,
+      "kind": "encoded",
+      "address": 5270640
+    },
+    {
+      "key": 615,
+      "category": "Item names — messages",
+      "id": 88,
+      "kind": "encoded",
+      "address": 5270656
+    },
+    {
+      "key": 616,
+      "category": "Item names — messages",
+      "id": 89,
+      "kind": "encoded",
+      "address": 5270672
+    },
+    {
+      "key": 617,
+      "category": "Item names — messages",
+      "id": 90,
+      "kind": "encoded",
+      "address": 5270688
+    },
+    {
+      "key": 618,
+      "category": "Item names — messages",
+      "id": 91,
+      "kind": "encoded",
+      "address": 5270704
+    },
+    {
+      "key": 619,
+      "category": "Item names — messages",
+      "id": 92,
+      "kind": "encoded",
+      "address": 5270720
+    },
+    {
+      "key": 620,
+      "category": "Item names — messages",
+      "id": 93,
+      "kind": "encoded",
+      "address": 5270736
+    },
+    {
+      "key": 621,
+      "category": "Item names — messages",
+      "id": 94,
+      "kind": "encoded",
+      "address": 5270752
+    },
+    {
+      "key": 622,
+      "category": "Item names — messages",
+      "id": 95,
+      "kind": "encoded",
+      "address": 5270768
+    },
+    {
+      "key": 623,
+      "category": "Item names — messages",
+      "id": 96,
+      "kind": "encoded",
+      "address": 5270784
+    },
+    {
+      "key": 624,
+      "category": "Item names — messages",
+      "id": 97,
+      "kind": "encoded",
+      "address": 5270800
+    },
+    {
+      "key": 625,
+      "category": "Item names — messages",
+      "id": 98,
+      "kind": "encoded",
+      "address": 5270816
+    },
+    {
+      "key": 626,
+      "category": "Item names — messages",
+      "id": 99,
+      "kind": "encoded",
+      "address": 5270832
+    },
+    {
+      "key": 627,
+      "category": "Item names — messages",
+      "id": 100,
+      "kind": "encoded",
+      "address": 5270848
+    },
+    {
+      "key": 628,
+      "category": "Item names — messages",
+      "id": 101,
+      "kind": "encoded",
+      "address": 5270864
+    },
+    {
+      "key": 629,
+      "category": "Item names — messages",
+      "id": 102,
+      "kind": "encoded",
+      "address": 5270880
+    },
+    {
+      "key": 630,
+      "category": "Item names — messages",
+      "id": 103,
+      "kind": "encoded",
+      "address": 5270896
+    },
+    {
+      "key": 631,
+      "category": "Item names — messages",
+      "id": 104,
+      "kind": "encoded",
+      "address": 5270912
+    },
+    {
+      "key": 632,
+      "category": "Item names — messages",
+      "id": 105,
+      "kind": "encoded",
+      "address": 5270928
+    },
+    {
+      "key": 633,
+      "category": "Item names — messages",
+      "id": 106,
+      "kind": "encoded",
+      "address": 5270944
+    },
+    {
+      "key": 634,
+      "category": "Item names — messages",
+      "id": 107,
+      "kind": "encoded",
+      "address": 5270960
+    },
+    {
+      "key": 635,
+      "category": "Item names — messages",
+      "id": 108,
+      "kind": "encoded",
+      "address": 5270976
+    },
+    {
+      "key": 636,
+      "category": "Item names — messages",
+      "id": 109,
+      "kind": "encoded",
+      "address": 5270992
+    },
+    {
+      "key": 637,
+      "category": "Class names — messages",
+      "id": 0,
+      "kind": "encoded",
+      "address": 5267968
+    },
+    {
+      "key": 638,
+      "category": "Class names — messages",
+      "id": 1,
+      "kind": "encoded",
+      "address": 5267984
+    },
+    {
+      "key": 639,
+      "category": "Class names — messages",
+      "id": 2,
+      "kind": "encoded",
+      "address": 5268000
+    },
+    {
+      "key": 640,
+      "category": "Class names — messages",
+      "id": 3,
+      "kind": "encoded",
+      "address": 5268016
+    },
+    {
+      "key": 641,
+      "category": "Class names — messages",
+      "id": 4,
+      "kind": "encoded",
+      "address": 5268032
+    },
+    {
+      "key": 642,
+      "category": "Class names — messages",
+      "id": 5,
+      "kind": "encoded",
+      "address": 5268048
+    },
+    {
+      "key": 643,
+      "category": "Class names — messages",
+      "id": 6,
+      "kind": "encoded",
+      "address": 5268064
+    },
+    {
+      "key": 644,
+      "category": "Class names — messages",
+      "id": 7,
+      "kind": "encoded",
+      "address": 5268080
+    },
+    {
+      "key": 645,
+      "category": "Class names — messages",
+      "id": 8,
+      "kind": "encoded",
+      "address": 5268096
+    },
+    {
+      "key": 646,
+      "category": "Class names — messages",
+      "id": 9,
+      "kind": "encoded",
+      "address": 5268112
+    },
+    {
+      "key": 647,
+      "category": "Class names — messages",
+      "id": 10,
+      "kind": "encoded",
+      "address": 5268128
+    },
+    {
+      "key": 648,
+      "category": "Class names — messages",
+      "id": 11,
+      "kind": "encoded",
+      "address": 5268144
+    },
+    {
+      "key": 649,
+      "category": "Class names — messages",
+      "id": 12,
+      "kind": "encoded",
+      "address": 5268160
+    },
+    {
+      "key": 650,
+      "category": "Class names — messages",
+      "id": 13,
+      "kind": "encoded",
+      "address": 5268176
+    },
+    {
+      "key": 651,
+      "category": "Class names — messages",
+      "id": 14,
+      "kind": "encoded",
+      "address": 5268192
+    },
+    {
+      "key": 652,
+      "category": "Class names — messages",
+      "id": 15,
+      "kind": "encoded",
+      "address": 5268208
+    },
+    {
+      "key": 653,
+      "category": "Class names — messages",
+      "id": 16,
+      "kind": "encoded",
+      "address": 5268224
+    },
+    {
+      "key": 654,
+      "category": "Class names — messages",
+      "id": 17,
+      "kind": "encoded",
+      "address": 5268240
+    },
+    {
+      "key": 655,
+      "category": "Class names — messages",
+      "id": 18,
+      "kind": "encoded",
+      "address": 5268256
+    },
+    {
+      "key": 656,
+      "category": "Class names — messages",
+      "id": 19,
+      "kind": "encoded",
+      "address": 5268272
+    },
+    {
+      "key": 657,
+      "category": "Class names — messages",
+      "id": 20,
+      "kind": "encoded",
+      "address": 5268288
+    },
+    {
+      "key": 658,
+      "category": "Class names — messages",
+      "id": 21,
+      "kind": "encoded",
+      "address": 5268304
+    },
+    {
+      "key": 659,
+      "category": "Class names — messages",
+      "id": 22,
+      "kind": "encoded",
+      "address": 5268320
+    },
+    {
+      "key": 660,
+      "category": "Class names — messages",
+      "id": 23,
+      "kind": "encoded",
+      "address": 5268336
+    },
+    {
+      "key": 661,
+      "category": "Class names — messages",
+      "id": 24,
+      "kind": "encoded",
+      "address": 5268352
+    },
+    {
+      "key": 662,
+      "category": "Class names — messages",
+      "id": 25,
+      "kind": "encoded",
+      "address": 5268368
+    },
+    {
+      "key": 663,
+      "category": "Class names — messages",
+      "id": 26,
+      "kind": "encoded",
+      "address": 5268384
+    },
+    {
+      "key": 664,
+      "category": "Class names — messages",
+      "id": 27,
+      "kind": "encoded",
+      "address": 5268400
+    },
+    {
+      "key": 665,
+      "category": "Class names — messages",
+      "id": 28,
+      "kind": "encoded",
+      "address": 5268416
+    },
+    {
+      "key": 666,
+      "category": "Class names — messages",
+      "id": 29,
+      "kind": "encoded",
+      "address": 5268432
+    },
+    {
+      "key": 667,
+      "category": "Class names — messages",
+      "id": 30,
+      "kind": "encoded",
+      "address": 5268448
+    },
+    {
+      "key": 668,
+      "category": "Class names — messages",
+      "id": 31,
+      "kind": "encoded",
+      "address": 5268464
+    },
+    {
+      "key": 669,
+      "category": "Class names — messages",
+      "id": 32,
+      "kind": "encoded",
+      "address": 5268480
+    },
+    {
+      "key": 670,
+      "category": "Class names — messages",
+      "id": 33,
+      "kind": "encoded",
+      "address": 5268496
+    },
+    {
+      "key": 671,
+      "category": "Class names — messages",
+      "id": 34,
+      "kind": "encoded",
+      "address": 5268512
+    },
+    {
+      "key": 672,
+      "category": "Class names — messages",
+      "id": 35,
+      "kind": "encoded",
+      "address": 5268528
+    },
+    {
+      "key": 673,
+      "category": "Class names — messages",
+      "id": 36,
+      "kind": "encoded",
+      "address": 5268544
+    },
+    {
+      "key": 674,
+      "category": "Class names — messages",
+      "id": 37,
+      "kind": "encoded",
+      "address": 5268560
+    },
+    {
+      "key": 675,
+      "category": "Class names — messages",
+      "id": 38,
+      "kind": "encoded",
+      "address": 5268576
+    },
+    {
+      "key": 676,
+      "category": "Class names — messages",
+      "id": 39,
+      "kind": "encoded",
+      "address": 5268592
+    },
+    {
+      "key": 677,
+      "category": "Class names — messages",
+      "id": 40,
+      "kind": "encoded",
+      "address": 5268608
+    },
+    {
+      "key": 678,
+      "category": "Class names — messages",
+      "id": 41,
+      "kind": "encoded",
+      "address": 5268624
+    },
+    {
+      "key": 679,
+      "category": "Class names — messages",
+      "id": 42,
+      "kind": "encoded",
+      "address": 5268640
+    },
+    {
+      "key": 680,
+      "category": "Class names — messages",
+      "id": 43,
+      "kind": "encoded",
+      "address": 5268656
+    },
+    {
+      "key": 681,
+      "category": "Class names — messages",
+      "id": 44,
+      "kind": "encoded",
+      "address": 5268672
+    },
+    {
+      "key": 682,
+      "category": "Class names — messages",
+      "id": 45,
+      "kind": "encoded",
+      "address": 5268688
+    },
+    {
+      "key": 683,
+      "category": "Class names — messages",
+      "id": 46,
+      "kind": "encoded",
+      "address": 5268704
+    },
+    {
+      "key": 684,
+      "category": "Class names — messages",
+      "id": 47,
+      "kind": "encoded",
+      "address": 5268720
+    },
+    {
+      "key": 685,
+      "category": "Class names — messages",
+      "id": 48,
+      "kind": "encoded",
+      "address": 5268736
+    },
+    {
+      "key": 686,
+      "category": "Class names — messages",
+      "id": 49,
+      "kind": "encoded",
+      "address": 5268752
+    },
+    {
+      "key": 687,
+      "category": "Class names — messages",
+      "id": 50,
+      "kind": "encoded",
+      "address": 5268768
+    },
+    {
+      "key": 688,
+      "category": "Class names — messages",
+      "id": 51,
+      "kind": "encoded",
+      "address": 5268784
+    },
+    {
+      "key": 689,
+      "category": "Class names — messages",
+      "id": 52,
+      "kind": "encoded",
+      "address": 5268800
+    },
+    {
+      "key": 690,
+      "category": "Class names — messages",
+      "id": 53,
+      "kind": "encoded",
+      "address": 5268816
+    },
+    {
+      "key": 691,
+      "category": "Class names — messages",
+      "id": 54,
+      "kind": "encoded",
+      "address": 5268832
+    },
+    {
+      "key": 692,
+      "category": "Class names — messages",
+      "id": 55,
+      "kind": "encoded",
+      "address": 5268848
+    },
+    {
+      "key": 693,
+      "category": "Class names — messages",
+      "id": 56,
+      "kind": "encoded",
+      "address": 5268864
+    },
+    {
+      "key": 694,
+      "category": "Class names — messages",
+      "id": 57,
+      "kind": "encoded",
+      "address": 5268880
+    },
+    {
+      "key": 695,
+      "category": "Class names — messages",
+      "id": 58,
+      "kind": "encoded",
+      "address": 5268896
+    },
+    {
+      "key": 696,
+      "category": "Class names — messages",
+      "id": 59,
+      "kind": "encoded",
+      "address": 5268912
+    },
+    {
+      "key": 697,
+      "category": "Class names — messages",
+      "id": 60,
+      "kind": "encoded",
+      "address": 5268928
+    },
+    {
+      "key": 698,
+      "category": "Class names — messages",
+      "id": 61,
+      "kind": "encoded",
+      "address": 5268944
+    },
+    {
+      "key": 699,
+      "category": "Class names — messages",
+      "id": 62,
+      "kind": "encoded",
+      "address": 5268960
+    },
+    {
+      "key": 700,
+      "category": "Class names — messages",
+      "id": 63,
+      "kind": "encoded",
+      "address": 5268976
+    },
+    {
+      "key": 701,
+      "category": "Class names — messages",
+      "id": 64,
+      "kind": "encoded",
+      "address": 5268992
+    },
+    {
+      "key": 702,
+      "category": "Class names — messages",
+      "id": 65,
+      "kind": "encoded",
+      "address": 5269008
+    },
+    {
+      "key": 703,
+      "category": "Class names — messages",
+      "id": 66,
+      "kind": "encoded",
+      "address": 5269024
+    },
+    {
+      "key": 704,
+      "category": "Class names — messages",
+      "id": 67,
+      "kind": "encoded",
+      "address": 5269040
+    },
+    {
+      "key": 705,
+      "category": "Class names — messages",
+      "id": 68,
+      "kind": "encoded",
+      "address": 5269056
+    },
+    {
+      "key": 706,
+      "category": "Class names — messages",
+      "id": 69,
+      "kind": "encoded",
+      "address": 5269072
+    },
+    {
+      "key": 707,
+      "category": "Class names — messages",
+      "id": 70,
+      "kind": "encoded",
+      "address": 5269088
+    }
+  ]
+}

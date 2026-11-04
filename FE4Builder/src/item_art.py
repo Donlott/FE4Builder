@@ -66,7 +66,7 @@ class ItemArt:
         stats=self.stats(item) if stats is None else stats
         module,_=self.record(item)
         name=next(f for f in module.fields if f.name=='Name')
-        return name.options.get(stats.get('Name'),self.player.fields[0].options.get(item,f'Item {item:02X}')).replace('El Wind','Elwind')
+        return self.rom.field_options(name).get(stats.get('Name'),self.player.fields[0].options.get(item,f'Item {item:02X}')).replace('El Wind','Elwind')
 
     def kind(self,item,stats=None):
         stats=self.stats(item) if stats is None else stats

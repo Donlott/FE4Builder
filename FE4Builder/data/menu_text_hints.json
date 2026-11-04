@@ -1,0 +1,2094 @@
+{
+  "0": {
+    "sha256": "79045f0bfad687f01685d149e562da01818a18d56dcbc018299ae9d62af44ba1",
+    "text": "Iron sword"
+  },
+  "1": {
+    "sha256": "12a62d712fbb0a552e148c3c27e54eecb4db3e251ab9d6d1218fb96088d7adce",
+    "text": "Steel sword"
+  },
+  "2": {
+    "sha256": "6f1195e546a69944e3a136af4549c58642b4a3486bc6e6f3931e71f26fdcda2c",
+    "text": "Silver sword"
+  },
+  "3": {
+    "sha256": "a1af3bf32c4cdd000b4bdab01111cc179157aa7b37413f18893d4a7bd1ff4342",
+    "text": "Iron blade"
+  },
+  "4": {
+    "sha256": "2700e0a5d479b9f3c8b23688bb16c6550fba1fc83976880e0d508bca1ffe9c14",
+    "text": "Steel blade"
+  },
+  "5": {
+    "sha256": "614d2e2bc77a9eada5cfcf5ea8fb31cfaf7fcff54dd5b33a4bd726d23e15de36",
+    "text": "Silver blade"
+  },
+  "6": {
+    "sha256": "7160249fa33b22753b5146119c5327d8ec812a14203ae27c4295b3428be5da77",
+    "text": "Miracle sword"
+  },
+  "7": {
+    "sha256": "2bddab05ec63fd961078de9b1a3082394186f6ca6087e1038e12be1f091d058e",
+    "text": "Thief's sword"
+  },
+  "8": {
+    "sha256": "454df465b08b4c6cc755b828ef19dae51f8dec9a8268ed7931aa7ec06b406385",
+    "text": "Barrier sword"
+  },
+  "9": {
+    "sha256": "20a52a9feb887a274bb90b196c64090006d34acf0e5803f2dbb9b735834f7dfb",
+    "text": "Berserk edge"
+  },
+  "10": {
+    "sha256": "7eeb3a82281d70633927267781ea982ee40d540fe5f5222998c2f84c7c63efa2",
+    "text": "Brave sword"
+  },
+  "11": {
+    "sha256": "bd258515cc756980db58f1475dd26e90e8b78d4e14b64aa9ae6d1dc2406776c8",
+    "text": "Silence edge"
+  },
+  "12": {
+    "sha256": "b37e99f2285721efee8c2df2902f355975d0a768751d15290a40a16a3825f615",
+    "text": "Sleep edge"
+  },
+  "13": {
+    "sha256": "ce7928b1f161f864543037efdba3201af8bf235e623cfb9806edaa52f0edb4f9",
+    "text": "Slim sword"
+  },
+  "14": {
+    "sha256": "9d6e79308a1d3c3568f626c8ab6432f92a0c9e0e90dbc5fef23021fd8d86dc40",
+    "text": "Shield sword"
+  },
+  "15": {
+    "sha256": "3244e0288a015d4a3bf608e0a36466a1f184774e2babf4249c1fe7f9f04039c6",
+    "text": "Flame sword"
+  },
+  "16": {
+    "sha256": "aa1dc355db5333379140e89aa0618daa5b87b6f9dc8ebe817360e620106e1c64",
+    "text": "Earth sword"
+  },
+  "17": {
+    "sha256": "15e539e833f95af7363a2fb85bed9bfcb1344bc95dc15e31be56dee26dc4e4f1",
+    "text": "Bolt sword"
+  },
+  "18": {
+    "sha256": "acb8eeb8e7d3f21666ce7d30e2c5e66de78a1970017770653a63da5e9095efc4",
+    "text": "Wind sword"
+  },
+  "19": {
+    "sha256": "d86f3bca5170c13bd797d235de0d8d2f66c5b9c8a6d9c64d23e764201c9fa7c1",
+    "text": "Light Brand"
+  },
+  "20": {
+    "sha256": "c2e72b9fb11c6ff4b9863a23c3fa43e991152d13204f0641d33139f2163d20ab",
+    "text": "Mystletainn"
+  },
+  "21": {
+    "sha256": "09538cb7a3314611c3fe938b9cac522933bcb0a9a4681c5b183e79ae81679e51",
+    "text": "Tyrfing"
+  },
+  "22": {
+    "sha256": "fac6c2fb2a888a89bd4a581a6d53e26d1e5726c2c71a7e722bf35bdb2942ad8b",
+    "text": "Balmung"
+  },
+  "23": {
+    "sha256": "e48d0784a5ef8ba871a37e62d847ad6a84cf2b009901c48430a601736abda633",
+    "text": "Armorslayer"
+  },
+  "24": {
+    "sha256": "3803bfbb370df4bf927972e59b0e17fe31f3a24966a439e03336623801e985d7",
+    "text": "Wingslayer"
+  },
+  "25": {
+    "sha256": "2e08f45f687992eeb3d4ff038e19d9144d2216dc2cc0b7a42c64268040371567",
+    "text": "Broken sword"
+  },
+  "26": {
+    "sha256": "2e08f45f687992eeb3d4ff038e19d9144d2216dc2cc0b7a42c64268040371567",
+    "text": "Broken sword"
+  },
+  "27": {
+    "sha256": "2e08f45f687992eeb3d4ff038e19d9144d2216dc2cc0b7a42c64268040371567",
+    "text": "Broken sword"
+  },
+  "28": {
+    "sha256": "1d8e6562ee4afc1825e744d2ff58f9996d20a6cfc2a44fc3fdd63bb0bfbaade3",
+    "text": "Iron lance"
+  },
+  "29": {
+    "sha256": "bc1c47cd16ac6d78452f23cd66b11da65147a374446a1a279d2a89c524efe72a",
+    "text": "Steel lance"
+  },
+  "30": {
+    "sha256": "0038de37beadbfabea7c7033757c1632f93bf05b596d01664a926de73039b23d",
+    "text": "Silver lance"
+  },
+  "31": {
+    "sha256": "1e6d51e560450d1bb16656b57884eb63e3e7061ef56119aa2ee30b36d74fdd49",
+    "text": "Javelin"
+  },
+  "32": {
+    "sha256": "9342640505cbbb6e3a3ae052775b1e0e14a98ede9f65ac53b8beb2db4b8cdd81",
+    "text": "Horseslayer"
+  },
+  "33": {
+    "sha256": "78e5e77c55dd84ef78e315d57c5481c90fda4674aeca7c36f03d6e7273e375b1",
+    "text": "Brave lance"
+  },
+  "34": {
+    "sha256": "eae5d87dfad7cabc2861e91b370ccd2f84d9c1440cdb6522ed6b05c7f218f099",
+    "text": "Slim lance"
+  },
+  "35": {
+    "sha256": "08339501b76115eaf651c5064d81aafe47d2c5814f2186f0fff8675e729b777e",
+    "text": "Gungnir"
+  },
+  "36": {
+    "sha256": "a26464b344df18e108ba3cfd4952a479715c2cef01541f93996b051d0ae26b62",
+    "text": "Gáe Bolg"
+  },
+  "37": {
+    "sha256": "7785a43ad49146983e140e89fa16a53dc935eb1148dec9dc2fbede5c423432c8",
+    "text": "Broken lance"
+  },
+  "38": {
+    "sha256": "7785a43ad49146983e140e89fa16a53dc935eb1148dec9dc2fbede5c423432c8",
+    "text": "Broken lance"
+  },
+  "39": {
+    "sha256": "7785a43ad49146983e140e89fa16a53dc935eb1148dec9dc2fbede5c423432c8",
+    "text": "Broken lance"
+  },
+  "40": {
+    "sha256": "f644504add52f322026ba17dce68857e0178e3bc3e5c52bbcb1d7e99bae65b3b",
+    "text": "Iron axe"
+  },
+  "41": {
+    "sha256": "bf8f42170e1d7a17baa6781b36e90b4a6685d5f64dd33fda81eba94d1c9d4c86",
+    "text": "Steel axe"
+  },
+  "42": {
+    "sha256": "f2b12cd33312145aa9550377e3257a447e74a9a203c821aadfb7edb21a810dfb",
+    "text": "Silver axe"
+  },
+  "43": {
+    "sha256": "6434d72f50bf6d0d42e13123cef079988d53baa8e02bf67d2bb4130e3186fb6d",
+    "text": "Brave axe"
+  },
+  "44": {
+    "sha256": "fc5a9e8d97ac2425e6f46c47495a55be2aaf51ae0da8bf4d472e9c2249a4d503",
+    "text": "Helswath"
+  },
+  "45": {
+    "sha256": "fc81c52001a5399fca43f653d55bc26280170e7a98224ee17381e26aca268a56",
+    "text": "Hand axe"
+  },
+  "46": {
+    "sha256": "9507ecbec2ae7dada3b8e63127981204184b80b2c3c9596c0d3bd8f6a0226593",
+    "text": "Broken axe"
+  },
+  "47": {
+    "sha256": "9507ecbec2ae7dada3b8e63127981204184b80b2c3c9596c0d3bd8f6a0226593",
+    "text": "Broken axe"
+  },
+  "48": {
+    "sha256": "9507ecbec2ae7dada3b8e63127981204184b80b2c3c9596c0d3bd8f6a0226593",
+    "text": "Broken axe"
+  },
+  "49": {
+    "sha256": "f84fc928d1ec9150101f2546107145204216d6b645695da8c3aba85d9c856eab",
+    "text": "Iron bow"
+  },
+  "50": {
+    "sha256": "9f7250e47b395bd38e68b0e821ac24f044ab7aa672c3c8e391aed3e210e66a2a",
+    "text": "Steel bow"
+  },
+  "51": {
+    "sha256": "aba4f7e68940a675caedef2c87fd6e110028768825fd76369f7a29790b4148fb",
+    "text": "Silver bow"
+  },
+  "52": {
+    "sha256": "fed04ef040d4140a11a2dc5ac3111732c204248f7687cf1458ca2a1c0caa15af",
+    "text": "Brave bow"
+  },
+  "53": {
+    "sha256": "793c8f268d4cbe05e851c243a4cfabc4c6226cd724a3b4c5437586a43e70da67",
+    "text": "Killer bow"
+  },
+  "54": {
+    "sha256": "6733afd4d4eac5c111d41f733c2bc8540dc17d5e01f5005981b0799a3b87504a",
+    "text": "Yewfelle"
+  },
+  "55": {
+    "sha256": "8901fb83bb00956a0de3a5052902317a11793db662b8f1313effffc064074fd0",
+    "text": "Broken bow"
+  },
+  "56": {
+    "sha256": "8901fb83bb00956a0de3a5052902317a11793db662b8f1313effffc064074fd0",
+    "text": "Broken bow"
+  },
+  "57": {
+    "sha256": "8901fb83bb00956a0de3a5052902317a11793db662b8f1313effffc064074fd0",
+    "text": "Broken bow"
+  },
+  "58": {
+    "sha256": "12aeb58ae79e528670a8b6dcdd0be7812ba2fe874c85a3b011b4ec5d13ada77f",
+    "text": "Ballista"
+  },
+  "59": {
+    "sha256": "aaeb42e6059deb1208e8e4a3dcb54d8a6e5fa67d2cdb5cf0e938cc883884b3e8",
+    "text": "lron ballista"
+  },
+  "60": {
+    "sha256": "d6c0c1be6a88414d38a3a9438c587df52d36ddad8c0f0f38183eb5af873050a6",
+    "text": "Killer ballista"
+  },
+  "61": {
+    "sha256": "200cff0e990f912d5a45a0ef0b21999e5518ecc4830bb511f3798c7d83d18156",
+    "text": "Great ballista"
+  },
+  "62": {
+    "sha256": "29fd27fbdac805372edb136a4ffbe5d07e8ee97a09cad404ce763bf57773ff27",
+    "text": "Fire"
+  },
+  "63": {
+    "sha256": "842d5ef6a8f3e47014a4bc0ca05317b05770a229b81a425ee1174ca79991d04f",
+    "text": "Elfire"
+  },
+  "64": {
+    "sha256": "ea91fe49efc164b1e6b08975c096b5975fb343617d6e03d219bdff4a3b0bd3d5",
+    "text": "Bolganone"
+  },
+  "65": {
+    "sha256": "7a6e4573271586cd56114b3beeec94b8868ac4f3c7a95d7e0436917e23d33e16",
+    "text": "Valflame"
+  },
+  "66": {
+    "sha256": "1b1d967bd460288bde7754ad499f2440fa750aec6a0d41a34f8f45b5bb92ff9a",
+    "text": "Meteor"
+  },
+  "67": {
+    "sha256": "fe5483110becb07474f4b42b04a0f89e64584a3038fc30867bd2b0155e4c37d5",
+    "text": "Thunder"
+  },
+  "68": {
+    "sha256": "d72c6cc79e106ec75548feadc78bc54a8c6046cd9f481e4e0efa5851a0a0c136",
+    "text": "Elthunder"
+  },
+  "69": {
+    "sha256": "3896a6f42f6d097adb28d223601da66d13f0304efcd8418b0a9a9782c083d08d",
+    "text": "Thoron"
+  },
+  "70": {
+    "sha256": "c5f3a5def9a939d8763a01e07f5ccd6221b081eec9c86d9cd4e1e12d8fb01c26",
+    "text": "Mjölnir"
+  },
+  "71": {
+    "sha256": "aa103e7bb38a323924276d3952fb39051c36904c9cfbb0e849b9d20a054b7945",
+    "text": "Bolting"
+  },
+  "72": {
+    "sha256": "446db7519409077a6a89890563c594ba4f8336a9aa714a50e34cdefd4241d0c9",
+    "text": "Wind"
+  },
+  "73": {
+    "sha256": "7874c61affa770521ca46380ac25f7c4ce021a3fe3827e3c1af9aff2014670f9",
+    "text": "Elwind"
+  },
+  "74": {
+    "sha256": "24a39708231d4f3d38f6be0b6e2cbe918c51e541d147a7b2dddcc108349cfd43",
+    "text": "Tornado"
+  },
+  "75": {
+    "sha256": "6d03af9a934945f7137023d1ac931d409b1dc29344917b118ff9269ab51bac57",
+    "text": "Forseti"
+  },
+  "76": {
+    "sha256": "deda3ced6e743071a9920b3cce6c0c8bc35e2077b5d228dcb32b9200a0c0aa89",
+    "text": "Blizzard"
+  },
+  "77": {
+    "sha256": "9ae529fbdf7169605f4614a8c8dbf537b80bba49faf7cb1919061697c72a7d62",
+    "text": "Light"
+  },
+  "78": {
+    "sha256": "32f9c69434b128c17ed60b5ee62d4ada8fb7a0a3e32dca61aecb47daa917ac0e",
+    "text": "Nosferatu"
+  },
+  "79": {
+    "sha256": "7901d0c663ecd13e1eedf10a4b0175592ca7c9d8a81cae99cd4ce85809706eb9",
+    "text": "Aura"
+  },
+  "80": {
+    "sha256": "816c883e1a140e7c8cc48a9bbd4836d7dd754ea3bb63dd8f538db370383e3456",
+    "text": "Naga"
+  },
+  "81": {
+    "sha256": "c96da60961c09a7b49159a3c9396cb5b8b0e94013f431da5fadc3f9f2b870764",
+    "text": "Jormungand"
+  },
+  "82": {
+    "sha256": "23c19c2488babc0ca19dc525b951dfd27f249d787de1d41a4e0b7c9f6473e356",
+    "text": "Fenrir"
+  },
+  "83": {
+    "sha256": "50cdda472904740d07f4751c48c4974f6fb9886e62e841a8af3bb46a7661850f",
+    "text": "Hel"
+  },
+  "84": {
+    "sha256": "4529b3cebbca66eb7d05a5086b11ac1afdefcf1bdd94fbba7d6a43fd93ab3c5a",
+    "text": "Loptyr"
+  },
+  "85": {
+    "sha256": "5c5c2867a8845f82ba9b1183cd13a5869450457368efa08510b4dbc983926ba8",
+    "text": "Drained tome"
+  },
+  "86": {
+    "sha256": "5c5c2867a8845f82ba9b1183cd13a5869450457368efa08510b4dbc983926ba8",
+    "text": "Drained tome"
+  },
+  "87": {
+    "sha256": "5c5c2867a8845f82ba9b1183cd13a5869450457368efa08510b4dbc983926ba8",
+    "text": "Drained tome"
+  },
+  "88": {
+    "sha256": "9a2d9897f9541feaa35bd5ac8cb8c10c69b2603afb637a519bcce4a10afb7bd5",
+    "text": "Heal"
+  },
+  "89": {
+    "sha256": "de0eb368b9f9ba90faa14f76c51f2e154c549b7112089a29f1eb08cbeb3aa151",
+    "text": "Mend"
+  },
+  "90": {
+    "sha256": "65b9c4aea694b1b7a8080e4c769c308f8a45dc833e3e31b419c0da1dcb054190",
+    "text": "Recover"
+  },
+  "91": {
+    "sha256": "5c50d91c9ebff85401a5f0bde4c2d73b8d2806dd7eb071f985ef0133d676aed5",
+    "text": "Physic"
+  },
+  "92": {
+    "sha256": "4d6a82c1ac7f8fad0ada4f23af5d67d5dd77ab652ffae5a978bf63ce39257dfa",
+    "text": "Fortify"
+  },
+  "93": {
+    "sha256": "8fef5265894d506e70d99ece85d6cc3beef38ad7d033907422a3bc80bfa789ec",
+    "text": "Return"
+  },
+  "94": {
+    "sha256": "196d3bd7b81565eb7cfeaa9fa8377909ccb7cbc9190b08da9b4647c4b516445e",
+    "text": "Warp"
+  },
+  "95": {
+    "sha256": "c3080a7bbffb7a994074b1972fe16da75d0dc941276cbdda78cf604e40f86f62",
+    "text": "Rescue"
+  },
+  "96": {
+    "sha256": "2d85ef9f48210d5b601cdc9e4d16684ce7a724d413091191226a6040d864e764",
+    "text": "Charm"
+  },
+  "97": {
+    "sha256": "b70f9d273f0a69bf9a557b8b5eda09dfca82632f6766312279df6e94daeb4e71",
+    "text": "Restore"
+  },
+  "98": {
+    "sha256": "f9645ff6cba5049dd4cf925c947965d561c16d292f43dae8b2f6ee946965d8ca",
+    "text": "Valkyria"
+  },
+  "99": {
+    "sha256": "b330e06d738b0b78c662a1d34f5cdd6bc6fd9a4eee64038f41931ed0e5de31dc",
+    "text": "Silence"
+  },
+  "100": {
+    "sha256": "5158e9ac279f904327c1d5a4d292705f55b5c16222a7452d8bc64bbd3ad0b22b",
+    "text": "Sleep"
+  },
+  "101": {
+    "sha256": "474aef1b80983116793f1b04de9e41e11133a798ccee276fc43053dcf1ea67dc",
+    "text": "Berserk"
+  },
+  "102": {
+    "sha256": "7eaa763b026e11111296205951395279d7dca2b2327400e7d1c12e35043c1d92",
+    "text": "Thief"
+  },
+  "103": {
+    "sha256": "1ef6261491ca9882e72c5b4e93f5785cb501ac46c3049c6fd6c94bab009ffad2",
+    "text": "Broken staff"
+  },
+  "104": {
+    "sha256": "1ef6261491ca9882e72c5b4e93f5785cb501ac46c3049c6fd6c94bab009ffad2",
+    "text": "Broken staff"
+  },
+  "105": {
+    "sha256": "1ef6261491ca9882e72c5b4e93f5785cb501ac46c3049c6fd6c94bab009ffad2",
+    "text": "Broken staff"
+  },
+  "106": {
+    "sha256": "2fc10f3155bdd3212878ea94f34949533b24bb7b071bf607660694e406450e30",
+    "text": "Renewal band"
+  },
+  "107": {
+    "sha256": "100f776e959cba3208e0e313d88c53903f760c690db8aa83fe71de10e574e11f",
+    "text": "Paragon band"
+  },
+  "108": {
+    "sha256": "ee2ba0e1937fe559ecef6cd7084bd8d90e563243e3b325ad4f6f75ac50cb5a2a",
+    "text": "Thief's band"
+  },
+  "109": {
+    "sha256": "937d0a6a0fd55068106efbe85ede5840267639498fc4ea7f835f5e6a7d95368c",
+    "text": "Miracle band"
+  },
+  "110": {
+    "sha256": "a42d3572491109615a7cfae99b5beb5e30d17bb22672f780294fee9f8f471f32",
+    "text": "Pursuit band"
+  },
+  "111": {
+    "sha256": "a515b6f5852bd249258e8ebf00a919fd390782e7aa5637d1a7f8860adf1fb13a",
+    "text": "Recover band"
+  },
+  "112": {
+    "sha256": "0c88a8ef4991bd91043bccc3b1bd0b392fee33f0839d504369b8ce90436ee1d9",
+    "text": "Bargain band"
+  },
+  "113": {
+    "sha256": "2ff07bd7c9b0ac756862a8f763daafdfe7aa0f6bdeafbd9c341842887eb28eb0",
+    "text": "Knight ring"
+  },
+  "114": {
+    "sha256": "11213f3f942cab1eb54c61c3631314641fe045aaa9fb63ca739e849ed8129d4c",
+    "text": "Return band"
+  },
+  "115": {
+    "sha256": "a8148222033ed977c553ec7b3fb64705ac98f45806bf6c2a903f78d4ada996bf",
+    "text": "Speed ring"
+  },
+  "116": {
+    "sha256": "1b94ce99749e535a985bc56326713d68d21a549f7e0a01aea4e7e641f261b7c3",
+    "text": "Magic ring"
+  },
+  "117": {
+    "sha256": "c1480d470ed2e25a75eb79e8d2c98442edb3cac86249167d59254c3618873f8a",
+    "text": "Power ring"
+  },
+  "118": {
+    "sha256": "cd6f81103c994fa81611d4c37b28db990dbb8d212bf9edaf38eedab08c89f6f3",
+    "text": "Shield ring"
+  },
+  "119": {
+    "sha256": "80ffde8a5bfb70d8f25e5939ea142cc6bc523d11108c43640dff4ad77921dcae",
+    "text": "Barrier ring"
+  },
+  "120": {
+    "sha256": "9670a68a5d9846d07daad8a3d04db9d7a8dc4528f63f544e50c1915205e8d06e",
+    "text": "Leg ring"
+  },
+  "121": {
+    "sha256": "2f4679a8c6b6edb61456b14a1b8beab6b5968f2fe718352b4ea738d737433806",
+    "text": "Skill ring"
+  },
+  "122": {
+    "sha256": "2e08f45f687992eeb3d4ff038e19d9144d2216dc2cc0b7a42c64268040371567",
+    "text": "Broken sword"
+  },
+  "123": {
+    "sha256": "7785a43ad49146983e140e89fa16a53dc935eb1148dec9dc2fbede5c423432c8",
+    "text": "Broken lance"
+  },
+  "124": {
+    "sha256": "8901fb83bb00956a0de3a5052902317a11793db662b8f1313effffc064074fd0",
+    "text": "Broken bow"
+  },
+  "125": {
+    "sha256": "5c5c2867a8845f82ba9b1183cd13a5869450457368efa08510b4dbc983926ba8",
+    "text": "Drained tome"
+  },
+  "126": {
+    "sha256": "5c5c2867a8845f82ba9b1183cd13a5869450457368efa08510b4dbc983926ba8",
+    "text": "Drained tome"
+  },
+  "127": {
+    "sha256": "5c5c2867a8845f82ba9b1183cd13a5869450457368efa08510b4dbc983926ba8",
+    "text": "Drained tome"
+  },
+  "128": {
+    "sha256": "5c5c2867a8845f82ba9b1183cd13a5869450457368efa08510b4dbc983926ba8",
+    "text": "Drained tome"
+  },
+  "129": {
+    "sha256": "5c5c2867a8845f82ba9b1183cd13a5869450457368efa08510b4dbc983926ba8",
+    "text": "Drained tome"
+  },
+  "130": {
+    "sha256": "5c5c2867a8845f82ba9b1183cd13a5869450457368efa08510b4dbc983926ba8",
+    "text": "Drained tome"
+  },
+  "131": {
+    "sha256": "5c5c2867a8845f82ba9b1183cd13a5869450457368efa08510b4dbc983926ba8",
+    "text": "Drained tome"
+  },
+  "132": {
+    "sha256": "5c5c2867a8845f82ba9b1183cd13a5869450457368efa08510b4dbc983926ba8",
+    "text": "Drained tome"
+  },
+  "133": {
+    "sha256": "5c5c2867a8845f82ba9b1183cd13a5869450457368efa08510b4dbc983926ba8",
+    "text": "Drained tome"
+  },
+  "134": {
+    "sha256": "5c5c2867a8845f82ba9b1183cd13a5869450457368efa08510b4dbc983926ba8",
+    "text": "Drained tome"
+  },
+  "135": {
+    "sha256": "5c5c2867a8845f82ba9b1183cd13a5869450457368efa08510b4dbc983926ba8",
+    "text": "Drained tome"
+  },
+  "136": {
+    "sha256": "1ef6261491ca9882e72c5b4e93f5785cb501ac46c3049c6fd6c94bab009ffad2",
+    "text": "Broken staff"
+  },
+  "137": {
+    "sha256": "c8d747bcfccc99bbb2e53a2949a909cd20891700f8aceb3cf28eeb28c64508b9",
+    "text": "Circlet"
+  },
+  "138": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "139": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "140": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "141": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "142": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "143": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "144": {
+    "sha256": "9d9b0a156843ff69b79558899e91559248b729c8a241e3352b25fa73b2c437ef",
+    "text": "For women only."
+  },
+  "145": {
+    "sha256": "721c2b0a2a70d1588d3a71c6038944875558dd9124fe5837c4c7c2ee33c24769",
+    "text": "Steals foe's gold."
+  },
+  "146": {
+    "sha256": "a898ce67d446474110e41ac357579a7b99021f9528480c9353fd5150ec05f0eb",
+    "text": "Resistance +7."
+  },
+  "147": {
+    "sha256": "4be3fe9ce09e1e26fbaf4ef411e35bca39bf27e193ff2e610d84898cd4180834",
+    "text": "Enrages foe."
+  },
+  "148": {
+    "sha256": "5131e716fc5942e92d4155b9a10c78c40d7292346ab9e4e82a7a839ad86a660e",
+    "text": "Consecutive blows."
+  },
+  "149": {
+    "sha256": "60ed3b53e80a81d852c9ed96341595d04b4dba81b1f96cf645549aa840bcd237",
+    "text": "Silences foe."
+  },
+  "150": {
+    "sha256": "d070bcb5e602e1c334304e28ccd5e07be0c7de65a5dc640cdcbb29df8d4c74f3",
+    "text": "Puts foe to sleep."
+  },
+  "151": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "152": {
+    "sha256": "525ab21b5672a5a59693ba0af9e24b3d44d618323a91cd065ad7da9bf9d630b1",
+    "text": "Defense +7."
+  },
+  "153": {
+    "sha256": "2b8dacccd74b19a4340dec0e82006d06b7a30424fba3787947df51c9fbf1e0c0",
+    "text": "Casts Elfire."
+  },
+  "154": {
+    "sha256": "601f53316fa078453c1201c9da5b4c1859149b3fc64ef5c647a4dbaba1350da3",
+    "text": "Drains foe's HP."
+  },
+  "155": {
+    "sha256": "00d33a222c826cf14ec5dbf6ec008aa85ce524da01b96ae93fbff2247733e058",
+    "text": "Casts Elthunder."
+  },
+  "156": {
+    "sha256": "ae4d2f860e85eb8b991b33da39612f9415ba55b1eadd085ca84b6c60b85398e0",
+    "text": "Casts Elwind."
+  },
+  "157": {
+    "sha256": "e0fe9020cc669ec47d4e96421f221c1d0223691205f693285a3f9b4bee82c68a",
+    "text": "Casts Light."
+  },
+  "158": {
+    "sha256": "edb351e1d37eb83ebdace1de2013b2ceb4e2ba3d210bf8b8a1639d6b04c903f8",
+    "text": "Grants Critical."
+  },
+  "159": {
+    "sha256": "6b64fd1c389cbcb140d1b797929d5a8b2f33a594f2274595cc87281a405bb8c3",
+    "text": "Grants Miracle."
+  },
+  "160": {
+    "sha256": "e74b07a16472fa799593c3cb9422ac357a6c697f121153bb9fd7d7089847df21",
+    "text": "An exalted weapon."
+  },
+  "161": {
+    "sha256": "7f940add6766ebb55e1ddf8599838993b2184627a49a0f78e29e93aa02ec1f96",
+    "text": "Cripples armor units."
+  },
+  "162": {
+    "sha256": "14417674e6d62b2913bc51c28cf78b284f140d9eb88cc762f4b6a1702855e001",
+    "text": "Cripples flying units."
+  },
+  "163": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "164": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "165": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "166": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "167": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "168": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "169": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "170": {
+    "sha256": "dfe12a20fcf35cd7a50983c06d1defc744941035ebd0dc5ca00a94dfb337ec81",
+    "text": "Cripples rider units."
+  },
+  "171": {
+    "sha256": "5131e716fc5942e92d4155b9a10c78c40d7292346ab9e4e82a7a839ad86a660e",
+    "text": "Consecutive blows."
+  },
+  "172": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "173": {
+    "sha256": "e74b07a16472fa799593c3cb9422ac357a6c697f121153bb9fd7d7089847df21",
+    "text": "An exalted weapon."
+  },
+  "174": {
+    "sha256": "e74b07a16472fa799593c3cb9422ac357a6c697f121153bb9fd7d7089847df21",
+    "text": "An exalted weapon."
+  },
+  "175": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "176": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "177": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "178": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "179": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "180": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "181": {
+    "sha256": "5131e716fc5942e92d4155b9a10c78c40d7292346ab9e4e82a7a839ad86a660e",
+    "text": "Consecutive blows."
+  },
+  "182": {
+    "sha256": "e74b07a16472fa799593c3cb9422ac357a6c697f121153bb9fd7d7089847df21",
+    "text": "An exalted weapon."
+  },
+  "183": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "184": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "185": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "186": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "187": {
+    "sha256": "14417674e6d62b2913bc51c28cf78b284f140d9eb88cc762f4b6a1702855e001",
+    "text": "Cripples flying units."
+  },
+  "188": {
+    "sha256": "14417674e6d62b2913bc51c28cf78b284f140d9eb88cc762f4b6a1702855e001",
+    "text": "Cripples flying units."
+  },
+  "189": {
+    "sha256": "14417674e6d62b2913bc51c28cf78b284f140d9eb88cc762f4b6a1702855e001",
+    "text": "Cripples flying units."
+  },
+  "190": {
+    "sha256": "5131e716fc5942e92d4155b9a10c78c40d7292346ab9e4e82a7a839ad86a660e",
+    "text": "Consecutive blows."
+  },
+  "191": {
+    "sha256": "edb351e1d37eb83ebdace1de2013b2ceb4e2ba3d210bf8b8a1639d6b04c903f8",
+    "text": "Grants Critical."
+  },
+  "192": {
+    "sha256": "e11b398375d9a8e8aff59748665790bf3caef006067cce6443a915930a40411b",
+    "text": "Grants Renewal."
+  },
+  "193": {
+    "sha256": "14417674e6d62b2913bc51c28cf78b284f140d9eb88cc762f4b6a1702855e001",
+    "text": "Cripples flying units."
+  },
+  "194": {
+    "sha256": "14417674e6d62b2913bc51c28cf78b284f140d9eb88cc762f4b6a1702855e001",
+    "text": "Cripples flying units."
+  },
+  "195": {
+    "sha256": "14417674e6d62b2913bc51c28cf78b284f140d9eb88cc762f4b6a1702855e001",
+    "text": "Cripples flying units."
+  },
+  "196": {
+    "sha256": "14417674e6d62b2913bc51c28cf78b284f140d9eb88cc762f4b6a1702855e001",
+    "text": "Cripples flying units."
+  },
+  "197": {
+    "sha256": "14417674e6d62b2913bc51c28cf78b284f140d9eb88cc762f4b6a1702855e001",
+    "text": "Cripples flying units."
+  },
+  "198": {
+    "sha256": "14417674e6d62b2913bc51c28cf78b284f140d9eb88cc762f4b6a1702855e001",
+    "text": "Cripples flying units."
+  },
+  "199": {
+    "sha256": "14417674e6d62b2913bc51c28cf78b284f140d9eb88cc762f4b6a1702855e001",
+    "text": "Cripples flying units."
+  },
+  "200": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "201": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "202": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "203": {
+    "sha256": "e74b07a16472fa799593c3cb9422ac357a6c697f121153bb9fd7d7089847df21",
+    "text": "An exalted weapon."
+  },
+  "204": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "205": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "206": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "207": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "208": {
+    "sha256": "e74b07a16472fa799593c3cb9422ac357a6c697f121153bb9fd7d7089847df21",
+    "text": "An exalted weapon."
+  },
+  "209": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "210": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "211": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "212": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "213": {
+    "sha256": "e74b07a16472fa799593c3cb9422ac357a6c697f121153bb9fd7d7089847df21",
+    "text": "An exalted weapon."
+  },
+  "214": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "215": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "216": {
+    "sha256": "601f53316fa078453c1201c9da5b4c1859149b3fc64ef5c647a4dbaba1350da3",
+    "text": "Drains foe's HP."
+  },
+  "217": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "218": {
+    "sha256": "42a0ef2cc85e96a0211b101840a2aeab2b9447ff1914d0fb79844edb2870455e",
+    "text": "Negates Loptyr."
+  },
+  "219": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "220": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "221": {
+    "sha256": "cb013822baa0e5b70883bc14edca79cf50b0ef9a6e10667cf239fd6b14497653",
+    "text": "Cuts HP to 1."
+  },
+  "222": {
+    "sha256": "bc382887843c19934ecf8da8369090aa5c5a80652b2614abd90817f09f974208",
+    "text": "Cuts foe's Atk."
+  },
+  "223": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "224": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "225": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "226": {
+    "sha256": "53a269a16fb8d50306cf18116642c1e7fddd5b2e85e87dc19101cc42f727c3f6",
+    "text": "Restores HP to an\nadjacent ally."
+  },
+  "227": {
+    "sha256": "dd397703488e69def7d43fed7c2cb760dac2465ce2484aae47ecdb11f83160b7",
+    "text": "Restores many HP to\nan adjacent ally."
+  },
+  "228": {
+    "sha256": "d30ad0de4a38b7771f769829eb26ea3800b74b6adf6345dc92d6869029dd351c",
+    "text": "Restores all HP to an\nadjacent ally."
+  },
+  "229": {
+    "sha256": "cef0a45b6ee026b12069e030f341c8c83a7a44bae4d33a6985d18fab5ee4a5b7",
+    "text": "Restores HP to one ally up\nto 10 spaces away."
+  },
+  "230": {
+    "sha256": "9bb20c6920a3864f06fe2a62c94bb08a883064315ddb85eefb8c9f9b92cc1969",
+    "text": "Restores HP to all allies in\na 10 space radius."
+  },
+  "231": {
+    "sha256": "d6932315312c9f30b150168d803b02d7364654911a99a0efcd83f67cc2670f1a",
+    "text": "Warps one adjacent ally\nback to the base castle."
+  },
+  "232": {
+    "sha256": "23be6ecad5976da3b37150d18ca780ecf1a63042f9a357ab857f287ed8ce6953",
+    "text": "Warps one adjacent ally\nto an allied castle."
+  },
+  "233": {
+    "sha256": "e3d7871dc34fe8f9d1c3dbe17291f8f9824492bfc9405ce1d5c9bfbb428ce4ba",
+    "text": "Warps one ally within 10\ntiles next to the user."
+  },
+  "234": {
+    "sha256": "65c4c4d815ad23d074b9377088ed128ceb4fab6610ded74bdc7e21d1ae44de29",
+    "text": "Restores one ally within 10\nspaces to normal status."
+  },
+  "235": {
+    "sha256": "65c4c4d815ad23d074b9377088ed128ceb4fab6610ded74bdc7e21d1ae44de29",
+    "text": "Restores one ally within 10\nspaces to normal status."
+  },
+  "236": {
+    "sha256": "9a3390e686aec05ae35d89b43e6b69133eae268efe4becaae2e7b391fac8cfc1",
+    "text": "Resurrects one deceased\nally when in the base\ncastle."
+  },
+  "237": {
+    "sha256": "2ab494222933565ec838706ed7098e64a274936ef86360dde6d75e68d473337f",
+    "text": "Inhibits a single foe\nwithin 10 spaces from\nusing magic or staves."
+  },
+  "238": {
+    "sha256": "6b46e68ae917f55e5286e12d85516b59ca028edff9854c4756e2729bfa7a305c",
+    "text": "Puts a single foe within 10\nspaces to sleep for a\nfew turns."
+  },
+  "239": {
+    "sha256": "50260d9c8100f79d14b2196c7d42614b01ca892ceff88534af7a7b81db9c50ac",
+    "text": "Sends a single foe within 10\nspaces into a spaces into a\nberserker rage."
+  },
+  "240": {
+    "sha256": "779f59653f766dd7d11199299c9c194d738d445fe951f9915f8b305fe08cd9a2",
+    "text": "Steals gold from foe."
+  },
+  "244": {
+    "sha256": "4133136f6cb35153b666ebca1edfa7df6771a0c1e6c4ea8a9125783a90c9b0e7",
+    "text": "Heals user's HP every turn."
+  },
+  "245": {
+    "sha256": "1cc091c06d0783907a3b0145bb075aa225e2c2ea8e06d73fc154ac4c0a108750",
+    "text": "Doubles the user's\nexperience gain."
+  },
+  "246": {
+    "sha256": "19dcb5a2c943a06e48e02922727622828af7f4ae7bc84d2da834b3a31666b93e",
+    "text": "Steals gold from foe\nwhen attacking."
+  },
+  "247": {
+    "sha256": "c8af230b2a1706c93c6dadbefeca229f043af47595e37686873c8212f0fba496",
+    "text": "User may endure lethal\nhits in a pinch."
+  },
+  "248": {
+    "sha256": "2ffe437ac3e56b94b04f37a7d353289975232c8296b4592554fb1c94c89d3b14",
+    "text": "Allows the user to double\nattack if their attack\nspeed exceeds the foe's."
+  },
+  "249": {
+    "sha256": "102c8e9cf85f68eef4c1e820effa6544e0897946c171d8302c4485f62837590d",
+    "text": "Fully restores HP every turn."
+  },
+  "250": {
+    "sha256": "a25c92b115384b42fd65178867cca9b7a8c1b6da1738e1d155cc3b54e0e4dd11",
+    "text": "The user gets a 50%\ndiscount at castle shops."
+  },
+  "251": {
+    "sha256": "a7345ae4829c85762320e041c6ba920576f4e560f42874ee338a35b4de6e86ba",
+    "text": "Allows the user to use up\nleftover movement\nrange after acting."
+  },
+  "252": {
+    "sha256": "5c69da081282e6edd26302c737f803e52e3145dc6057c8a9e362431169dede58",
+    "text": "Allows the user to return\nto the base castle at any\ntime."
+  },
+  "253": {
+    "sha256": "f87f6ba34e363c06735951a2e4f2080754728ef044b6f4f20fcf5e78afdbc541",
+    "text": "Speed +5."
+  },
+  "254": {
+    "sha256": "2288bb4944fd3c877bd2e25c8fe776f3b73bcc0571b76430ebb2964f2898ffc8",
+    "text": "Magic +5."
+  },
+  "255": {
+    "sha256": "c360e15825cda4afe0144e336df02c0162c86ca19d2bd500adf8c052fd509110",
+    "text": "Strength +5."
+  },
+  "256": {
+    "sha256": "0aa434094eb9d3f4140216a272d5961495c763cba88193bcfdf33cc95df56aae",
+    "text": "Defense +5."
+  },
+  "257": {
+    "sha256": "75f2f8a980c96880e01f5d947f81678d430a4e66dd51b7066ccf2097a8c3e19d",
+    "text": "Resistance +5."
+  },
+  "258": {
+    "sha256": "d31aece71a29acdb0ce12f05e5b6f7eab36b306d340b4f7745e5d97e09eed55b",
+    "text": "Movement +3."
+  },
+  "259": {
+    "sha256": "9db909182f055c5bfa151110283966f769b21384f1b1ec457af63bbfc101edae",
+    "text": "Skill +5."
+  },
+  "260": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "261": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "262": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "263": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "264": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "265": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "266": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "267": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "268": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "269": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "270": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "271": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "272": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "273": {
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "text": ""
+  },
+  "275": {
+    "sha256": "0cd01dbddf697843dff7a2944e217ff5ee60d4eb6cc02a7006245e9a00a66c17",
+    "text": "A holy tiara. Grants\nMiracle and Renewal."
+  },
+  "276": {
+    "sha256": "9d9b0a156843ff69b79558899e91559248b729c8a241e3352b25fa73b2c437ef",
+    "text": "For women only."
+  },
+  "277": {
+    "sha256": "721c2b0a2a70d1588d3a71c6038944875558dd9124fe5837c4c7c2ee33c24769",
+    "text": "Steals foe's gold."
+  },
+  "278": {
+    "sha256": "edb351e1d37eb83ebdace1de2013b2ceb4e2ba3d210bf8b8a1639d6b04c903f8",
+    "text": "Grants Critical."
+  },
+  "279": {
+    "sha256": "525ab21b5672a5a59693ba0af9e24b3d44d618323a91cd065ad7da9bf9d630b1",
+    "text": "Defense +7."
+  },
+  "280": {
+    "sha256": "a898ce67d446474110e41ac357579a7b99021f9528480c9353fd5150ec05f0eb",
+    "text": "Resistance +7."
+  },
+  "281": {
+    "sha256": "4be3fe9ce09e1e26fbaf4ef411e35bca39bf27e193ff2e610d84898cd4180834",
+    "text": "Enrages foe."
+  },
+  "282": {
+    "sha256": "5131e716fc5942e92d4155b9a10c78c40d7292346ab9e4e82a7a839ad86a660e",
+    "text": "Consecutive blows."
+  },
+  "283": {
+    "sha256": "60ed3b53e80a81d852c9ed96341595d04b4dba81b1f96cf645549aa840bcd237",
+    "text": "Silences foe."
+  },
+  "284": {
+    "sha256": "d070bcb5e602e1c334304e28ccd5e07be0c7de65a5dc640cdcbb29df8d4c74f3",
+    "text": "Puts foe to sleep."
+  },
+  "285": {
+    "sha256": "2b8dacccd74b19a4340dec0e82006d06b7a30424fba3787947df51c9fbf1e0c0",
+    "text": "Casts Elfire."
+  },
+  "286": {
+    "sha256": "601f53316fa078453c1201c9da5b4c1859149b3fc64ef5c647a4dbaba1350da3",
+    "text": "Drains foe's HP."
+  },
+  "287": {
+    "sha256": "00d33a222c826cf14ec5dbf6ec008aa85ce524da01b96ae93fbff2247733e058",
+    "text": "Casts Elthunder."
+  },
+  "288": {
+    "sha256": "ae4d2f860e85eb8b991b33da39612f9415ba55b1eadd085ca84b6c60b85398e0",
+    "text": "Casts Elwind."
+  },
+  "289": {
+    "sha256": "e0fe9020cc669ec47d4e96421f221c1d0223691205f693285a3f9b4bee82c68a",
+    "text": "Casts Light."
+  },
+  "290": {
+    "sha256": "edb351e1d37eb83ebdace1de2013b2ceb4e2ba3d210bf8b8a1639d6b04c903f8",
+    "text": "Grants Critical."
+  },
+  "291": {
+    "sha256": "6b64fd1c389cbcb140d1b797929d5a8b2f33a594f2274595cc87281a405bb8c3",
+    "text": "Grants Miracle."
+  },
+  "292": {
+    "sha256": "e74b07a16472fa799593c3cb9422ac357a6c697f121153bb9fd7d7089847df21",
+    "text": "An exalted weapon."
+  },
+  "293": {
+    "sha256": "e11b398375d9a8e8aff59748665790bf3caef006067cce6443a915930a40411b",
+    "text": "Grants Renewal."
+  },
+  "294": {
+    "sha256": "bc382887843c19934ecf8da8369090aa5c5a80652b2614abd90817f09f974208",
+    "text": "Cuts foe's Atk."
+  },
+  "295": {
+    "sha256": "42a0ef2cc85e96a0211b101840a2aeab2b9447ff1914d0fb79844edb2870455e",
+    "text": "Negates Loptyr."
+  },
+  "296": {
+    "sha256": "7f940add6766ebb55e1ddf8599838993b2184627a49a0f78e29e93aa02ec1f96",
+    "text": "Cripples armor units."
+  },
+  "297": {
+    "sha256": "dfe12a20fcf35cd7a50983c06d1defc744941035ebd0dc5ca00a94dfb337ec81",
+    "text": "Cripples rider units."
+  },
+  "298": {
+    "sha256": "14417674e6d62b2913bc51c28cf78b284f140d9eb88cc762f4b6a1702855e001",
+    "text": "Cripples flying units."
+  },
+  "299": {
+    "sha256": "cb013822baa0e5b70883bc14edca79cf50b0ef9a6e10667cf239fd6b14497653",
+    "text": "Cuts HP to 1."
+  },
+  "300": {
+    "sha256": "601f53316fa078453c1201c9da5b4c1859149b3fc64ef5c647a4dbaba1350da3",
+    "text": "Drains foe's HP."
+  },
+  "301": {
+    "sha256": "fc4fb9abdfe561e2c323791ad69b3ca64a5a584a038183692271f743ef891c23",
+    "text": "Pavise\nMay protect user\nfrom all damage\ndealt by an attack."
+  },
+  "302": {
+    "sha256": "866d4d200088b6448a07183d46146da106d4bc9c97a254c7c1401929b2dc61e1",
+    "text": "Wrath\nUser deals critical\nhits in a pinch."
+  },
+  "303": {
+    "sha256": "875a707c840b030f2f1c83a5c4f18ca51e7fc20bb4033640c0912cab17c44d29",
+    "text": "Pursuit\nAllows the user to\ndouble attack if atk.\nspeed exceeds foe's."
+  },
+  "304": {
+    "sha256": "2c891a89620122521113ac527d938b9363dfba0ee8217a8f4e053c84447b141a",
+    "text": "Adept\nMay strike foe two\nsuccessive times,\nif user is faster."
+  },
+  "305": {
+    "sha256": "21148f6c06afe14bf82bf683e9fe79ddf7e01579e61705ef62618ee2fa559c12",
+    "text": "Steal\nSuccessful hits\nsteal gold from\nfoes."
+  },
+  "306": {
+    "sha256": "6cac207b884f09858ccee19cfd173a17b9a1feac298801165577742e563a6d13",
+    "text": "Dance\nRefreshes adjacent\nallies, allowing\nthem to act again."
+  },
+  "307": {
+    "sha256": "0b637fe534ccd36fdd9bf0d1384cd77983908d7f81271738107219e4b7e49fcb",
+    "text": "Charm\nGives a 10% boost\nto nearby allies'\nhit and avoid."
+  },
+  "308": {
+    "sha256": "be4fcb55485e0d6752c341e7088c04be9659ea355c6e6c52ff37e065ff418091",
+    "text": "Nihil\nUser is immune to\ncritical hits, skills,\nand crippling hits."
+  },
+  "309": {
+    "sha256": "32ac78ba8a681b7122b16a82a12f592bc0b95f4b4922bbbcf7eb96f622222f9b",
+    "text": "Miracle\nMay endure lethal\nhits in a pinch."
+  },
+  "310": {
+    "sha256": "2906aa13180a1fe2b10afd69aa6c4785f47d59b72de823d348357447b94539b7",
+    "text": "Critical\nUser can inflict\ncritical hits,\ndoubling atk. power."
+  },
+  "311": {
+    "sha256": "387a6832cd96136dcf03e674c4593c966871995f964694c09d1edb362ccd078f",
+    "text": "Vantage\nUser will always\nstrike first\nin a pinch."
+  },
+  "312": {
+    "sha256": "3f8c7c3a799360028bc9571707b2346b552e10c1b04d236cfb361536e90c947e",
+    "text": "Accost\nIf agile, user\nmay continue a\nround of battle."
+  },
+  "313": {
+    "sha256": "1eb445f9e0db15a34d77b909693e8836fac60520d6c19f8fccc6722d0f7eccc3",
+    "text": "Astra\nMay strike foe five\nsuccessive times."
+  },
+  "314": {
+    "sha256": "093348fb7b32308d8162890e5ae3c5bc250e5ec530a7d851d9a565a764c5ce1e",
+    "text": "Luna\nMay negate the\nfoe's defense."
+  },
+  "315": {
+    "sha256": "224fdc57213d96a52c496e482231965801eb3aa5d3efea83ee2662826a0bd50a",
+    "text": "Sol\nMay drain foe's\nHP to heal user."
+  },
+  "316": {
+    "sha256": "774ae4aead452fa829ac1485a7b750b369c0a047eb79813dbb9203ec497eb437",
+    "text": "Renewal\nRestores 5-10 HP\nto the user\nevery turn."
+  },
+  "317": {
+    "sha256": "3c638593dcf9cfa918cfdf2158260bfbd936d82be10a682da0b5655982537189",
+    "text": "Paragon\nDoubles user's\nexperience gain."
+  },
+  "318": {
+    "sha256": "82f890e27497214d058a693025ed83b7f5dcaf8812db78f1841c1c72d603bd40",
+    "text": "Bargain\nThe user gets a\n50% discount at\ncastle merchants."
+  },
+  "319": {
+    "sha256": "2753e75ee4c538d5eaa670d86a2f9e507caf39122e8e32afaeb92e6db5d6960a",
+    "text": "Cavalier"
+  },
+  "320": {
+    "sha256": "da025fa192ec46ada988196440be0d50be4d4856ca580983d8ebd0f167c9a1c5",
+    "text": "Lance Knight"
+  },
+  "321": {
+    "sha256": "92c3b18b105458f0c2a1face20582b3e1e6c165613f1a7feadcb9eae42e2c4c3",
+    "text": "Bow Knight"
+  },
+  "322": {
+    "sha256": "8c4df4f1dc27bb8fda86aaa75f6db2f74d2dfa442ed0864a8d8e72f51b2b6406",
+    "text": "Axe Knight"
+  },
+  "323": {
+    "sha256": "325d18f5ea5c69f2c5f31e06fb72f721388320a573db7ee14c489808199539d1",
+    "text": "Sword Knight"
+  },
+  "324": {
+    "sha256": "a291cd2a020627f190c323e18bcd15f803450943fc7e3a935c03bee4214db655",
+    "text": "Troubadour"
+  },
+  "325": {
+    "sha256": "e35970447696836a6e344901e0dd668894f7d114e87585830896c20e30cba45f",
+    "text": "Knight Lord"
+  },
+  "326": {
+    "sha256": "116a1aeff5d7cf65de8977524215c325a1728008566c78111cab6c4bfcad8bd3",
+    "text": "Duke Knight"
+  },
+  "327": {
+    "sha256": "61498614b6d4be2f4aebad749a7668174e594fbf7bda748d4c26170813626a5e",
+    "text": "Master Knight"
+  },
+  "328": {
+    "sha256": "1120b56538ed5f9b41cb59366de6cd1b54d7127a1c65c8b590232cb9534ae6c9",
+    "text": "Paladin"
+  },
+  "329": {
+    "sha256": "1120b56538ed5f9b41cb59366de6cd1b54d7127a1c65c8b590232cb9534ae6c9",
+    "text": "Paladin"
+  },
+  "330": {
+    "sha256": "f2fc23c9cc9af66f111a14cfc9c4cfc902c2b5b2cbfc2847ceee5da95b0ad0fb",
+    "text": "Arch Knight"
+  },
+  "331": {
+    "sha256": "0ac8307d377c13095e05b4d3520b1dfa203e3d89561270d19e6dbe79972a7797",
+    "text": "Forest Knight"
+  },
+  "332": {
+    "sha256": "1e01c989858a16af87736e74f2dc6a9988e4af085571905f618443f0e46899b3",
+    "text": "Mage Knight"
+  },
+  "333": {
+    "sha256": "514d59e9f3737be8894dcfe03ebbeff6521f0ec0135be2fc9891babaf94de027",
+    "text": "Great Knight"
+  },
+  "334": {
+    "sha256": "18f06cd1b068585fa5aafbe1f1560b002a343a78e6707f545212fca3a1e511d7",
+    "text": "Pegasus Rider"
+  },
+  "335": {
+    "sha256": "a7ba71d930bef23d41346ac050067ad724cf35ea8c40bcd4d30371a9a06f7d9d",
+    "text": "Pegasus Kn."
+  },
+  "336": {
+    "sha256": "596b5d8ccc3cc80c968ab5c73af065f8f2f582be0a94f38e1719ebaf57e9e4a9",
+    "text": "Falcon Knight"
+  },
+  "337": {
+    "sha256": "9e277983be0e01f087eaa4b39bc70bc9501bcc9fceca46712a6127ec5c29b471",
+    "text": "Dracorider"
+  },
+  "338": {
+    "sha256": "3253d2b7f09f10edd402c3819d8d618c52e24ca70ade67bfff6144714871f09b",
+    "text": "Dracoknight"
+  },
+  "339": {
+    "sha256": "3238e96d93567c26c118d5cdf5baa57935072124a6c557b6b7092333565400d7",
+    "text": "Dragonmaster"
+  },
+  "340": {
+    "sha256": "3ff7473afbced98923de5ae9a1a6478d4334815e7b1a8d5019b8721710571705",
+    "text": "Archer"
+  },
+  "341": {
+    "sha256": "e3ab7aea139a39c9ee5bf347f53318577af40d8401492a7dc9d2ebd2b4c198d9",
+    "text": "Myrmidon"
+  },
+  "342": {
+    "sha256": "a95a9be7ebedf1da8911a9275fb5f312317ae6e78a31b7babbeee37c88b7b50d",
+    "text": "Swordmaster"
+  },
+  "343": {
+    "sha256": "dd04efc94214a5128d0f70761f0b23205a008312d3e4aa56561578abe412376f",
+    "text": "Sniper"
+  },
+  "344": {
+    "sha256": "85ffd368acb528659cb663c67bd257d1578319eaa37fc552ee7b6b3d5328f461",
+    "text": "Hero"
+  },
+  "345": {
+    "sha256": "9aced8f8cf4e6af5ef0f8fc887226ae1dff753df6b5e2a02482e44b23d38f6e2",
+    "text": "General"
+  },
+  "346": {
+    "sha256": "2bfb78c7b6f187b5f6c56d3441e5b48f2902057f930512b777034cfc71fb55cd",
+    "text": "Emperor"
+  },
+  "347": {
+    "sha256": "0a467de54f4acbaec71a9048334be5c710a68cbd1d6bd985208c815398cc857b",
+    "text": "Baron"
+  },
+  "348": {
+    "sha256": "9044ac6ccd36c3353bb825c739a5c5880226f6dc7f03e804f23016d0ba87a639",
+    "text": "Soldier"
+  },
+  "349": {
+    "sha256": "6e38dace52017be4feb5ade3bfc409080bf1cc0aa0a368ffd6068fc661b91931",
+    "text": "Spear Soldier"
+  },
+  "350": {
+    "sha256": "dc2c3adca4ee07a5503f8bd1b2694a7ea71474dce9e5daf5cb931c8b94a38199",
+    "text": "Axe Soldier"
+  },
+  "351": {
+    "sha256": "b41ee228bb222a2770ca9f1223956d1a16f9f2ec5ccdea846ee45f4da7228564",
+    "text": "Bow Soldier"
+  },
+  "352": {
+    "sha256": "609d0fcb6b8a66650115d67aadf268161043f883a29656da0f7e6e7fdbe3e809",
+    "text": "Sword Soldier"
+  },
+  "353": {
+    "sha256": "f5a04de4c79d1828a9ccb5e89a93c86551fd636192867647a3817d61eb956b3e",
+    "text": "Armr. Lance"
+  },
+  "354": {
+    "sha256": "9bad7c6215deb3bc5ec1cf90eb6512d21ed05447421f0cddd4899a4fab54fb5c",
+    "text": "Armored Axe"
+  },
+  "355": {
+    "sha256": "236aa57aca22af1375d70dc065d4e89a0644269e90d3b3dcb9ad8debcb4d5c6e",
+    "text": "Armored Bow"
+  },
+  "356": {
+    "sha256": "95a0266cbc9aa33c60af909ed733fb7f75916b080771863bf125b22e4053bdf5",
+    "text": "Armr. Sword"
+  },
+  "357": {
+    "sha256": "5494fc56ace1dc3c1a506908613c18bfc5f9a8a1bafd7c0b80d09f1d758eba8c",
+    "text": "Barbarian"
+  },
+  "358": {
+    "sha256": "ec0eb5281e68cbb3c8a619786befe9cf6f64c4a6db5ee7e6e2f171864df1c443",
+    "text": "Fighter"
+  },
+  "359": {
+    "sha256": "4b94cbbe2b58bb52db65501fc7b77256bcc06b877d542a4fe785e0f3bd78f2ca",
+    "text": "Brigand"
+  },
+  "360": {
+    "sha256": "c7a4efd11b06a691ad1818d311d6a80949f3d836da6b27c3d4dc3b526d83c2a2",
+    "text": "Warrior"
+  },
+  "361": {
+    "sha256": "3178e51b14aac45378e3048f88282aca09b47ba369ebf7e1c18cf0b7c17b987a",
+    "text": "Hunter"
+  },
+  "362": {
+    "sha256": "e61876382420445778cf5a3249cb23cf33d9e1cc3ecce8360e19a66f12d153da",
+    "text": "Pirate"
+  },
+  "363": {
+    "sha256": "3febf0afd625ad9a1796dc292d8efa8f7c8f391a35f38bbdf510aaa960d487ee",
+    "text": "Lord"
+  },
+  "364": {
+    "sha256": "6c524e721fd1f4425e46acbf3bdfd5ffd292f857c1700f8c958366bbb6aeb9ab",
+    "text": "War Mage"
+  },
+  "365": {
+    "sha256": "7b6382c5b1615431faed35b356b5d3a686a82293c88b103566e3c392bf2b4be9",
+    "text": "Prince"
+  },
+  "366": {
+    "sha256": "89b2762957c216f527565c15221404acc2b98a33301776f2d5636366d1d4fa24",
+    "text": "Princess"
+  },
+  "367": {
+    "sha256": "6c524e721fd1f4425e46acbf3bdfd5ffd292f857c1700f8c958366bbb6aeb9ab",
+    "text": "War Mage"
+  },
+  "368": {
+    "sha256": "e9a3affa960887a41c742dc4e8eb4bf9a10e37692b4276683c85fabb53f4d288",
+    "text": "Queen"
+  },
+  "369": {
+    "sha256": "29622c7208035474391ee832cfb94490ad40f30f87ee519cf124aab2ff5e5e94",
+    "text": "Dancer"
+  },
+  "370": {
+    "sha256": "da14728b8b87a7c56874451078d1f66307a190e29eec76040238aebd387124d0",
+    "text": "Priest"
+  },
+  "371": {
+    "sha256": "2091820864db96e530033bf7eef1ac1ac1f9bc9c1abb79b861817cb33f492a82",
+    "text": "Mage"
+  },
+  "372": {
+    "sha256": "97c916fc9784dbb0abab1a5f8ba2f10b69643f8169a247a69f37b9c754594f87",
+    "text": "Fire Mage"
+  },
+  "373": {
+    "sha256": "daf2c4018b5d7afe6e4c7c95dcd31641010920b11870d224b8b5230b70d44021",
+    "text": "Thunder Mage"
+  },
+  "374": {
+    "sha256": "21c0564f998d3b96740ddf4961e493364683eb674961af3f3acc7142138cdf88",
+    "text": "Wind Mage"
+  },
+  "375": {
+    "sha256": "a35b1bf9dff2c5bd8c6d43147a64a6d6637ccc04b3c4339458b31b091d376ff8",
+    "text": "High Priest"
+  },
+  "376": {
+    "sha256": "4c4d29c7638f29bc2ccbebfee7a735e624c1f0eea249303b0e8fcc19fda7ae8d",
+    "text": "Bishop"
+  },
+  "377": {
+    "sha256": "d9058525c9fb58472f6ba9115e23572ab2f25558139f6366e7f0c4f0d5e92ba3",
+    "text": "Sage"
+  },
+  "378": {
+    "sha256": "75c54c05fa9afbe0ed50b24e9d03a9666708b2ecc4bb401cd823772d631aa421",
+    "text": "Bard"
+  },
+  "379": {
+    "sha256": "08a72571bdf54fc9138b20f5f468fe87e7beba23356b8a93c5609ea2d862e2ba",
+    "text": "Priestess"
+  },
+  "380": {
+    "sha256": "969d03dcc0df9ac12a7072a2964337064731f1a7d862f1cd8f933457a66a0311",
+    "text": "Dark Mage"
+  },
+  "381": {
+    "sha256": "747290682270c0e142eb0cb3986475c5705c59f556590a07f6de7fe17ddb6267",
+    "text": "Dark Bishop"
+  },
+  "382": {
+    "sha256": "7eaa763b026e11111296205951395279d7dca2b2327400e7d1c12e35043c1d92",
+    "text": "Thief"
+  },
+  "383": {
+    "sha256": "b598a949b7202cb75fb098ad6b4ad69cc99e98c9ac9f2d1603a2bc87a78f277d",
+    "text": "Rogue"
+  },
+  "384": {
+    "sha256": "f3687b3584bcaeda4d0a2c6a6eb8c404023117f46d1003a618f89aeaff513e70",
+    "text": "Civilian"
+  },
+  "385": {
+    "sha256": "f3687b3584bcaeda4d0a2c6a6eb8c404023117f46d1003a618f89aeaff513e70",
+    "text": "Civilian"
+  },
+  "386": {
+    "sha256": "e0bbe7da11328bf85a745e96009f0bf203fb0ed68f3a773c5e8d9b0d30ad0623",
+    "text": "Ballistician"
+  },
+  "387": {
+    "sha256": "e0bbe7da11328bf85a745e96009f0bf203fb0ed68f3a773c5e8d9b0d30ad0623",
+    "text": "Ballistician"
+  },
+  "388": {
+    "sha256": "e0bbe7da11328bf85a745e96009f0bf203fb0ed68f3a773c5e8d9b0d30ad0623",
+    "text": "Ballistician"
+  },
+  "389": {
+    "sha256": "e0bbe7da11328bf85a745e96009f0bf203fb0ed68f3a773c5e8d9b0d30ad0623",
+    "text": "Ballistician"
+  },
+  "390": {
+    "sha256": "911f906175afe0ee314a158985f4a97f88a3b6d3c2c8833a4fdb57d8e552c3f6",
+    "text": "Dark Prince"
+  },
+  "391": {
+    "sha256": "338f1f9b2f9b552bf914f1fbaf6517966de0fbc0f35ba99fc6e6c2dc2ff3a13a",
+    "text": "Peak"
+  },
+  "392": {
+    "sha256": "8622f888247d6b9d8ccf49d29f4fda5ddda5087da98262a2b559840df6052879",
+    "text": "Thicket"
+  },
+  "393": {
+    "sha256": "7f4bfc8a5eac177dba02c16a99e54866d2fe3c052e1d31f1e3efc49fff147ced",
+    "text": "Cliff"
+  },
+  "394": {
+    "sha256": "f3347fe3271fbf2b6d73d983b6bb7d186cf3afa453732c84ef9f361a30e8835f",
+    "text": "Plain"
+  },
+  "395": {
+    "sha256": "41b17eb87b7e9846ec28cf8f1bb669f33f6906d5d2a8e3d3b06a596ea95d1ce9",
+    "text": "Woods"
+  },
+  "396": {
+    "sha256": "2cffbf2470c08cb0c17657218430a9702362e3ea9f30c7c75c9322f40ad90dea",
+    "text": "Sea"
+  },
+  "397": {
+    "sha256": "f77f93b0a76ed6a95d9cba8a88a7247f0b6441aaf28d82ae86ca4cceb532dcca",
+    "text": "Stream"
+  },
+  "398": {
+    "sha256": "1758f3b69d9cb55406b70939d99731e5ed939ecb3dc86581d7598f7af3b5763a",
+    "text": "Mountain"
+  },
+  "399": {
+    "sha256": "9d8e1354af52f2317bd04df50f6ae27fceb99a1cea925cc00ad2154bd558cbba",
+    "text": "Desert"
+  },
+  "400": {
+    "sha256": "7fa855e5e3743b6f05c967c82d950fe4a4b3e2ba9f929b16e949ecd8056ff3bf",
+    "text": "Castle"
+  },
+  "401": {
+    "sha256": "48d89e9bcf7b3df4df19e5b0847941065763c178815ead70d924321e086dc2ad",
+    "text": "Fort"
+  },
+  "402": {
+    "sha256": "ebfbb2db5d877789d60e48ad662455f40ff6410561514d8739e5fb6f04b7a3f6",
+    "text": "House"
+  },
+  "403": {
+    "sha256": "311281c561affcde5433b749ab0f96f9d6c7124448aeaa1befd019b9cf7097f8",
+    "text": "Gate"
+  },
+  "404": {
+    "sha256": "59010233adf2dcb8680080eafa1fbb14f93a559036dc748bffb35ba143d817f5",
+    "text": "Rampart"
+  },
+  "405": {
+    "sha256": "e425ea73e6ed6fba5dda4cf6aa442ee842d145d8ac705f8ef9327bd0ee0555ec",
+    "text": "Sands"
+  },
+  "406": {
+    "sha256": "3eb561434260f39a38d6715ff7939d50cbab97ef71d8142ef97b4c1aaf7dbaf7",
+    "text": "Bridge"
+  },
+  "407": {
+    "sha256": "587fa39036c86ddb3410982933280091e0864a5b0b7e9fcdd4be707b6771b319",
+    "text": "Bog"
+  },
+  "408": {
+    "sha256": "311281c561affcde5433b749ab0f96f9d6c7124448aeaa1befd019b9cf7097f8",
+    "text": "Gate"
+  },
+  "409": {
+    "sha256": "6fb59aa62ef2b6b7eab85d2919f16c349d1b51e7a624654cfbe35cc08544ceb7",
+    "text": "Village"
+  },
+  "410": {
+    "sha256": "8c68fc32b07831daa9a67efbc83cb2662898bed40e5fe0eb1a4aae55d1136330",
+    "text": "Ruin"
+  },
+  "411": {
+    "sha256": "548714aba53b06e252f3bc76ba293eecb4e8c67a6350833af9319d4b3896a244",
+    "text": "Store"
+  },
+  "412": {
+    "sha256": "8c68fc32b07831daa9a67efbc83cb2662898bed40e5fe0eb1a4aae55d1136330",
+    "text": "Ruin"
+  },
+  "413": {
+    "sha256": "47e3cfb5be07a9d53f6a5f955e370163eae78a329b74f811b0e511dac9bd3d13",
+    "text": "Chapel"
+  },
+  "414": {
+    "sha256": "2f732e6412d15a7b3931040bde1b3ac3237e00634c6e21dd6d50c51cc8f3b4e5",
+    "text": "Shrine"
+  },
+  "415": {
+    "sha256": "fdea7bf84e1f27ecfc13732544cbdf07756c031594e29be2167fbbfe6992b9c5",
+    "text": "T. of Bragi"
+  },
+  "416": {
+    "sha256": "2fd2aadd4fad78b6990e734a40a139b05265fceb29f1e43605ef891e460263d9",
+    "text": "Road"
+  },
+  "417": {
+    "sha256": "e4c887349fa99168bd0ef8d004860e2a4c525009975d9254fbcbcc65c5e9bb4a",
+    "text": "Healthy"
+  },
+  "418": {
+    "sha256": "9bc3c9b0cea4f1f3e2b6f0bce40624406658e60e6f632c36c35f597899916b73",
+    "text": "Cured"
+  },
+  "419": {
+    "sha256": "35a78b203e9ed058226d60d0d752617a627d7fbdee9621e8729457e83f163d66",
+    "text": "Freelance"
+  },
+  "420": {
+    "sha256": "329155020ae58eb5b73c1c63d6d2db2926515518216560e526729e3c00e31f7a",
+    "text": "Captive"
+  },
+  "421": {
+    "sha256": "b330e06d738b0b78c662a1d34f5cdd6bc6fd9a4eee64038f41931ed0e5de31dc",
+    "text": "Silence"
+  },
+  "422": {
+    "sha256": "5158e9ac279f904327c1d5a4d292705f55b5c16222a7452d8bc64bbd3ad0b22b",
+    "text": "Sleep"
+  },
+  "423": {
+    "sha256": "474aef1b80983116793f1b04de9e41e11133a798ccee276fc43053dcf1ea67dc",
+    "text": "Berserk"
+  },
+  "424": {
+    "sha256": "85b6743e8e1de314130ed58a21861de4f91dfdc22e6734ad223ba2be3628ad46",
+    "text": "Personal skill"
+  },
+  "425": {
+    "sha256": "1d61b7984fbb17d3399ad6de03f9ee8d2ab43a5555971e268775a39b228d4e10",
+    "text": "Class skill"
+  },
+  "426": {
+    "sha256": "12725113c78dea7b52a2d51dd6bdc513e355cb1170a3de2f8a2683189957cb75",
+    "text": "Madino"
+  },
+  "427": {
+    "sha256": "a90d18196fcf251cc9f479bf48b7c09bf9aa101d446c4460d798d3e17397bcd1",
+    "text": "Silvail"
+  },
+  "428": {
+    "sha256": "ae4f8a861f87520b4bb684cfb1682186e7220235b1640a6ed69481e12bdb0271",
+    "text": "Anphony"
+  },
+  "429": {
+    "sha256": "ab0e785e3299c91f2a56f7dd25f55b21c49a1397bb815be1ec83d3f220026cbf",
+    "text": "Agusty"
+  },
+  "430": {
+    "sha256": "9f2492aac9edf65c67862bf31ecf75ae13a87f3956c1de04b34baef150e49310",
+    "text": "Heirhein"
+  },
+  "431": {
+    "sha256": "08453e7d446048d92d13494c8a5dbb0cb8b0abae900b8c2af505485a9ec08827",
+    "text": "Mackily"
+  },
+  "432": {
+    "sha256": "af9a64b198005d99066695335cccf6019373f3ef7a9d3124f498f2662de9677f",
+    "text": "Nordion"
+  },
+  "433": {
+    "sha256": "e6f722d9b78cfd92439f145026d3ed6a621b90fe6337c35671f1116f2114d61b",
+    "text": "Velthomer"
+  },
+  "434": {
+    "sha256": "366cba20c54d53c9c1676dfbf9d29b3c5e004c87f7a2ebf34d738a4f49a25edc",
+    "text": "Freege"
+  },
+  "435": {
+    "sha256": "746c0d6d12d4a46cb8ef5a1e09962b0cd4bf1f731fd4ba6f977f53cb23c36317",
+    "text": "Belhalla"
+  },
+  "436": {
+    "sha256": "47fd06297b74c4722ca775e82b30a701d24df2790401aa8eeebaedbf12081fa3",
+    "text": "Dozel"
+  },
+  "437": {
+    "sha256": "db3a29aa6fe5e2c59593240744b96b3bcaefc97ae623a0ef61c77075098c1a9c",
+    "text": "Edda"
+  },
+  "438": {
+    "sha256": "428626826645add2d73efe984c72befe74069e0ea1123608f5a717b5dcac5300",
+    "text": "Chalphy"
+  },
+  "439": {
+    "sha256": "2cbdeae63028980eaca3a2df90f40cdd24c9e9c607806080da61167a37d4f134",
+    "text": "Jungby"
+  },
+  "440": {
+    "sha256": "4e641d447c5f6fbdea5a14abd0df32cc622d32173b15e771e605d73ee670d6cf",
+    "text": "Leonster"
+  },
+  "441": {
+    "sha256": "8c9e3392a60ec65f370255265d7c4f2c218f0e2f04a981f3661a43c8dc38ffab",
+    "text": "Connaught"
+  },
+  "442": {
+    "sha256": "59eec99b25cff19df3e3143b55b8a77e5dd34f81b9dd43ae6e2e584fb5101de1",
+    "text": "Manster"
+  },
+  "443": {
+    "sha256": "381d849e2862e314d14c5a9c3e13e74048854cd25b08944f636500cb52c503ea",
+    "text": "Melgen"
+  },
+  "444": {
+    "sha256": "9d58d3b1a762c1a605dd5858c5170b49d905dea7022d0dfe2099d55894fa5dfa",
+    "text": "Alster"
+  },
+  "445": {
+    "sha256": "0ebc0eb5cc8f66a5138d3ed13b32a782dc25622cfa29e18bcbff7346af55981a",
+    "text": "Orgahil"
+  },
+  "446": {
+    "sha256": "af5f4d6976e8f223617d29c71047244044439f9b3a0394b5b36979fe02fef8ce",
+    "text": "Thove"
+  },
+  "447": {
+    "sha256": "5672bbebe820e9b80dd851af7279f73259320db53e7a5374e876436553b845b1",
+    "text": "Sailane"
+  },
+  "448": {
+    "sha256": "9e84513f1ce5af41ea28b9aa97dad4b23eccf9bfb500ef53e4cf70e44fa0d466",
+    "text": "Zaxon"
+  },
+  "449": {
+    "sha256": "7a1696f189a4a57ce213ea33a5bff6b72611e9dd2c7d9cef048a7bf560c4c343",
+    "text": "Silesse"
+  },
+  "450": {
+    "sha256": "be4a4508b87b3305167117f5d73656c0e4b1995d4259d15267f85262e84505ee",
+    "text": "Lubeck"
+  },
+  "451": {
+    "sha256": "6c0f7aa205d23322424da9ce7a67ea42211e49a15cd8cc13eaf0af70da91ff97",
+    "text": "Tirnanog"
+  },
+  "452": {
+    "sha256": "eea0ce6111cd83471fb476b40779e3a43acb267072656ef187d8c4249d525786",
+    "text": "Ganeishire"
+  },
+  "453": {
+    "sha256": "dfc93f09fa8f8e96142d52028fedb98bebd9d7316502c8a4bb89626accb4011d",
+    "text": "Sophara"
+  },
+  "454": {
+    "sha256": "ebec11e975eac6064fa3d9fcb15615ace5ba8114c600bfcb713a747eea127625",
+    "text": "Isaach"
+  },
+  "455": {
+    "sha256": "100df052140dfa513e6514074f36aecac7a7465baa17dc24311c281bc8d6348d",
+    "text": "Rivough"
+  },
+  "456": {
+    "sha256": "292bd8f16659ea2faa772043252bed1e3ddffed35be295f75fb856e7ccb75a31",
+    "text": "Phinora"
+  },
+  "457": {
+    "sha256": "0dbfdfb275a3381ad9ff106808634a97148daa20e161495ff8b093e634f307b5",
+    "text": "Yied"
+  },
+  "458": {
+    "sha256": "840d7a60d86d9b3a8ff0151a52232cbaaee6ff0b2c205fa83c4911702e681a19",
+    "text": "Darna"
+  },
+  "459": {
+    "sha256": "e40d9ee7bd2b322937e6403cb54a15f6ea124e679f66778ec3e09d0d3105ccd1",
+    "text": "Verdane"
+  },
+  "460": {
+    "sha256": "d215bdb352094fc0a16de2fccde8ab3d8a2dca40f8f4e5696553137287c04cca",
+    "text": "Evans"
+  },
+  "461": {
+    "sha256": "5f494d48f454a8c164d3246fb33719737cf660be5f6fe03441329da449b306e0",
+    "text": "Genoa"
+  },
+  "462": {
+    "sha256": "439d71fef4906b97bce69bcc6531f5cd4c8fbd6574506d95b0bd9964974ff50e",
+    "text": "Marpha"
+  },
+  "463": {
+    "sha256": "b8b67675d3f5300744af90165095438fc8a8962e0d236692864fc421dda89f5a",
+    "text": "Miletos"
+  },
+  "464": {
+    "sha256": "cc11a0778d8563970bb391a05f0afd288de823d1310292586e09e9068d76b777",
+    "text": "Perlucos"
+  },
+  "465": {
+    "sha256": "8a1af3fa437455d6c67df6bfc5662bcaeb9d4199c02f10ac5e56796b05ced467",
+    "text": "Chronos"
+  },
+  "466": {
+    "sha256": "45a42c912e97e0da039eaef88549c557c192e5a5b4bfe0e21ba8315fcd84e5b6",
+    "text": "Rados"
+  },
+  "467": {
+    "sha256": "27ddde11b76afe4d4d0d19581ffbff374726e8280ff377f3bd873410aab36521",
+    "text": "Meath"
+  },
+  "468": {
+    "sha256": "34c4b260a74b18fc23df006c10ac4edab5a0d3450c308471e7077b8e820c1aec",
+    "text": "Kapathogia"
+  },
+  "469": {
+    "sha256": "1f974bff2d227e863e8b01d5a8a43fa2c9e8e54533167f360c2bfd1d1c1d1600",
+    "text": "Luthecia"
+  },
+  "470": {
+    "sha256": "8126beae9c70a29816bff98898288d4798afc707add856c4ecd9528abfa7aaf0",
+    "text": "Thracia"
+  },
+  "471": {
+    "sha256": "4cbe92df41b6a93868830baa6ce53fff092baae1a65ff5b168ac0f6c894f309e",
+    "text": "Grutia"
+  },
+  "472": {
+    "sha256": "12725113c78dea7b52a2d51dd6bdc513e355cb1170a3de2f8a2683189957cb75",
+    "text": "Madino"
+  },
+  "473": {
+    "sha256": "a90d18196fcf251cc9f479bf48b7c09bf9aa101d446c4460d798d3e17397bcd1",
+    "text": "Silvail"
+  },
+  "474": {
+    "sha256": "ae4f8a861f87520b4bb684cfb1682186e7220235b1640a6ed69481e12bdb0271",
+    "text": "Anphony"
+  },
+  "475": {
+    "sha256": "ab0e785e3299c91f2a56f7dd25f55b21c49a1397bb815be1ec83d3f220026cbf",
+    "text": "Agusty"
+  },
+  "476": {
+    "sha256": "9f2492aac9edf65c67862bf31ecf75ae13a87f3956c1de04b34baef150e49310",
+    "text": "Heirhein"
+  },
+  "477": {
+    "sha256": "08453e7d446048d92d13494c8a5dbb0cb8b0abae900b8c2af505485a9ec08827",
+    "text": "Mackily"
+  },
+  "478": {
+    "sha256": "af9a64b198005d99066695335cccf6019373f3ef7a9d3124f498f2662de9677f",
+    "text": "Nordion"
+  },
+  "479": {
+    "sha256": "e6f722d9b78cfd92439f145026d3ed6a621b90fe6337c35671f1116f2114d61b",
+    "text": "Velthomer"
+  },
+  "480": {
+    "sha256": "366cba20c54d53c9c1676dfbf9d29b3c5e004c87f7a2ebf34d738a4f49a25edc",
+    "text": "Freege"
+  },
+  "481": {
+    "sha256": "746c0d6d12d4a46cb8ef5a1e09962b0cd4bf1f731fd4ba6f977f53cb23c36317",
+    "text": "Belhalla"
+  },
+  "482": {
+    "sha256": "47fd06297b74c4722ca775e82b30a701d24df2790401aa8eeebaedbf12081fa3",
+    "text": "Dozel"
+  },
+  "483": {
+    "sha256": "db3a29aa6fe5e2c59593240744b96b3bcaefc97ae623a0ef61c77075098c1a9c",
+    "text": "Edda"
+  },
+  "484": {
+    "sha256": "428626826645add2d73efe984c72befe74069e0ea1123608f5a717b5dcac5300",
+    "text": "Chalphy"
+  },
+  "485": {
+    "sha256": "2cbdeae63028980eaca3a2df90f40cdd24c9e9c607806080da61167a37d4f134",
+    "text": "Jungby"
+  },
+  "486": {
+    "sha256": "4e641d447c5f6fbdea5a14abd0df32cc622d32173b15e771e605d73ee670d6cf",
+    "text": "Leonster"
+  },
+  "487": {
+    "sha256": "8c9e3392a60ec65f370255265d7c4f2c218f0e2f04a981f3661a43c8dc38ffab",
+    "text": "Connaught"
+  },
+  "488": {
+    "sha256": "59eec99b25cff19df3e3143b55b8a77e5dd34f81b9dd43ae6e2e584fb5101de1",
+    "text": "Manster"
+  },
+  "489": {
+    "sha256": "381d849e2862e314d14c5a9c3e13e74048854cd25b08944f636500cb52c503ea",
+    "text": "Melgen"
+  },
+  "490": {
+    "sha256": "9d58d3b1a762c1a605dd5858c5170b49d905dea7022d0dfe2099d55894fa5dfa",
+    "text": "Alster"
+  },
+  "491": {
+    "sha256": "0ebc0eb5cc8f66a5138d3ed13b32a782dc25622cfa29e18bcbff7346af55981a",
+    "text": "Orgahil"
+  },
+  "492": {
+    "sha256": "af5f4d6976e8f223617d29c71047244044439f9b3a0394b5b36979fe02fef8ce",
+    "text": "Thove"
+  },
+  "493": {
+    "sha256": "5672bbebe820e9b80dd851af7279f73259320db53e7a5374e876436553b845b1",
+    "text": "Sailane"
+  },
+  "494": {
+    "sha256": "9e84513f1ce5af41ea28b9aa97dad4b23eccf9bfb500ef53e4cf70e44fa0d466",
+    "text": "Zaxon"
+  },
+  "495": {
+    "sha256": "7a1696f189a4a57ce213ea33a5bff6b72611e9dd2c7d9cef048a7bf560c4c343",
+    "text": "Silesse"
+  },
+  "496": {
+    "sha256": "be4a4508b87b3305167117f5d73656c0e4b1995d4259d15267f85262e84505ee",
+    "text": "Lubeck"
+  },
+  "497": {
+    "sha256": "6c0f7aa205d23322424da9ce7a67ea42211e49a15cd8cc13eaf0af70da91ff97",
+    "text": "Tirnanog"
+  },
+  "498": {
+    "sha256": "eea0ce6111cd83471fb476b40779e3a43acb267072656ef187d8c4249d525786",
+    "text": "Ganeishire"
+  },
+  "499": {
+    "sha256": "dfc93f09fa8f8e96142d52028fedb98bebd9d7316502c8a4bb89626accb4011d",
+    "text": "Sophara"
+  },
+  "500": {
+    "sha256": "ebec11e975eac6064fa3d9fcb15615ace5ba8114c600bfcb713a747eea127625",
+    "text": "Isaach"
+  },
+  "501": {
+    "sha256": "100df052140dfa513e6514074f36aecac7a7465baa17dc24311c281bc8d6348d",
+    "text": "Rivough"
+  },
+  "502": {
+    "sha256": "292bd8f16659ea2faa772043252bed1e3ddffed35be295f75fb856e7ccb75a31",
+    "text": "Phinora"
+  },
+  "503": {
+    "sha256": "0dbfdfb275a3381ad9ff106808634a97148daa20e161495ff8b093e634f307b5",
+    "text": "Yied"
+  },
+  "504": {
+    "sha256": "840d7a60d86d9b3a8ff0151a52232cbaaee6ff0b2c205fa83c4911702e681a19",
+    "text": "Darna"
+  },
+  "505": {
+    "sha256": "e40d9ee7bd2b322937e6403cb54a15f6ea124e679f66778ec3e09d0d3105ccd1",
+    "text": "Verdane"
+  },
+  "506": {
+    "sha256": "d215bdb352094fc0a16de2fccde8ab3d8a2dca40f8f4e5696553137287c04cca",
+    "text": "Evans"
+  },
+  "507": {
+    "sha256": "5f494d48f454a8c164d3246fb33719737cf660be5f6fe03441329da449b306e0",
+    "text": "Genoa"
+  },
+  "508": {
+    "sha256": "439d71fef4906b97bce69bcc6531f5cd4c8fbd6574506d95b0bd9964974ff50e",
+    "text": "Marpha"
+  },
+  "509": {
+    "sha256": "b8b67675d3f5300744af90165095438fc8a8962e0d236692864fc421dda89f5a",
+    "text": "Miletos"
+  },
+  "510": {
+    "sha256": "cc11a0778d8563970bb391a05f0afd288de823d1310292586e09e9068d76b777",
+    "text": "Perlucos"
+  },
+  "511": {
+    "sha256": "8a1af3fa437455d6c67df6bfc5662bcaeb9d4199c02f10ac5e56796b05ced467",
+    "text": "Chronos"
+  },
+  "512": {
+    "sha256": "45a42c912e97e0da039eaef88549c557c192e5a5b4bfe0e21ba8315fcd84e5b6",
+    "text": "Rados"
+  },
+  "513": {
+    "sha256": "27ddde11b76afe4d4d0d19581ffbff374726e8280ff377f3bd873410aab36521",
+    "text": "Meath"
+  },
+  "514": {
+    "sha256": "34c4b260a74b18fc23df006c10ac4edab5a0d3450c308471e7077b8e820c1aec",
+    "text": "Kapathogia"
+  },
+  "515": {
+    "sha256": "1f974bff2d227e863e8b01d5a8a43fa2c9e8e54533167f360c2bfd1d1c1d1600",
+    "text": "Luthecia"
+  },
+  "516": {
+    "sha256": "8126beae9c70a29816bff98898288d4798afc707add856c4ecd9528abfa7aaf0",
+    "text": "Thracia"
+  },
+  "517": {
+    "sha256": "4cbe92df41b6a93868830baa6ce53fff092baae1a65ff5b168ac0f6c894f309e",
+    "text": "Grutia"
+  },
+  "518": {
+    "sha256": "e6f722d9b78cfd92439f145026d3ed6a621b90fe6337c35671f1116f2114d61b",
+    "text": "Velthomer"
+  },
+  "519": {
+    "sha256": "366cba20c54d53c9c1676dfbf9d29b3c5e004c87f7a2ebf34d738a4f49a25edc",
+    "text": "Freege"
+  },
+  "520": {
+    "sha256": "746c0d6d12d4a46cb8ef5a1e09962b0cd4bf1f731fd4ba6f977f53cb23c36317",
+    "text": "Belhalla"
+  },
+  "521": {
+    "sha256": "47fd06297b74c4722ca775e82b30a701d24df2790401aa8eeebaedbf12081fa3",
+    "text": "Dozel"
+  },
+  "522": {
+    "sha256": "db3a29aa6fe5e2c59593240744b96b3bcaefc97ae623a0ef61c77075098c1a9c",
+    "text": "Edda"
+  },
+  "523": {
+    "sha256": "428626826645add2d73efe984c72befe74069e0ea1123608f5a717b5dcac5300",
+    "text": "Chalphy"
+  },
+  "524": {
+    "sha256": "2cbdeae63028980eaca3a2df90f40cdd24c9e9c607806080da61167a37d4f134",
+    "text": "Jungby"
+  },
+  "525": {
+    "sha256": "d8c5d40e56482e02d0737f55750f89783ee63ef1408f3944b879adf9197a34c0",
+    "text": "Sigurd's"
+  },
+  "526": {
+    "sha256": "17fdc506eb719a6e813ff995592911cd6296b846334f0642c1796bdc707ed81d",
+    "text": "Seliph's"
+  }
+}

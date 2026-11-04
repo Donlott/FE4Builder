@@ -17,6 +17,7 @@
 
 /FE4Builder/docs/*
 !/FE4Builder/docs/map-transition-research.md
+!/FE4Builder/docs/menu-text-research.md
 
 /FE4Builder/src/*
 !/FE4Builder/src/*.py
@@ -31,6 +32,8 @@
 !/FE4Builder/data/events.json
 !/FE4Builder/data/intro_assets.json
 !/FE4Builder/data/logo_layouts.json
+!/FE4Builder/data/menu_text.json
+!/FE4Builder/data/menu_text_hints.json
 !/FE4Builder/data/objectives.json
 !/FE4Builder/data/reinforcements.json
 !/FE4Builder/data/villages.json
@@ -40,6 +43,8 @@
 /FE4Builder/scripts/*
 !/FE4Builder/scripts/build_release.py
 !/FE4Builder/scripts/build_event_catalogue.py
+!/FE4Builder/scripts/build_menu_text_catalogue.py
+!/FE4Builder/scripts/build_menu_text_hints.py
 !/FE4Builder/scripts/run_tests.py
 !/FE4Builder/scripts/Launcher.cmd
 !/FE4Builder/scripts/create_launcher.ps1

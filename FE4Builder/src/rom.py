@@ -217,6 +217,21 @@ class Rom:
         return [int.from_bytes(self.data[address+f.offset:address+f.offset+f.size], 'little', signed=f.signed) for f in module.fields]
 
     def field_options(self, field):
+        if field.reference in ('FE4 Weapon Names.txt','FE4 Weapon List.txt','FE4 Classes.txt','FE4 Class List.txt'):
+            from menu_text import name_labels
+            category='Class names' if field.reference in ('FE4 Classes.txt','FE4 Class List.txt') else 'Item names'
+            labels=name_labels(self,category)
+            result=dict(field.options)
+            if labels and field.reference=='FE4 Weapon List.txt':
+                from item_art import ItemArt,ITEM_COUNT
+                art=ItemArt(self)
+                for item in result:
+                    if 0<=item<ITEM_COUNT:
+                        try:result[item]=labels.get(art.stats(item).get('Name'),result[item])
+                        except ValueError:pass
+            else:
+                result.update({key:value for key,value in labels.items() if key in result})
+            return result
         if field.reference in ('FE4 Ring Bonuses.txt','FE4 Item Bonuses.txt'):
             from item_bonuses import ring_bonuses
             return ring_bonuses(self)
@@ -235,7 +250,7 @@ class Rom:
         if field.reference != 'FE4 Player Equipment.txt':
             return field.options
         player_items = load_module(MODULES / 'Item Editors' / 'FE4 Player Weapon Editor.nmm')
-        item_names = player_items.fields[0].options
+        item_names = self.field_options(player_items.fields[0])
         start = self.address(player_items, 0)
         result = {}
         for slot in field.options:

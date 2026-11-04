@@ -33,6 +33,7 @@ def build_home(app):
             ('Army Editor','Deployment records, groups, AI and equipment.',editor('Army Editor')),
             ('Village Rewards','Village item and stat rewards, plus additional visit gold.',app.edit_villages)],
         'Graphics & Text':[
+            ('Menu Text Editor','Item names and descriptions, skills, class names, terrain, statuses and locations.',app.edit_menu_text),
             ('Portrait Editor','Preview, import and export full portrait sheets.',app.edit_portrait),
             ('Character Name Editor','Edit playable character names.',app.edit_name),
             ('Dialogue Editor','Chapter conversations, control tags and text previews.',app.edit_dialogue),

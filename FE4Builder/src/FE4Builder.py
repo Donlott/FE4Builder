@@ -623,6 +623,10 @@ class App(tk.Tk):
         from name_window import open_name_window
         return self.prepare_window(open_name_window(self,name_id),restore=False)
 
+    def edit_menu_text(self,category='Item names',index=0):
+        from menu_text_window import open_menu_text_window
+        return self.prepare_window(open_menu_text_window(self,category,index),restore=False)
+
     def edit_portrait(self,portrait_id=0,action=None):
         from portrait_window import open_portrait_window
         return self.prepare_window(open_portrait_window(self,portrait_id,action),restore=False)
@@ -953,6 +957,19 @@ class App(tk.Tk):
             self.list.insert('end', f'{i+first:02X}  {names[i]}')
 
     def record_name(self, module, index):
+        if self.rom and self.mode=='Class Editor':
+            from menu_text import name_labels
+            return name_labels(self.rom,'Class names').get(index,module.names[index])
+        if self.rom:
+            from item_art import item_for_record,ItemArt
+            item=item_for_record(module,index)
+            if item is not None:
+                try:
+                    engine=getattr(self,'item_art',None)
+                    if engine is None or engine.rom is not self.rom:
+                        engine=ItemArt(self.rom);self.item_art=engine
+                    return engine.name(item)
+                except ValueError:pass
         if self.rom and module.name=='FE4 Player Weapon Editor':
             from item_art import ItemArt
             item=self.rom.values(module,index)[0]
