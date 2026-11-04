@@ -105,7 +105,8 @@ class MenuTextWindow(tk.Toplevel):
             try:
                 model = MenuText(self.rom, entry, self.font)
                 text = model.text
-                self.labels[key] = (text or '(blank)') if text is not None else '(unrecognized artwork)'
+                self.labels[key] = (entry['label'] + ' (not written)' if model.unassigned else
+                                    (text or '(blank)') if text is not None else '(unrecognized artwork)')
             except ValueError:
                 self.labels[key] = '(unsupported layout)'
         return self.labels[key]
@@ -170,11 +171,11 @@ class MenuTextWindow(tk.Toplevel):
             return
         self.initial = self.model.text or ''
         self.editor.delete('1.0', 'end')
-        self.editor.insert('1.0', self.initial)
+        self.editor.insert('1.0', entry['default_text'] if self.model.unassigned else self.initial)
         self.editor.edit_reset()
         self.editor.edit_modified(False)
         if entry['kind'] == 'skill':
-            instruction = 'First line: skill name (up to 56 pixels). Next three lines: help text (128 pixels each).'
+            instruction = 'First line: skill name (up to 56 pixels). Next three lines: help text (96 pixels each).'
         else:
             width = 64 if entry['kind'] == 'name' else 128
             instruction = f'Up to {self.model.capacity} line(s), {width} pixels per line.'
@@ -182,6 +183,8 @@ class MenuTextWindow(tk.Toplevel):
                 instruction += ' Maximum 15 stored characters.'
         if self.model.text is None:
             instruction += ' This artwork could not be read as text. Enter a replacement and review its preview.'
+        if self.model.unassigned:
+            instruction += " Suggested text is shown; Write to ROM adds it to this skill's help panel."
         self.instructions.set(instruction)
         self.draw(self.old_preview, self.model.original_rows)
         if entry['kind'] == 'effect':

@@ -11811,6 +11811,34 @@
       "id": 70,
       "kind": "encoded",
       "address": 5269088
+    },
+    {
+      "key": 708,
+      "category": "Skills",
+      "id": 27,
+      "kind": "skill",
+      "skill_id": 1,
+      "pointer": 633945,
+      "pool": [
+        5849088,
+        5885952
+      ],
+      "label": "Canto",
+      "default_text": "Canto\nUse remaining move\nafter taking an\naction."
+    },
+    {
+      "key": 709,
+      "category": "Skills",
+      "id": 28,
+      "kind": "skill",
+      "skill_id": 29,
+      "pointer": 634029,
+      "pool": [
+        5849088,
+        5885952
+      ],
+      "label": "Return",
+      "default_text": "Return\nUse Return to travel\nback to your home\ncastle."
     }
   ]
 }

@@ -3,7 +3,8 @@ import unittest
 from pathlib import Path
 from rom import Rom
 from menu_text import (MenuText, MenuFont, catalogue, read, ARENA, SIZE, START,
-                       pool_digest, pointer_fields, pack, unpack)
+                       pool_digest, pointer_fields, pack, unpack, EXTRA_SKILLS,
+                       catalogue_fingerprint, legacy_fingerprint, SKILL_BANK_AT)
 from menu_text_fixture import make_text_rom
 
 
@@ -28,13 +29,13 @@ class MenuTextTests(unittest.TestCase):
 
     def test_catalogue_and_all_entries_noop_without_rom_mutation(self):
         entries = catalogue()['entries']
-        self.assertEqual(len(entries), 708)
-        self.assertEqual([e['key'] for e in entries], list(range(708)))
+        self.assertEqual(len(entries), 710)
+        self.assertEqual([e['key'] for e in entries], list(range(710)))
         before = bytes(self.rom.data)
         font = MenuFont(self.rom)
         for entry in entries:
             model = MenuText(self.rom, entry, font)
-            self.assertEqual(model.text, 'A', entry)
+            self.assertEqual(model.text, '' if entry.get('default_text') else 'A', entry)
             self.assertEqual(model.plan(model.text)[1], [])
         self.assertEqual(bytes(self.rom.data), before)
 
@@ -202,6 +203,90 @@ class MenuTextTests(unittest.TestCase):
                 for y in range(2):
                     self.assertEqual(read(self.rom, 0x450000 + (new_tiles[0] + y * 16) * 16, 16),
                                      old[(old_tile + y * 16) * 16:(old_tile + y * 16 + 1) * 16])
+
+    def test_canto_and_return_names_help_and_native_pointers(self):
+        compact = read(self.rom, 0x507A00, 18 * 32)
+        compact_art = read(self.rom, 0x450000, 0x1000)
+        original_skills = {e['key']: (read(self.rom, e['pointer'], 3), self.model('Skills', e['id']).artwork[0].raw)
+                           for e in catalogue()['entries'] if e['kind'] == 'skill' and not e.get('default_text')}
+        for text_id, native_id, name, default in EXTRA_SKILLS:
+            model = self.model('Skills', text_id)
+            self.assertTrue(model.unassigned)
+            self.assertEqual(model.text, '')
+            self.assertEqual(model.plan('')[1], [])
+            self.assertEqual(model.entry['pointer'], {1: 0x9AC59, 29: 0x9ACAD}[native_id])
+            model.write(default)
+            loaded = self.model('Skills', text_id)
+            self.assertFalse(loaded.unassigned)
+            self.assertEqual(loaded.text, default)
+            self.assertEqual(loaded.text.splitlines()[0], name)
+            self.assertTrue(ARENA <= loaded.artwork[0].pointer < ARENA + SIZE)
+            self.assertEqual(read(self.rom, SKILL_BANK_AT, 5), b'\xEA' * 5)
+            loaded.write(name + '\nNew help.')
+            self.assertEqual(self.model('Skills', text_id).text, name + '\nNew help.')
+        self.assertEqual(read(self.rom, 0x507A00, 18 * 32), compact)
+        self.assertEqual(read(self.rom, 0x450000, 0x1000), compact_art)
+        for key, (pointer, raw) in original_skills.items():
+            entry = catalogue()['entries'][key]
+            self.assertEqual(read(self.rom, entry['pointer'], 3), pointer)
+            self.assertEqual(MenuText(self.rom, entry).artwork[0].raw, raw)
+
+    def test_existing_canto_help_is_preserved_and_unknown_loader_is_rejected(self):
+        extra = self.entry('Skills', 27)
+        self.rom.data[extra['pointer']:extra['pointer'] + 3] = read(self.rom, self.entry('Skills')['pointer'], 3)
+        model = self.model('Skills', 27)
+        self.assertFalse(model.unassigned)
+        self.assertEqual(model.text, 'A')
+        self.assertEqual(model.plan('A')[1], [])
+        for at in (SKILL_BANK_AT, 0x9A3F6):
+            old = self.rom.data[at]
+            self.rom.data[at] = 0
+            before = bytes(self.rom.data)
+            with self.assertRaisesRegex(ValueError, 'skill-help'):
+                self.model('Skills', 27).write('B')
+            self.assertEqual(bytes(self.rom.data), before)
+            self.rom.data[at] = old
+
+    def test_legacy_text_directory_migrates_without_losing_existing_edits(self):
+        self.assertEqual(legacy_fingerprint().hex(), '71fc7b09c03454b73a9757a6de892422')
+        self.model().write('B I l')
+        old = self.model()
+        pointer, artwork = old.artwork[0].pointer, old.artwork[0].raw
+        block = bytearray(read(self.rom, ARENA, SIZE))
+        block[16:32] = legacy_fingerprint()
+        block[64:96] = pool_digest(block)
+        self.rom.data[ARENA:ARENA + SIZE] = block
+        before = bytes(self.rom.data)
+        self.assertEqual(self.model().text, 'B I l')
+        self.assertEqual(self.model().plan('B I l')[1], [])
+        self.assertEqual(bytes(self.rom.data), before)
+        self.model('Skills', 27).write(EXTRA_SKILLS[0][3])
+        self.assertEqual(read(self.rom, ARENA + 16, 16), catalogue_fingerprint())
+        restored = self.model()
+        self.assertEqual(restored.text, 'B I l')
+        self.assertEqual(restored.artwork[0].pointer, pointer)
+        self.assertEqual(restored.artwork[0].raw, artwork)
+
+    def test_legacy_directory_cannot_claim_new_entries(self):
+        self.model().write('B')
+        block = bytearray(read(self.rom, ARENA, SIZE))
+        block[16:32] = legacy_fingerprint()
+        block[128 + 708 * 8] = 1
+        block[64:96] = pool_digest(block)
+        self.rom.data[ARENA:ARENA + SIZE] = block
+        before = bytes(self.rom.data)
+        with self.assertRaisesRegex(ValueError, 'integrity'):
+            self.model()
+        self.assertEqual(bytes(self.rom.data), before)
+
+    def test_skill_help_uses_visible_96_pixel_width(self):
+        model = self.model('Skills')
+        model.render('B\n' + 'W' * 11)
+        before = bytes(self.rom.data)
+        with self.assertRaisesRegex(ValueError, '96-pixel'):
+            model.write('B\n' + 'W' * 12)
+        self.assertEqual(bytes(self.rom.data), before)
+        self.model('Item descriptions').render('W' * 12)
 
 
 if __name__ == '__main__':

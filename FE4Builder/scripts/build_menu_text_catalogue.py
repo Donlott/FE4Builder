@@ -5,7 +5,7 @@ import sys
 
 B = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(B / 'src'))
-from menu_text import SKILL_IDS
+from menu_text import SKILL_IDS, EXTRA_SKILLS
 
 
 def build():
@@ -42,6 +42,12 @@ def build():
         for i in range(count):
             entries.append(dict(key=len(entries), category=category, id=i,
                                 kind='encoded', address=base + i * 16))
+    # Append rather than renumbering: the first release's private directory and
+    # hash-bound reference hints keep all 708 existing keys unchanged.
+    for text_id, skill_id, name, default in EXTRA_SKILLS:
+        entries.append(dict(key=len(entries), category='Skills', id=text_id, kind='skill',
+                            skill_id=skill_id, pointer=0x9AC56 + skill_id * 3,
+                            pool=[0x594000, 0x59D000], label=name, default_text=default))
     result = dict(profile='Project Naga beta 7', source={
         'repository': 'https://github.com/Miacidae/Project-Naga-beta-v7',
         'commit': '8924fb4ff5330b347074083736ada17940b677a5',

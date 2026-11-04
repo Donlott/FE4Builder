@@ -93,6 +93,25 @@ class MenuTextWindowTests(unittest.TestCase):
         self.assertEqual(self.path.read_bytes(), before)
         self.assertTrue(self.window.pending())
 
+    def test_canto_and_return_suggestions_are_written_only_on_save(self):
+        original = self.path.read_bytes()
+        self.window.group.set('Skills')
+        self.window.change_category()
+        self.assertEqual(self.window.list.size(), 20)
+        for name, text_id in (('Canto', 27), ('Return', 28)):
+            entry = next(e for e in catalogue()['entries'] if e['category'] == 'Skills' and e['id'] == text_id)
+            self.window.load(entry['key'])
+            self.assertEqual(self.window.text(), entry['default_text'])
+            self.assertTrue(self.window.pending())
+            self.assertIn('not written', self.window.label(entry))
+            self.assertFalse(self.window.write_button.instate(['disabled']))
+            self.assertEqual(self.path.read_bytes(), original)
+            self.assertTrue(self.window.save())
+            self.assertFalse(self.window.pending())
+            self.assertEqual(MenuText(Rom(self.path), entry).text, entry['default_text'])
+            self.assertNotIn('not written', self.window.label(entry))
+            original = self.path.read_bytes()
+
 
 if __name__ == '__main__':
     unittest.main()

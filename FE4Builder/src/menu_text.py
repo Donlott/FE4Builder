@@ -20,6 +20,16 @@ START = 0x3000
 MAX_ENTRIES = 1024
 MAGIC = b'FE4BMENUTEXTv1'.ljust(16, b'\0')
 SKILL_IDS = (0, 1, 2, 3, 4, 6, 10, 12, 13, 14, 15, 16, 17, 18, 19, 22, 23, 26)
+EXTRA_SKILLS = (
+    (27, 1, 'Canto', 'Canto\nUse remaining move\nafter taking an\naction.'),
+    (28, 29, 'Return', 'Return\nUse Return to travel\nback to your home\ncastle.'),
+)
+LEGACY_ENTRIES = 708
+SKILL_BANK_AT = 0x511A11
+SKILL_BANK_ORIGINAL = bytes.fromhex('A9 00 59 85 25')
+SKILL_BANK_PATCHED = b'\xEA' * 5
+SKILL_CALLER_AT = 0x9A3F6
+SKILL_CALLER = bytes.fromhex('BF 57 AC 89 85 25 BF 56 AC 89 85 24 22 00 1A 51')
 
 
 @lru_cache(None)
@@ -35,7 +45,14 @@ def reference_hints():
 
 @lru_cache(None)
 def catalogue_fingerprint():
-    return hashlib.sha256(json.dumps(catalogue()['entries'], sort_keys=True).encode()).digest()[:16]
+    entries = [{k: v for k, v in e.items() if k not in ('label', 'default_text')}
+               for e in catalogue()['entries']]
+    return hashlib.sha256(json.dumps(entries, sort_keys=True).encode()).digest()[:16]
+
+
+@lru_cache(None)
+def legacy_fingerprint():
+    return hashlib.sha256(json.dumps(catalogue()['entries'][:LEGACY_ENTRIES], sort_keys=True).encode()).digest()[:16]
 
 
 def read(rom, at, size):
@@ -204,6 +221,7 @@ class MenuText:
         self.font = font or MenuFont(rom)
         self.snapshot = list(self.font.snapshot)
         self.artwork = []
+        self.unassigned = False
         kind = entry['kind']
         if kind == 'encoded':
             raw = read(rom, entry['address'], 16)
@@ -232,7 +250,12 @@ class MenuText:
                 self.add_artwork(entry['table'] + pointer_offset, count_at, tiles, lines, align)
         elif kind == 'skill':
             self.snapshot.append((entry['pointer'], read(rom, entry['pointer'], 3)))
-            self.add_artwork(entry['pointer'], None, 16, 4, 'left')
+            pointer = int.from_bytes(read(rom, entry['pointer'], 3), 'little')
+            if pointer == 0 and entry.get('default_text'):
+                self.unassigned = True
+                self.artwork.append(Artwork(entry['pointer'], None, 0, 16, 4, 'left', bytes(2048)))
+            else:
+                self.add_artwork(entry['pointer'], None, 16, 4, 'left')
         else:
             raw = read(rom, entry['graphics'], 512)
             self.artwork.append(Artwork(0, None, entry['graphics'], 16, 1, 'left', raw))
@@ -272,7 +295,7 @@ class MenuText:
         rows = []
         widths = []
         for i, line in enumerate(lines + [''] * (self.capacity - len(lines))):
-            limit = 56 if self.entry['kind'] == 'skill' and i == 0 else 64 if self.entry['kind'] == 'name' else 128
+            limit = (56 if i == 0 else 96) if self.entry['kind'] == 'skill' else 64 if self.entry['kind'] == 'name' else 128
             try:
                 rendered = self.font.render_line(line, limit)
             except ValueError as error:
@@ -311,7 +334,9 @@ class MenuText:
             if count_at is not None:
                 edits.append((count_at, bytes([count])))
         if kind == 'skill':
-            edits += skill_menu_plan(self.rom, self.entry['slot'], self.font.render_line(text.split('\n')[0]))
+            edits += skill_bank_plan(self.rom)
+            if self.entry.get('slot') is not None:
+                edits += skill_menu_plan(self.rom, self.entry['slot'], self.font.render_line(text.split('\n')[0]))
         return rows, edits
 
     def write(self, text):
@@ -330,6 +355,17 @@ def text_record(text):
     return b'TXT1' + len(raw).to_bytes(2, 'little') + raw
 
 
+def validate_pool(block):
+    fingerprint = block[16:32]
+    valid = fingerprint == catalogue_fingerprint()
+    if not valid and fingerprint == legacy_fingerprint():
+        # Old versions cleared the entire directory. New slots must remain
+        # empty until an explicit write migrates this checksummed header.
+        valid = not any(block[128 + LEGACY_ENTRIES * 8:128 + len(catalogue()['entries']) * 8])
+    if not valid or block[32] not in (0, 255) or block[64:96] != pool_digest(block):
+        raise ValueError('Private menu text storage failed its integrity check. Restore a backup.')
+
+
 def private_text(model):
     rom, entry = model.rom, model.entry
     private = any(ARENA <= a.pointer < ARENA + SIZE for a in model.artwork)
@@ -338,9 +374,7 @@ def private_text(model):
             raise ValueError('A menu pointer has no valid private storage directory.')
         return None
     block = read(rom, ARENA, SIZE)
-    fingerprint = catalogue_fingerprint()
-    if block[16:32] != fingerprint or block[64:96] != pool_digest(block):
-        raise ValueError('Private menu text storage failed its integrity check.')
+    validate_pool(block)
     at = 128 + entry['key'] * 8
     offset, size = int.from_bytes(block[at:at + 4], 'little'), int.from_bytes(block[at + 4:at + 8], 'little')
     if not offset and not size:
@@ -374,14 +408,15 @@ def allocate(rom, key, payload):
     fingerprint = catalogue_fingerprint()
     block = bytearray(read(rom, ARENA, SIZE))
     if block[:16] == MAGIC:
-        if block[16:32] != fingerprint or block[32] not in (0, 255) or block[64:96] != pool_digest(block):
-            raise ValueError('Private menu text storage failed its integrity check. Restore a backup.')
+        validate_pool(block)
     else:
         if len(set(block)) != 1 or block[0] not in (0, 255):
             raise ValueError('The reserved menu text area contains other data. No text was changed.')
         fill = block[0]
         block[:START] = bytes(START)
         block[:16], block[16:32], block[32] = MAGIC, fingerprint, fill
+    # Existing native pointers, artwork and records keep their original keys.
+    block[16:32] = fingerprint
     if len(entries) > MAX_ENTRIES or not 0 <= key < len(entries):
         raise ValueError('Menu text catalogue is too large or inconsistent.')
     used = []
@@ -439,6 +474,23 @@ def pointer_fields(entry):
     if entry['kind'] in ('name', 'description'):
         return [entry['table'] + v[1] for v in entry['variants']]
     return [entry['pointer']] if entry['kind'] == 'skill' else []
+
+
+def skill_bank_plan(rom):
+    """Preserve the full 24-bit help pointer which the native caller loads.
+
+    Project Naga then overwrote its bank with $59 inside $51:1A00. Removing
+    that redundant five-byte assignment supports both original $59 artwork
+    and private artwork without changing the DMA, tilemap or skill routines.
+    """
+    if read(rom, SKILL_CALLER_AT, len(SKILL_CALLER)) != SKILL_CALLER:
+        raise ValueError('The skill-help loader differs from the supported reference. No text was changed.')
+    code = read(rom, SKILL_BANK_AT, len(SKILL_BANK_ORIGINAL))
+    if code == SKILL_BANK_PATCHED:
+        return []
+    if code != SKILL_BANK_ORIGINAL:
+        raise ValueError('The skill-help graphics bank has custom code. No text was changed.')
+    return [(SKILL_BANK_AT, SKILL_BANK_PATCHED)]
 
 
 def skill_menu_plan(rom, selected, rows):

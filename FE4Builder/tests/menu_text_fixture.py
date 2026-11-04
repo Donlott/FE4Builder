@@ -9,8 +9,10 @@ def make_text_rom(directory, header=False):
     raw = bytearray(0x800000)
     raw[0xFFC0:0xFFD5] = b'FIREEMBLEM4'.ljust(21, b' ')
     raw[0x484FF:0x48503] = bytes.fromhex('22 00 0C 51')
+    raw[0x511A11:0x511A16] = bytes.fromhex('A9 00 59 85 25')
+    raw[0x9A3F6:0x9A406] = bytes.fromhex('BF 57 AC 89 85 25 BF 56 AC 89 85 24 22 00 1A 51')
     for code in range(0x10, 0xA6):
-        width = 8 if code == 0x26 else 2 if code in (0x18, 0x32, 0x35) else 6
+        width = 8 if code == 0x26 else 2 if code in (0x18, 0x32, 0x35) else 4
         raw[0x119961 + code] = width
         rows = [[0] * 16 for _ in range(16)]
         rows[2][1] = rows[12][1] = 2
@@ -42,6 +44,8 @@ def make_text_rom(directory, header=False):
                 at = entry['table'] + pointer_at
                 raw[at:at + 3] = pointer.to_bytes(3, 'little')
         elif kind == 'skill':
+            if entry.get('default_text'):
+                continue
             pointer = 0x594000 + entry['slot'] * 0x800
             raw[entry['pointer']:entry['pointer'] + 3] = pointer.to_bytes(3, 'little')
             gfx = pack(font.render_line('A') + [[0] * 7 for _ in range(48)], 16, 4)

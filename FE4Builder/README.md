@@ -105,8 +105,8 @@ Launch (F5)** writes before launching. The window stays usable alongside other
 editors. Renamed item/class labels appear in the main editor and applicable
 dropdowns after saving.
 
-The catalogue contains **708 entries**: 138 item names, 138 item descriptions,
-25 shared effect descriptions, 18 skill names/help panels, 72 class names,
+The catalogue contains **710 entries**: 138 item names, 138 item descriptions,
+25 shared effect descriptions, 20 skill names/help panels, 72 class names,
 26 terrain names, 7 status names, 2 skill-type labels, 46 map-location labels,
 55 menu-location labels, 110 item message names and 71 class message names.
 Playable character names and story dialogue retain their existing editors.
@@ -114,10 +114,16 @@ Playable character names and story dialogue retain their existing editors.
 Most menu text is pre-rendered 2bpp artwork. The editor reads/renders the ROM’s
 font and writes isolated replacement artwork, preserving other entries that
 shared an original image. Item-name left/right variants and each location
-entry’s applicable alignments are updated together. Skill edits update both
-the full help panel and its name in the compact Skills menu. **Shared effect
+entry’s applicable alignments are updated together. The 18 original skill
+entries update both their help panel and compact Skills-menu name. **Shared effect
 descriptions** intentionally change every item still using that shared effect
 image; editing its wording does not change the effect’s behavior.
+
+**Canto and Return** are available under **Skills**. If their help-text pointers
+are empty, the editor shows suggested names and descriptions; select each and
+use **Write to ROM** to add or customize its text. This fills the visible skill
+icon’s status-screen help panel. Their existing visibility, effects and the
+game’s original 18-entry Skills glossary remain as configured in the ROM.
 
 **Menu names and message names are separate lists with different IDs.** For
 example inventory item `1C` is Iron lance, while message-name `1A` is Iron lance.
@@ -126,7 +132,7 @@ contexts. The two location categories and names literally written into story
 scripts also remain separate; there is no guessed global search/replace.
 
 Names have a 64-pixel limit; compact skill names have 56 pixels. Skill panels
-have three help lines of 128 pixels after the name. Item descriptions retain
+have three visible help lines of 96 pixels after the name. Item descriptions retain
 their existing one- or three-line layout, at 128 pixels per line. Message names
 have 15 encoded bytes available. Invalid characters and overflowing text are
 rejected before any ROM bytes change. Bitmap-only unknown text remains visible
@@ -135,7 +141,10 @@ uppercase I and lowercase l identically: original public artwork is matched by
 hash to verified reference labels, and new edits store their exact spelling.
 
 Private menu artwork/text uses a verified empty 320 KiB region at PC
-`5B0000–5FFFFF`, without ROM expansion or engine patches. Occupied storage,
+`5B0000–5FFFFF`, without ROM expansion. The first skill-text write also applies
+a guarded five-byte fix so the game uses the full graphics pointer instead of
+forcing the original bank. Existing menu-text edits from the previous editor
+version remain readable and migrate on the next explicit write. Occupied storage,
 corrupt metadata, stale forms, foreign private pointers and exhausted capacity
 are rejected. Other ROM layouts are not silently treated as this profile.
 Research, storage details and verification: [menu-text-research.md](docs/menu-text-research.md).
