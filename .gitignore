@@ -19,6 +19,7 @@
 !/FE4Builder/docs/map-transition-research.md
 !/FE4Builder/docs/menu-text-research.md
 !/FE4Builder/docs/promotion-stats-research.md
+!/FE4Builder/docs/icon-editor.md
 
 /FE4Builder/src/*
 !/FE4Builder/src/*.py

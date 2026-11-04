@@ -364,6 +364,49 @@ Personal **Skills 3** bit **04** is named **Escape (retreat on defeat)**. It sel
 
 ## Item icons and weapon previews
 
+Open **Graphics & Text → Icon Editor**, or **Edit inventory icon...** beside an
+item's preview. The editor supports the verified 8 MiB ExHiROM layout. Browse
+items/skills or the complete icon library, paint pixels with the native palette,
+export/import **16 × 16 PNGs**, add new artwork, and assign it to existing items
+or skills. Index 0 is transparent. Foreign colors are rejected unless **Allow
+color reduction** is enabled; reduced imports remain staged for review. Palette
+changes are not made to unrelated game graphics.
+
+**Keep artwork changes private to selected item / skill** defaults on: editing
+an icon shared by other records allocates a private copy. Library edits affect
+every listed use. **Link skill screens** updates the stat screen, stat-screen
+help and the compact Skills-menu help where that skill has an entry. Hidden
+skills stay hidden when painting/importing private artwork; **Assign** and
+**Hide on stat screen** explicitly control assignments/visibility. New artwork
+does not create new item types, skill bits or gameplay effects.
+
+There are **120 safely addressable item-icon slots** and **24 original skill
+slots, expandable to 32**. In the supplied ROM, 111 item slots and 24 skill
+slots contain artwork, leaving nine item additions and eight additional skill
+slots before optimization. The editor warns as capacity fills and rejects
+overflow. Adding skill artwork beyond 24 stages a private 4 KiB atlas and
+updates all three native loaders and their ExHiROM mirrors when saved. Each
+icon consumes 128 raw bytes; the last physical item-sheet row is padding which
+cannot be addressed safely with the game's sprite tile offset.
+
+**Optimize duplicate icon space when writing** packs identical whole icons
+together and rewrites their assignments while preserving appearances and
+unassigned unique artwork. Its checkbox stays selected after writing and across
+reopening. Original/current/new artwork totals and loaded-sheet sizes are
+reported; a baseline and the first optimization-report setting are saved per
+ROM in `data/icon-sizes.json`. The original baseline is also embedded in ROM
+metadata on the first write. Optimization frees reusable icon slots, rather
+than shrinking the ROM file or pretending that raw DMA sheets are compressed.
+An expanded skill sheet returns to 24 slots if its optimized artwork fits.
+The space panel separately reports private ROM storage and the first successful
+optimization shows a report.
+
+All changes stay staged until **Write to ROM** or **Save & Launch (F5)**, with
+automatic backup and undo/redo. Multiple editors remain usable; an icon window
+detects another editor's ROM changes and requires reloading before it can write.
+Storage, loader and sprite-layout checks reject incompatible/custom code before
+saving. Technical limits and validation: [Icon Editor](docs/icon-editor.md).
+
 Character equipment fields show live thumbnails. **Browse...** opens a searchable visual list with weapon-type filters, a larger preview and a compact stat summary. Player equipment browsing selects an existing inventory slot; the slot and item IDs are shown separately, so duplicate instances of the same weapon stay distinct. Choosing an entry changes only the current form until it is written normally. Click the thumbnail or **Edit...** to open the item-type stats.
 
 The Item Editor displays a larger native inventory icon and live Might / Hit / Weight / Uses / Price / Range summary. Its **Preview** selector switches between **Inventory icon** and the larger **Held weapon** artwork. **Browse items...** navigates to the selected weapon, staff, ring or Circlet record, with **Back** returning to the previous editor. The item sprite/palette editor previews its draft sprite assignments.

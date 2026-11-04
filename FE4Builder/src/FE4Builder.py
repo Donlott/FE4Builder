@@ -156,6 +156,7 @@ class App(tk.Tk):
         self.item_preview_view=ttk.Combobox(preview_controls,state='readonly',values=['Inventory icon','Held weapon'],width=15)
         self.item_preview_view.current(0);self.item_preview_view.pack(pady=4)
         self.item_preview_view.bind('<<ComboboxSelected>>',lambda e:self.update_equipment_visuals())
+        ttk.Button(preview_controls,text='Edit inventory icon...',command=self.edit_current_icon).pack(pady=4)
         self.item_preview_frame.bind('<Configure>',lambda e:self.item_description_label.configure(wraplength=max(200,e.width-self.item_picture.winfo_reqwidth()-preview_controls.winfo_reqwidth()-30)))
         self.shared_bar=ttk.Frame(right);self.shared_bar.pack(fill='x',pady=(0,4))
         self.shared_text=tk.StringVar();ttk.Label(self.shared_bar,textvariable=self.shared_text,wraplength=650,style='Subtitle.TLabel').pack(side='left',fill='x',expand=True)
@@ -638,6 +639,17 @@ class App(tk.Tk):
     def edit_intro(self):
         from intro_window import open_intro_window
         return self.prepare_window(open_intro_window(self))
+
+    def edit_icons(self,kind='items',record=0):
+        from icon_window import open_icon_window
+        return self.prepare_window(open_icon_window(self,kind,record),restore=False)
+
+    def edit_current_icon(self):
+        if self.record is None:return
+        from item_art import item_for_record
+        table,index=self.record
+        item=item_for_record(self.modules[table],index)
+        if item is not None:return self.edit_icons('items',item)
 
     def edit_patches(self):
         from patch_window import open_patch_window

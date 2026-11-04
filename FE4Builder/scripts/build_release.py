@@ -99,6 +99,7 @@ def payload(platform):
     add(B/'README.md','FE4Builder/README.md')
     add(B/'docs/menu-text-research.md','FE4Builder/docs/menu-text-research.md')
     add(B/'docs/promotion-stats-research.md','FE4Builder/docs/promotion-stats-research.md')
+    add(B/'docs/icon-editor.md','FE4Builder/docs/icon-editor.md')
     modules=B.parent/'Nightmare Modules'/'FE4 Nightmare modules'
     for path in sorted(modules.rglob('*')):
         if path.is_file() and path.suffix.lower() in ('.nmm','.txt'):
