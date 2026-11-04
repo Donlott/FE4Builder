@@ -12,6 +12,8 @@ from portraits import export_png, pointer_for, pc_address
 
 ITEM_GRAPHICS = 0x184000
 ITEM_LOOKUP = 0xD1AE
+ITEM_STATUS_LOOKUP = 0xBBED5
+WEAPON_TYPE_LOOKUP = 0xAA2CB
 # Item sprites add $20 to the atlas tile. The final physical sheet row would
 # overflow the nine-bit OBJ tile number into palette bits; retain it as padding.
 ITEM_CAPACITY = 120
@@ -129,7 +131,8 @@ def profile(rom, expanded):
     if read(rom, 0xCDEC, len(expected)) != expected:
         raise ValueError('The inventory icon loader has custom code. No icons were changed.')
     for context in (0, 2):skill_palette_address(rom, context)
-    guards = ((0xD187, 'BF AE D1 80'), (0x9A397, 'BF FE 92 89'),
+    guards = ((0xD187, 'BF AE D1 80'), (0xBBEA3, 'BF D5 BE 8B'),
+              (0xAA26F, 'B9 CB A2'), (0xAA288, 'B9 DB A2'), (0x9A397, 'BF FE 92 89'),
               (0x9A519, 'BF 2D A5 89'), (0xBDB5A, 'BF 7E DB 8B'))
     for at, sequence in guards:
         if read(rom, at, len(bytes.fromhex(sequence))) != bytes.fromhex(sequence):
@@ -186,6 +189,18 @@ class IconDocument:
                                                0x1000 if self.expanded else 0xC00))}
         self.refs = {'items': [slot(int.from_bytes(read(rom, ITEM_LOOKUP + i * 2, 2), 'little'), ITEM_CAPACITY) for i in range(138)],
                      'skills': []}
+        # The status/trade screens stream each item from a second offset
+        # table. Weapon-type/empty icons also use this sheet, independently
+        # of item assignments, and must survive packing and private copies.
+        self.weapon_refs = []
+        for i in range(9):
+            offset = int.from_bytes(read(rom, WEAPON_TYPE_LOOKUP + i * 2, 2), 'little')
+            if offset % 32:raise ValueError('Unsupported weapon-type icon offset.')
+            self.weapon_refs.append(slot(offset // 32, ITEM_CAPACITY))
+        from menu_text import item_help_plan
+        self.help_repairs = item_help_plan(rom)
+        status = b''.join((tile(v) * 32).to_bytes(2, 'little') for v in self.refs['items'])
+        self.needs_repair = bool(self.help_repairs) or read(rom, ITEM_STATUS_LOOKUP, len(status)) != status
         for context, (at, count) in enumerate(zip(TABLES, (29, 29, 18))):
             values = []
             for i in range(count):
@@ -204,7 +219,8 @@ class IconDocument:
         return self.refs[kind] if kind == 'items' else [s for group in self.refs['skills'] for s in group if s is not None]
 
     def active(self, kind):
-        return sorted(set(self.references(kind)) | self.flags[kind] | {i for i, raw in enumerate(self.art[kind]) if any(raw)})
+        return sorted(set(self.references(kind)) | self.flags[kind] | (set(self.weapon_refs) if kind == 'items' else set()) |
+                      {i for i, raw in enumerate(self.art[kind]) if any(raw)})
 
     def free(self, kind):
         return sorted(set(range(len(self.art[kind]))) - set(self.active(kind)))
@@ -279,7 +295,9 @@ class IconDocument:
             capacity = ITEM_CAPACITY if kind == 'items' else 24 if len(packed) <= 24 else 32
             clone.art[kind] = packed + [bytes(128)] * (capacity - len(packed))
             clone.flags[kind] = {mapping[i] for i in self.flags[kind]}
-            if kind == 'items':clone.refs[kind] = [mapping[v] for v in self.refs[kind]]
+            if kind == 'items':
+                clone.refs[kind] = [mapping[v] for v in self.refs[kind]]
+                clone.weapon_refs = [mapping[v] for v in self.weapon_refs]
             else:clone.refs[kind] = [[mapping[v] if v is not None else None for v in group] for group in self.refs[kind]]
         return clone
 
@@ -291,11 +309,14 @@ class IconDocument:
         if bytes(self.rom.data) != self.snapshot:
             raise ValueError('The ROM changed while this icon editor was open. Reload before writing.')
         target = self.optimized() if optimize else self
-        if (target.art, target.refs, target.flags) == self.original:return [], target
+        if (target.art, target.refs, target.flags) == self.original and not self.needs_repair:return [], target
         if self.storage_error:raise ValueError(self.storage_error)
         baseline = baseline or self.baseline or self.sizes_original()
         edits = [(ITEM_GRAPHICS, join_atlas(target.art['items']))]
         edits.append((ITEM_LOOKUP, b''.join(tile(v).to_bytes(2, 'little') for v in target.refs['items'])))
+        edits.append((ITEM_STATUS_LOOKUP, b''.join((tile(v) * 32).to_bytes(2, 'little') for v in target.refs['items'])))
+        edits.append((WEAPON_TYPE_LOOKUP, b''.join((tile(v) * 32).to_bytes(2, 'little') for v in target.weapon_refs)))
+        edits += self.help_repairs
         for at, group in zip(TABLES, target.refs['skills']):
             edits.append((at, b''.join((0xFFFF if v is None else tile(v)).to_bytes(2, 'little') for v in group)))
         expanded = len(target.art['skills']) == 32
@@ -333,8 +354,10 @@ class IconDocument:
             for at, raw in edits:self.rom.data[at + self.rom.header:at + self.rom.header + len(raw)] = raw
             # Reopen all pointers/metadata before any disk write.
             IconDocument(self.rom)
-            self.rom.save_original('Icon editor', [f'{sizes["items"]} item icons; {sizes["skills"]} skill icons; {sizes["loaded"]:,} loaded bytes.',
-                                                  'Shared identical icons and repacked sheets.' if optimize else 'Saved staged artwork and icon assignments.'])
+            notes = [f'{sizes["items"]} item icons; {sizes["skills"]} skill icons; {sizes["loaded"]:,} loaded bytes.',
+                     'Shared identical icons and repacked sheets.' if optimize else 'Saved staged artwork and icon assignments.']
+            if self.needs_repair:notes.append('Repaired item display: synchronized status/trade icons and checked private item-help loaders.')
+            self.rom.save_original('Icon editor', notes)
         except Exception:
             self.rom.data[:] = before
             raise

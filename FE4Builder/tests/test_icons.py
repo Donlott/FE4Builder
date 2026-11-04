@@ -7,7 +7,7 @@ from unittest.mock import patch
 
 from rom import Rom
 from icons import (IconDocument, ARENA, SIZE, PRIVATE_GRAPHICS, SKILL_GRAPHICS, ITEM_GRAPHICS,
-                   ITEM_LOOKUP, LOADERS, TABLES, SKILL_PALETTE_LOADERS, pack, unpack, read, tile, dma, split_atlas, join_atlas)
+                   ITEM_LOOKUP, ITEM_STATUS_LOOKUP, WEAPON_TYPE_LOOKUP, LOADERS, TABLES, SKILL_PALETTE_LOADERS, pack, unpack, read, tile, dma, split_atlas, join_atlas)
 from icon_stats import IconSizeHistory, artwork_bytes
 from portraits import pointer_for
 from icon_fixture import fixture, icon
@@ -70,6 +70,40 @@ class IconTests(unittest.TestCase):
         self.assertEqual(fresh.art['items'][0], original)
         self.assertIn(blank, fresh.active('items'))
         self.assertEqual(fresh.art['items'][index], icon(231))
+
+    def test_status_and_inventory_load_the_same_art_after_assignment_and_packing(self):
+        for optimize in (False, True):
+            self.rom.data[:] = self.before;doc = IconDocument(self.rom)
+            index = doc.add('items', icon(231));doc.assign('items', 0x66, index)
+            expected = [doc.art['items'][v] for v in doc.refs['items']]
+            doc.commit(optimize=optimize)
+            atlas = read(self.rom, ITEM_GRAPHICS, 0x4000)
+            for item, artwork in enumerate(expected):
+                tile_number = int.from_bytes(read(self.rom, ITEM_LOOKUP + item * 2, 2), 'little')
+                offset = int.from_bytes(read(self.rom, ITEM_STATUS_LOOKUP + item * 2, 2), 'little')
+                self.assertEqual(offset, tile_number * 32)
+                # The status/trade loader queues two 64-byte transfers, 512
+                # bytes apart in ROM, to fixed per-inventory-slot VRAM tiles.
+                self.assertEqual(atlas[offset:offset + 64] + atlas[offset + 512:offset + 576], artwork)
+
+    def test_previously_saved_stale_status_assignments_can_be_repaired_without_art_edits(self):
+        self.rom.data[ITEM_LOOKUP + 0x66 * 2:ITEM_LOOKUP + 0x66 * 2 + 2] = tile(40).to_bytes(2, 'little')
+        stale = bytes(self.rom.data);self.path.write_bytes(stale);self.rom = Rom(self.path);doc = IconDocument(self.rom)
+        self.assertFalse(doc.dirty);self.assertTrue(doc.needs_repair)
+        self.assertEqual(bytes(self.rom.data), stale)
+        self.assertTrue(doc.commit())
+        fresh = IconDocument(self.rom);self.assertFalse(fresh.needs_repair)
+        self.assertEqual(read(self.rom, ITEM_STATUS_LOOKUP + 0x66 * 2, 2), (tile(40) * 32).to_bytes(2, 'little'))
+        self.assertEqual(read(self.rom, ITEM_GRAPHICS, 0x4000), stale[ITEM_GRAPHICS:ITEM_GRAPHICS + 0x4000])
+        self.rom.undo();self.assertEqual(self.path.read_bytes(), stale)
+
+    def test_weapon_type_and_empty_icons_survive_optimization_even_without_item_users(self):
+        self.rom.data[WEAPON_TYPE_LOOKUP:WEAPON_TYPE_LOOKUP + 2] = (tile(119) * 32).to_bytes(2, 'little')
+        doc = IconDocument(self.rom)
+        expected = [doc.art['items'][v] for v in doc.weapon_refs]
+        self.assertNotIn(119, doc.free('items'))
+        doc.commit(optimize=True);fresh = IconDocument(self.rom)
+        self.assertEqual([fresh.art['items'][v] for v in fresh.weapon_refs], expected)
 
     def test_skill_addition_expands_all_dma_paths_without_overlapping_neighbors(self):
         original = read(self.rom, SKILL_GRAPHICS, 0xC00)

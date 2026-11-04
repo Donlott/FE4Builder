@@ -364,6 +364,14 @@ Personal **Skills 3** bit **04** is named **Escape (retreat on defeat)**. It sel
 
 ## Item icons and weapon previews
 
+If item icons saved by an earlier version appear incorrectly in the character
+status screen, open **Graphics & Text → Icon Editor** and click **Write to ROM**
+when the display-repair message appears. This applies the saved assignments to
+the status/trade loader and repairs existing private item-description lengths
+(including the Sagebreaker help-screen corruption). It preserves your artwork
+and text, with the normal backup and undo history. Restart the emulator with
+the written ROM to clear old menu graphics.
+
 Open **Graphics & Text → Icon Editor**, or **Edit inventory icon...** beside an
 item's preview. The editor supports the verified 8 MiB ExHiROM layout. Browse
 items/skills or the complete icon library, paint pixels with the native palette,

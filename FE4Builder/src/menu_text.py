@@ -30,6 +30,16 @@ SKILL_BANK_ORIGINAL = bytes.fromhex('A9 00 59 85 25')
 SKILL_BANK_PATCHED = b'\xEA' * 5
 SKILL_CALLER_AT = 0x9A3F6
 SKILL_CALLER = bytes.fromhex('BF 57 AC 89 85 25 BF 56 AC 89 85 24 22 00 1A 51')
+# Project Naga reads the one-byte item-help tile count with a 16-bit LDA.
+# Its high byte is the first byte of the adjacent artwork pointer. Native
+# artwork happened to be aligned; private artwork need not be. Mask the count
+# at all five readers, using a helper in the reserved (non-directory) header.
+ITEM_HELP_READERS = (0x51231D, 0x51271A, 0x512912, 0x512A18, 0x51341D)
+ITEM_HELP_HELPER = ARENA + 0x2F00
+ITEM_HELP_ORIGINAL = bytes.fromhex('BF 00 70 50')
+ITEM_HELP_PREFIX = bytes.fromhex('BF 00 00 83 29 FF 00 0A 0A 0A 0A AA')
+ITEM_HELP_CODE = ITEM_HELP_ORIGINAL + bytes.fromhex('29 FF 00 6B')
+ITEM_HELP_CALL = b'\x22' + ITEM_HELP_HELPER.to_bytes(3, 'little')
 
 
 @lru_cache(None)
@@ -337,6 +347,8 @@ class MenuText:
             edits += skill_bank_plan(self.rom)
             if self.entry.get('slot') is not None:
                 edits += skill_menu_plan(self.rom, self.entry['slot'], self.font.render_line(text.split('\n')[0]))
+        elif kind == 'description':
+            edits = item_help_plan(self.rom, pool_edit[1]) + edits[1:]
         return rows, edits
 
     def write(self, text):
@@ -474,6 +486,40 @@ def pointer_fields(entry):
     if entry['kind'] in ('name', 'description'):
         return [entry['table'] + v[1] for v in entry['variants']]
     return [entry['pointer']] if entry['kind'] == 'skill' else []
+
+
+def item_help_plan(rom, pool=None):
+    """Repair existing private item help, or install support for a new edit.
+
+    Return a checksummed pool and guarded loader edits together. Opening an
+    editor never applies them; the normal backup/undo save writes the repair.
+    """
+    if pool is None:
+        private = any(ARENA <= int.from_bytes(read(rom, at, 3), 'little') < ARENA + SIZE
+                      for entry in catalogue()['entries'] if entry['kind'] == 'description'
+                      for at in pointer_fields(entry))
+        if not private:return []
+        pool = read(rom, ARENA, SIZE)
+    block = bytearray(pool)
+    if block[:16] != MAGIC:
+        raise ValueError('Private item help has no valid menu text directory.')
+    validate_pool(block)
+    helper = ITEM_HELP_HELPER - ARENA
+    current = bytes(block[helper:helper + len(ITEM_HELP_CODE)])
+    if current not in (ITEM_HELP_CODE, bytes(len(ITEM_HELP_CODE)), b'\xff' * len(ITEM_HELP_CODE)):
+        raise ValueError('The item-help helper reservation contains other data. No text was changed.')
+    edits = []
+    for at in ITEM_HELP_READERS:
+        if read(rom, at - len(ITEM_HELP_PREFIX), len(ITEM_HELP_PREFIX)) != ITEM_HELP_PREFIX:
+            raise ValueError(f'The item-help loader at PC {at:06X} has custom code. No text was changed.')
+        code = read(rom, at, 4)
+        if code not in (ITEM_HELP_ORIGINAL, ITEM_HELP_CALL):
+            raise ValueError(f'The item-help loader at PC {at:06X} has custom code. No text was changed.')
+        if code != ITEM_HELP_CALL:edits.append((at, ITEM_HELP_CALL))
+    block[helper:helper + len(ITEM_HELP_CODE)] = ITEM_HELP_CODE
+    block[64:96] = pool_digest(block)
+    if bytes(block) != read(rom, ARENA, SIZE):edits.insert(0, (ARENA, bytes(block)))
+    return edits
 
 
 def skill_bank_plan(rom):

@@ -4,7 +4,9 @@ from pathlib import Path
 from rom import Rom
 from menu_text import (MenuText, MenuFont, catalogue, read, ARENA, SIZE, START,
                        pool_digest, pointer_fields, pack, unpack, EXTRA_SKILLS,
-                       catalogue_fingerprint, legacy_fingerprint, SKILL_BANK_AT)
+                       catalogue_fingerprint, legacy_fingerprint, SKILL_BANK_AT,
+                       ITEM_HELP_READERS, ITEM_HELP_ORIGINAL, ITEM_HELP_CALL,
+                       ITEM_HELP_HELPER, ITEM_HELP_CODE, item_help_plan, validate_pool)
 from menu_text_fixture import make_text_rom
 
 
@@ -63,6 +65,36 @@ class MenuTextTests(unittest.TestCase):
         self.assertEqual(self.model(index=1).artwork[0].raw, raw_other)
         self.model('Item descriptions').write('B')
         self.assertEqual(self.model('Item descriptions', 2).text, 'A')
+
+    def test_item_help_masks_the_byte_count_on_every_native_display_path(self):
+        self.model('Item names').write('B I l')
+        self.model('Item descriptions', 1).write('Cripples Mages.')
+        model = self.model('Item descriptions', 1)
+        count = model.artwork[0].tiles * model.artwork[0].lines
+        descriptor = read(self.rom, model.entry['table'], 4)
+        self.assertEqual(descriptor[0], count)
+        # An unaligned private pointer contaminated the native word read.
+        self.assertNotEqual(int.from_bytes(descriptor[:2], 'little'), count)
+        for at in ITEM_HELP_READERS:self.assertEqual(read(self.rom, at, 4), ITEM_HELP_CALL)
+        self.assertEqual(read(self.rom, ITEM_HELP_HELPER, len(ITEM_HELP_CODE)), ITEM_HELP_CODE)
+        validate_pool(read(self.rom, ARENA, SIZE))
+        self.assertEqual(item_help_plan(self.rom), [])
+        # Simulate an already-saved ROM from the previous editor: repair the
+        # loader without reallocating any existing artwork or text records.
+        for at in ITEM_HELP_READERS:self.rom.data[at:at + 4] = ITEM_HELP_ORIGINAL
+        artwork = model.artwork[0].raw;pointer = model.artwork[0].pointer
+        for at, raw in item_help_plan(self.rom):self.rom.data[at:at + len(raw)] = raw
+        repaired = self.model('Item descriptions', 1)
+        self.assertEqual(repaired.text, 'Cripples Mages.')
+        self.assertEqual((repaired.artwork[0].pointer, repaired.artwork[0].raw), (pointer, artwork))
+
+    def test_custom_item_help_code_is_rejected_before_writing_text(self):
+        for at in ITEM_HELP_READERS:
+            self.rom = Rom(self.path);self.rom.data[at] ^= 1
+            before = bytes(self.rom.data)
+            with self.assertRaisesRegex(ValueError, 'item-help loader'):
+                self.model('Item descriptions', 1).write('Cripples Mages.')
+            self.assertEqual(bytes(self.rom.data), before)
 
     def test_messages_have_separate_ids_and_do_not_mutate_menu_or_other_names(self):
         before = read(self.rom, 0x506700, 110 * 16)

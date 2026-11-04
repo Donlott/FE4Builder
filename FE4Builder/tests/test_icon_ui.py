@@ -11,7 +11,7 @@ import zlib
 
 from FE4Builder import App
 from rom import Rom
-from icons import IconDocument, import_png, pack, unpack, SKILL_PALETTE_LOADERS
+from icons import IconDocument, import_png, pack, unpack, SKILL_PALETTE_LOADERS, ITEM_LOOKUP, ITEM_STATUS_LOOKUP, WEAPON_TYPE_LOOKUP, tile
 from portraits import export_png
 from intro_graphics import indexed_png
 from icon_fixture import fixture
@@ -111,6 +111,34 @@ class IconUITests(unittest.TestCase):
         self.assertNotEqual(self.path.read_bytes(), saved);self.assertTrue(window.optimize.get())
         window.history(True);self.assertEqual(self.path.read_bytes(), saved)
         window.close();self.assertNotIn(window, self.app.editor_windows)
+
+    def test_saved_item_display_repair_is_available_without_repainting_and_undoable(self):
+        self.rom.data[ITEM_LOOKUP:ITEM_LOOKUP + 2] = tile(40).to_bytes(2, 'little')
+        before = bytes(self.rom.data);self.path.write_bytes(before)
+        self.app.rom = self.rom = Rom(self.path)
+        window = self.window();window.optimize.set(False);window.update_space()
+        self.assertTrue(window.pending());self.assertFalse(window.document.dirty)
+        self.assertFalse(window.write_button.instate(['disabled']))
+        self.assertIn('Display repair available', window.status.get())
+        self.assertEqual(self.path.read_bytes(), before)
+        with patch('icon_window.messagebox.showinfo'):self.assertTrue(window.save())
+        self.assertFalse(window.pending())
+        self.assertEqual(bytes(self.rom.data[ITEM_STATUS_LOOKUP:ITEM_STATUS_LOOKUP + 2]), (tile(40) * 32).to_bytes(2, 'little'))
+        self.assertEqual(self.rom.last_backup.read_bytes(), before)
+        window.history(False);self.assertEqual(self.path.read_bytes(), before)
+        self.assertTrue(window.pending())
+        with patch('icon_window.ask_unsaved', side_effect=AssertionError('repair is not a staged draft')):
+            self.assertTrue(window.settle())
+            window.history(True)
+        self.assertFalse(window.pending())
+
+    def test_private_item_painting_preserves_shared_weapon_type_artwork(self):
+        self.rom.data[WEAPON_TYPE_LOOKUP:WEAPON_TYPE_LOOKUP + 2] = (tile(110) * 32).to_bytes(2, 'little')
+        window = self.window(record=110);old = window.document.art['items'][110]
+        self.assertEqual(window.document.users('items', 110), [(110, None)])
+        window.paint(SimpleNamespace(x=80, y=80))
+        self.assertNotEqual(window.document.selected('items', 110), 110)
+        self.assertEqual(window.document.art['items'][110], old)
 
     def test_skill_contexts_new_icon_assignment_and_failed_import_are_atomic(self):
         window = self.window('skills', 1)

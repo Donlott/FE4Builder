@@ -19,6 +19,8 @@ alpha and incorrectly sized images are rejected before staging any changes.
 | --- | --- | --- |
 | Item graphics | `184000` | `4000`-byte raw DMA sheet |
 | Item assignments | `00D1AE` | 138 little-endian tile numbers |
+| Status/trade item assignments | `0BBED5` | 138 little-endian byte offsets into the same sheet |
+| Weapon-type / empty icons | `0AA2CB` | Nine byte offsets; preserved independently when packing |
 | Inventory palette | `1E0160` | 16 SNES colors |
 | Skill palette | `1E00C0` by default | 16 SNES colors; follows the native copy-loop source |
 | Original skill graphics | `1E34C0` | `0C00`-byte raw sheet; 24 icons |
@@ -54,6 +56,41 @@ last eight physical slots would carry into palette bits: slot 120 starts at
 atlas tile `$1E0`, and `$20 + $1E0 = $200`. Only slots 0–119 are exposed, and
 the original last `$400` bytes of padding are preserved untouched. Slot 119's
 bottom-right tile remains `$1FF` after the sprite offset.
+
+The character-status and trade screens do not use the bulk menu's tile-number
+table. `$8B:BE68` reads byte offsets from `0BBED5` and queues two 64-byte
+uploads, with sources 512 bytes apart, into per-inventory-slot VRAM positions.
+Both item tables are now written together (`byte offset = tile number × 32`).
+The separate weapon-type/empty-slot offsets are tracked through optimization;
+private item edits also preserve artwork used by these displays.
+
+### Repairing ROMs saved with the earlier Icon Editor
+
+Open the existing ROM in **Graphics & Text → Icon Editor**. A display-repair
+message enables **Write to ROM** even when no artwork has been repainted.
+Writing synchronizes the status/trade assignments with the saved editor
+assignments. It also repairs the Project Naga item-help length readers when
+private item descriptions are present. Existing artwork and text allocations
+are retained. The normal backup and undo history cover the entire repair.
+Restart the emulator with the written ROM and reopen the menu; an old save
+state can retain already-corrupted video memory.
+
+The previous editor updated only `00D1AE`, so optimization could leave stale
+status-screen references. On the latest supplied ROM (SHA256
+`1dbf054e9a6de85a72fd83b83ccfe6031b905c4a4aa837e2a7d071ccb8aa4b03`),
+32 item types differed between these two tables, including Greataxe (`60`) and
+Sagebreaker (`66`). Sagebreaker's separate help corruption came from an
+unmasked tile-count read, rather than damaged icon artwork. Details are in
+[menu-text-research.md](menu-text-research.md#item-help-length-repair).
+
+Validation executed the actual status/trade loader for all 138 items, both
+with and without optimization (276 loads), and checked all five native item
+description paths. In Snes9x, a new-game test session using this ROM reproduced
+the repeating-tile corruption after assigning Sagebreaker and Greataxe to a
+test inventory in emulator RAM. The same session with the repaired ROM showed
+both saved custom icons and opened both help panels without corruption. The
+uploaded ROM was not modified; test inventory changes were confined to the
+disposable emulator session.
 
 Skill atlas uploads have three verified native destinations:
 

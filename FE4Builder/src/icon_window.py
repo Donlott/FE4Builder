@@ -163,6 +163,8 @@ class IconWindow(tk.Toplevel):
                 self.swatches.create_text(x + 16, y + 16, text=f'{i:X}', fill='white' if sum(rgb) < 330 else 'black')
             users = self.document.users(kind, index)
             text = '; '.join(f'{i:02X} {self.names_current[i]}' + (f' ({CONTEXTS[context]})' if context is not None else '') for i, context in users)
+            if kind == 'items' and index in self.document.weapon_refs:
+                text += ('; ' if text else '') + 'Weapon-type / empty-slot display'
             self.users.insert('1.0', text or 'No current assignments. This artwork can be assigned to an item or skill.')
             old_art, old_refs, old_flags = self.document.original
             old_used = old_refs[kind] if kind == 'items' else [v for group in old_refs[kind] for v in group]
@@ -193,10 +195,12 @@ class IconWindow(tk.Toplevel):
         if self.size_history.error:warnings.append('Size config unavailable: ' + self.size_history.error)
         self.warning.set(' '.join(warnings))
         dirty = self.pending();self.write_button.config(state='normal' if dirty and not self.document.storage_error else 'disabled')
-        self.status.set('Staged edits: Write to ROM saves artwork and assignments together.' if dirty else 'Ready. PNGs use native palettes; index 0 is transparent.')
+        self.status.set('Display repair available: Write to ROM applies your saved item icons to the status screen and repairs existing item help.'
+                        if self.document.needs_repair else 'Staged edits: Write to ROM saves artwork and assignments together.'
+                        if dirty else 'Ready. PNGs use native palettes; index 0 is transparent.')
 
-    def pending(self):
-        if self.document.dirty:return True
+    def pending(self, include_repair=True):
+        if self.document.dirty or include_repair and self.document.needs_repair:return True
         optimized = self.document.optimized() if self.optimize.get() else self.document
         return (optimized.art, optimized.refs, optimized.flags) != self.document.original
 
@@ -210,7 +214,7 @@ class IconWindow(tk.Toplevel):
         self.check_target()
         if self.private.get() and self.view.current() == 0:
             others = {i for i, _ in self.document.users(kind, index)} - {self.current}
-            if others:
+            if others or kind == 'items' and index in self.document.weapon_refs:
                 hidden = kind == 'skills' and self.document.refs[kind][0][self.current] is None
                 index = self.document.add(kind, self.document.art[kind][index])
                 self.document.assign(kind, self.current, index, self.context.current(), self.linked.get())
@@ -326,13 +330,15 @@ class IconWindow(tk.Toplevel):
         return True
 
     def settle(self):
-        if not self.pending():return True
+        # A detected repair enables an explicit write; it is not a new user
+        # draft that must be saved/discarded to close, reload or redo an undo.
+        if not self.pending(include_repair=False):return True
         answer = ask_unsaved(self, 'Write the staged icon artwork and assignments to the ROM?')
         if answer is None:return False
         return self.save() if answer else True
 
     def reload(self):
-        if self.pending() and not messagebox.askyesno('Reload icons', 'Discard the staged icon changes and reload from the current ROM?', parent=self):return
+        if self.pending(include_repair=False) and not messagebox.askyesno('Reload icons', 'Discard the staged icon changes and reload from the current ROM?', parent=self):return
         try:self.document = IconDocument(self.rom)
         except ValueError as error:messagebox.showerror('Cannot reload icons', str(error), parent=self);return
         self.refresh_list()

@@ -139,7 +139,32 @@ confirmed that all three description rows display twelve tiles each (96 pixels).
 The two existing visibility tables remained byte-identical and a saved test
 copy reopened with all 20 skill texts intact. The original upload was unchanged.
 
-These checks verify instruction and data paths, not a full SNES rendering/session.
-Full in-game coverage of every menu and message context
-has not been performed; native-font UI previews and the automated checks do
-not replace that playtesting.
+Full in-game coverage of every menu and message context has not been performed.
+The subsequent item-help repair below also received a rendered emulator check.
+
+## Item-help length repair
+
+Project Naga's five item-description readers at PC `51231D`, `51271A`,
+`512912`, `512A18` and `51341D` load the single-byte tile count at
+`507000 + item ID × 16` with a 16-bit `LDA`. The extra byte belongs to the
+adjacent graphics pointer. Private allocations can have arbitrary low pointer
+bytes, which contaminated the DMA length and the saved layout count. In the
+latest supplied ROM, Sagebreaker's descriptor begins `30 D7 5C 5B`: it requests
+48 tiles, but the unmasked read becomes `D730`, and the direct loader uploads
+`E600` (58,880) bytes instead of `0600` (1,536). This overwrites menu graphics.
+
+All five reads now call an eight-byte helper at `5B2F00` which performs the
+same indexed load and masks it with `AND #$00FF`. The helper occupies reserved
+header space after the maximum allocation directory and before artwork at
+`5B3000`; it participates in the pool checksum. Loader signatures and helper
+occupancy are checked before any write. The existing full pointer, native DMA
+and tilemap code remain in use. New description edits install the repair, and
+the Icon Editor can apply it to already-saved private descriptions without
+rewriting their artwork, spelling or pointers.
+
+The latest uploaded ROM was checked with all 138 items in both packing modes:
+828 direct native help uploads matched their artwork pointer, byte count and
+destination; 552 queued native help entries matched their byte count and
+pointer. Snes9x reproduced Sagebreaker's repeating-tile screen on the original
+ROM and displayed its help normally on the repaired copy. Saved custom skill
+artwork and assignments remained intact. The source upload was unchanged.

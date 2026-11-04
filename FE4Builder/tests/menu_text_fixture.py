@@ -1,7 +1,7 @@
 """Synthetic Project Naga text layout; no commercial ROM/font is required."""
 from pathlib import Path
 from types import SimpleNamespace
-from menu_text import MenuFont, catalogue, pack, SKILL_IDS
+from menu_text import MenuFont, catalogue, pack, SKILL_IDS, ITEM_HELP_READERS, ITEM_HELP_ORIGINAL, ITEM_HELP_PREFIX
 from names import tile_bytes
 
 
@@ -11,6 +11,9 @@ def make_text_rom(directory, header=False):
     raw[0x484FF:0x48503] = bytes.fromhex('22 00 0C 51')
     raw[0x511A11:0x511A16] = bytes.fromhex('A9 00 59 85 25')
     raw[0x9A3F6:0x9A406] = bytes.fromhex('BF 57 AC 89 85 25 BF 56 AC 89 85 24 22 00 1A 51')
+    for at in ITEM_HELP_READERS:
+        raw[at - len(ITEM_HELP_PREFIX):at] = ITEM_HELP_PREFIX
+        raw[at:at + 4] = ITEM_HELP_ORIGINAL
     for code in range(0x10, 0xA6):
         width = 8 if code == 0x26 else 2 if code in (0x18, 0x32, 0x35) else 4
         raw[0x119961 + code] = width
