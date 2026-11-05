@@ -173,5 +173,67 @@ and reopening. Undo restored the expanded ROM, then the source exactly; redo
 restored the edited ROM. Coexistence checks installed the earlier promotion and
 growth-display patches on the signed-save ROM, edited icons, and removed those
 patches without affecting icon storage or signed-save/Sheena helper data.
-The portable desktop/package regression suite passed. This is native-instruction
-and editor verification; a full rendered SNES playtest remains necessary.
+The portable desktop/package regression suite passed. Those earlier expansion
+checks covered native instructions and the editor. The later status/help and
+combat fixes also received the rendered Snes9x checks described in this document.
+
+## Physical weapon combat animations
+
+Inventory icons, held battle sprites and attack animations are independent.
+On the latest uploaded Archanea ROM (SHA256
+`1dbf054e9a6de85a72fd83b83ccfe6031b905c4a4aa837e2a7d071ccb8aa4b03`),
+Greataxe (`60`) already has held sprite `26`, palette `14`; Sagebreaker (`66`)
+has held sprite `21`, palette `20`. However, both retain staff battle style
+`86` in the native style table at PC `1983BA`. The effect list at `19832D`
+also still maps `66` to the unused `27` staff effect. The map weapon loader
+at `$9E:8E01` accepts only IDs `00–39` and `7A–7C`, so it skips both items.
+Changing the icon or the held-sprite assignment cannot repair these selectors.
+
+**Item Editor → Combat animations...** provides an explicit, per-item physical
+animation base. The suggested base matches the current weapon type, attack
+range and, where possible, assigned held graphic. For this ROM, Greataxe uses
+`2C` (Helswath), and Sagebreaker uses `2D` (Hand Axe). A ranged axe needs the
+native close/ranged style `63`, which resolves to `23` at close range and `64`
+at distance. The target's held graphic and palette remain in use. Map combat
+uses the base weapon's map graphic/palette. Selecting a different base does
+not change damage, effectiveness, skills, uses, stats, names or inventory icons.
+
+Three guarded presentation hooks apply the alias:
+
+| Hook PC | Native routine | Purpose |
+| --- | --- | --- |
+| `15A1ED` | `$95:A1ED` | Select battle attack style, retaining native distance handling |
+| `16DC8A` | `$96:DC7C` | Select the base weapon's effect rather than a leftover staff effect |
+| `1E8E01` | `$9E:8E01` | Load the base weapon's map weapon graphic/palette |
+
+The gameplay item IDs and held-weapon loader are untouched. The implementation
+keeps a 138-byte alias table and small stack-only helpers in a checked 4 KiB
+reservation at PC `6FE000–6FEFFF`, immediately after icon storage. It requires
+the verified 8 MiB ExHiROM layout, checks native code and storage integrity,
+and rejects occupied/custom layouts before writing. Each save creates a backup
+and undo entry. Removing the last alias restores all three original hooks and
+the original free-space fill. The ROM is not expanded.
+
+Bases are limited to supported physical sword/lance/axe/bow styles. Melee-only
+styles cannot be selected for ranged weapons, and the control rejects missing
+held graphics/palettes. It does not add new class poses or magical attacks.
+
+Validation executed 141 alias cases (all item IDs plus sentinel/out-of-range
+values), 564 native style selections, 1,128 native effect selections across both
+battle sides, and 141 native map loads. Unconfigured items matched the original
+routine results; configured items matched their base weapon. Original gameplay
+IDs, held graphics, palettes and all item data were preserved. Tests also cover
+headered/unheadered ROMs, FF-filled storage, incompatible ranges, tampering,
+custom hooks, stale models, save rollback, removing aliases, backup/undo/redo
+and the Item Editor button.
+
+In a disposable Snes9x session, the starting player's class was changed in RAM
+to Hero to match the reported class, and both test weapons and a nearby enemy
+were arranged in emulator RAM. The unmodified combat selectors reproduced
+Sagebreaker's empty-handed attack and stalled full battle. With the repair,
+Greataxe completed full and map battles with visible weapon graphics;
+Sagebreaker completed full battles at range 1 and 2 and displayed weapon
+graphics in map combat. These are focused checks, not coverage of every class
+or battle condition. Replaying the same close-range map attack before and after
+the patch produced identical player/enemy personal data, player inventory and
+all 142 item-instance records. The uploaded ROM was left untouched.

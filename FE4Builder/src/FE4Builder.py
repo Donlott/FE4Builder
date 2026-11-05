@@ -157,6 +157,7 @@ class App(tk.Tk):
         self.item_preview_view.current(0);self.item_preview_view.pack(pady=4)
         self.item_preview_view.bind('<<ComboboxSelected>>',lambda e:self.update_equipment_visuals())
         ttk.Button(preview_controls,text='Edit inventory icon...',command=self.edit_current_icon).pack(pady=4)
+        ttk.Button(preview_controls,text='Combat animations...',command=self.edit_current_combat).pack(pady=4)
         self.item_preview_frame.bind('<Configure>',lambda e:self.item_description_label.configure(wraplength=max(200,e.width-self.item_picture.winfo_reqwidth()-preview_controls.winfo_reqwidth()-30)))
         self.shared_bar=ttk.Frame(right);self.shared_bar.pack(fill='x',pady=(0,4))
         self.shared_text=tk.StringVar();ttk.Label(self.shared_bar,textvariable=self.shared_text,wraplength=650,style='Subtitle.TLabel').pack(side='left',fill='x',expand=True)
@@ -650,6 +651,16 @@ class App(tk.Tk):
         table,index=self.record
         item=item_for_record(self.modules[table],index)
         if item is not None:return self.edit_icons('items',item)
+
+    def edit_current_combat(self):
+        if self.record is None or not self.settle():return
+        from item_art import item_for_record
+        from combat_art_window import CombatArtWindow
+        table,index=self.record
+        item=item_for_record(self.modules[table],index)
+        if item is None:return
+        try:return self.prepare_window(CombatArtWindow(self,item),restore=False)
+        except ValueError as error:messagebox.showerror('Cannot open combat animations',str(error),parent=self)
 
     def edit_patches(self):
         from patch_window import open_patch_window

@@ -364,6 +364,18 @@ Personal **Skills 3** bit **04** is named **Escape (retreat on defeat)**. It sel
 
 ## Item icons and weapon previews
 
+For weapons repurposed from staff or magic slots, select the weapon in
+**Item Editor → Combat animations...**, choose a compatible physical weapon
+as the animation base, then **Write to ROM**. This repairs battle attack poses,
+effects and the weapon shown in map combat while preserving the selected
+held-weapon sprite/palette, inventory icon, name and stats. In the supplied
+Archanea ROM, the suggested bases are **2C Helswath** for **60 Greataxe** and
+**2D Hand Axe** for **66 Sagebreaker** (including its range-2 attacks). Write
+each item, then restart the emulator with the saved ROM. Choosing **Original
+slot animations** removes that item's override. Saves create backups and undo
+entries. This control supports physical swords, lances, axes and bows with
+compatible existing attack ranges; it does not create new class animations.
+
 If item icons saved by an earlier version appear incorrectly in the character
 status screen, open **Graphics & Text → Icon Editor** and click **Write to ROM**
 when the display-repair message appears. This applies the saved assignments to
