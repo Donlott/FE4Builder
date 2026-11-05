@@ -251,6 +251,10 @@ original modules, including sounds, holy weapon flashes, broken weapon mappings,
 magic/map animations, pointer tables, item skills, minimum damage and bonuses.
 The module selector and editable fields appear in the same window. These views
 retain normal Write to ROM, automatic backups, undo/redo and Save & Launch.
+Item views show the native inventory icon and held weapon together. Sprite and
+palette selections update the held preview before writing, including in the
+original Item Sprite module. Item lists and equipment fields retain their native
+icon previews; player-slot previews follow the unsaved assignment.
 
 The first addition enables a ROM patch that **requires a new game**. It retains
 all four saves and fixes the maximum item-record save layout from that point

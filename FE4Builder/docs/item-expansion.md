@@ -18,6 +18,13 @@ slots and held-sprite assignments use their relocated tables. Module edits use
 the same Write to ROM, backups, undo/redo and Save & Launch controls. Switching
 views or modules settles pending changes first; opening/browsing is read-only.
 
+Inventory icons and held weapons appear side by side in both the item views
+and original item modules. The held preview follows draft sprite/palette and
+weapon/staff selections without writing to the ROM. Inventory lists and item
+reference fields also show their native icons; player-slot previews follow the
+draft assignment. Items without held artwork are labelled accordingly, and
+invalid references clear the affected preview rather than leaving stale artwork.
+
 ## Enabling entries
 
 **Add item...** copies an existing item into a disabled ID. **Add player slot...**

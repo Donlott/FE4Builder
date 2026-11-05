@@ -85,9 +85,9 @@ class ItemArt:
         value=stats.get('Weapon Type',255)
         return TYPE_NAMES[value] if 0<=value<len(TYPE_NAMES) else 'Weapon'
 
-    def art(self,item,overrides=None):
+    def art(self,item,overrides=None,stats=None):
         if not 0<=item<self.count:raise ValueError('Unsupported item ID.')
-        kind=self.kind(item)
+        kind=self.kind(item,stats)
         if 125 <= item < ITEM_COUNT:
             rows,colors=self.icon(item)
             return rows,colors,'Native inventory icon (no held-weapon artwork)'

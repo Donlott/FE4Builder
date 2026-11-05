@@ -147,7 +147,14 @@ class ItemWindow(tk.Toplevel):
                 except ValueError:pass
             label=f'{index+first:02X} {name}'
             if query and query not in label.casefold():continue
-            self.list.insert('','end',iid=str(index),text=label);self.visible.append(index)
+            try:
+                from portraits import export_png
+                rows,colors=self.art.icon(item) if item is not None else (None,None)
+                if rows is None:raise ValueError('No item for this record.')
+                self.photos[index]=tk.PhotoImage(master=self,data=base64.b64encode(export_png(rows,colors))).zoom(2)
+                self.list.insert('','end',iid=str(index),text=label,image=self.photos[index])
+            except ValueError:self.list.insert('','end',iid=str(index),text=label)
+            self.visible.append(index)
         self.count.set(f'{len(self.native_modules)} original modules · {module.count} records\nSearch filters this module’s records.')
         value=selected if selected in self.visible else self.current if self.current in self.visible else self.visible[0] if self.visible else None
         if value is not None:
@@ -168,19 +175,24 @@ class ItemWindow(tk.Toplevel):
             self.populate(value);return
         self.load(value)
 
-    def add_control(self, parent, label, value, options=None, row=0, column=0):
+    def add_control(self, parent, label, value, options=None, row=0, column=0, field=None):
         ttk.Label(parent, text=label).grid(row=row, column=column, sticky='w', padx=(0, 8), pady=5)
         mapping = {f'{key:02X} {name}':key for key, name in (options or {}).items()}
         text = next((name for name, key in mapping.items() if key == value), str(value))
         var = tk.StringVar(value=text)
-        widget = ttk.Combobox(parent, textvariable=var, values=list(mapping), width=23) if mapping else ttk.Entry(parent, textvariable=var, width=25)
-        widget.grid(row=row, column=column+1, sticky='ew', padx=(0, 16), pady=5)
+        control=ttk.Frame(parent);control.grid(row=row,column=column+1,sticky='ew',padx=(0,16),pady=5)
+        if field is not None and field.reference in ('FE4 Player Equipment.txt','FE4 Weapon List.txt'):
+            icon=ttk.Label(control);icon.pack(side='left',padx=(0,6))
+            self.equipment_icons[len(self.controls)]=(icon,field)
+        widget = ttk.Combobox(control, textvariable=var, values=list(mapping), width=23) if mapping else ttk.Entry(control, textvariable=var, width=25)
+        widget.pack(side='left',fill='x',expand=True)
         self.controls.append((var, mapping));return var
 
     def load(self, value):
         self.current = value;self.model = ItemExpansion(self.rom);self.art = ItemArt(self.rom)
         self.form_snapshot = bytes(self.rom.data)
-        self.controls = [];self.initial = []
+        self.controls = [];self.initial = [];self.equipment_icons={}
+        self.preview_picture=None;self.held_picture=None;self.preview=None;self.held_preview=None
         for widget in self.content.winfo_children():widget.destroy()
         if self.kind=='modules':
             self.load_module_record(value)
@@ -190,26 +202,14 @@ class ItemWindow(tk.Toplevel):
         except ValueError:name = f'Item {item:02X}'
         self.heading.set(f'{value:02X} {name}')
         self.details.set(f'Player item slot {value:02X} → item type {item:02X}' if self.kind == 'slots' else f'Item type {item:02X} · Shared by every instance of this item')
-        preview = ttk.Frame(self.content);preview.pack(fill='x', pady=8)
-        self.preview_picture = ttk.Label(preview);self.preview_picture.pack(side='left', padx=(0,16))
-        self.preview_caption = tk.StringVar()
-        ttk.Label(preview,textvariable=self.preview_caption,wraplength=500,justify='left').pack(side='left',fill='x',expand=True)
-        self.preview_mode = ttk.Combobox(preview,state='readonly',values=['Inventory icon','Held weapon'],width=15)
-        self.preview_mode.current(0);self.preview_mode.pack(side='right');self.preview_mode.bind('<<ComboboxSelected>>',lambda _:self.draw_preview())
-        try:
-            from portraits import export_png
-            rows, colors = self.art.icon(item)
-            self.preview = tk.PhotoImage(master=self, data=base64.b64encode(export_png(rows, colors))).zoom(4)
-            self.preview_picture.configure(image=self.preview)
-            self.preview_caption.set(self.art.summary(item))
-        except ValueError:pass
+        self.create_previews()
         original = int.from_bytes(self.model.block[18:20], 'little') if self.model.installed else max(self.model.slots, default=0)
         removable = value > original if self.kind == 'slots' else value >= BASE_ITEMS
         self.remove_button.configure(state='normal' if removable else 'disabled')
         if self.kind == 'slots':
             box = ttk.LabelFrame(self.content, text='Slot assignment', padding=10);box.pack(fill='x')
             options = {i:self.art.name(i) for i in self.model.items}
-            self.add_control(box, 'Item type', item, options)
+            self.add_control(box, 'Item type', item, options,field=self.art.player.fields[0])
             ttk.Button(box, text='Edit this item', command=lambda:self.open_item(item)).grid(row=1, column=0, columnspan=2, sticky='w', pady=8)
             self.show_locations(value)
             self.module = None;self.stat_count = 1
@@ -220,14 +220,14 @@ class ItemWindow(tk.Toplevel):
             for i, (field, stored) in enumerate(zip(self.module.fields, self.rom.values(self.module, self.module_index))):
                 options=self.rom.field_options(field)
                 if field.name=='Type':options={key:label for key,label in options.items() if key==2} if len(record(self.rom,item))==10 else {key:label for key,label in options.items() if key in (0,1)}
-                self.add_control(box, field.name, stored, options, i//2, i%2*2)
+                self.add_control(box, field.name, stored, options, i//2, i%2*2,field)
             self.stat_count = len(self.controls)
             actions = ttk.Frame(self.content);actions.pack(fill='x', pady=10)
             for text, category in (('Edit name...', 'Item names'), ('Edit description...', 'Item descriptions'), ('Edit event name...', 'Item names — messages')):
                 ttk.Button(actions, text=text, command=lambda c=category:self.edit_text(c)).pack(side='left', padx=(0, 6))
             ttk.Button(actions, text='Edit icon...', command=self.edit_icon).pack(side='left')
             if item < 125 or item >= BASE_ITEMS:
-                graphics = ttk.LabelFrame(self.content, text='Held weapon graphics', padding=10);graphics.pack(fill='x', pady=8)
+                graphics = ttk.LabelFrame(self.content, text='Held weapon graphics', padding=10);graphics.pack(fill='x', pady=8,before=box)
                 sprite, palette = read(self.rom, table(self.rom, 'held') + item*2, 2)
                 self.add_control(graphics, 'Sprite', sprite, {i:f'Sprite {i:02X}' for i in range(65)} | {255:'None'}, 0)
                 self.add_control(graphics, 'Palette', palette, {i:f'Palette {i:02X}' for i in range(36)} | {255:'None'}, 1)
@@ -240,6 +240,7 @@ class ItemWindow(tk.Toplevel):
                 ttk.Label(graphics, text='Reuse existing held sprites and palettes. Animation templates supply attack poses, map graphics and effects. Blood/inheritance templates supply the copied item’s holy blood requirement and inheritance exceptions.', wraplength=650).grid(row=5, column=0, columnspan=2, sticky='w', pady=8)
         self.initial = [var.get() for var, _ in self.controls]
         for var,_ in self.controls:var.trace_add('write',lambda *_:self.draw_preview())
+        self.draw_preview()
 
     def load_module_record(self, index):
         from item_expansion import ITEM_MODULE
@@ -248,32 +249,82 @@ class ItemWindow(tk.Toplevel):
         self.module_index=index
         self.heading.set(self.module.name.removeprefix('FE4 '))
         self.details.set(f'{self.module.names[index]} · Record {index:02X} · File address 0x{self.rom.address(self.module,index):06X} · {self.module.stride} bytes')
+        from item_art import item_for_record
+        self.module_item_field=next((i for i,f in enumerate(self.module.fields) if f.reference=='FE4 Weapon List.txt'),None)
+        if item_for_record(self.module,index) is not None or self.module.name=='FE4 Player Weapon Editor' or self.module_item_field is not None:
+            self.create_previews()
         box=ttk.LabelFrame(self.content,text='Original module fields',padding=10);box.pack(fill='x',pady=8)
         box.columnconfigure(1,weight=1);box.columnconfigure(3,weight=1)
         for i,(field,value) in enumerate(zip(self.module.fields,self.rom.values(self.module,index))):
-            self.add_control(box,field.name,value,self.rom.field_options(field),i//2,i%2*2)
+            self.add_control(box,field.name,value,self.rom.field_options(field),i//2,i%2*2,field)
         self.stat_count=len(self.controls);self.initial=[var.get() for var,_ in self.controls]
         ttk.Label(self.content,text='These are the original module controls, including raw pointer tables.\n'
                   'Values accept decimal or 0x hexadecimal numbers. Expanded slots and held graphics use their relocated tables.\n'
                   'Write to ROM uses the same automatic backups and undo/redo as the item views.',
                   wraplength=700,justify='left').pack(anchor='w',pady=8)
         self.remove_button.configure(state='disabled')
+        for var,_ in self.controls:var.trace_add('write',lambda *_:self.draw_preview())
+        self.draw_preview()
+
+    def create_previews(self):
+        box=ttk.LabelFrame(self.content,text='Graphics preview',padding=10);box.pack(fill='x',pady=8)
+        box.columnconfigure(1,weight=1)
+        ttk.Label(box,text='Inventory icon').grid(row=0,column=0,sticky='w',padx=(0,24))
+        ttk.Label(box,text='Held weapon — current sprite and palette').grid(row=0,column=1,sticky='w')
+        self.preview_picture=ttk.Label(box);self.preview_picture.grid(row=1,column=0,sticky='nw',padx=(0,24),pady=6)
+        self.held_picture=ttk.Label(box);self.held_picture.grid(row=1,column=1,sticky='nw',pady=6)
+        self.held_caption=tk.StringVar();ttk.Label(box,textvariable=self.held_caption,wraplength=480,justify='left').grid(row=2,column=1,sticky='w')
+        self.preview_caption=tk.StringVar();ttk.Label(box,textvariable=self.preview_caption,wraplength=700,justify='left').grid(row=3,column=0,columnspan=2,sticky='w',pady=(6,0))
+
+    def control_value(self,index):
+        var,mapping=self.controls[index]
+        return mapping[var.get()] if var.get() in mapping else number(var.get().strip())
 
     def draw_preview(self):
-        if self.current is None or self.kind=='modules':return
-        item = self.model.assignments[self.current] if self.kind == 'slots' else self.current
+        if self.current is None:return
+        from portraits import export_png
+        for index,(label,field) in self.equipment_icons.items():
+            try:
+                item=self.art.resolve(field,self.control_value(index))
+                if item is None:label.configure(image='',text='—');label.image=None;continue
+                rows,colors=self.art.icon(item)
+                label.image=tk.PhotoImage(master=self,data=base64.b64encode(export_png(rows,colors))).zoom(2)
+                label.configure(image=label.image,text='')
+            except (ValueError,OverflowError):label.configure(image='',text='?');label.image=None
+        if self.preview_picture is None:return
+        self.preview_picture.configure(image='');self.held_picture.configure(image='')
+        self.preview=None;self.held_preview=None
         try:
-            from portraits import export_png
-            if self.preview_mode.current() == 0:
-                rows,colors = self.art.icon(item);note = 'Native inventory icon'
+            values=self.values();overrides=None;stats=None
+            if self.kind=='modules':
+                from item_art import item_for_record
+                item=item_for_record(self.module,self.current)
+                if self.module.name=='FE4 Player Weapon Editor':item=values[0]
+                elif item is None and self.module_item_field is not None:item=values[self.module_item_field]
+                if self.module.name=='FE4 Item Sprite Editor by Lorena':overrides=tuple(values[:2])
+                elif item_for_record(self.module,self.current) is not None:
+                    stats=dict(zip((f.name for f in self.module.fields),values))
+            elif self.kind=='slots':item=values[0]
             else:
-                values = self.values()
-                overrides = tuple(values[self.stat_count:self.stat_count+2]) if self.kind == 'items' and len(values)>self.stat_count else None
-                rows,colors,note = self.art.art(item,overrides)
+                item=self.current;stats=dict(zip((f.name for f in self.module.fields),values[:self.stat_count]))
+                if len(values)>self.stat_count:overrides=tuple(values[self.stat_count:self.stat_count+2])
+            if item==255:
+                self.preview_caption.set('Nothing');self.held_caption.set('No item selected.');return
+            if item not in self.model.items:raise ValueError('Disabled or unsupported item ID.')
+            self.preview_caption.set(self.art.name(item,stats)+'\n'+self.art.summary(item,stats))
+            rows,colors=self.art.icon(item)
             self.preview = tk.PhotoImage(master=self,data=base64.b64encode(export_png(rows,colors))).zoom(4)
             self.preview_picture.configure(image=self.preview)
-            self.preview_caption.set(self.art.summary(item)+'\n'+note)
-        except (ValueError,OverflowError) as error:self.preview_caption.set(str(error))
+        except (ValueError,OverflowError) as error:
+            self.preview_caption.set('Preview unavailable: '+str(error));self.held_caption.set('');return
+        try:
+            rows,colors,note=self.art.art(item,overrides,stats)
+            if note!='Native held-weapon preview':self.held_caption.set('This item has no held-weapon artwork.');return
+            self.held_preview=tk.PhotoImage(master=self,data=base64.b64encode(export_png(rows,colors))).zoom(4)
+            self.held_picture.configure(image=self.held_preview)
+            assignment=overrides if overrides is not None else read(self.rom,table(self.rom,'held')+item*2,2)
+            self.held_caption.set(f'Sprite {assignment[0]:02X} · Palette {assignment[1]:02X}\nUpdates before writing to ROM.')
+        except (ValueError,OverflowError) as error:self.held_caption.set('Held preview unavailable: '+str(error))
 
     def values(self):
         result = []
@@ -470,7 +521,8 @@ class ItemWindow(tk.Toplevel):
 
     def history(self, redo):
         if not self.settle():return
-        self.app.history_step(redo);self.current = None;self.controls = [];self.initial = [];self.populate()
+        selected=self.current
+        self.app.history_step(redo);self.current = None;self.controls = [];self.initial = [];self.populate(selected)
 
     def launch(self):
         if self.save():return self.app.save_and_launch(save_current=False, parent=self)
