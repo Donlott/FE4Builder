@@ -11,7 +11,7 @@ class AllChapterEventsTests(unittest.TestCase):
     def test_every_catalogue_layout_and_original_drafts_validate(self):
         data=catalogue();self.assertEqual(len(data['entries']),557)
         self.assertEqual({e['chapter'] for e in data['entries']},set(range(12)))
-        self.assertEqual(sum(bool(e['commands']) for e in data['entries']),554)
+        self.assertEqual(sum(bool(e['commands']) for e in data['entries']),556)
         original=bytes(self.rom.data)
         for i,e in enumerate(data['entries']):
             model=EventCommands(self.rom,i)

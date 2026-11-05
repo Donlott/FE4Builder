@@ -81027,18 +81027,18 @@
         {
           "offset": 425,
           "opcode": 74,
-          "size": 3,
+          "size": 8,
           "name": "RUN_EVENT_CONDITION / DEPLOY_UNIT_GROUP_CHILD",
           "condition": 79,
           "editable": false
         },
         {
-          "offset": 428,
-          "opcode": 33,
-          "size": 8,
-          "name": "CREATE_SPRITE",
+          "offset": 433,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
           "condition": null,
-          "editable": false
+          "editable": true
         },
         {
           "offset": 436,
@@ -81843,6 +81843,10 @@
             2
           ],
           [
+            434,
+            2
+          ],
+          [
             437,
             1
           ],
@@ -81855,7 +81859,7 @@
             1
           ]
         ],
-        "hash": "e555b219e3119bd9e1a6a1771f7e55eb2232341463ccb1e6d6ae68e733318a4c",
+        "hash": "2f43b6373610bb0ebf2bb156d10a2878c069ca1174a209ad428ce1865a6ed791",
         "switches": []
       }
     },
@@ -87942,14 +87946,255 @@
       "id": 296,
       "chapter": 8,
       "label": "Chapter08Febail Asaello_Spawn",
-      "commands": [],
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 2,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 3,
+          "opcode": 64,
+          "size": 4,
+          "name": "MAP_SCROLL",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 7,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 8,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 11,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 12,
+          "opcode": 20,
+          "size": 7,
+          "name": "DIALOGUE_WITH_BG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 19,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 20,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 23,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 24,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 32,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 33,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 34,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 35,
+          "opcode": 74,
+          "size": 8,
+          "name": "RUN_EVENT_CONDITION / DEPLOY_UNIT_GROUP_CHILD",
+          "condition": 79,
+          "editable": false
+        },
+        {
+          "offset": 43,
+          "opcode": 74,
+          "size": 6,
+          "name": "RUN_EVENT_CONDITION / SET_CHILD_TALK_TARGET",
+          "condition": 106,
+          "editable": false
+        },
+        {
+          "offset": 49,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 52,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 55,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 56,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 57,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 58,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "condition": null,
+          "editable": false
+        }
+      ],
       "source": "PLAY_SONG $63\n    YIELD\n\n    MAP_SCROLL [41, 2], 4\n    YIELD\n\n    PAUSE 20\n    YIELD\n\n    DIALOGUE_WITH_BG dialogueChapter08FebailAsaello_Spawn, DIALOGUE_BG_HALLWAY, 3, 2\n    YIELD\n\n    PAUSE 20\n    YIELD\n\n    LOAD_UNIT_BY_GROUP UNITGroupChapter08Febail, aUNITGroupDataChapter08Febail.ID_01, [49, 10], 4, MAP_SPRITE_BLUE\n    WAIT_UNIT_SPRITE_DECOMPRESSED\n\n    WAIT_UNTIL_MAP_SPRITES_HALTING\n    YIELD\n\n    RUN_EVENT_CONDITION\n      DEPLOY_UNIT_GROUP_CHILD UNITGroupChapter08Febail\n\n      .byte PermanentFlagFebailExists\n      .word [Asaello, Febail]\n\n    RUN_EVENT_CONDITION\n      SET_CHILD_TALK_TARGET [Febail, Asaello], [Seliph, Seliph]\n\n    PLAY_SFX_WORD $00E0\n    PAUSE 35\n    YIELD\n\n    RESTORE_PHASE_MUSIC\n    YIELD\n\n    END_EVENT",
-      "unsupported": "Unknown command or condition $6A.",
       "profile": {
         "start": 1030740,
         "length": 60,
-        "masks": [],
-        "hash": "96acd2156b4ae64266d134d5ace45d1f05c597f6155ed4fab893daabf8c8a23b"
+        "masks": [
+          [
+            1,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            13,
+            3
+          ],
+          [
+            16,
+            1
+          ],
+          [
+            18,
+            1
+          ],
+          [
+            21,
+            2
+          ],
+          [
+            25,
+            1
+          ],
+          [
+            26,
+            2
+          ],
+          [
+            28,
+            1
+          ],
+          [
+            29,
+            1
+          ],
+          [
+            30,
+            1
+          ],
+          [
+            50,
+            2
+          ],
+          [
+            53,
+            2
+          ]
+        ],
+        "hash": "defe5c8f2052718040a078d4e0fa76dabef7e87a6f4176ba17237e96c87fe90d"
       }
     },
     {
@@ -88897,14 +89142,1607 @@
       "id": 301,
       "chapter": 8,
       "label": "Chapter08Meath Spawn",
-      "commands": [],
+      "commands": [
+        {
+          "offset": 0,
+          "opcode": 74,
+          "size": 3,
+          "name": "RUN_EVENT_CONDITION / REGISTER_UNITGROUP_MAP_SPRITES",
+          "condition": 74,
+          "editable": false
+        },
+        {
+          "offset": 3,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 6,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 9,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 10,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 12,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 13,
+          "opcode": 64,
+          "size": 4,
+          "name": "MAP_SCROLL",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 17,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 18,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 21,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 22,
+          "opcode": 75,
+          "size": 3,
+          "name": "SET_FLAG_IF_IN_CHAPTER",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 25,
+          "opcode": 74,
+          "size": 2,
+          "name": "RUN_EVENT_CONDITION / UPDATE_LOCATION_AND_MAP_CHANGE_EVENTS",
+          "condition": 92,
+          "editable": false
+        },
+        {
+          "offset": 27,
+          "opcode": 74,
+          "size": 3,
+          "name": "RUN_EVENT_CONDITION / REMOVE_AREA_RESTRICTION",
+          "condition": 113,
+          "editable": false
+        },
+        {
+          "offset": 30,
+          "opcode": 71,
+          "size": 2,
+          "name": "FADE_OUT_BY_TIMER",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 32,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 33,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 37,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 41,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 45,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 49,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 53,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 57,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 61,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 65,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 69,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 73,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 77,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 81,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 85,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 89,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 93,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 97,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 101,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 105,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 109,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 113,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 117,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 121,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 125,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 129,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 133,
+          "opcode": 20,
+          "size": 7,
+          "name": "DIALOGUE_WITH_BG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 140,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 141,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 144,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 145,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 153,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 154,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 155,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 156,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 159,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 160,
+          "opcode": 71,
+          "size": 2,
+          "name": "FADE_OUT_BY_TIMER",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 162,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 163,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 167,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 171,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 175,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 179,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 183,
+          "opcode": 40,
+          "size": 4,
+          "name": "LOAD_UNIT_BY_GROUP_SILENT",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 187,
+          "opcode": 20,
+          "size": 7,
+          "name": "DIALOGUE_WITH_BG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 194,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 195,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 198,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 199,
+          "opcode": 39,
+          "size": 10,
+          "name": "MOVE_TEMPORARY_BY_SCRIPT",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 209,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 210,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 213,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 214,
+          "opcode": 39,
+          "size": 10,
+          "name": "MOVE_TEMPORARY_BY_SCRIPT",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 224,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 225,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 226,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 227,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 235,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 236,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 239,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 240,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 248,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 249,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 252,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 253,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 261,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 262,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 265,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 266,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 274,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 275,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 276,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 277,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 285,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 286,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 287,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 288,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 291,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 292,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 295,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 298,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 299,
+          "opcode": 14,
+          "size": 2,
+          "name": "PLAY_SONG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 301,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 302,
+          "opcode": 64,
+          "size": 4,
+          "name": "MAP_SCROLL",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 306,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 307,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 310,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 311,
+          "opcode": 71,
+          "size": 2,
+          "name": "FADE_OUT_BY_TIMER",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 313,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 314,
+          "opcode": 74,
+          "size": 5,
+          "name": "RUN_EVENT_CONDITION / SET_FACTION_HOSTILITY",
+          "condition": 77,
+          "editable": false
+        },
+        {
+          "offset": 319,
+          "opcode": 74,
+          "size": 5,
+          "name": "RUN_EVENT_CONDITION / SET_FACTION_HOSTILITY",
+          "condition": 77,
+          "editable": false
+        },
+        {
+          "offset": 324,
+          "opcode": 74,
+          "size": 2,
+          "name": "RUN_EVENT_CONDITION / UPDATE_LOCATION_AND_MAP_CHANGE_EVENTS",
+          "condition": 92,
+          "editable": false
+        },
+        {
+          "offset": 326,
+          "opcode": 74,
+          "size": 4,
+          "name": "RUN_EVENT_CONDITION / SET_FACTION_GROUP",
+          "condition": 76,
+          "editable": false
+        },
+        {
+          "offset": 330,
+          "opcode": 20,
+          "size": 7,
+          "name": "DIALOGUE_WITH_BG",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 337,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 338,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 346,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 347,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 350,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 351,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 359,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 360,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 363,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 364,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 372,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 373,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 376,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 377,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 385,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 386,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 394,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 395,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 403,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 404,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 405,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 406,
+          "opcode": 35,
+          "size": 8,
+          "name": "LOAD_UNIT_BY_GROUP",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 414,
+          "opcode": 41,
+          "size": 1,
+          "name": "WAIT_UNIT_SPRITE_DECOMPRESSED",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 415,
+          "opcode": 42,
+          "size": 1,
+          "name": "WAIT_UNTIL_MAP_SPRITES_HALTING",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 416,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 417,
+          "opcode": 74,
+          "size": 8,
+          "name": "RUN_EVENT_CONDITION / DEPLOY_UNIT_GROUP_CHILD",
+          "condition": 79,
+          "editable": false
+        },
+        {
+          "offset": 425,
+          "opcode": 18,
+          "size": 3,
+          "name": "PLAY_SFX_WORD",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 428,
+          "opcode": 52,
+          "size": 3,
+          "name": "PAUSE",
+          "condition": null,
+          "editable": true
+        },
+        {
+          "offset": 431,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 432,
+          "opcode": 19,
+          "size": 1,
+          "name": "RESTORE_PHASE_MUSIC",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 433,
+          "opcode": 253,
+          "size": 1,
+          "name": "YIELD",
+          "condition": null,
+          "editable": false
+        },
+        {
+          "offset": 434,
+          "opcode": 65535,
+          "size": 2,
+          "name": "END_EVENT",
+          "condition": null,
+          "editable": false
+        }
+      ],
       "source": "RUN_EVENT_CONDITION\n      REGISTER_UNITGROUP_MAP_SPRITES UNITGroupChapter08Meath\n\n    PLAY_SFX_WORD $00E0\n    PAUSE 35\n    YIELD\n\n    PLAY_SONG $85\n    YIELD\n\n    MAP_SCROLL [30, 50], 4\n    YIELD\n\n    PAUSE 20\n    YIELD\n\n    SET_FLAG_IF_IN_CHAPTER Chapter08, FlagChapter08_ConnachtBridgeLowered\n\n    RUN_EVENT_CONDITION\n      UPDATE_LOCATION_AND_MAP_CHANGE_EVENTS\n\n    RUN_EVENT_CONDITION\n      REMOVE_AREA_RESTRICTION 1\n\n    FADE_OUT_BY_TIMER 1\n    YIELD\n\n    _UnitList1 := [aUNITGroupDataChapter08Meath.ID_29]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_30]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_31]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_32]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_33]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_34]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_35]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_36]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_37]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_39]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_40]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_41]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_42]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_43]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_44]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_08]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_09]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_10]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_11]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_12]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_13]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_14]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_15]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_16]\n    _UnitList1..= [aUNITGroupDataChapter08Meath.ID_17]\n\n    .for _Unit in _UnitList1\n\n      LOAD_UNIT_BY_GROUP_SILENT UNITGroupChapter08Meath, _Unit\n\n    .endfor\n\n    DIALOGUE_WITH_BG dialogueChapter08MeathSpawn1, DIALOGUE_BG_HALLWAY, 3, 1\n    YIELD\n\n    PAUSE 15\n    YIELD\n\n    LOAD_UNIT_BY_GROUP UNITGroupChapter08Meath, aUNITGroupDataChapter08Meath.ID_28, [37, 59], 4, MAP_SPRITE_RED\n    WAIT_UNIT_SPRITE_DECOMPRESSED\n\n    WAIT_UNTIL_MAP_SPRITES_HALTING\n    YIELD\n\n    PAUSE 30\n    YIELD\n\n    FADE_OUT_BY_TIMER 1\n    YIELD\n\n    _UnitList2 := [aUNITGroupDataChapter08Meath.ID_27]\n    _UnitList2..= [aUNITGroupDataChapter08Meath.ID_25]\n    _UnitList2..= [aUNITGroupDataChapter08Meath.ID_22]\n    _UnitList2..= [aUNITGroupDataChapter08Meath.ID_26]\n    _UnitList2..= [aUNITGroupDataChapter08Meath.ID_23]\n    _UnitList2..= [aUNITGroupDataChapter08Meath.ID_24]\n\n    .for _Unit in _UnitList2\n\n      LOAD_UNIT_BY_GROUP_SILENT UNITGroupChapter08Meath, _Unit\n\n    .endfor\n\n    DIALOGUE_WITH_BG dialogueChapter08MeathSpawn2, DIALOGUE_BG_HALLWAY, 3, 1\n    YIELD\n\n    PAUSE 20\n    YIELD\n\n    MOVE_TEMPORARY_BY_SCRIPT $0161, [37, 59], 4, MAP_SPRITE_RED, _SciptedMovement\n    WAIT_UNIT_SPRITE_DECOMPRESSED\n\n    PAUSE 25\n    YIELD\n\n    MOVE_TEMPORARY_BY_SCRIPT $0161, [37, 59], 4, MAP_SPRITE_RED, _SciptedMovement\n    WAIT_UNIT_SPRITE_DECOMPRESSED\n\n    WAIT_UNTIL_MAP_SPRITES_HALTING\n    YIELD\n\n    _UnitList3 := [(aUNITGroupDataChapter08Meath.ID_20, 10)]\n    _UnitList3..= [(aUNITGroupDataChapter08Meath.ID_21, 10)]\n    _UnitList3..= [(aUNITGroupDataChapter08Meath.ID_19, 10)]\n    _UnitList3..= [(aUNITGroupDataChapter08Meath.ID_18, None)]\n\n    .for _Unit, _Time in _UnitList3\n\n      LOAD_UNIT_BY_GROUP UNITGroupChapter08Meath, _Unit, [37, 59], 4, MAP_SPRITE_RED\n      WAIT_UNIT_SPRITE_DECOMPRESSED\n\n      .if _Time != None\n\n        PAUSE _Time\n        YIELD\n\n      .endif\n\n    .endfor\n\n    WAIT_UNTIL_MAP_SPRITES_HALTING\n    YIELD\n\n    LOAD_UNIT_BY_GROUP UNITGroupChapter08Meath, aUNITGroupDataChapter08Meath.ID_38, [37, 57], 4, MAP_SPRITE_RED\n    WAIT_UNIT_SPRITE_DECOMPRESSED\n\n    WAIT_UNTIL_MAP_SPRITES_HALTING\n    YIELD\n\n    PAUSE 30\n    YIELD\n\n    PLAY_SFX_WORD $00E0\n    PAUSE 35\n    YIELD\n\n    PLAY_SONG $6B\n    YIELD\n\n    MAP_SCROLL [37, 22], 4\n    YIELD\n\n    PAUSE 20\n    YIELD\n\n    FADE_OUT_BY_TIMER 2\n    YIELD\n\n    RUN_EVENT_CONDITION\n      macroSetFactionsAllies [FS_Player, FS_Ch08Ced]\n\n    RUN_EVENT_CONDITION\n      macroSetFactionsEnemies [FS_Ch08Ced, FS_Ch08Meath]\n\n    RUN_EVENT_CONDITION\n      UPDATE_LOCATION_AND_MAP_CHANGE_EVENTS\n\n    RUN_EVENT_CONDITION\n      SET_FACTION_GROUP FS_Ch08Ced, FG_Ch08Munster2\n\n    DIALOGUE_WITH_BG dialogueChapter08MeathSpawn3, DIALOGUE_BG_GATE, 3, 2\n    YIELD\n\n    _UnitList4 := [(aUNITGroupDataChapter08Meath.ID_02, 20)]\n    _UnitList4..= [(aUNITGroupDataChapter08Meath.ID_04, 16)]\n    _UnitList4..= [(aUNITGroupDataChapter08Meath.ID_06, 18)]\n    _UnitList4..= [(aUNITGroupDataChapter08Meath.ID_05, None)]\n    _UnitList4..= [(aUNITGroupDataChapter08Meath.ID_03, None)]\n    _UnitList4..= [(aUNITGroupDataChapter08Meath.ID_07, None)]\n\n    .for _Unit, _Time in _UnitList4\n\n      LOAD_UNIT_BY_GROUP UNITGroupChapter08Meath, _Unit, [44, 30], 4, MAP_SPRITE_RED\n      WAIT_UNIT_SPRITE_DECOMPRESSED\n\n      .if _Time != None\n\n        PAUSE _Time\n        YIELD\n\n      .endif\n\n    .endfor\n\n    WAIT_UNTIL_MAP_SPRITES_HALTING\n    YIELD\n\n    LOAD_UNIT_BY_GROUP UNITGroupChapter08Meath, aUNITGroupDataChapter08Meath.ID_01, [44, 28], 4, MAP_SPRITE_RED\n    WAIT_UNIT_SPRITE_DECOMPRESSED\n\n    WAIT_UNTIL_MAP_SPRITES_HALTING\n    YIELD\n\n    RUN_EVENT_CONDITION\n      DEPLOY_UNIT_GROUP_CHILD UNITGroupChapter08Meath\n\n      .byte PermanentFlagCedExists\n      .word [Hawk, Ced]\n\n    PLAY_SFX_WORD $00E0\n    PAUSE 35\n    YIELD\n\n    RESTORE_PHASE_MUSIC\n    YIELD\n\n    END_EVENT\n\n    _SciptedMovement ; 8F/BE10\n      MAP_DOWN_MULTIPLE 4\n      MAP_END",
-      "unsupported": "Truncated command.",
       "profile": {
         "start": 1031260,
         "length": 439,
-        "masks": [],
-        "hash": "92a1d50ec8fe035f48dcf3b4005a2d7d3bf7cdbf999764eba7104aa95ad50c77"
+        "masks": [
+          [
+            4,
+            2
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            11,
+            1
+          ],
+          [
+            14,
+            1
+          ],
+          [
+            15,
+            1
+          ],
+          [
+            16,
+            1
+          ],
+          [
+            19,
+            2
+          ],
+          [
+            23,
+            1
+          ],
+          [
+            24,
+            1
+          ],
+          [
+            31,
+            1
+          ],
+          [
+            134,
+            3
+          ],
+          [
+            137,
+            1
+          ],
+          [
+            139,
+            1
+          ],
+          [
+            142,
+            2
+          ],
+          [
+            146,
+            1
+          ],
+          [
+            147,
+            2
+          ],
+          [
+            149,
+            1
+          ],
+          [
+            150,
+            1
+          ],
+          [
+            151,
+            1
+          ],
+          [
+            157,
+            2
+          ],
+          [
+            161,
+            1
+          ],
+          [
+            188,
+            3
+          ],
+          [
+            191,
+            1
+          ],
+          [
+            193,
+            1
+          ],
+          [
+            196,
+            2
+          ],
+          [
+            200,
+            2
+          ],
+          [
+            202,
+            1
+          ],
+          [
+            203,
+            1
+          ],
+          [
+            204,
+            1
+          ],
+          [
+            205,
+            1
+          ],
+          [
+            206,
+            3
+          ],
+          [
+            211,
+            2
+          ],
+          [
+            215,
+            2
+          ],
+          [
+            217,
+            1
+          ],
+          [
+            218,
+            1
+          ],
+          [
+            219,
+            1
+          ],
+          [
+            220,
+            1
+          ],
+          [
+            221,
+            3
+          ],
+          [
+            228,
+            1
+          ],
+          [
+            229,
+            2
+          ],
+          [
+            231,
+            1
+          ],
+          [
+            232,
+            1
+          ],
+          [
+            233,
+            1
+          ],
+          [
+            237,
+            2
+          ],
+          [
+            241,
+            1
+          ],
+          [
+            242,
+            2
+          ],
+          [
+            244,
+            1
+          ],
+          [
+            245,
+            1
+          ],
+          [
+            246,
+            1
+          ],
+          [
+            250,
+            2
+          ],
+          [
+            254,
+            1
+          ],
+          [
+            255,
+            2
+          ],
+          [
+            257,
+            1
+          ],
+          [
+            258,
+            1
+          ],
+          [
+            259,
+            1
+          ],
+          [
+            263,
+            2
+          ],
+          [
+            267,
+            1
+          ],
+          [
+            268,
+            2
+          ],
+          [
+            270,
+            1
+          ],
+          [
+            271,
+            1
+          ],
+          [
+            272,
+            1
+          ],
+          [
+            278,
+            1
+          ],
+          [
+            279,
+            2
+          ],
+          [
+            281,
+            1
+          ],
+          [
+            282,
+            1
+          ],
+          [
+            283,
+            1
+          ],
+          [
+            289,
+            2
+          ],
+          [
+            293,
+            2
+          ],
+          [
+            296,
+            2
+          ],
+          [
+            300,
+            1
+          ],
+          [
+            303,
+            1
+          ],
+          [
+            304,
+            1
+          ],
+          [
+            305,
+            1
+          ],
+          [
+            308,
+            2
+          ],
+          [
+            312,
+            1
+          ],
+          [
+            331,
+            3
+          ],
+          [
+            334,
+            1
+          ],
+          [
+            336,
+            1
+          ],
+          [
+            339,
+            1
+          ],
+          [
+            340,
+            2
+          ],
+          [
+            342,
+            1
+          ],
+          [
+            343,
+            1
+          ],
+          [
+            344,
+            1
+          ],
+          [
+            348,
+            2
+          ],
+          [
+            352,
+            1
+          ],
+          [
+            353,
+            2
+          ],
+          [
+            355,
+            1
+          ],
+          [
+            356,
+            1
+          ],
+          [
+            357,
+            1
+          ],
+          [
+            361,
+            2
+          ],
+          [
+            365,
+            1
+          ],
+          [
+            366,
+            2
+          ],
+          [
+            368,
+            1
+          ],
+          [
+            369,
+            1
+          ],
+          [
+            370,
+            1
+          ],
+          [
+            374,
+            2
+          ],
+          [
+            378,
+            1
+          ],
+          [
+            379,
+            2
+          ],
+          [
+            381,
+            1
+          ],
+          [
+            382,
+            1
+          ],
+          [
+            383,
+            1
+          ],
+          [
+            387,
+            1
+          ],
+          [
+            388,
+            2
+          ],
+          [
+            390,
+            1
+          ],
+          [
+            391,
+            1
+          ],
+          [
+            392,
+            1
+          ],
+          [
+            396,
+            1
+          ],
+          [
+            397,
+            2
+          ],
+          [
+            399,
+            1
+          ],
+          [
+            400,
+            1
+          ],
+          [
+            401,
+            1
+          ],
+          [
+            407,
+            1
+          ],
+          [
+            408,
+            2
+          ],
+          [
+            410,
+            1
+          ],
+          [
+            411,
+            1
+          ],
+          [
+            412,
+            1
+          ],
+          [
+            426,
+            2
+          ],
+          [
+            429,
+            2
+          ]
+        ],
+        "hash": "8bea6b69dd269149cd5768c6b1c943ad34286c930e87a64bc43361db69edc87e"
       }
     },
     {
@@ -174627,6 +176465,10 @@
           2
         ],
         [
+          434,
+          2
+        ],
+        [
           437,
           1
         ],
@@ -174639,7 +176481,7 @@
           1
         ]
       ],
-      "hash": "e555b219e3119bd9e1a6a1771f7e55eb2232341463ccb1e6d6ae68e733318a4c",
+      "hash": "2f43b6373610bb0ebf2bb156d10a2878c069ca1174a209ad428ce1865a6ed791",
       "switches": []
     },
     {
@@ -176357,8 +178199,73 @@
     {
       "start": 1030740,
       "length": 60,
-      "masks": [],
-      "hash": "96acd2156b4ae64266d134d5ace45d1f05c597f6155ed4fab893daabf8c8a23b"
+      "masks": [
+        [
+          1,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          13,
+          3
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          18,
+          1
+        ],
+        [
+          21,
+          2
+        ],
+        [
+          25,
+          1
+        ],
+        [
+          26,
+          2
+        ],
+        [
+          28,
+          1
+        ],
+        [
+          29,
+          1
+        ],
+        [
+          30,
+          1
+        ],
+        [
+          50,
+          2
+        ],
+        [
+          53,
+          2
+        ]
+      ],
+      "hash": "defe5c8f2052718040a078d4e0fa76dabef7e87a6f4176ba17237e96c87fe90d"
     },
     {
       "start": 1030800,
@@ -176632,8 +178539,481 @@
     {
       "start": 1031260,
       "length": 439,
-      "masks": [],
-      "hash": "92a1d50ec8fe035f48dcf3b4005a2d7d3bf7cdbf999764eba7104aa95ad50c77"
+      "masks": [
+        [
+          4,
+          2
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          14,
+          1
+        ],
+        [
+          15,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          19,
+          2
+        ],
+        [
+          23,
+          1
+        ],
+        [
+          24,
+          1
+        ],
+        [
+          31,
+          1
+        ],
+        [
+          134,
+          3
+        ],
+        [
+          137,
+          1
+        ],
+        [
+          139,
+          1
+        ],
+        [
+          142,
+          2
+        ],
+        [
+          146,
+          1
+        ],
+        [
+          147,
+          2
+        ],
+        [
+          149,
+          1
+        ],
+        [
+          150,
+          1
+        ],
+        [
+          151,
+          1
+        ],
+        [
+          157,
+          2
+        ],
+        [
+          161,
+          1
+        ],
+        [
+          188,
+          3
+        ],
+        [
+          191,
+          1
+        ],
+        [
+          193,
+          1
+        ],
+        [
+          196,
+          2
+        ],
+        [
+          200,
+          2
+        ],
+        [
+          202,
+          1
+        ],
+        [
+          203,
+          1
+        ],
+        [
+          204,
+          1
+        ],
+        [
+          205,
+          1
+        ],
+        [
+          206,
+          3
+        ],
+        [
+          211,
+          2
+        ],
+        [
+          215,
+          2
+        ],
+        [
+          217,
+          1
+        ],
+        [
+          218,
+          1
+        ],
+        [
+          219,
+          1
+        ],
+        [
+          220,
+          1
+        ],
+        [
+          221,
+          3
+        ],
+        [
+          228,
+          1
+        ],
+        [
+          229,
+          2
+        ],
+        [
+          231,
+          1
+        ],
+        [
+          232,
+          1
+        ],
+        [
+          233,
+          1
+        ],
+        [
+          237,
+          2
+        ],
+        [
+          241,
+          1
+        ],
+        [
+          242,
+          2
+        ],
+        [
+          244,
+          1
+        ],
+        [
+          245,
+          1
+        ],
+        [
+          246,
+          1
+        ],
+        [
+          250,
+          2
+        ],
+        [
+          254,
+          1
+        ],
+        [
+          255,
+          2
+        ],
+        [
+          257,
+          1
+        ],
+        [
+          258,
+          1
+        ],
+        [
+          259,
+          1
+        ],
+        [
+          263,
+          2
+        ],
+        [
+          267,
+          1
+        ],
+        [
+          268,
+          2
+        ],
+        [
+          270,
+          1
+        ],
+        [
+          271,
+          1
+        ],
+        [
+          272,
+          1
+        ],
+        [
+          278,
+          1
+        ],
+        [
+          279,
+          2
+        ],
+        [
+          281,
+          1
+        ],
+        [
+          282,
+          1
+        ],
+        [
+          283,
+          1
+        ],
+        [
+          289,
+          2
+        ],
+        [
+          293,
+          2
+        ],
+        [
+          296,
+          2
+        ],
+        [
+          300,
+          1
+        ],
+        [
+          303,
+          1
+        ],
+        [
+          304,
+          1
+        ],
+        [
+          305,
+          1
+        ],
+        [
+          308,
+          2
+        ],
+        [
+          312,
+          1
+        ],
+        [
+          331,
+          3
+        ],
+        [
+          334,
+          1
+        ],
+        [
+          336,
+          1
+        ],
+        [
+          339,
+          1
+        ],
+        [
+          340,
+          2
+        ],
+        [
+          342,
+          1
+        ],
+        [
+          343,
+          1
+        ],
+        [
+          344,
+          1
+        ],
+        [
+          348,
+          2
+        ],
+        [
+          352,
+          1
+        ],
+        [
+          353,
+          2
+        ],
+        [
+          355,
+          1
+        ],
+        [
+          356,
+          1
+        ],
+        [
+          357,
+          1
+        ],
+        [
+          361,
+          2
+        ],
+        [
+          365,
+          1
+        ],
+        [
+          366,
+          2
+        ],
+        [
+          368,
+          1
+        ],
+        [
+          369,
+          1
+        ],
+        [
+          370,
+          1
+        ],
+        [
+          374,
+          2
+        ],
+        [
+          378,
+          1
+        ],
+        [
+          379,
+          2
+        ],
+        [
+          381,
+          1
+        ],
+        [
+          382,
+          1
+        ],
+        [
+          383,
+          1
+        ],
+        [
+          387,
+          1
+        ],
+        [
+          388,
+          2
+        ],
+        [
+          390,
+          1
+        ],
+        [
+          391,
+          1
+        ],
+        [
+          392,
+          1
+        ],
+        [
+          396,
+          1
+        ],
+        [
+          397,
+          2
+        ],
+        [
+          399,
+          1
+        ],
+        [
+          400,
+          1
+        ],
+        [
+          401,
+          1
+        ],
+        [
+          407,
+          1
+        ],
+        [
+          408,
+          2
+        ],
+        [
+          410,
+          1
+        ],
+        [
+          411,
+          1
+        ],
+        [
+          412,
+          1
+        ],
+        [
+          426,
+          2
+        ],
+        [
+          429,
+          2
+        ]
+      ],
+      "hash": "8bea6b69dd269149cd5768c6b1c943ad34286c930e87a64bc43361db69edc87e"
     },
     {
       "start": 1031699,
@@ -192208,16 +194588,6 @@
       "id": 2,
       "label": "Prologue Edain Abduction",
       "reason": "Unknown command or condition $B7."
-    },
-    {
-      "id": 296,
-      "label": "Chapter08Febail Asaello_Spawn",
-      "reason": "Unknown command or condition $6A."
-    },
-    {
-      "id": 301,
-      "label": "Chapter08Meath Spawn",
-      "reason": "Truncated command."
     }
   ],
   "chapter_flags": {
