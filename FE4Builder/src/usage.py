@@ -20,7 +20,7 @@ class UsageIndex:
                 target=self.target(field,value)
                 if target:targets.add((target[1],target[2]))
             except ValueError:pass
-            if field.reference=='FE4 Player Equipment.txt' and 1<=value<=142:slots.add(value)
+            if field.reference=='FE4 Player Equipment.txt' and 1<=value<=254:slots.add(value)
         rows=[]
         if self.records is None:self._build()
         for label,target,refs,stored_slots in self.records:

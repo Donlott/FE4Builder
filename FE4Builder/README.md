@@ -105,7 +105,7 @@ Launch (F5)** writes before launching. The window stays usable alongside other
 editors. Renamed item/class labels appear in the main editor and applicable
 dropdowns after saving.
 
-The catalogue contains **710 entries**: 138 item names, 138 item descriptions,
+The base catalogue contains **710 entries**: 138 item names, 138 item descriptions,
 25 shared effect descriptions, 20 skill names/help panels, 72 class names,
 26 terrain names, 7 status names, 2 skill-type labels, 46 map-location labels,
 55 menu-location labels, 110 item message names and 71 class message names.
@@ -235,9 +235,26 @@ Normal editor windows leave the main menu and sibling editors interactive. You c
 
 Exiting FE4Builder or opening another ROM closes editor windows through their normal pending-change prompts. Stay/Cancel keeps the current ROM and pending editor open. If an editor saves while the same ROM is being reopened, the main window loads those newly saved bytes. Existing stale-data checks still apply: in particular, a portrait draft opened before another editor saves may require reopening Portrait Editor before it can be written. Its rejected save retains the draft, and Export sheet can preserve the imported artwork. An old portrait window cannot save or launch a different ROM.
 
+## Combined item editor and optional expansion
+
+Open **Items → Item Editor** for one workspace covering **Item types** and
+**Player item slots**. Item properties, names/descriptions, icons, held graphics
+and animation settings are connected to each slot's live appearances. **Add
+item...** and **Add player slot...** enable entries with stable IDs, up to 255
+types (00–FE) and 254 persistent slots (01–FE). FF remains Nothing and player
+slot 00 stays reserved. Added entries can be removed after references are
+cleared, reclaiming their private records and text. Optimization previews show
+artwork usage and space recovered.
+
+The first addition enables a ROM patch that **requires a new game**. It retains
+all four saves and fixes the maximum item-record save layout from that point
+onward. Existing original entries keep their IDs. See
+[item-expansion.md](docs/item-expansion.md) for storage, templates, compatibility
+and verification details. Opening the editor makes no ROM changes.
+
 ## Player weapon / item slots
 
-In **Item Editor → Player Weapon Editor**, each list row is one persistent player item slot, numbered **01–8E** (for example `07 Thunder`). The displayed name and inventory icon follow the item type currently assigned to that slot. Each row edits exactly one assignment byte; the original two-slots-per-record presentation is no longer used. Writing retains normal backups and undo/redo.
+In **Item Editor → Player item slots**, each list row is one persistent player item slot (for example `07 Thunder`). The original usable range is **01–8C**; the expansion can enable additional IDs through **FE**. The former raw module's 8D/8E entries were terminators, not usable slots. The displayed name and inventory icon follow the assigned item type. Each row edits one assignment; the original two-slots-per-record presentation is no longer used. Writing retains normal backups and undo/redo.
 
 The **Appearances of player item slot** notes follow the slot ID across the current ROM's player starting inventories, shop lists, village rewards (including private Village Rewards editor scripts), ordinary event item-grant commands, and generic/special enemy drop fields. Two slots containing the same weapon type keep separate occurrence lists. Locations refresh after ROM changes; item names also follow edited item-name assignments. Chapter hints use live deployment groups and decoded direct event deployments where available. Undeployed records remain visible with an unknown chapter rather than an invented one.
 

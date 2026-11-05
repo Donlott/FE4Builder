@@ -2,7 +2,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-from menu_text import MenuText, MenuFont, catalogue, check_profile
+from menu_text import MenuText, MenuFont, catalogue, check_profile, storage_entries
 from ui_common import ask_unsaved
 
 
@@ -10,7 +10,7 @@ class MenuTextWindow(tk.Toplevel):
     def __init__(self, app, category='Item names', index=0):
         super().__init__(app)
         self.app, self.rom = app, app.rom
-        self.entries = catalogue()['entries']
+        self.entries = storage_entries()
         self.categories = list(dict.fromkeys(e['category'] for e in self.entries))
         self.font = MenuFont(self.rom)
         self.model, self.current, self.initial = None, None, ''
@@ -112,8 +112,9 @@ class MenuTextWindow(tk.Toplevel):
         return self.labels[key]
 
     def populate(self):
+        from item_expansion import entry_available
         query = self.search.get().casefold().strip()
-        self.visible = [e['key'] for e in self.entries if e['category'] == self.group.get()
+        self.visible = [e['key'] for e in self.entries if entry_available(self.rom, e) and e['category'] == self.group.get()
                         and query in f'{e["id"]:02X} {self.label(e)}'.casefold()]
         self.list.delete(0, 'end')
         for key in self.visible:

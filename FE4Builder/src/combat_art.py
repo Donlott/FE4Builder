@@ -61,6 +61,13 @@ def digest(block):
 class CombatArtwork:
     def __init__(self, rom):
         self.rom, self.snapshot = rom, bytes(rom.data)
+        from item_expansion import installed, ItemExpansion, DONORS
+        self.expanded_items = installed(rom)
+        if self.expanded_items:
+            self.expansion = ItemExpansion(rom)
+            self.aliases = list(read(rom, DONORS, 255))
+            self.installed = True;self.art = ItemArt(rom)
+            return
         if len(rom.data) - rom.header != 0x800000 or read(rom, 0xFFD5, 1)[0] & 0x2F != 0x25:
             raise ValueError('Combat animation repair requires the supported 8 MiB ExHiROM layout.')
         self.code, self.hooks, _ = program()
@@ -95,6 +102,8 @@ class CombatArtwork:
         return (0 <= item < 0x3A or 0x7A <= item <= 0x7C) and read(self.rom, STYLES + item, 1)[0] in STYLE_TYPES
 
     def candidates(self, item):
+        from item_expansion import table
+        assignments = table(self.rom, 'held')
         stats = self.art.stats(item)
         kind = stats.get('Weapon Type')
         if stats.get('Type') != 0 or kind not in range(4):return []
@@ -110,27 +119,31 @@ class CombatArtwork:
             # A repurposed donor can itself lack compatible artwork/semantics.
             donor_stats = self.art.stats(donor)
             if donor_stats.get('Type') != 0 or donor_stats.get('Weapon Type') != kind:continue
-            sprite = read(self.rom, ASSIGNMENTS + donor * 2, 1)[0]
+            sprite = read(self.rom, assignments + donor * 2, 1)[0]
             if sprite >= 65:continue
             result.append(donor)
-        sprite = read(self.rom, ASSIGNMENTS + item * 2, 1)[0] if item < 125 else 255
-        return sorted(result, key=lambda d: (read(self.rom, ASSIGNMENTS + d * 2, 1)[0] != sprite,
+        sprite = read(self.rom, assignments + item * 2, 1)[0] if item < 125 or self.expanded_items and item >= ITEM_COUNT else 255
+        return sorted(result, key=lambda d: (read(self.rom, assignments + d * 2, 1)[0] != sprite,
                                             self.art.stats(d).get('Rank') == 255, d))
 
     def plan(self, item, donor):
         if bytes(self.rom.data) != self.snapshot:
             raise ValueError('The ROM changed. Reopen combat animations before writing.')
-        if type(item) is not int or not 0 <= item < min(125, ITEM_COUNT):
+        from item_expansion import table, enabled, DONORS
+        if type(item) is not int or item not in enabled(self.rom, 'items') or 125 <= item < ITEM_COUNT:
             raise ValueError('This item has no supported held-weapon sprite assignment.')
         if donor == item:donor = None
+        if self.expanded_items and item >= ITEM_COUNT and donor is None:
+            raise ValueError('An added item needs an existing animation template.')
         if donor is not None and donor not in self.candidates(item):
             raise ValueError('Choose a compatible physical weapon with animations for this attack range.')
         if donor is not None:
-            sprite, palette = read(self.rom, ASSIGNMENTS + item * 2, 2)
+            sprite, palette = read(self.rom, table(self.rom, 'held') + item * 2, 2)
             if sprite >= 65 or palette >= 36:
                 raise ValueError('Assign a valid held-weapon Sprite and Palette in the Item Sprite Editor first.')
         aliases = self.aliases.copy();aliases[item] = 255 if donor is None else donor
         if aliases == self.aliases:return []
+        if self.expanded_items:return [(DONORS, bytes(aliases))]
         enabled = any(v != 255 for v in aliases)
         fill = self.block[16] if self.installed else self.block[0]
         block = bytearray([fill]) * SIZE

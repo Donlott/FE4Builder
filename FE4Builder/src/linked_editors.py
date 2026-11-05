@@ -14,10 +14,11 @@ def field_target(rom,field,value):
     if value==255:
         return None
     if field.reference=='FE4 Player Equipment.txt':
-        if not 1<=value<=142:
+        from item_expansion import enabled, table
+        if value not in enabled(rom, 'slots'):
             raise ValueError('This equipment slot is outside the player item table.')
         module=load_module(MODULES/'Item Editors'/'FE4 Player Weapon Editor.nmm')
-        value=rom.data[rom.address(module,0)+value-1]
+        value=rom.data[rom.header+table(rom, 'players')+value-1]
         if value==255:
             return None
     if 0<=value<0x6a:
@@ -28,6 +29,10 @@ def field_target(rom,field,value):
         name,index='FE4 Weapon/Staff Editor 2',value-0x7a
     elif value==0x89:
         name,index='FE4 Circlet Editor',0
+    elif 0x8A <= value < 0xFF:
+        from item_expansion import enabled, ITEM_MODULE
+        if value not in enabled(rom, 'items'):raise ValueError('This item ID is disabled.')
+        name,index=ITEM_MODULE,value
     else:
         raise ValueError('This item ID has no supported item editor.')
     return 'Item Editor',name,index

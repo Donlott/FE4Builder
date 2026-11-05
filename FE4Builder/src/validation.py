@@ -19,7 +19,7 @@ def explain_field(module,field):
     if module.name=='FE4 Item Sprite Editor by Lorena' and name in ('Sprite','Palette'):
         meaning='Held-weapon battle sprite/palette assignment. This changes the larger weapon artwork; the 16x16 inventory icon is a separate graphics resource. Use the Held weapon preview to inspect changes.'
     elif field.reference=='FE4 Player Equipment.txt':
-        meaning='Inventory slot ID, not an item type ID. Slots 1-142 point to shared player item assignments; 255 means Nothing. The linked item editor changes stats for every instance of that item type.'
+        meaning='Persistent inventory slot ID. Choose an enabled slot from the Item Editor; FF means Nothing. Expanded ROMs support slots 01–FE. Item types have separate shared stats.'
     elif field.reference=='FE4 Weapon List.txt':
         meaning='Direct item type ID. Weapon/staff or ring stats are shared by every instance of this item. 255 means Nothing.'
     elif field.reference=='FE4 Classes.txt':
@@ -82,12 +82,13 @@ def validate_record(rom,module,index,values):
         if f.reference=='FE4 Classes.txt' and not 0<=v<72:
             issues.append(Issue('Warning',f.name,'Unsupported class ID for this ROM profile. Custom class tables are not modeled.'))
         elif f.reference=='FE4 Player Equipment.txt':
-            if v!=255 and not 1<=v<=142:
-                issues.append(Issue('Warning',f.name,'Unsupported inventory slot; expected 1-142 or 255 (Nothing).'))
+            from item_expansion import enabled, table
+            if v!=255 and v not in enabled(rom, 'slots'):
+                issues.append(Issue('Warning',f.name,'This player item slot is disabled; enable it in the Item Editor or choose Nothing (FF).'))
             elif v!=255:
                 player=load_module(MODULES/'Item Editors'/'FE4 Player Weapon Editor.nmm')
-                item=rom.data[rom.address(player,0)+v-1]
-                if item not in player.fields[0].options:
+                item=rom.data[rom.header+table(rom, 'players')+v-1]
+                if item not in enabled(rom, 'items'):
                     issues.append(Issue('Warning',f.name,f'Slot {v} refers to unknown item ID {item:02X}.'))
         elif f.options and v not in f.options and not f.name.startswith(('Blood','Skills','Class Skills','Skill Set')):
             issues.append(Issue('Warning',f.name,'Value is absent from the named module options; it may be unused or specific to a hack.'))
@@ -174,14 +175,14 @@ def shared_notes(rom,module,index,portrait_id=None,values=None):
         notes.append(f'Shared class profile: {count} stored character IDs reference this class, including enemy/unused records. Promotions and event changes are additional users.')
         if missing:notes.append(f'{missing} character IDs could not be resolved; this reference count is incomplete.')
     ranges={'FE4 Weapon/Staff Editor 1':0,'FE4 Weapon/Staff Editor 2':0x7a,'FE4 Ring Editor':0x6a,'FE4 Item Editor by Camus':0x6a,'FE4 Circlet Editor':0x89}
-    if module.name in ranges:
-        item=ranges[module.name]+index
-        player=load_module(MODULES/'Item Editors'/'FE4 Player Weapon Editor.nmm')
-        start=rom.address(player,0)
-        count=sum(value==item for value in rom.data[start:start+142])
+    if module.name in ranges or module.name=='FE4 Expanded Item Editor':
+        item=ranges[module.name]+index if module.name in ranges else index
+        from item_expansion import table,enabled
+        start=rom.header+table(rom,'players')
+        count=sum(rom.data[start+slot-1]==item for slot in enabled(rom,'slots'))
         notes.append(f'Shared item-type data: ID {item:02X} appears in {count} player inventory slots. Enemy item references also use these stats; this is not a private copy of one equipped weapon.')
     for f,v in zip(module.fields,rom.values(module,index) if values is None else values):
-        if f.reference=='FE4 Player Equipment.txt' and 1<=v<=142:
+        if f.reference=='FE4 Player Equipment.txt' and 1<=v<=254:
             count=0
             for table in character_modules():
                 offsets=[i for i,field in enumerate(table.fields) if field.reference=='FE4 Player Equipment.txt']

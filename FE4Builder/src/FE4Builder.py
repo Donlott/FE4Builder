@@ -271,16 +271,14 @@ class App(tk.Tk):
         from item_browser import ItemBrowser
         ItemBrowser(self,self.open_linked_item)
 
+    def edit_items(self, kind='items', selected=0):
+        if not self.settle():return None
+        from item_window import open_item_window
+        return self.prepare_window(open_item_window(self, kind, selected), restore=False)
+
     def open_linked_item(self,item):
         if not self.settle_link():return False
-        from rom import Field
-        from linked_editors import field_target
-        target=field_target(self.rom,Field('Item',0,1,{},reference='FE4 Weapon List.txt'),item)
-        origin=self.navigation_context()
-        if self.go_to_record(*target):
-            self.navigation.append(origin);self.back_button.configure(state='normal')
-            return True
-        return False
+        return self.edit_items('items', item) is not None
 
     def browse_equipment(self,field,var,options):
         from item_browser import ItemBrowser
@@ -540,7 +538,13 @@ class App(tk.Tk):
         self.table.config(values=[m.name.replace('FE4 ','') for m in self.modules])
         if self.record is not None:
             table,index=self.record
-            if table<len(self.modules) and index<self.modules[table].count:
+            from item_expansion import enabled, ITEM_MODULE
+            valid=table<len(self.modules) and index<self.modules[table].count
+            if valid:
+                name=self.modules[table].name
+                if name==ITEM_MODULE or name=='FE4 Item Sprite Editor by Lorena':valid=index in enabled(self.rom,'items')
+                if name=='FE4 Player Weapon Editor':valid=index+1 in enabled(self.rom,'slots')
+            if valid:
                 self.table.current(table)
                 self.render()
             else:
@@ -808,6 +812,8 @@ class App(tk.Tk):
         module=self.modules[self.record[0]]
         field=module.fields[field_index]
         value=self.rom.values(module,self.record[1])[field_index]
+        if field.reference in ('FE4 Player Equipment.txt','FE4 Weapon List.txt') and value != 255:
+            return self.edit_items('slots' if field.reference == 'FE4 Player Equipment.txt' else 'items', value)
         from linked_editors import field_target
         try:
             target=field_target(self.rom,field,value)
@@ -911,7 +917,7 @@ class App(tk.Tk):
             return class_modules()
         if mode == 'Army Editor':
             return army_modules(rom)
-        return category_modules(mode)
+        return category_modules(mode, rom)
 
     def settle(self):
         if not self.pending():
@@ -974,7 +980,9 @@ class App(tk.Tk):
         query = self.search.get().lower()
         names = [self.record_name(module,i) for i in range(module.count)]
         first=1 if module.name=='FE4 Player Weapon Editor' else 0
-        self.visible = [i for i, name in enumerate(names) if query in f'{i+first:02X} {name}'.lower()]
+        from item_expansion import enabled,ITEM_MODULE
+        allowed = set(enabled(self.rom,'slots')) if self.rom and module.name=='FE4 Player Weapon Editor' else set(enabled(self.rom,'items')) if self.rom and module.name==ITEM_MODULE else None
+        self.visible = [i for i, name in enumerate(names) if (allowed is None or i+first in allowed) and query in f'{i+first:02X} {name}'.lower()]
         self.list.delete(0, 'end')
         for i in self.visible:
             self.list.insert('end', f'{i+first:02X}  {names[i]}')
@@ -1049,6 +1057,9 @@ class App(tk.Tk):
         self.field_help.set('Hover over or focus a field for an explanation. Check record shows shared-data references.')
         table, index = self.record
         module = self.modules[table]
+        if module.name=='FE4 Expanded Item Editor':
+            from item_expansion import expanded_module
+            module=expanded_module(self.rom,index);self.modules[table]=module
         self.name_button.config(state='normal' if any(f.name=='Char Name' for f in module.fields) else 'disabled')
         self.map_button.config(state='normal' if self.mode=='Army Editor' and table<12 else 'disabled')
         self.sprite_button.config(state='normal' if self.mode=='Class Editor' else 'disabled')

@@ -21,6 +21,63 @@ def digest(block):return hashlib.sha256(block[:64]+block[96:]).digest()
 def fingerprint():return hashlib.sha256(json.dumps([{k:v for k,v in e.items() if k!='location'} for e in entries()],sort_keys=True).encode()).digest()[:16]
 
 
+def independent_regions(block):
+    """Recognize separately checksummed icon/combat allocations in this bank."""
+    from icons import MAGIC as icon_magic,digest as icon_digest
+    from combat_art import MAGIC as combat_magic,digest as combat_digest
+    result=[]
+    for low,high,magic,check,checksum in ((0xC000,0xE000,icon_magic,icon_digest,64),
+                                        (0xE000,0xF000,combat_magic,combat_digest,32)):
+        owned=bytes(block[low:high])
+        if owned[:16]==magic and owned[checksum:checksum+32]==check(owned):result.append((low,high))
+    return result
+
+
+def compatible_digest(block):
+    if block[64:96]==digest(block):return True
+    # Older village checksums predate the independent icon/combat reservations.
+    # Recover only when restoring verified independent allocations to the
+    # village pool's original fill reproduces its exact original checksum.
+    restored=bytearray(block)
+    for low,high in independent_regions(block):restored[low:high]=bytes([block[32]])*(high-low)
+    return block[64:96]==digest(restored)
+
+
+def reconcile_storage_checksum(rom):
+    """Keep independent icon writes from invalidating an unchanged village pool.
+
+    Called inside the normal backed-up save. Never reseal changed village data
+    or an unrecognized allocation simply to get past an integrity failure.
+    """
+    begin=ARENA+rom.header
+    if len(rom.data)<begin+SIZE:return
+    block=bytearray(rom.data[begin:begin+SIZE])
+    if block[:16]!=MAGIC or block[16:32]!=fingerprint() or block[32] not in (0,255) or block[64:96]==digest(block):return
+    valid=compatible_digest(block)
+    if not valid:
+        old=bytearray(rom.original[begin:begin+SIZE])
+        if old[:16]!=MAGIC or old[16:32]!=fingerprint() or old[32] not in (0,255) or not compatible_digest(old):return
+        regions=set(independent_regions(old)+independent_regions(block))
+        # Neither a new icon library nor combat helpers may overwrite a live
+        # private village payload; padding alone can be shared safely.
+        for entry in entries():
+            at=entry['ref']+rom.header
+            try:target=pc_address(int.from_bytes(rom.original[at:at+3],'little'))-ARENA
+            except ValueError:continue
+            if not 32<=target<SIZE:continue
+            meta=old[target-32:target]
+            if meta[:4]!=b'VLG1':continue
+            end=target+int.from_bytes(meta[10:12],'little')
+            if any(target-32<high and end>low for low,high in regions):
+                raise ValueError('Icon/combat storage overlaps an active private village script. Restore or relocate that village before writing.')
+        for low,high in regions:
+            old[low:high]=bytes(high-low);block[low:high]=bytes(high-low)
+        old[64:96]=block[64:96]=bytes(32)
+        valid=old==block
+        block=bytearray(rom.data[begin:begin+SIZE])
+    if valid:rom.data[begin+64:begin+96]=digest(block)
+
+
 class VillageLocation:
     """Fixed-size interaction coordinates shared by a village's reward variants."""
     def __init__(self,rom,index):
@@ -61,7 +118,7 @@ class VillageLocation:
 def pool(rom,create=False):
     block=bytearray(rom.data[ARENA+rom.header:ARENA+rom.header+SIZE])
     if block[:16]==MAGIC:
-        if block[16:32]!=fingerprint() or block[32] not in (0,255) or block[64:96]!=digest(block):
+        if block[16:32]!=fingerprint() or block[32] not in (0,255) or not compatible_digest(block):
             raise ValueError('Village storage was changed or uses another catalogue. Restore a backup.')
     elif create and len(block)==SIZE and len(set(block))==1 and block[0] in (0,255):
         fill=block[0];block[:128]=bytes(128);block[:16]=MAGIC;block[16:32]=fingerprint();block[32]=fill
@@ -148,8 +205,9 @@ class Village:
         self.original_values=(self.item,self.gold,self.stat,self.amount)
 
     def write(self,item,gold,stat=None,amount=None,reward_type=None):
-        if type(item) is not int or not 0<=item<=142 or type(gold) is not int or not 0<=gold<=50000:
-            raise ValueError('Choose an item slot 1–142 or None; extra gold must be 0–50,000.')
+        from item_expansion import enabled
+        if type(item) is not int or item!=0 and item not in enabled(self.rom,'slots') or type(gold) is not int or not 0<=gold<=50000:
+            raise ValueError('Choose an enabled player item slot or None; extra gold must be 0–50,000.')
         if reward_type is not None:
             if reward_type not in ('none','item','stat','item+stat'):raise ValueError('Choose a supported reward type.')
             if reward_type in ('none','stat'):item=0
@@ -185,7 +243,11 @@ class Village:
         payload=bytes(prefix+body)
         if len(payload)>SLOT-32:raise ValueError('Village event exceeds its private allocation.')
         block=pool(self.rom,create=True);at=slot(self.index)-ARENA
-        block[at:at+SLOT]=bytes([block[32]])*SLOT
+        protected=independent_regions(block)
+        if any(at<high and at+32+len(payload)>low for low,high in protected):
+            raise ValueError('This legacy village allocation overlaps icon/combat storage. Editing is disabled to preserve that artwork; the village needs a separate storage migration.')
+        for offset in range(at,at+SLOT):
+            if not any(low<=offset<high for low,high in protected):block[offset]=block[32]
         meta=bytearray(32);meta[:4]=b'VLG1';meta[4:6]=self.index.to_bytes(2,'little')
         meta[6]=len(prefix);meta[7]=removed;meta[8:10]=e['length'].to_bytes(2,'little');meta[10:12]=len(payload).to_bytes(2,'little')
         meta[12:14]=gold.to_bytes(2,'little');meta[14]=item

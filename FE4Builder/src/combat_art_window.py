@@ -8,7 +8,8 @@ from combat_art import CombatArtwork
 class CombatArtWindow(tk.Toplevel):
     def __init__(self, app, item):
         model = CombatArtwork(app.rom)
-        if not 0 <= item < 125:
+        from item_expansion import enabled
+        if item not in enabled(app.rom, 'items') or 125 <= item < 138:
             raise ValueError('This item has no supported held-weapon sprite assignment.')
         super().__init__(app)
         self.app, self.rom, self.model = app, app.rom, model
@@ -18,7 +19,7 @@ class CombatArtWindow(tk.Toplevel):
         ttk.Label(body, text='For weapons made from staff or magic slots: use compatible weapon attack\n'
                   'poses, map weapon graphics and effects. Your selected held-weapon sprite\n'
                   'and palette, inventory icon, name, stats and damage effects are preserved.', justify='left').pack(anchor='w', pady=12)
-        self.items = [i for i in range(125) if model.candidates(i)]
+        self.items = [i for i in enabled(app.rom, 'items') if model.candidates(i)]
         if item not in self.items:self.items.insert(0, item)
         self.item = ttk.Combobox(body, state='readonly', width=54,
                                  values=[f'{i:02X} {model.art.name(i)}' for i in self.items])

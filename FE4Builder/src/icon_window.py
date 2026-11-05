@@ -96,7 +96,7 @@ class IconWindow(tk.Toplevel):
         from item_art import ItemArt
         art = ItemArt(self.rom)
         names = []
-        for i in range(138):
+        for i in range(len(self.document.refs['items'])):
             try:names.append(art.name(i))
             except (ValueError, KeyError):names.append(f'Item {i:02X}')
         return names
@@ -117,6 +117,9 @@ class IconWindow(tk.Toplevel):
             self.names_current = names;self.current = None;self.photos = [];self.edited_photos = {};self.list.delete(*self.list.get_children())
             library = self.view.current() == 1;active = self.document.active(kind)
             for i in range(len(self.document.art[kind]) if library else len(names)):
+                if kind == 'items' and not library:
+                    from item_expansion import enabled
+                    if i not in enabled(self.rom, 'items'):continue
                 label = (f'{i:02X} / tile {tile(i):03X}' + ('  Free' if i not in active else '  Unassigned artwork' if not self.document.users(kind, i) else '')) if library else f'{i:02X} {names[i]}'
                 if query and query not in label.casefold():continue
                 context = self.preview_context(i)

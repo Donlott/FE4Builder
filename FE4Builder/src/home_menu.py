@@ -19,7 +19,7 @@ def build_home(app):
             ('Enemy Editor','Generic enemy classes, levels, equipment and identities.',editor('Enemy Editor')),
             ('Holy Character Editor','Individual stats, skills and holy blood for special enemies.',editor('Holy Character Editor'))],
         'Items':[
-            ('Item Editor','Weapons, staves, rings, icons and battle previews.',editor('Item Editor')),
+            ('Item Editor','Item types, player slots, appearances, icons and expansion.',app.edit_items),
             ('Shop Editor','Shop inventories and their shared item slots.',editor('Shop Editor')),
             ('Stat Bonus Editor','Shared weapon profiles and ring bonus amounts.',app.edit_stat_bonuses)],
         'Maps & Events':[

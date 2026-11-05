@@ -112,7 +112,7 @@ EDITOR_CATEGORIES = {
     'Music & Other Tables': '',
 }
 
-def category_modules(mode):
+def category_modules(mode, rom=None):
     folder = MODULES / EDITOR_CATEGORIES[mode]
     # Compare numeric runs as numbers: Editor 2 belongs before Editor 10.
     modules = [load_module(path) for path in sorted(folder.glob('*.nmm'),
@@ -130,6 +130,17 @@ def category_modules(mode):
                 module.names=[f'Player item slot {i:02X}' for i in range(1,143)]
         priority = {'FE4 Weapon/Staff Editor 1': 0, 'FE4 Weapon/Staff Editor 2': 1}
         modules.sort(key=lambda module: priority.get(module.name, 2))
+        if rom is not None:
+            from item_expansion import installed, enabled, table, expanded_module
+            for module in modules:
+                if module.name == 'FE4 Player Weapon Editor':
+                    module.count = max(enabled(rom, 'slots'), default=0)
+                    module.offset = table(rom, 'players') + 512
+                    module.names = [f'Player item slot {i:02X}' for i in range(1, module.count + 1)]
+                elif installed(rom) and module.name == 'FE4 Item Sprite Editor by Lorena':
+                    module.offset = table(rom, 'held') + 512;module.count = 255
+                    module.names = [f'Item {i:02X}' for i in range(255)]
+            if installed(rom):modules.append(expanded_module(rom))
     return modules
 
 def army_modules(rom=None):
@@ -222,15 +233,18 @@ class Rom:
             category='Class names' if field.reference in ('FE4 Classes.txt','FE4 Class List.txt') else 'Item names'
             labels=name_labels(self,category)
             result=dict(field.options)
-            if labels and field.reference=='FE4 Weapon List.txt':
+            if field.reference=='FE4 Weapon List.txt':
                 from item_art import ItemArt,ITEM_COUNT
+                from item_expansion import enabled
                 art=ItemArt(self)
+                result = {item: result.get(item, f'Item {item:02X}') for item in enabled(self, 'items')} | {255: 'Nothing'}
                 for item in result:
-                    if 0<=item<ITEM_COUNT:
+                    if item != 255:
                         try:result[item]=labels.get(art.stats(item).get('Name'),result[item])
                         except ValueError:pass
             else:
                 result.update({key:value for key,value in labels.items() if key in result})
+                if field.reference == 'FE4 Weapon Names.txt':result.update(labels)
             return result
         if field.reference in ('FE4 Ring Bonuses.txt','FE4 Item Bonuses.txt'):
             from item_bonuses import ring_bonuses
@@ -249,14 +263,15 @@ class Rom:
             return result
         if field.reference != 'FE4 Player Equipment.txt':
             return field.options
+        from item_expansion import enabled, table
         player_items = load_module(MODULES / 'Item Editors' / 'FE4 Player Weapon Editor.nmm')
         item_names = self.field_options(player_items.fields[0])
-        start = self.address(player_items, 0)
+        start = table(self, 'players') + self.header
         result = {}
-        for slot in field.options:
+        for slot in enabled(self, 'slots') + [255]:
             if slot == 255:
                 result[slot] = 'Nothing'
-            elif 1 <= slot <= 142:
+            elif 1 <= slot <= 254:
                 item_id = self.data[start + slot - 1]
                 name = item_names.get(item_id) or f'Unknown item 0x{item_id:02X}'
                 result[slot] = {'El Wind': 'Elwind', 'None': 'Nothing'}.get(name, name)
@@ -275,6 +290,17 @@ class Rom:
                 raise ValueError(f'{field.name}: value must be between {minimum} and {maximum}')
             chunks.append(value.to_bytes(field.size, 'little', signed=field.signed))
         address = self.address(module, index)
+        from item_expansion import installed, ITEM_MODULE, ItemExpansion, record
+        if installed(self) and module.name == 'FE4 Player Weapon Editor':
+            ItemExpansion(self).assign(index+1, values[0])
+            return
+        if installed(self) and module.name == ITEM_MODULE:
+            raw = bytearray(record(self, index))
+            # Switching ring/weapon record shape is explicit in the combined
+            # editor, never an accidental overrun of a module's old stride.
+            for field, chunk in zip(module.fields, chunks):raw[field.offset:field.offset+field.size] = chunk
+            ItemExpansion(self).write_record(index, raw)
+            return
         for field, chunk in zip(module.fields, chunks):
             self.data[address+field.offset:address+field.offset+field.size] = chunk
 
@@ -288,6 +314,10 @@ class Rom:
             raise ValueError('Choose a new filename to preserve the source ROM.')
         if target.exists():
             self.last_backup=History(target,target.read_bytes()).backup(target,target.read_bytes())
+        from villages import reconcile_storage_checksum
+        reconcile_storage_checksum(self)
+        from item_expansion import installed,update_checksum
+        if installed(self):update_checksum(self)
         self._save(target)
 
     def save_original(self,description='ROM edit',details=None):
@@ -296,6 +326,10 @@ class Rom:
             raise ValueError('The ROM was changed outside FE4Builder. Reopen it before writing.')
         if not self.dirty:
             return
+        from villages import reconcile_storage_checksum
+        reconcile_storage_checksum(self)
+        from item_expansion import installed, update_checksum
+        if installed(self):update_checksum(self)
         state,backup=self.history.prepare(self.original,bytes(self.data),description,details)
         self._save(target)
         self.last_backup=backup

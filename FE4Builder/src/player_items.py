@@ -44,7 +44,8 @@ class SlotLocations:
     """Rebuild from live bytes whenever a source editor writes/reloads a ROM."""
     def __init__(self, rom):
         self.rom = rom
-        self.rows = {slot: [] for slot in range(1, SLOT_COUNT+1)}
+        from item_expansion import enabled
+        self.rows = {slot: [] for slot in enabled(rom, 'slots')}
         self.warnings = []
         self.chapters = {}
         from conversations import character_names
@@ -62,7 +63,7 @@ class SlotLocations:
             rows.sort(key=lambda row: row.order)
 
     def add(self, slot, row):
-        if 1 <= slot <= SLOT_COUNT and row not in self.rows[slot]:
+        if slot in self.rows and row not in self.rows[slot]:
             self.rows[slot].append(row)
 
     def _deployments(self):
@@ -195,7 +196,9 @@ class SlotLocations:
             if item == 0xff:continue
             try:
                 stats = art.stats(item)
-                if known and stats.get('Type') in (0,1) and stats.get('Rank',0)&0x80 and item not in exceptions:
+                from item_expansion import installed, ORIGINS, read
+                origin = read(self.rom, ORIGINS+item, 1)[0] if installed(self.rom) else item
+                if known and stats.get('Type') in (0,1) and stats.get('Rank',0)&0x80 and origin not in exceptions:
                     continue
             except ValueError:
                 self.warnings.append(f'Slot {slot:02X}: item inheritance eligibility could not be decoded.')

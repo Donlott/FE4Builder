@@ -136,7 +136,10 @@ def profile(rom, expanded):
               (0x9A519, 'BF 2D A5 89'), (0xBDB5A, 'BF 7E DB 8B'))
     for at, sequence in guards:
         if read(rom, at, len(bytes.fromhex(sequence))) != bytes.fromhex(sequence):
-            raise ValueError(f'The icon assignment reader at PC {at:06X} has custom code.')
+            from item_expansion import installed, table, cpu_address
+            replacement = b'\xBF' + cpu_address(table(rom, 'icons' if at == 0xD187 else 'status_icons')).to_bytes(3, 'little') if at in (0xD187, 0xBBEA3) and installed(rom) else None
+            if replacement is None or read(rom, at, 4) != replacement:
+                raise ValueError(f'The icon assignment reader at PC {at:06X} has custom code.')
     for at, sequence in ((0x9BE49, '01 00 00 C2 FE 20 36'),
                          (0x992F7, '01 00 00 C2 00 80 3E'),
                          (0x9A56B, '01 00 14 C2 60 80 3E'),
@@ -187,7 +190,9 @@ class IconDocument:
         self.art = {'items': split_atlas(read(rom, ITEM_GRAPHICS, ITEM_CAPACITY * 128)),
                     'skills': split_atlas(read(rom, PRIVATE_GRAPHICS if self.expanded else SKILL_GRAPHICS,
                                                0x1000 if self.expanded else 0xC00))}
-        self.refs = {'items': [slot(int.from_bytes(read(rom, ITEM_LOOKUP + i * 2, 2), 'little'), ITEM_CAPACITY) for i in range(138)],
+        from item_expansion import table, installed
+        self.item_lookup = table(rom, 'icons');self.status_lookup = table(rom, 'status_icons')
+        self.refs = {'items': [slot(int.from_bytes(read(rom, self.item_lookup + i * 2, 2), 'little'), ITEM_CAPACITY) for i in range(255 if installed(rom) else 138)],
                      'skills': []}
         # The status/trade screens stream each item from a second offset
         # table. Weapon-type/empty icons also use this sheet, independently
@@ -200,7 +205,7 @@ class IconDocument:
         from menu_text import item_help_plan
         self.help_repairs = item_help_plan(rom)
         status = b''.join((tile(v) * 32).to_bytes(2, 'little') for v in self.refs['items'])
-        self.needs_repair = bool(self.help_repairs) or read(rom, ITEM_STATUS_LOOKUP, len(status)) != status
+        self.needs_repair = bool(self.help_repairs) or read(rom, self.status_lookup, len(status)) != status
         for context, (at, count) in enumerate(zip(TABLES, (29, 29, 18))):
             values = []
             for i in range(count):
@@ -259,7 +264,8 @@ class IconDocument:
         if type(index) is not int or not 0 <= index < len(self.art[kind]):
             raise ValueError('Select an existing icon.')
         if kind == 'items':
-            if not 0 <= record < 138:raise ValueError('Unknown item.')
+            from item_expansion import enabled
+            if record not in enabled(self.rom, 'items'):raise ValueError('Unknown or disabled item.')
             self.refs[kind][record] = index
             return
         if not 0 <= record < 29 or not 0 <= context < 3:
@@ -313,8 +319,8 @@ class IconDocument:
         if self.storage_error:raise ValueError(self.storage_error)
         baseline = baseline or self.baseline or self.sizes_original()
         edits = [(ITEM_GRAPHICS, join_atlas(target.art['items']))]
-        edits.append((ITEM_LOOKUP, b''.join(tile(v).to_bytes(2, 'little') for v in target.refs['items'])))
-        edits.append((ITEM_STATUS_LOOKUP, b''.join((tile(v) * 32).to_bytes(2, 'little') for v in target.refs['items'])))
+        edits.append((self.item_lookup, b''.join(tile(v).to_bytes(2, 'little') for v in target.refs['items'])))
+        edits.append((self.status_lookup, b''.join((tile(v) * 32).to_bytes(2, 'little') for v in target.refs['items'])))
         edits.append((WEAPON_TYPE_LOOKUP, b''.join((tile(v) * 32).to_bytes(2, 'little') for v in target.weapon_refs)))
         edits += self.help_repairs
         for at, group in zip(TABLES, target.refs['skills']):

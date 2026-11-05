@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-05",
+  "base_commit": "cb1ccf4",
+  "source_sha256": "1dbf054e9a6de85a72fd83b83ccfe6031b905c4a4aa837e2a7d071ccb8aa4b03",
+  "source_unchanged": true,
+  "native_item_pointers": 255,
+  "native_holy_pointer_lookups": 255,
+  "native_player_slot_lookups": 254,
+  "saved_item_record_roundtrips": 1016,
+  "full_native_save_load_slots": 4,
+  "negative_stat_bytes_preserved": "FF FE FD F9 04 07",
+  "native_high_pid_reward_cases": 19,
+  "native_reward_item_type": "FE",
+  "native_reward_player_slot": "FE",
+  "event_editor_high_pid_roundtrip": true,
+  "village_editor_high_pid_roundtrip": true,
+  "removed_owned_slot_cleanup": true,
+  "snes9x_maximum_capacity_cold_boot_to_prologue": true,
+  "snes9x_high_type_high_slot_full_battle_completed": true,
+  "snes9x_high_type_high_slot_map_battle_completed": true,
+  "snes9x_high_slot_durability_before": 50,
+  "snes9x_high_slot_durability_after": 48,
+  "scope": "Native 65816 routines with seeded RAM states and focused Snes9x scenarios; no complete campaign playthrough.",
+  "reservations": {
+    "pc_item_arena": "7E8000\u20137ECFFF",
+    "cpu_item_arena": "3E8000\u20133ECFFF",
+    "native_added_record_capacity": 2384,
+    "maximum_added_weapon_record_bytes": 2223
+  },
+  "interop": "Existing private menu text and combat aliases preserved. Independently checksummed icon/combat data no longer invalidates unchanged village storage. Overlapping legacy village payloads remain guarded."
+}

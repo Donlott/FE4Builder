@@ -17,7 +17,7 @@ from dialogue import GLYPHS, ALIASES
 ARENA = 0x5B0000
 SIZE = 0x50000
 START = 0x3000
-MAX_ENTRIES = 1024
+MAX_ENTRIES = 1152
 MAGIC = b'FE4BMENUTEXTv1'.ljust(16, b'\0')
 SKILL_IDS = (0, 1, 2, 3, 4, 6, 10, 12, 13, 14, 15, 16, 17, 18, 19, 22, 23, 26)
 EXTRA_SKILLS = (
@@ -45,6 +45,18 @@ ITEM_HELP_CALL = b'\x22' + ITEM_HELP_HELPER.to_bytes(3, 'little')
 @lru_cache(None)
 def catalogue():
     return json.loads((DATA_DIR / 'menu_text.json').read_text(encoding='utf-8'))
+
+
+def storage_entries():
+    from item_expansion import text_entries
+    return catalogue()['entries'] + text_entries()
+
+
+@lru_cache(None)
+def expanded_fingerprint():
+    entries = [{k: v for k, v in e.items() if k not in ('label', 'default_text')}
+               for e in storage_entries()]
+    return hashlib.sha256(json.dumps(entries, sort_keys=True).encode()).digest()[:16]
 
 
 @lru_cache(None)
@@ -227,6 +239,9 @@ class Artwork:
 class MenuText:
     def __init__(self, rom, entry, font=None):
         check_profile(rom)
+        if entry.get('expanded_item') is not None:
+            from item_expansion import entry_available
+            if not entry_available(rom, entry):raise ValueError('This expanded item entry is disabled.')
         self.rom, self.entry = rom, entry
         self.font = font or MenuFont(rom)
         self.snapshot = list(self.font.snapshot)
@@ -369,13 +384,15 @@ def text_record(text):
 
 def validate_pool(block):
     fingerprint = block[16:32]
-    valid = fingerprint == catalogue_fingerprint()
+    valid = fingerprint in (catalogue_fingerprint(), expanded_fingerprint())
     if not valid and fingerprint == legacy_fingerprint():
         # Old versions cleared the entire directory. New slots must remain
         # empty until an explicit write migrates this checksummed header.
         valid = not any(block[128 + LEGACY_ENTRIES * 8:128 + len(catalogue()['entries']) * 8])
     if not valid or block[32] not in (0, 255) or block[64:96] != pool_digest(block):
         raise ValueError('Private menu text storage failed its integrity check. Restore a backup.')
+    if fingerprint != expanded_fingerprint() and any(block[128 + 710 * 8:128 + len(storage_entries()) * 8]):
+        raise ValueError('Expanded menu entries have no matching storage version.')
 
 
 def private_text(model):
@@ -416,8 +433,9 @@ def private_text(model):
 
 
 def allocate(rom, key, payload):
-    entries = catalogue()['entries']
-    fingerprint = catalogue_fingerprint()
+    from item_expansion import installed, entry_available
+    entries = storage_entries()
+    fingerprint = expanded_fingerprint() if installed(rom) else catalogue_fingerprint()
     block = bytearray(read(rom, ARENA, SIZE))
     if block[:16] == MAGIC:
         validate_pool(block)
@@ -447,6 +465,7 @@ def allocate(rom, key, payload):
     # Verify every private pointer before reclaiming an old allocation. Other
     # text editors may have deliberately introduced aliases or interior refs.
     for entry in entries:
+        if not entry_available(rom, entry):continue
         for pointer_at in pointer_fields(entry):
             pointer = int.from_bytes(read(rom, pointer_at, 3), 'little')
             if not ARENA <= pointer < ARENA + SIZE:
@@ -482,6 +501,26 @@ def allocate(rom, key, payload):
     return ARENA + chosen, (ARENA, bytes(block))
 
 
+def release(rom, key):
+    """Release only a removed entry's private payload; keep other pointers fixed."""
+    if read(rom, ARENA, 16) != MAGIC:return
+    block = bytearray(read(rom, ARENA, SIZE));validate_pool(block)
+    at = 128 + key * 8
+    offset, size = int.from_bytes(block[at:at+4], 'little'), int.from_bytes(block[at+4:at+8], 'little')
+    if not offset and not size:return
+    if not START <= offset < offset + size <= SIZE:raise ValueError('Invalid menu allocation to release.')
+    from item_expansion import entry_available
+    for entry in storage_entries():
+        if entry['key'] == key or not entry_available(rom, entry):continue
+        for pointer_at in pointer_fields(entry):
+            pointer = int.from_bytes(read(rom, pointer_at, 3), 'little')
+            if ARENA + offset <= pointer < ARENA + offset + size:
+                raise ValueError('Removed text artwork is still referenced by another entry.')
+    block[offset:offset+size] = bytes([block[32]]) * size
+    block[at:at+8] = bytes(8);block[64:96] = pool_digest(block)
+    rom.data[ARENA+rom.header:ARENA+rom.header+SIZE] = block
+
+
 def pointer_fields(entry):
     if entry['kind'] in ('name', 'description'):
         return [entry['table'] + v[1] for v in entry['variants']]
@@ -494,6 +533,13 @@ def item_help_plan(rom, pool=None):
     Return a checksummed pool and guarded loader edits together. Opening an
     editor never applies them; the normal backup/undo save writes the repair.
     """
+    from item_expansion import installed, ItemExpansion
+    if installed(rom):
+        ItemExpansion(rom).verify_hooks()
+        if pool is not None:
+            validate_pool(pool)
+            return [(ARENA, pool)] if pool != read(rom, ARENA, SIZE) else []
+        return []
     if pool is None:
         private = any(ARENA <= int.from_bytes(read(rom, at, 3), 'little') < ARENA + SIZE
                       for entry in catalogue()['entries'] if entry['kind'] == 'description'
@@ -589,7 +635,9 @@ def name_labels(rom, category):
         table, count, pool, size = 0x502400, 72, 0x568000, 0x9000
     else:
         return {}
-    stamp = hashlib.sha256(read(rom, table, count * 16) + read(rom, pool, size) +
+    from item_expansion import installed, NAMES, enabled
+    extra = read(rom, NAMES, 4096) + bytes(enabled(rom, 'items')) if category == 'Item names' and installed(rom) else b''
+    stamp = hashlib.sha256(extra + read(rom, table, count * 16) + read(rom, pool, size) +
                            read(rom, ARENA + 64, 32) + read(rom, 0x119971, 0xB0) +
                            read(rom, 0x128000, 0x3000)).digest()
     cache = getattr(rom, '_menu_name_cache', {})
@@ -599,7 +647,7 @@ def name_labels(rom, category):
         except ValueError:
             return {}
         labels = {}
-        for entry in catalogue()['entries']:
+        for entry in storage_entries():
             if entry['category'] != category:
                 continue
             try:

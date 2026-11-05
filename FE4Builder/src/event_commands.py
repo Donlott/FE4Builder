@@ -7,7 +7,7 @@ from event_layouts import checked
 
 # (Label, operand offset, bytes, minimum, maximum)
 BACKGROUNDS={0:'Fountain',1:'Gate',2:'Alley',3:'Throne',4:'Hallway',5:'Cloister'}
-FIELDS={'remove_chapter_struct':[('Chapter',2,1,0,11)],'set_unit_castle':[('Character',2,2,1,696),('Castle',4,1,0,255)],0x3f:[('Initial scroll speed',4,1,1,255)],'remove_unit':[('Character',2,2,1,696)],0x22:[('Character',1,2,1,696),('Start X',3,1,0,63),('Start Y',4,1,0,63),('Destination X',5,1,0,63),('Destination Y',6,1,0,63),('Movement speed',7,1,1,5),('Coordinate source',7,1,0,2),('Sprite color',8,1,2,8),('Disappear offscreen',7,1,0,1)],0x08:[('Chapter',1,1,0,11),('Event flag',2,1,0,79)],'give_item':[('Recipient',2,2,1,65535),('Player item slot',4,1,1,142)],0x3b:[('Fade interval',1,1,1,63),('Transition mode',1,1,0,2)],'set_permanent_flag':[('Permanent flag',2,1,0,255)],'undeploy_unit':[('Character',2,2,1,696)],'deploy_group':[('Unit group',2,1,0,57)],0x4b:[('Chapter',1,1,0,11),('Event flag',2,1,0,79)],0x4c:[('Chapter',1,1,0,11),('Event flag',2,1,0,79)],0x27:[('Character',1,2,1,696),('Start X',3,1,0,63),('Start Y',4,1,0,63),('Movement speed',5,1,1,5),('Sprite color',6,1,2,8),('Disappear offscreen',5,1,0,1)],0x14:[('Dialogue scene',1,3,0,0xffffff),('Background',4,1,0,5),('Fade timing',6,1,1,255)],0x0c:[('Dialogue scene',1,3,0,0xffffff)],0x0e:[('Music track',1,1,0,255)],0x11:[('Byte sound effect',1,1,0,255)],0x12:[('Word sound command',1,2,0,65535)],0x34:[('Pause ticks',1,2,1,65535)],0x3a:[('Camera X',1,1,0,63),('Camera Y',2,1,0,63)],
+FIELDS={'remove_chapter_struct':[('Chapter',2,1,0,11)],'set_unit_castle':[('Character',2,2,1,696),('Castle',4,1,0,255)],0x3f:[('Initial scroll speed',4,1,1,255)],'remove_unit':[('Character',2,2,1,696)],0x22:[('Character',1,2,1,696),('Start X',3,1,0,63),('Start Y',4,1,0,63),('Destination X',5,1,0,63),('Destination Y',6,1,0,63),('Movement speed',7,1,1,5),('Coordinate source',7,1,0,2),('Sprite color',8,1,2,8),('Disappear offscreen',7,1,0,1)],0x08:[('Chapter',1,1,0,11),('Event flag',2,1,0,79)],'give_item':[('Recipient',2,2,1,65535),('Player item slot',4,1,1,254)],0x3b:[('Fade interval',1,1,1,63),('Transition mode',1,1,0,2)],'set_permanent_flag':[('Permanent flag',2,1,0,255)],'undeploy_unit':[('Character',2,2,1,696)],'deploy_group':[('Unit group',2,1,0,57)],0x4b:[('Chapter',1,1,0,11),('Event flag',2,1,0,79)],0x4c:[('Chapter',1,1,0,11),('Event flag',2,1,0,79)],0x27:[('Character',1,2,1,696),('Start X',3,1,0,63),('Start Y',4,1,0,63),('Movement speed',5,1,1,5),('Sprite color',6,1,2,8),('Disappear offscreen',5,1,0,1)],0x14:[('Dialogue scene',1,3,0,0xffffff),('Background',4,1,0,5),('Fade timing',6,1,1,255)],0x0c:[('Dialogue scene',1,3,0,0xffffff)],0x0e:[('Music track',1,1,0,255)],0x11:[('Byte sound effect',1,1,0,255)],0x12:[('Word sound command',1,2,0,65535)],0x34:[('Pause ticks',1,2,1,65535)],0x3a:[('Camera X',1,1,0,63),('Camera Y',2,1,0,63)],
         0x23:[('Unit group',1,1,0,57),('Entry in group',2,2,1,65535),('Start X',4,1,0,63),('Start Y',5,1,0,63),('Movement speed',6,1,0,7)],
         0x24:[('Character',1,2,1,696),('Faction slot',3,1,0,6),('Start X',4,1,0,63),('Start Y',5,1,0,63),('Destination X',6,1,0,63),('Destination Y',7,1,0,63),('Movement speed',8,1,0,7),('Sprite color',9,1,2,6),('Group leader',10,1,0,1),('AI setting',10,1,0,15)],
         0x42:[('Character',1,2,1,696),('Slot',3,1,0,1)],
@@ -77,11 +77,15 @@ def give_recipients(rom):
     return {**undeploy_options(rom),65535:'Event Unit Slot 1 (current event recipient)'}
 
 def player_item_options(rom):
-    from rom import load_module,MODULES
-    from player_items import SLOT_COUNT
-    module=load_module(MODULES/'Item Editors/FE4 Player Weapon Editor.nmm')
-    start=rom.address(module,0);names=module.fields[0].options
-    return {slot:names.get(rom.data[start+slot-1],f'Unknown item ${rom.data[start+slot-1]:02X}') for slot in range(1,SLOT_COUNT+1)}
+    from rom import character_modules
+    field=next(f for f in character_modules()[0].fields if f.reference=='FE4 Player Equipment.txt')
+    return {slot:name for slot,name in rom.field_options(field).items() if slot!=255}
+
+
+def player_item_snapshot(rom):
+    from item_expansion import enabled,table,read
+    slots=enabled(rom,'slots');start=table(rom,'players')
+    return start,bytes(slots),read(rom,start,max(slots,default=0))
 
 TRANSITION_MODES={0:'Preserve live terrain / automatic reveal',1:'Reload terrain / automatic reveal',2:'Reload terrain / leave dark (separate fade-in)'}
 
@@ -140,7 +144,7 @@ class EventCommands:
         self.snapshot=checked(rom,self.profile);self.commands=self.entry['commands']
         self.castle_snapshot=castle_context(rom,self.entry['chapter'])[1] if any(c['editable'] and schema(c)=='set_unit_castle' for c in self.commands) else None
         self.group_snapshot=bytes(rom.data[0x1c000+rom.header:0x20000+rom.header])
-        self.item_snapshot=bytes(rom.data[0x3f489+rom.header:0x3f489+142+rom.header])
+        self.item_snapshot=player_item_snapshot(rom)
     def dialogues(self):
         if not hasattr(self,'_dialogues'):
             try:self._dialogues=dialogue_options(self.rom)

@@ -34,10 +34,15 @@ def held_pose(raw,staff=False):
 class ItemArt:
     def __init__(self,rom):
         self.rom=rom
-        self.modules={m.name:m for m in category_modules('Item Editor')}
-        self.player=load_module(MODULES/'Item Editors'/'FE4 Player Weapon Editor.nmm')
+        self.modules={m.name:m for m in category_modules('Item Editor', rom)}
+        self.player=self.modules['FE4 Player Weapon Editor']
         self.cache={}
         self.icon_cache={}
+
+    @property
+    def count(self):
+        from item_expansion import installed
+        return 255 if installed(self.rom) else ITEM_COUNT
 
     @property
     def data(self):
@@ -47,13 +52,18 @@ class ItemArt:
     def resolve(self,field,value):
         if value==255:return None
         if field.reference=='FE4 Player Equipment.txt':
-            if not 1<=value<=142:raise ValueError('Unsupported inventory slot.')
+            from item_expansion import enabled
+            if value not in enabled(self.rom, 'slots'):raise ValueError('Disabled or unsupported inventory slot.')
             value=self.rom.data[self.rom.address(self.player,0)+value-1]
         if value==255:return None
-        if not 0<=value<ITEM_COUNT:raise ValueError('Unsupported item ID.')
+        from item_expansion import enabled
+        if value not in enabled(self.rom, 'items'):raise ValueError('Disabled or unsupported item ID.')
         return value
 
     def record(self,item):
+        if item >= ITEM_COUNT:
+            from item_expansion import expanded_module
+            return expanded_module(self.rom, item), item
         target=field_target(self.rom,self.player.fields[0],item)
         if target is None:return None
         return self.modules[target[1]],target[2]
@@ -76,12 +86,14 @@ class ItemArt:
         return TYPE_NAMES[value] if 0<=value<len(TYPE_NAMES) else 'Weapon'
 
     def art(self,item,overrides=None):
-        if not 0<=item<ITEM_COUNT:raise ValueError('Unsupported item ID.')
+        if not 0<=item<self.count:raise ValueError('Unsupported item ID.')
         kind=self.kind(item)
-        if item>=125:
+        if 125 <= item < ITEM_COUNT:
             rows,colors=self.icon(item)
             return rows,colors,'Native inventory icon (no held-weapon artwork)'
-        sprite,palette=self.data[ASSIGNMENTS+item*2:ASSIGNMENTS+item*2+2]
+        from item_expansion import table
+        assignments = table(self.rom, 'held')
+        sprite,palette=self.data[assignments+item*2:assignments+item*2+2]
         if overrides is not None:sprite,palette=overrides
         if sprite==255:
             rows,colors=self.icon(item)
@@ -101,11 +113,13 @@ class ItemArt:
 
     def icon(self,item):
         """The real 16x16 inventory icon, including tomes, rings and broken items."""
-        if not 0<=item<ITEM_COUNT:raise ValueError('Unsupported item ID.')
+        if not 0<=item<self.count:raise ValueError('Unsupported item ID.')
         # The game maps item IDs to top-left tile numbers; several items share
         # one icon. SNES 8x8 tile rows have a sixteen-tile stride.
         data=self.data
-        lookup=bytes(data[INVENTORY_LOOKUP+item*2:INVENTORY_LOOKUP+item*2+2])
+        from item_expansion import table
+        lookup_at = table(self.rom, 'icons')
+        lookup=bytes(data[lookup_at+item*2:lookup_at+item*2+2])
         if len(lookup)!=2:raise ValueError('Inventory icon lookup is outside the ROM.')
         tile=int.from_bytes(lookup,'little')
         if tile>0x1ee or tile%16>14:
@@ -136,7 +150,8 @@ class ItemArt:
         return ' | '.join(fields)
 
 def item_for_record(module,index):
+    if module.name == 'FE4 Expanded Item Editor':return index
     bases={'FE4 Weapon/Staff Editor 1':0,'FE4 Weapon/Staff Editor 2':0x7a,'FE4 Ring Editor':0x6a,'FE4 Item Editor by Camus':0x6a,'FE4 Circlet Editor':0x89,'FE4 Item Sprite Editor by Lorena':0}
     if module.name not in bases:return None
     item=bases[module.name]+index
-    return item if 0<=item<ITEM_COUNT else None
+    return item if 0<=item<255 else None

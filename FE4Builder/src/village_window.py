@@ -39,7 +39,7 @@ class VillageWindow(tk.Toplevel):
         fields=ttk.LabelFrame(right,text='Rewards',padding=14);fields.pack(fill='x')
         field=next(f for f in character_modules()[0].fields if f.reference=='FE4 Player Equipment.txt')
         self.item_options={'None':0}
-        self.item_options.update({f'{slot} — {name}':slot for slot,name in self.rom.field_options(field).items() if 1<=slot<=142})
+        self.item_options.update({f'{slot:02X} — {name}':slot for slot,name in self.rom.field_options(field).items() if 1<=slot<=254})
         self.reward_type=tk.StringVar()
         self.reward_types={'Gold only / no special reward':'none','Item':'item','Stat increase':'stat','Item and stat increase':'item+stat'}
         ttk.Label(fields,text='Special reward type').grid(row=4,column=0,sticky='w',pady=6)

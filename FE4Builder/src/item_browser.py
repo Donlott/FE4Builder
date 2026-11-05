@@ -13,7 +13,8 @@ class ItemBrowser(tk.Toplevel):
         self.transient(app);self.grab_set()
         self.app=app;self.engine=ItemArt(app.rom);self.on_pick=on_pick;self.field=field
         self.entries=[];self.photos={}
-        values=sorted(options) if field else range(ITEM_COUNT)
+        from item_expansion import enabled
+        values=sorted(options) if field else enabled(app.rom, 'items')
         for value in values:
             try:
                 item=self.engine.resolve(field,value) if field else value
