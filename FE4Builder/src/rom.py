@@ -288,6 +288,9 @@ class Rom:
             maximum = (1 << (8 * field.size - int(field.signed))) - 1
             if not minimum <= value <= maximum:
                 raise ValueError(f'{field.name}: value must be between {minimum} and {maximum}')
+            if field.reference=='FE4 Weapon Bonus.txt':
+                from bonus_profiles import require_profile
+                require_profile(self,value)
             chunks.append(value.to_bytes(field.size, 'little', signed=field.signed))
         address = self.address(module, index)
         from item_expansion import installed, ITEM_MODULE, ItemExpansion, record
@@ -317,7 +320,8 @@ class Rom:
         from villages import reconcile_storage_checksum
         reconcile_storage_checksum(self)
         from item_expansion import installed,update_checksum
-        if installed(self):update_checksum(self)
+        from bonus_profiles import installed as custom_bonuses
+        if installed(self) or custom_bonuses(self):update_checksum(self)
         self._save(target)
 
     def save_original(self,description='ROM edit',details=None):
@@ -329,7 +333,8 @@ class Rom:
         from villages import reconcile_storage_checksum
         reconcile_storage_checksum(self)
         from item_expansion import installed, update_checksum
-        if installed(self):update_checksum(self)
+        from bonus_profiles import installed as custom_bonuses
+        if installed(self) or custom_bonuses(self):update_checksum(self)
         state,backup=self.history.prepare(self.original,bytes(self.data),description,details)
         self._save(target)
         self.last_backup=backup

@@ -22,12 +22,18 @@ class BonusEditor:
     def __init__(self,rom,kind,value):
         if len(rom.data)-rom.header!=0x800000:
             raise ValueError('Bonus editing supports the 8 MiB Project Naga beta 7 ROM profile.')
-        if kind not in ('weapon','ring') or not 0<=value<=(15 if kind=='weapon' else 7):
+        if kind not in ('weapon','ring') or type(value) is not int or not 0<=value<=(255 if kind=='weapon' else 7):
             raise ValueError('Select a supported bonus profile.')
         self.rom,self.kind,self.value=rom,kind,value
-        self.name=WEAPON_NAMES[value] if kind=='weapon' else ('None' if value==0 else RING_BONUSES[value].split(' ',1)[1]+' ring effect')
+        self.name=(WEAPON_NAMES[value] if value<16 else f'Custom {value:02X}') if kind=='weapon' else ('None' if value==0 else RING_BONUSES[value].split(' ',1)[1]+' ring effect')
         self.fields=[];self.locations=[];self.size=1
-        if value and kind=='weapon' and value<14:
+        if kind=='weapon' and value>=16:
+            from bonus_profiles import BonusProfiles, VALUES
+            profiles=BonusProfiles(rom)
+            if value not in profiles.profiles:raise ValueError('This custom weapon bonus is disabled. Add it before assigning it.')
+            self.fields=list(STATS)
+            self.locations=[(rom.header+VALUES+(value-16)*6+i,) for i in range(6)]
+        elif value and kind=='weapon' and value<14:
             table=0x389c9+rom.header
             self.pointer_at=table+(value-1)*2
             self.pointer=bytes(rom.data[self.pointer_at:self.pointer_at+2])
@@ -54,26 +60,34 @@ class BonusEditor:
         fresh=BonusEditor(self.rom,self.kind,self.value)
         if fresh.locations!=self.locations or fresh.original!=self.original:
             raise ValueError('This bonus changed outside the editor. Reload before writing.')
+        if self.kind=='weapon' and self.value>=16:
+            from bonus_profiles import BonusProfiles
+            BonusProfiles(self.rom).write(self.value,values)
+            return [f'{field}: +{old} → +{new}' for field,old,new in zip(self.fields,self.values,values) if old!=new]
         edits=[(at,new.to_bytes(self.size,'little')) for locations,old,new in zip(self.locations,self.values,values) for at in locations if old!=new]
         for at,data in edits:self.rom.data[at:at+len(data)]=data
         return [f'{field}: +{old} → +{new}' for field,old,new in zip(self.fields,self.values,values) if old!=new]
 
     def users(self):
-        from rom import category_modules
-        result=[];seen=set()
         ids={self.value}
         if self.kind=='weapon' and 0<self.value<14:
             table=0x389c9+self.rom.header
             ids.update(i for i in range(1,14) if bytes(self.rom.data[table+(i-1)*2:table+i*2])==self.pointer)
-        for module in category_modules('Item Editor'):
-            if (self.kind=='weapon')!=module.name.startswith('FE4 Weapon/Staff Editor'):continue
-            field=next((f for f in module.fields if f.name in ('Stat Bonus','Stat Bonuses')),None)
-            if field is None:continue
-            for index in range(module.count):
-                address=self.rom.address(module,index)
-                if address not in seen and self.rom.data[address+field.offset] in ids:
-                    seen.add(address);result.append(module.names[index])
-        return result
+        return profile_users(self.rom,self.kind,ids)
+
+
+def profile_users(rom,kind,ids):
+    """Follow live item pointers, including enabled added items and shared records."""
+    from item_expansion import enabled, record
+    from item_art import ItemArt
+    art=ItemArt(rom);result=[]
+    for item in enabled(rom,'items'):
+        raw=record(rom,item)
+        if (raw[1]!=2)!=(kind=='weapon') or raw[5] not in ids:continue
+        try:name=art.name(item)
+        except ValueError:name=f'Item {item:02X}'
+        result.append(f'{item:02X} {name}')
+    return result
 
 
 def ring_bonuses(rom):
@@ -107,4 +121,8 @@ def weapon_bonuses(rom):
             effect=BonusEditor(rom,'weapon',value)
             result[value]=f'{WEAPON_NAMES[value]}: +{effect.values[0]} {effect.fields[0]}'
         except ValueError:result[value]=WEAPON_NAMES[value]+' (unsupported code)'
+    from bonus_profiles import BonusProfiles
+    for value,boosts in BonusProfiles(rom).profiles.items():
+        effect=', '.join(f'+{amount} {stat}' for stat,amount in zip(STATS,boosts) if amount)
+        result[value]=f'Custom {value:02X}: {effect or "No stat increase"}'
     return result

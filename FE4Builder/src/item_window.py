@@ -186,6 +186,9 @@ class ItemWindow(tk.Toplevel):
             self.equipment_icons[len(self.controls)]=(icon,field)
         widget = ttk.Combobox(control, textvariable=var, values=list(mapping), width=23) if mapping else ttk.Entry(control, textvariable=var, width=25)
         widget.pack(side='left',fill='x',expand=True)
+        if field is not None and field.reference in ('FE4 Weapon Bonus.txt','FE4 Ring Bonuses.txt','FE4 Item Bonuses.txt'):
+            kind='weapon' if field.reference=='FE4 Weapon Bonus.txt' else 'ring'
+            ttk.Button(control,text='Edit...',command=lambda i=len(self.controls),k=kind:self.edit_bonus(i,k)).pack(side='left',padx=(6,0))
         self.controls.append((var, mapping));return var
 
     def load(self, value):
@@ -423,6 +426,11 @@ class ItemWindow(tk.Toplevel):
 
     def edit_icon(self):
         if self.settle():self.app.edit_icons('items', self.current)
+
+    def edit_bonus(self,index,kind='weapon'):
+        try:value=self.control_value(index)
+        except ValueError:messagebox.showerror('Invalid bonus','Choose a bonus profile or enter its numeric ID.',parent=self);return None
+        if self.settle():return self.app.edit_stat_bonuses(kind,value)
 
     def edit_combat(self):
         if not self.settle():return

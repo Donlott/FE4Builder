@@ -101,6 +101,7 @@ def payload(platform):
     add(B/'docs/promotion-stats-research.md','FE4Builder/docs/promotion-stats-research.md')
     add(B/'docs/icon-editor.md','FE4Builder/docs/icon-editor.md')
     add(B/'docs/item-expansion.md','FE4Builder/docs/item-expansion.md')
+    add(B/'docs/bonus-profiles.md','FE4Builder/docs/bonus-profiles.md')
     modules=B.parent/'Nightmare Modules'/'FE4 Nightmare modules'
     for path in sorted(modules.rglob('*')):
         if path.is_file() and path.suffix.lower() in ('.nmm','.txt'):

@@ -84,6 +84,9 @@ existing palette. Physical animation templates must suit the weapon type/range.
 The separate blood/inheritance template retains the copied holy weapon's blood
 requirement and the native Forseti/Valkyrie/Yewfelle inheritance exceptions.
 It can be selected independently of the animation template for added items.
+Independent custom stat bonus profiles can be added in **Stat Bonus Editor**
+and assigned to original or added weapons. These six-stat combinations do not
+change the weapon's rank or inheritance rules; see [bonus-profiles.md](bonus-profiles.md).
 
 This expands definitions and persistent copies, not executable item effects.
 New staff behaviors, entirely new weapon classes or custom hardcoded special

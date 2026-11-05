@@ -90,6 +90,10 @@ def validate_record(rom,module,index,values):
                 item=rom.data[rom.header+table(rom, 'players')+v-1]
                 if item not in enabled(rom, 'items'):
                     issues.append(Issue('Warning',f.name,f'Slot {v} refers to unknown item ID {item:02X}.'))
+        elif f.reference=='FE4 Weapon Bonus.txt':
+            from bonus_profiles import require_profile
+            try:require_profile(rom,v)
+            except ValueError as error:issues.append(Issue('Error',f.name,str(error)))
         elif f.options and v not in f.options and not f.name.startswith(('Blood','Skills','Class Skills','Skill Set')):
             issues.append(Issue('Warning',f.name,'Value is absent from the named module options; it may be unused or specific to a hack.'))
         if f.name.startswith(('Skills','Class Skills','Skill Set')):

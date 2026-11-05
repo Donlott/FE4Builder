@@ -432,6 +432,9 @@ class ItemExpansion:
         if item not in self.items:raise ValueError('This item is disabled.')
         expected = 10 if raw[1] == 2 else 19
         if raw[1] not in (0, 1, 2):raise ValueError('Choose weapon, staff or ring as the item type.')
+        if raw[1]!=2:
+            from bonus_profiles import require_profile
+            require_profile(self.rom,raw[5])
         if raw[0] not in self.items:raise ValueError('Choose an enabled item name/description ID.')
         if len(raw) != expected:raise ValueError('Item record size does not match its equipment type.')
         if origin is not None:

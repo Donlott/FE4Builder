@@ -4,10 +4,15 @@ from pathlib import Path
 from unittest.mock import patch
 from rom import Rom,ROOT,category_modules
 from item_bonuses import BonusEditor,weapon_bonuses,ring_bonuses,CODE_EFFECTS
+from bonus_profile_fixture import fixture
 
 
 class ItemBonusTests(unittest.TestCase):
-    def setUp(self):self.rom=Rom(next(ROOT.glob('*.sfc')))
+    def setUp(self):
+        self.folder=tempfile.TemporaryDirectory();self.rom=Rom(fixture(self.folder.name))
+        self.preference=patch('ui_common.DATA_DIR',Path(self.folder.name));self.preference.start()
+
+    def tearDown(self):self.preference.stop();self.folder.cleanup()
 
     def test_profile_changes_only_six_boost_bytes_and_updates_dropdowns(self):
         before=bytes(self.rom.data)

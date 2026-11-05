@@ -21,7 +21,7 @@ def build_home(app):
         'Items':[
             ('Item Editor','Item types, player slots, appearances, icons and expansion.',app.edit_items),
             ('Shop Editor','Shop inventories and their shared item slots.',editor('Shop Editor')),
-            ('Stat Bonus Editor','Shared weapon profiles and ring bonus amounts.',app.edit_stat_bonuses)],
+            ('Stat Bonus Editor','Add or edit weapon stat bonus profiles and shared ring amounts.',app.edit_stat_bonuses)],
         'Maps & Events':[
             ('Objectives & Progression','Existing seize / defeat triggers, ending events and global defeat rules.',app.edit_objectives),
             ('Event Editor','Edit chapter events, unit commands, dialogue, audio, camera routes and flags.',app.edit_events),
