@@ -246,6 +246,12 @@ slot 00 stays reserved. Added entries can be removed after references are
 cleared, reclaiming their private records and text. Optimization previews show
 artwork usage and space recovered.
 
+Choose **Advanced item modules** in the Item Editor's view dropdown for all 20
+original modules, including sounds, holy weapon flashes, broken weapon mappings,
+magic/map animations, pointer tables, item skills, minimum damage and bonuses.
+The module selector and editable fields appear in the same window. These views
+retain normal Write to ROM, automatic backups, undo/redo and Save & Launch.
+
 The first addition enables a ROM patch that **requires a new game**. It retains
 all four saves and fixes the maximum item-record save layout from that point
 onward. Existing original entries keep their IDs. See

@@ -6,6 +6,18 @@ names/descriptions, inventory icons and held artwork. The latter edits each
 persistent copy's assigned type and shows its live inventories, shops, rewards,
 drops and conditional inheritance appearances, with navigation buttons.
 
+Select **Advanced item modules** in the same view dropdown to access all 20
+original Nightmare item modules. The additional module selector restores broken
+weapon mappings, player/enemy sounds, both holy-weapon flash modules, magic
+animations and their pointers, map sprites/palettes, battle sprite pointers,
+the item skill table, minimum damage, raw name pointers and weapon bonus
+profiles. Original weapon/staff, ring, Circlet, Camus and player/sprite module
+views are available there too, including the Camus view's raw Max Uses field.
+Each module keeps its original fields and record navigation. Expanded player
+slots and held-sprite assignments use their relocated tables. Module edits use
+the same Write to ROM, backups, undo/redo and Save & Launch controls. Switching
+views or modules settles pending changes first; opening/browsing is read-only.
+
 ## Enabling entries
 
 **Add item...** copies an existing item into a disabled ID. **Add player slot...**

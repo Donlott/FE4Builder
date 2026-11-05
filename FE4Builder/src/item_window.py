@@ -6,7 +6,7 @@ from tkinter import ttk, messagebox
 from item_expansion import (ItemExpansion, BASE_ITEMS, MAX_ITEMS, MAX_SLOTS,
                             enabled, table, record, put, read, DONORS, ORIGINS)
 from item_art import ItemArt
-from rom import number
+from rom import number, category_modules
 from ui_common import ask_unsaved, scrollable_frame
 
 
@@ -26,9 +26,14 @@ class ItemWindow(tk.Toplevel):
         ttk.Button(top, text='Undo', command=lambda:self.history(False)).pack(side='right')
         body = ttk.Panedwindow(self, orient='horizontal');body.pack(fill='both', expand=True, padx=12)
         left = ttk.Frame(body, width=300);body.add(left, weight=0)
-        self.view = ttk.Combobox(left, state='readonly', values=['Item types', 'Player item slots'])
-        self.view.current(kind == 'slots');self.previous_view = self.view.current();self.view.pack(fill='x')
+        self.view = ttk.Combobox(left, state='readonly', values=['Item types', 'Player item slots', 'Advanced item modules'])
+        self.view.current({'items':0,'slots':1,'modules':2}[kind]);self.previous_view = self.view.current();self.view.pack(fill='x')
         self.view.bind('<<ComboboxSelected>>', self.change_view)
+        self.module_panel = ttk.Frame(left)
+        ttk.Label(self.module_panel,text='Original item module').pack(anchor='w')
+        self.module_selector = ttk.Combobox(self.module_panel,state='readonly',width=36)
+        self.module_selector.pack(fill='x',pady=(4,0));self.module_selector.bind('<<ComboboxSelected>>',self.change_module)
+        self.previous_module = 'FE4 Broken Weapon Editor'
         self.search = tk.StringVar();ttk.Entry(left, textvariable=self.search).pack(fill='x', pady=8)
         listing = ttk.Frame(left);listing.pack(fill='both', expand=True)
         ttk.Style(self).configure('ItemWorkspace.Treeview',rowheight=36)
@@ -36,12 +41,12 @@ class ItemWindow(tk.Toplevel):
         bar = ttk.Scrollbar(listing, command=self.list.yview);bar.pack(side='right', fill='y')
         self.list.configure(yscrollcommand=bar.set);self.list.pack(fill='both', expand=True)
         self.list.bind('<<TreeviewSelect>>', self.select)
-        controls = ttk.Frame(left);controls.pack(fill='x', pady=8)
+        controls = self.entry_actions = ttk.Frame(left);controls.pack(fill='x', pady=8)
         self.add_button = ttk.Button(controls, text='Add item...', command=self.add);self.add_button.pack(side='left')
         self.remove_button = ttk.Button(controls, text='Remove entry', command=self.remove);self.remove_button.pack(side='left', padx=6)
-        self.count = tk.StringVar();ttk.Label(left, textvariable=self.count, wraplength=300).pack(anchor='w')
+        self.count = tk.StringVar();self.count_label=ttk.Label(left, textvariable=self.count, wraplength=300);self.count_label.pack(anchor='w')
         right = ttk.Frame(body, padding=(16, 0, 0, 0));body.add(right, weight=1)
-        self.heading = tk.StringVar();ttk.Label(right, textvariable=self.heading, style='Title.TLabel').pack(anchor='w')
+        self.heading = tk.StringVar();ttk.Label(right, textvariable=self.heading, style='Title.TLabel',wraplength=760).pack(anchor='w')
         self.details = tk.StringVar();ttk.Label(right, textvariable=self.details, wraplength=760).pack(anchor='w', pady=6)
         self.content = scrollable_frame(right)
         space = ttk.LabelFrame(self, text='Item storage', padding=10);space.pack(fill='x', padx=12, pady=10)
@@ -54,13 +59,13 @@ class ItemWindow(tk.Toplevel):
         self.populate(selected)
 
     @property
-    def kind(self):return 'slots' if self.view.current() else 'items'
+    def kind(self):return ('items','slots','modules')[self.view.current()]
 
     def pending(self):return [var.get() for var, _ in self.controls] != self.initial
 
     def settle(self):
         if not self.pending():return True
-        answer = ask_unsaved(self, 'Write this item or player slot to the opened ROM?')
+        answer = ask_unsaved(self, 'Write this module record to the opened ROM?' if self.kind=='modules' else 'Write this item or player slot to the opened ROM?')
         return False if answer is None else self.save() if answer else True
 
     def change_view(self, _=None):
@@ -71,11 +76,24 @@ class ItemWindow(tk.Toplevel):
         self.previous_view = choice;self.current = None;self.controls = [];self.initial = []
         self.search.set('');self.populate()
 
+    def change_module(self, _=None):
+        choice=self.module_selector.get()
+        self.module_selector.set(self.previous_module)
+        if not self.settle():return
+        self.previous_module=choice;self.module_selector.set(choice)
+        self.current=None;self.controls=[];self.initial=[]
+        self.search.set('');self.populate()
+
     def populate(self, selected=None):
         if self.busy:return
         self.busy = True
         try:
             self.model = ItemExpansion(self.rom);self.art = ItemArt(self.rom)
+            if self.kind=='modules':
+                self.populate_modules(selected)
+                return
+            self.module_panel.pack_forget()
+            if not self.entry_actions.winfo_manager():self.entry_actions.pack(fill='x',pady=8,before=self.count_label)
             ids = enabled(self.rom, self.kind);self.visible = []
             query = self.search.get().casefold().strip()
             self.list.delete(*self.list.get_children());self.photos = {}
@@ -105,6 +123,39 @@ class ItemWindow(tk.Toplevel):
             if value is not None:self.list.see(str(value))
         finally:self.busy = False
 
+    def populate_modules(self, selected=None):
+        from item_expansion import ITEM_MODULE
+        self.native_modules=[m for m in category_modules('Item Editor',self.rom) if m.name!=ITEM_MODULE]
+        names=[m.name for m in self.native_modules]
+        self.module_selector.configure(values=names)
+        choice=self.previous_module if self.previous_module in names else names[0]
+        self.module_selector.set(choice);self.previous_module=choice
+        self.module_panel.pack(fill='x',pady=(8,0),after=self.view)
+        self.entry_actions.pack_forget()
+        module=next(m for m in self.native_modules if m.name==choice)
+        query=self.search.get().casefold().strip();self.visible=[];self.photos={}
+        self.list.delete(*self.list.get_children())
+        first=1 if module.name=='FE4 Player Weapon Editor' else 0
+        allowed=set(enabled(self.rom,'slots')) if first else set(enabled(self.rom,'items')) if module.name=='FE4 Item Sprite Editor by Lorena' else None
+        from item_art import item_for_record
+        for index in range(module.count):
+            if allowed is not None and index+first not in allowed:continue
+            name=module.names[index]
+            item=self.rom.values(module,index)[0] if first else item_for_record(module,index)
+            if item is not None:
+                try:name=self.art.name(item)
+                except ValueError:pass
+            label=f'{index+first:02X} {name}'
+            if query and query not in label.casefold():continue
+            self.list.insert('','end',iid=str(index),text=label);self.visible.append(index)
+        self.count.set(f'{len(self.native_modules)} original modules · {module.count} records\nSearch filters this module’s records.')
+        value=selected if selected in self.visible else self.current if self.current in self.visible else self.visible[0] if self.visible else None
+        if value is not None:
+            self.list.selection_set(str(value))
+            if selected is not None or self.current is None or self.current not in self.visible:self.load(value)
+        self.update_space();self.update_idletasks()
+        if value is not None:self.list.see(str(value))
+
     def select(self, _=None):
         if self.busy:return
         selection = self.list.selection()
@@ -113,6 +164,8 @@ class ItemWindow(tk.Toplevel):
         if value == self.current:return
         if not self.settle():
             self.list.selection_set(str(self.current));return
+        if self.kind=='modules' and bytes(self.rom.data)!=self.form_snapshot:
+            self.populate(value);return
         self.load(value)
 
     def add_control(self, parent, label, value, options=None, row=0, column=0):
@@ -129,6 +182,9 @@ class ItemWindow(tk.Toplevel):
         self.form_snapshot = bytes(self.rom.data)
         self.controls = [];self.initial = []
         for widget in self.content.winfo_children():widget.destroy()
+        if self.kind=='modules':
+            self.load_module_record(value)
+            return
         item = self.model.assignments[value] if self.kind == 'slots' else value
         try:name = self.art.name(item)
         except ValueError:name = f'Item {item:02X}'
@@ -185,8 +241,26 @@ class ItemWindow(tk.Toplevel):
         self.initial = [var.get() for var, _ in self.controls]
         for var,_ in self.controls:var.trace_add('write',lambda *_:self.draw_preview())
 
+    def load_module_record(self, index):
+        from item_expansion import ITEM_MODULE
+        self.native_modules=[m for m in category_modules('Item Editor',self.rom) if m.name!=ITEM_MODULE]
+        self.module=next(m for m in self.native_modules if m.name==self.module_selector.get())
+        self.module_index=index
+        self.heading.set(self.module.name.removeprefix('FE4 '))
+        self.details.set(f'{self.module.names[index]} · Record {index:02X} · File address 0x{self.rom.address(self.module,index):06X} · {self.module.stride} bytes')
+        box=ttk.LabelFrame(self.content,text='Original module fields',padding=10);box.pack(fill='x',pady=8)
+        box.columnconfigure(1,weight=1);box.columnconfigure(3,weight=1)
+        for i,(field,value) in enumerate(zip(self.module.fields,self.rom.values(self.module,index))):
+            self.add_control(box,field.name,value,self.rom.field_options(field),i//2,i%2*2)
+        self.stat_count=len(self.controls);self.initial=[var.get() for var,_ in self.controls]
+        ttk.Label(self.content,text='These are the original module controls, including raw pointer tables.\n'
+                  'Values accept decimal or 0x hexadecimal numbers. Expanded slots and held graphics use their relocated tables.\n'
+                  'Write to ROM uses the same automatic backups and undo/redo as the item views.',
+                  wraplength=700,justify='left').pack(anchor='w',pady=8)
+        self.remove_button.configure(state='disabled')
+
     def draw_preview(self):
-        if self.current is None:return
+        if self.current is None or self.kind=='modules':return
         item = self.model.assignments[self.current] if self.kind == 'slots' else self.current
         try:
             from portraits import export_png
@@ -217,7 +291,8 @@ class ItemWindow(tk.Toplevel):
         try:
             if bytes(self.rom.data) != self.form_snapshot:raise ValueError('The ROM changed in another editor. Reload this item before writing.')
             self.model.require_current();values = self.values()
-            if self.kind == 'slots':self.model.assign(self.current, values[0])
+            if self.kind=='modules':self.rom.write(self.module,self.module_index,values)
+            elif self.kind == 'slots':self.model.assign(self.current, values[0])
             else:
                 raw = bytearray(record(self.rom, self.current))
                 for field, value in zip(self.module.fields, values[:self.stat_count]):
@@ -239,7 +314,8 @@ class ItemWindow(tk.Toplevel):
                             if donor not in CombatArtwork(self.rom).candidates(self.current):
                                 raise ValueError('Choose a physical animation template matching this weapon type and range.')
                             if sprite >= 65 or palette >= 36:raise ValueError('A physical weapon needs an existing held sprite and palette.')
-            self.rom.save_original('Item Editor', [f'{self.kind}: {self.current:02X}'])
+            description='Item module: '+self.module.name if self.kind=='modules' else 'Item Editor'
+            self.rom.save_original(description, [f'Record {self.current:02X}' if self.kind=='modules' else f'{self.kind}: {self.current:02X}'])
         except (OSError, ValueError, OverflowError) as error:
             self.rom.data[:] = before
             self.model = ItemExpansion(self.rom)
@@ -304,6 +380,7 @@ class ItemWindow(tk.Toplevel):
         except ValueError as error:messagebox.showerror('Cannot open combat animations', str(error), parent=self)
 
     def add(self):
+        if self.kind=='modules':return
         if not self.settle():return
         self.model = ItemExpansion(self.rom)
         available = sorted(set(range(1,255) if self.kind == 'slots' else range(138,255)) - set(enabled(self.rom, self.kind)))
@@ -340,6 +417,7 @@ class ItemWindow(tk.Toplevel):
         self.status.set(description + ' written with an automatic backup.');return True
 
     def remove(self):
+        if self.kind=='modules':return
         if self.current is None or not self.settle():return
         value, kind = self.current, self.kind
         refs = ItemExpansion(self.rom).references(kind,value)
@@ -408,7 +486,7 @@ def open_item_window(app, kind='items', selected=0):
     for window in app.editor_windows:
         if isinstance(window, ItemWindow) and window.rom is app.rom and window.winfo_exists():
             if not window.settle():return None
-            window.view.current(kind == 'slots');window.previous_view = window.view.current();window.current = None
+            window.view.current({'items':0,'slots':1,'modules':2}[kind]);window.previous_view = window.view.current();window.current = None
             window.search.set('');window.populate(selected);window.lift();return window
     try:return ItemWindow(app,kind,selected)
     except (ValueError,OSError) as error:messagebox.showerror('Cannot open Item Editor', str(error), parent=app);return None
