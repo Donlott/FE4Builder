@@ -171,6 +171,22 @@ Ordinary stat increases accept 0–255; very large amounts can exceed the in-gam
 
 Emulator checks on disposable ROMs: Steel Sword assigned an edited profile grants Sigurd +3 Strength/+4 Speed, and the edited Power Ring grants Seliph +9 Strength. Tests cover isolated byte changes, live labels, all native amount locations, invalid/stale data, backup/undo/redo, headered ROMs, and failed-save rollback. The normal growth-display patch remains installable after editing these bonuses.
 
+## Weapon skill labels and support
+
+In Item Editor, **Skill Set 1** now names `10` **Critical**, `20` **Renewal** and
+`40` **Paragon** (formerly Berserk, Life and Elite). **Pursuit** already uses
+Skill Set 2 bit `08`. All first-byte skill combinations have been corrected to
+match their encoded flags, including duplicate entries that could incorrectly
+claim Critical. The separate **Effectiveness** field was formerly labelled
+Critical; it selects effective-damage targets, not a skill.
+
+Adept and Charge/Accost can work with additional item-skill mappings. Vantage
+also needs an item-aware activation check, and Luna/Sol need item-aware proc
+checks while retaining the native sword restriction. Individual native-code
+probes confirmed these routes, but this label update does not install those
+extensions. See [weapon-skills.md](docs/weapon-skills.md) for the nine-skill
+status table, code paths and the limits of the feasibility tests.
+
 ## Optional ROM patch: negative promotion stats
 
 Open **Patches → Negative promotion stats → Install: Negative promotion stats**.

@@ -1,32 +1,33 @@
-31
-0x00 Nothing
-0x01 Thief
-0x08 Prayer
-0x10 Berserk
-0x20 Life
-0x40 Elite
-0x09 Thief, Prayer
-0x11 Thief, Berserk
-0x21 Thief, Life
-0x41 Thief Elite
-0x18 Prayer, Berserk
-0x28 Prayer, Life
-0x48 Prayer, Elite
-0x30 Berserk, Life
-0x50 Berserk, Elite
-0x60 Life, Elite
-0x19 Thief, Prayer, Berserk
-0x29 Thief, Prayer, Life
-0x49 Thief, Prayer, Elite
-0x31 Thief, Berserk, Life
-0x41 Thief, Berserk, Elite
-0x61 Thief, Life, Elite
-0x38 Prayer, Berserk, Life
-0x58 Prayer, Berserk, Elite
-0x60 Berserk, Life, Elite
-0x39 Thief, Prayer, Berserk, Life
-0x59 Thief, Prayer, Berserk, Elite
-0x69 Thief, Prayer, Life, Elite
-0x71 Thief, Berserk, Life, Elite
-0x78 Prayer, Berserk, Life, Elite
-0x79 Thief, Prayer, Berserk, Life, Elite
+32
+0x00 None
+0x01 Steal
+0x08 Miracle
+0x09 Steal, Miracle
+0x10 Critical
+0x11 Steal, Critical
+0x18 Miracle, Critical
+0x19 Steal, Miracle, Critical
+0x20 Renewal
+0x21 Steal, Renewal
+0x28 Miracle, Renewal
+0x29 Steal, Miracle, Renewal
+0x30 Critical, Renewal
+0x31 Steal, Critical, Renewal
+0x38 Miracle, Critical, Renewal
+0x39 Steal, Miracle, Critical, Renewal
+0x40 Paragon
+0x41 Steal, Paragon
+0x48 Miracle, Paragon
+0x49 Steal, Miracle, Paragon
+0x50 Critical, Paragon
+0x51 Steal, Critical, Paragon
+0x58 Miracle, Critical, Paragon
+0x59 Steal, Miracle, Critical, Paragon
+0x60 Renewal, Paragon
+0x61 Steal, Renewal, Paragon
+0x68 Miracle, Renewal, Paragon
+0x69 Steal, Miracle, Renewal, Paragon
+0x70 Critical, Renewal, Paragon
+0x71 Steal, Critical, Renewal, Paragon
+0x78 Miracle, Critical, Renewal, Paragon
+0x79 Steal, Miracle, Critical, Renewal, Paragon
