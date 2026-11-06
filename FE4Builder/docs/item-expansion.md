@@ -6,6 +6,19 @@ names/descriptions, inventory icons and held artwork. The latter edits each
 persistent copy's assigned type and shows its live inventories, shops, rewards,
 drops and conditional inheritance appearances, with navigation buttons.
 
+The character editor's **Equipment 1/2/3** dropdowns include every enabled item
+type, even when no player slot contains it yet. Existing entries such as
+`Steel axe (0x9)` still select a precise player slot. Entries labelled
+`(item 0xXX; choose slot...)` open a picker where you can use an existing slot
+for that type or stage a new one. **Browse → All item types** offers the same
+choice with icon previews. The new slot and the unit's equipment are written
+together by **Write to ROM**, with one backup and undo step. Canceling or
+reverting the choice creates no slot; saving a copy preserves the original draft.
+The first extra slot still requires a new game, as explained in the picker.
+Enemy held equipment uses direct item type IDs; enemy drops and holy character
+player-slot fields offer the same slot picker. Existing slots are never silently
+reassigned, so their other appearances and inheritance references keep their IDs.
+
 Select **Advanced item modules** in the same view dropdown to access all 20
 original Nightmare item modules. The additional module selector restores broken
 weapon mappings, player/enemy sounds, both holy-weapon flash modules, magic

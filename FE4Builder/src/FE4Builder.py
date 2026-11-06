@@ -31,6 +31,7 @@ class App(tk.Tk):
         self.linked_buttons = {}
         self._validation_job = None
         self.equipment_icons = {}
+        self.equipment_slots=None;self.equipment_type_choices={};self.equipment_last={}
         self.promotion=None
         from ui_common import ContextStore
         self.ui_context=ContextStore();self.ui_context_ready=False
@@ -280,27 +281,80 @@ class App(tk.Tk):
         if not self.settle_link():return False
         return self.edit_items('items', item) is not None
 
-    def browse_equipment(self,field,var,options):
+    def equipment_rom(self):
+        if self.equipment_slots is None:return self.rom
+        used=set()
+        for field,(var,options) in zip(self.modules[self.record[0]].fields,self.editors):
+            if field.reference!='FE4 Player Equipment.txt':continue
+            try:used.add(options[var.get()] if var.get() in options else number(var.get().strip()))
+            except ValueError:used.update(self.equipment_slots.assignments)
+        self.equipment_slots.keep(used)
+        return self.equipment_slots.view()
+
+    def refresh_equipment_options(self,index):
+        field=self.modules[self.record[0]].fields[index]
+        var,options=self.editors[index]
+        def value(text):
+            try:return options[text] if text in options else number(text.strip())
+            except ValueError:return None
+        current,baseline=value(var.get()),value(self.loaded[index])
+        rom=self.equipment_rom()
+        choices={f'{label or "(unnamed)"} (0x{key:X})':key for key,label in rom.field_options(field).items()}
+        types=rom.field_options(self.item_art.player.fields[0])
+        self.equipment_type_choices[index]={f'{name} (item 0x{item:02X}; choose slot...)':item for item,name in types.items() if item!=255}
+        options.clear();options.update(choices)
+        self.field_controls[index]['widget'].configure(values=list(options)+list(self.equipment_type_choices[index]))
+        self.loaded[index]=next((label for label,key in options.items() if key==baseline),self.loaded[index])
+        text=next((label for label,key in options.items() if key==current),var.get())
+        if text!=var.get():var.set(text)
+
+    def equipment_changed(self,index):
+        var,_=self.editors[index]
+        if var.get() not in self.equipment_type_choices.get(index,{}):self.equipment_last[index]=var.get()
+        self.schedule_validation()
+
+    def choose_equipment_type(self,index):
+        var,options=self.editors[index]
+        item=self.equipment_type_choices.get(index,{}).get(var.get())
+        if item is None:return
+        var.set(self.equipment_last[index])
+        self.browse_equipment(self.modules[self.record[0]].fields[index],var,options,item=item)
+
+    def browse_equipment(self,field,var,options,*,item=None):
         from item_browser import ItemBrowser
         try:current=options[var.get()] if var.get() in options else number(var.get().strip())
         except ValueError:current=None
+        index=next((i for i,(variable,_) in enumerate(self.editors) if variable is var),None)
         def choose(value):
             var.set(next((label for label,key in options.items() if key==value),str(value)))
-        ItemBrowser(self,choose,field,self.rom.field_options(field),current)
+            if field.reference=='FE4 Player Equipment.txt' and index is not None:
+                for i,f in enumerate(self.modules[self.record[0]].fields):
+                    if f.reference=='FE4 Player Equipment.txt':self.refresh_equipment_options(i)
+        def create(item,slot):self.equipment_slots.stage(item,slot)
+        try:
+            rom=self.equipment_rom()
+            return ItemBrowser(self,choose,field,rom.field_options(field),current,rom=rom,item=item,
+                               on_new_slot=create if field.reference=='FE4 Player Equipment.txt' and index is not None else None)
+        except (ValueError,OverflowError) as error:messagebox.showerror('Cannot choose equipment',str(error),parent=self)
 
     def update_equipment_visuals(self):
         if not self.rom or self.record is None or not hasattr(self,'item_art'):return
         from portraits import export_png
         import base64
+        try:
+            from item_art import ItemArt
+            equipment_art=ItemArt(self.equipment_rom()) if self.equipment_slots and self.equipment_slots.assignments else self.item_art
+        except ValueError:equipment_art=None
         for field_index,label in self.equipment_icons.items():
             field=self.modules[self.record[0]].fields[field_index]
             var,options=self.editors[field_index]
             try:
                 value=options[var.get()] if var.get() in options else number(var.get().strip())
-                item=self.item_art.resolve(field,value)
+                if equipment_art is None:raise ValueError('Reload equipment after ROM changes.')
+                item=equipment_art.resolve(field,value)
                 if item is None:
                     label.configure(image='',text='-');continue
-                rows,colors=self.item_art.icon(item)
+                rows,colors=equipment_art.icon(item)
                 label.image=tk.PhotoImage(master=self,data=base64.b64encode(export_png(rows,colors))).zoom(2)
                 label.configure(image=label.image,text='')
             except (ValueError,OverflowError):label.configure(image='',text='?')
@@ -366,7 +420,7 @@ class App(tk.Tk):
         if not self.rom or self.record is None:return []
         self.update_equipment_visuals()
         from validation import validate_record,Issue
-        try:issues=validate_record(self.rom,self.modules[self.record[0]],self.record[1],self.read_draft())
+        try:issues=validate_record(self.equipment_rom(),self.modules[self.record[0]],self.record[1],self.read_draft())
         except (ValueError,OverflowError) as error:issues=[Issue('Error',str(error).split(':',1)[0],str(error))]
         if self.promotion and self.promotion['var'].get()!=self.promotion['loaded']:
             try:self.promotion_plan(self.read_draft())
@@ -1051,6 +1105,8 @@ class App(tk.Tk):
 
     def render(self):
         self._rendering=True;self.field_controls=[];self.current_issues=[]
+        from equipment_slots import EquipmentSlots
+        self.equipment_slots=EquipmentSlots(self.rom);self.equipment_type_choices={};self.equipment_last={}
         if self._validation_job is not None:
             self.after_cancel(self._validation_job)
             self._validation_job=None
@@ -1153,7 +1209,11 @@ class App(tk.Tk):
             widget.grid(row=0,column=value_column,sticky='ew')
             widget.bind('<FocusIn>',lambda e,m=module,f=field:self.explain_selected_field(m,f))
             widget.bind('<Enter>',lambda e,m=module,f=field:self.explain_selected_field(m,f))
-            var.trace_add('write',self.schedule_validation)
+            if field.reference=='FE4 Player Equipment.txt':
+                self.equipment_last[field_index]=text
+                var.trace_add('write',lambda *_,i=field_index:self.equipment_changed(i))
+                widget.bind('<<ComboboxSelected>>',lambda _,i=field_index:self.choose_equipment_type(i))
+            else:var.trace_add('write',self.schedule_validation)
             if linked:
                 button=ttk.Button(control,text='Edit...',width=6,command=lambda i=field_index:self.open_linked_field(i))
                 button.grid(row=0,column=value_column+1,padx=(4,0))
@@ -1193,6 +1253,8 @@ class App(tk.Tk):
                     control.bind('<Enter>',lambda e,text=help_text:self.field_help.set(text))
                     control.bind('<FocusIn>',lambda e,text=help_text:self.field_help.set(text))
         self.loaded = [var.get() for var, _ in self.editors]
+        for i,field in enumerate(module.fields):
+            if field.reference=='FE4 Player Equipment.txt':self.refresh_equipment_options(i)
         self.advanced_shell.pack(fill='x',pady=6)
         if self.advanced_expanded:self.advanced_body.pack(fill='x');self.advanced_toggle.config(text='▼ Advanced / raw data')
         if self.mode == 'Army Editor':
@@ -1283,6 +1345,8 @@ class App(tk.Tk):
                 raise ValueError('Validation failed:\n'+'\n'.join(errors))
             table, index = self.record
             promotion_edit=self.promotion_plan(values) if self.promotion and self.promotion['var'].get()!=self.promotion['loaded'] else None
+            draft=self.equipment_rom()
+            if draft is not self.rom:self.rom.data[:]=draft.data
             self.rom.write(self.modules[table], index, values)
             if promotion_edit:
                 at,value=promotion_edit;self.rom.data[at]=value
@@ -1322,6 +1386,16 @@ class App(tk.Tk):
             self.refresh_draft_state()
             return False
         self.status.set(f'Written directly to {self.rom.path.name}')
+        if self.equipment_slots and self.equipment_slots.assignments:
+            from equipment_slots import EquipmentSlots
+            from item_art import ItemArt
+            from item_window import ItemWindow
+            self.equipment_slots=EquipmentSlots(self.rom)
+            self.item_art=ItemArt(self.rom)
+            for i,field in enumerate(self.modules[self.record[0]].fields):
+                if field.reference=='FE4 Player Equipment.txt':self.refresh_equipment_options(i)
+            for window in self.editor_windows:
+                if isinstance(window,ItemWindow) and window.winfo_exists() and window.rom is self.rom and not window.pending():window.populate(window.current)
         if self.modules[self.record[0]].name=='FE4 Player Weapon Editor':
             selected=self.record[1]
             self.populate()

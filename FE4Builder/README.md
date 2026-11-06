@@ -272,6 +272,13 @@ slot 00 stays reserved. Added entries can be removed after references are
 cleared, reclaiming their private records and text. Optimization previews show
 artwork usage and space recovered.
 
+Character equipment dropdowns also list every enabled **item type**, including
+types that have no player slot yet. Select an entry marked **choose slot...**,
+or use **Browse → All item types**, to pick an existing slot or stage a new one.
+The new slot and the unit's equipment save together with one backup and undo
+step. Existing slot assignments and inheritance references retain their IDs.
+The picker explains when creating the first extra slot requires a new game.
+
 Choose **Advanced item modules** in the Item Editor's view dropdown for all 20
 original modules, including sounds, holy weapon flashes, broken weapon mappings,
 magic/map animations, pointer tables, item skills, minimum damage and bonuses.
