@@ -369,6 +369,8 @@ class ItemExpansion:
     def add_item(self, donor=0, item=None):
         self.require_current()
         if donor not in self.items:raise ValueError('Choose an enabled item to copy.')
+        from weapon_skills import installed as extra_skills, WeaponSkills
+        copied_skills = WeaponSkills(self.rom).get(donor) if extra_skills(self.rom) else 0
         item = next((i for i in range(BASE_ITEMS, MAX_ITEMS) if i not in self.items), None) if item is None else item
         if item is None:raise ValueError('All 255 item type IDs are enabled.')
         if not BASE_ITEMS <= item < MAX_ITEMS or item in self.items:raise ValueError('Choose a disabled item ID from 8A through FE.')
@@ -413,6 +415,7 @@ class ItemExpansion:
             pointer = int.from_bytes(read(self.rom, 0xD9402 + (donor if donor < 0x89 else 0) * 2, 2), 'little')
             message = read(self.rom, 0x500000 + pointer, 16)
         put(self.rom, MESSAGES + item * 16, message)
+        if copied_skills:WeaponSkills(self.rom).assign(item, copied_skills)
         self.__init__(self.rom)
         return item
 
@@ -427,7 +430,7 @@ class ItemExpansion:
         self._pack();self.__init__(self.rom);return slot
 
     @atomic
-    def write_record(self, item, raw, origin=None):
+    def write_record(self, item, raw, origin=None, skills=None):
         self.require_current()
         if item not in self.items:raise ValueError('This item is disabled.')
         expected = 10 if raw[1] == 2 else 19
@@ -437,6 +440,8 @@ class ItemExpansion:
             require_profile(self.rom,raw[5])
         if raw[0] not in self.items:raise ValueError('Choose an enabled item name/description ID.')
         if len(raw) != expected:raise ValueError('Item record size does not match its equipment type.')
+        from weapon_skills import require_record, WeaponSkills
+        require_record(self.rom, item, raw, skills)
         if origin is not None:
             if item < BASE_ITEMS or not 0 <= origin < BASE_ITEMS:
                 raise ValueError('Choose an original item as the added item’s blood/inheritance template.')
@@ -446,6 +451,7 @@ class ItemExpansion:
             if len(raw) != len(record(self.rom, item)):raise ValueError('Changing the record size of an original item is unsupported; add a new item instead.')
             put(self.rom, item_pointer(self.rom, item), raw)
         else:self._pack()
+        if skills is not None:WeaponSkills(self.rom).assign(item, skills)
         self.__init__(self.rom)
 
     @atomic
@@ -485,6 +491,9 @@ class ItemExpansion:
         if value not in values:raise ValueError('This entry is already disabled.')
         refs = self.references(kind, value)
         if refs:raise ValueError('Reassign or clear these references before removing the entry:\n' + '\n'.join(refs[:30]))
+        if kind == 'items':
+            from weapon_skills import installed as extra_skills, WeaponSkills
+            if extra_skills(self.rom):WeaponSkills(self.rom).assign(value, 0)
         values.remove(value)
         if kind == 'slots':del self.assignments[value]
         else:

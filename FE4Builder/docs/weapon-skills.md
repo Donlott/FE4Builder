@@ -1,72 +1,89 @@
-# Weapon skills: current support and extension feasibility
+# Additional weapon skills
 
-This review uses the latest supplied headered FE4 Archanea ROM. The editor
-label corrections change no ROM instructions, item flags or save data. Extra
-weapon-skill support described below is a feasibility result, not an installed
-game patch or a newly enabled dropdown choice.
+Open **Patches → Additional weapon skills → Install: Additional weapon skills**.
+Then open **Item Editor → Item types** and tick the desired skills in the
+**Additional weapon skills** panel. **Write to ROM** saves them alongside the
+item's properties with the normal automatic backup. Only equipped weapons
+grant the extra skills; merely carrying another weapon does not grant them.
 
-| Skill | Native weapon support | What an extension needs |
+| Skill | Assignment | Behavior |
 | --- | --- | --- |
-| Critical | Yes: Skill Set 1, `10` | Already works. Previously labelled Berserk. |
-| Pursuit | Yes: Skill Set 2, `08` | Already works with the ordinary attack-speed condition. |
-| Adept | No native item mapping | A new item-skill source/mapping. Existing battle code already reads item-derived Adept flags. |
-| Charge / Accost | No native item mapping | A new item-skill source/mapping. Existing round checks already read item-derived Accost flags. |
-| Vantage | No native item mapping | A new item-skill source plus an equipped-weapon check in the activation routine, retaining the half-HP condition. |
-| Luna | No native item mapping | A new item-skill source plus an equipped-weapon check in the sword-skill proc routine. Native eligibility is sword-only. |
-| Sol | No native item mapping | The same proc-routing change as Luna. Native eligibility is sword-only; the healing effect already exists. |
-| Renewal | Yes: Skill Set 1, `20` | Already works. Previously labelled Life. |
-| Paragon | Yes: Skill Set 1, `40` | Already works. Previously labelled Elite. |
+| Critical | Native Skill Set 1, `10` | Native weapon Critical. Previously labelled Berserk. |
+| Pursuit | Native Skill Set 2, `08` | Native attack-speed condition. |
+| Adept | Additional weapon skills | Native extra-strike chance/rules. |
+| Charge / Accost | Additional weapon skills | Native HP, attack-speed and extra-round rules. |
+| Vantage | Additional weapon skills | Native half-HP condition and round order. |
+| Luna | Additional weapon skills | Native sword eligibility, Skill-based proc and defense effect. |
+| Sol | Additional weapon skills | Native sword eligibility, Skill-based proc and healing effect. |
+| Renewal | Native Skill Set 1, `20` | Native turn healing. Previously labelled Life. |
+| Paragon | Native Skill Set 1, `40` | Native experience effect. Previously labelled Elite. |
 
-Values in the table are hexadecimal **bytes**, not character skill IDs. The
-two skill bytes form one 16-bit mask at item-record offsets 8–9. For example,
-Critical plus Paragon is first-byte `50`; Pursuit is second-byte `08`.
-The native inventory skill check normally requires a weapon to be equipped.
-Carried non-weapon skill items use the game's separate native behavior.
+Native byte values above are hexadecimal, not character skill IDs. Multiple
+extra skills can be selected together and combined with the native flags.
+Personal/class skill checks take precedence where they already do; duplicate
+sources do not grant duplicate copies. Existing proc priority, chance, Nihil,
+Brave and other battle rules are retained. Luna/Sol are not extended to lances,
+axes, bows or magic in this version. Their unchecked controls are disabled for
+ineligible weapon types; clear assigned Luna/Sol before changing a sword's type.
+Staffs and rings cannot receive the five extra skills.
 
-The companion module's old first-byte list contained duplicate `41` and `60`
-entries and omitted a valid combination. Its 32 combinations now consistently
-match Steal (`01`), Miracle (`08`), Critical (`10`), Renewal (`20`) and Paragon
-(`40`). Existing stored item bytes remain unchanged. The separate field at
-offset 16 is now labelled **Effectiveness**: its mounted, airborne, dragon,
-armor and mage targets are unrelated to the Critical skill.
+Extra assignments are keyed by **item type**, not persistent player slot or
+item-definition pointer. Thus all copies of a type share its extra skills,
+while different types remain independent even if their stat records are shared.
+This works with original item tables and the optional item expansion. Added
+types copy the donor's assignments; deleting an added type clears its extra
+skills. The native effective item ID is used, so breaking a weapon switches to
+the broken item's assignments. Item names, icons and held-art previews remain
+separate and unchanged. Existing skill icons and names are reused in-game.
 
-## Native code checked
+## Installation, storage and removal
 
-The item-to-skill mapping table is at CPU `87:A280`. The inventory checker at
-`87:A2EF` includes the equipped-weapon condition. The battle flag builder at
-`84:E06C` already combines personal/class skills with inventory skills.
-Adept's strike count at `84:E2AB` and Accost's round check at `84:E3F8` consume
-these combined flags. Adding their mappings alone worked in isolated probes.
+This version targets the **8 MiB Project Naga-compatible ExHiROM layout** used
+by the supplied Archanea ROM. Copier headers and FastROM headers are handled.
+It validates the affected routines and five original zero item mappings rather
+than requiring a whole-ROM hash, allowing unrelated hack data to differ. It
+rejects modified hook code, occupied storage and conflicting item mappings.
+This is not a universal patch for every Project Naga revision or the original
+4 MiB Japanese ROM. The supplied Archanea ROM is the real-ROM validation base.
 
-Vantage's activation at `84:E231` separately calls the personal/class-only
-checker, so adding its item mapping alone did not activate it. The sword-skill
-selector at `84:E106` likewise ignores inventory skills when rolling for Luna
-or Sol, even though their battle flags can be collected. Adding an item-aware
-check in temporary overlays enabled those activations under existing eligibility.
-Allowing Luna/Sol on other weapon types would require a broader change and
-separate tests of combat effects, ranges, animation paths and interactions.
+The fixed **2,048-byte** reservation is PC **7ED800–7EDFFF**, accessed through
+CPU **3ED800–3EDFFF** to avoid WRAM bank 7E. It is separate from bonus profiles,
+item expansion, icons, dialogue, portraits, maps and the other supported patches.
+It contains a 256-byte assignment table, 391 bytes of code, integrity metadata
+and padding. No native item bits are repurposed. Save layout, SRAM capacity,
+inheritance and item ranks are unchanged; installing this patch alone does not
+require a new game. Restart the emulator to load the newly written ROM code.
 
-Critical's native calculation at `84:FD98` directly tests item bit `0010`.
-Renewal at `84:AFF9` and Paragon at `84:EF2D` already check inventory skills.
+**Remove patch** refuses while any extra assignments remain and lists the items
+to clear in Item Editor. After they are cleared, removal restores all four
+native hooks and the original reservation filler. IDs do not move. Patches and
+item writes retain the normal backups, failed-write rollback and undo/redo.
+Opening an editor does not install the patch or write to the ROM.
 
-## Scope of the feasibility probes
+## Implementation and verification notes
 
-The native instruction emulator ran against an in-memory copy of the supplied
-ROM with a real unit/inventory RAM fixture. Personal/class skill checks were
-forced false for isolation. Item checks covered equipped and unequipped weapons. Individual
-trial mappings produced actual Adept strikes and a successful Accost round
-check; an item-aware routing prototype enabled Vantage at half HP and Luna/Sol
-proc selection with sword eligibility. Luna/Sol used a deterministic successful
-chance and a fixture for activation-log allocation; this was not a full battle
-animation or damage/healing playthrough.
+The inventory skill checker at CPU `87:A2EF` dispatches only the five additional
+skill IDs to the new table. Other IDs execute the original checker, preserving
+its native flags and item mappings. New checks use the native equipped-weapon
+condition and effective item-ID getters for player, holy and enemy inventories.
+The native battle flag builder then supplies Adept and Accost to existing code.
+Two activation calls at PC `04E239` and `04E150` additionally consult item skills
+for Vantage/Luna/Sol while keeping the original personal/class and sword checks.
+The native skill-list builder also includes extra skills without duplicates.
 
-These trials reused a spare bit one skill at a time. Preserving all native
-item flags leaves only four unassigned bits for the five additional requested
-skills. A complete extension should use separate ROM metadata or another
-explicitly verified allocation rather than silently repurposing the existing
-unknown `0002` flag. Additional save fields are not inherently required, since
-weapon skill definitions can remain ROM data. Simultaneous combinations,
-personal-skill interactions, breakage/equipment changes, UI display and both
-animation modes still need production-patch tests.
+The original first-byte skill list's duplicate `41`/`60` combinations have been
+corrected; its 32 choices now match Steal (`01`), Miracle (`08`), Critical (`10`),
+Renewal (`20`) and Paragon (`40`). The item field at offset 16 is labelled
+**Effectiveness** rather than Critical. Existing stored item bytes are preserved.
 
-The original uploaded ROM remained byte-for-byte unchanged throughout the review.
+The 174-test portable suite passed. Weapon-skill tests cover code/storage guards, all 32 combinations, original flags,
+copier headers, checksum maintenance, copying/deleting added types, assignment
+eligibility, stale data, backups, failed writes, removal, undo/redo and the patch
+and item-editor controls. On the supplied Archanea ROM, native instruction checks
+passed 405 skill checks, 150 comparisons with unchanged native behavior, 23 combat
+checks, and 1,592 item save/load records across all four save slots with both
+original and expanded item tables. These include broken and unequipped weapons,
+personal/class overlap, proc priority, Nihil, Luna damage and Sol healing.
+Snes9x full battles activated weapon Luna and Sol and returned to the map;
+map combat also activated Sol and healed the wielder. Tests use disposable ROM
+copies and leave the source unchanged. No source ROM is included in downloads.

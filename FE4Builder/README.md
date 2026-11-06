@@ -180,12 +180,20 @@ match their encoded flags, including duplicate entries that could incorrectly
 claim Critical. The separate **Effectiveness** field was formerly labelled
 Critical; it selects effective-damage targets, not a skill.
 
-Adept and Charge/Accost can work with additional item-skill mappings. Vantage
-also needs an item-aware activation check, and Luna/Sol need item-aware proc
-checks while retaining the native sword restriction. Individual native-code
-probes confirmed these routes, but this label update does not install those
-extensions. See [weapon-skills.md](docs/weapon-skills.md) for the nine-skill
-status table, code paths and the limits of the feasibility tests.
+Install **Patches → Additional weapon skills**, then use the **Additional weapon
+skills** checkboxes in **Item Editor → Item types**. Equipped weapons can grant
+**Adept, Charge/Accost, Vantage, Luna and Sol**, individually or together. Luna and
+Sol retain the native sword-only requirement and proc rules. Personal/class
+skills and the original item flags remain intact. Added item types copy the
+donor's extra skills and can then be edited independently.
+
+The patch supports the verified **8 MiB Project Naga-compatible ExHiROM layout**,
+with or without a copier header, and checks code and free space before installing.
+It reserves **2,048 ROM bytes**, uses no extra save/SRAM fields and does not itself
+require a new game. Removal requires clearing extra assignments first, then
+restores the native hooks and releases its storage. Installation, assignments,
+removal and undo/redo use automatic backups. See [weapon-skills.md](docs/weapon-skills.md)
+for compatibility checks, storage and native behavior.
 
 ## Optional ROM patch: negative promotion stats
 

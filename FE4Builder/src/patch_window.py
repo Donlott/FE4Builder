@@ -3,12 +3,14 @@ import tkinter as tk
 from tkinter import ttk,messagebox
 import growth_patch
 import promotion_patch
+import weapon_skills
 
 
 def save_patch(app,remove=False,patch_name='growth'):
     module,title,details={
         'growth':(growth_patch,'Display growth rates',['Y toggles effective growth percentages on the normal player unit status screen.']),
-        'promotion':(promotion_patch,'Negative promotion stats',['Clamp signed personal + class stats to 0 through 30 before applying normal equipment bonuses.'])
+        'promotion':(promotion_patch,'Negative promotion stats',['Clamp signed personal + class stats to 0 through 30 before applying normal equipment bonuses.']),
+        'weapon_skills':(weapon_skills,'Additional weapon skills',['Equipped weapons can grant Adept, Charge/Accost, Vantage, Luna and Sol. Luna/Sol retain native sword eligibility.'])
     }[patch_name]
     rom=app.rom
     before=bytes(rom.data)
@@ -21,6 +23,9 @@ def save_patch(app,remove=False,patch_name='growth'):
         raise
     app.refresh_after_history()
     if hasattr(app,'update_history_controls'):app.update_history_controls()
+    from item_window import ItemWindow
+    for window in getattr(app,'editor_windows',[]):
+        if isinstance(window,ItemWindow) and window.winfo_exists() and window.rom is rom and not window.pending():window.populate(window.current)
 
 
 def open_patch_window(app):
@@ -87,7 +92,37 @@ def open_patch_window(app):
     promotion_install=ttk.Button(promotion_buttons,text='Install: Negative promotion stats',command=change_promotion);promotion_install.pack(side='left')
     promotion_remove=ttk.Button(promotion_buttons,text='Remove patch',command=lambda:change_promotion(True));promotion_remove.pack(side='left',padx=8)
     ttk.Button(promotion_buttons,text='Close',command=window.destroy).pack(side='right')
-    window.bind('<FocusIn>',lambda event:(refresh(),refresh_promotion()))
+    skills=ttk.Frame(tabs,padding=22);tabs.add(skills,text='Additional weapon skills')
+    ttk.Label(skills,text='Additional weapon skills',font=('Segoe UI',15,'bold')).pack(anchor='w')
+    ttk.Label(skills,text='Enables weapon-granted Adept, Charge/Accost, Vantage, Luna and Sol.\n'
+              'Assign them in Item Editor after installing. Skills apply while the\n'
+              'weapon is equipped; carried weapons do not grant these effects.\n\n'
+              'Luna and Sol keep the native sword-only requirement and proc rules.\n'
+              'Existing Critical, Pursuit, Renewal and Paragon flags stay unchanged.\n\n'
+              'Supports the 8 MiB Project Naga-compatible layout, including copier\n'
+              'headers. Checks game code and free storage before writing.\n'
+              'Reserves 2,048 ROM bytes; saves and SRAM size stay unchanged.\n'
+              'Removal requires clearing the extra skill assignments first.\n'
+              'Writes use automatic backups and undo/redo.',justify='left').pack(anchor='w',pady=14)
+    skill_status=tk.StringVar();ttk.Label(skills,textvariable=skill_status,wraplength=560).pack(anchor='w',pady=8)
+    skill_buttons=ttk.Frame(skills);skill_buttons.pack(fill='x')
+    def refresh_skills():
+        try:
+            model=weapon_skills.WeaponSkills(app.rom);active=model.installed
+            skill_status.set(f'Installed — {sum(bool(v) for v in model.flags)} item types assigned extra skills.' if active else 'Not installed')
+            skill_install.configure(state='disabled' if active else 'normal');skill_remove.configure(state='normal' if active else 'disabled')
+        except ValueError as error:
+            skill_status.set(str(error));skill_install.configure(state='disabled');skill_remove.configure(state='disabled')
+    def change_skills(removing=False):
+        if not app.settle():return
+        try:save_patch(app,removing,patch_name='weapon_skills')
+        except Exception as error:messagebox.showerror('Patch not saved',str(error),parent=window)
+        refresh_skills()
+    skill_install=ttk.Button(skill_buttons,text='Install: Additional weapon skills',command=change_skills);skill_install.pack(side='left')
+    skill_remove=ttk.Button(skill_buttons,text='Remove patch',command=lambda:change_skills(True));skill_remove.pack(side='left',padx=8)
+    ttk.Button(skill_buttons,text='Close',command=window.destroy).pack(side='right')
+    window.bind('<FocusIn>',lambda event:(refresh(),refresh_promotion(),refresh_skills()))
     refresh()
     refresh_promotion()
+    refresh_skills()
     return window

@@ -293,6 +293,19 @@ class Rom:
                 require_profile(self,value)
             chunks.append(value.to_bytes(field.size, 'little', signed=field.signed))
         address = self.address(module, index)
+        from weapon_skills import installed as extra_skills, require_record, SKILLS
+        if extra_skills(self):
+            if module.name=='FE4 Item Skill Table Editor by Lorena':
+                custom_offsets={(identity-1)*2 for _,identity,_ in SKILLS}
+                if any(field.offset in custom_offsets and value for field,value in zip(module.fields,values)):
+                    raise ValueError('Additional weapon skills uses its separate item table. Keep these native mappings at zero and assign skills in Item Editor.')
+            from item_art import item_for_record
+            item=item_for_record(module,index)
+            if item is not None and any(field.name=='Type' for field in module.fields):
+                from item_expansion import record
+                raw=bytearray(record(self,item))
+                for field,chunk in zip(module.fields,chunks):raw[field.offset:field.offset+field.size]=chunk
+                require_record(self,item,raw)
         from item_expansion import installed, ITEM_MODULE, ItemExpansion, record
         if installed(self) and module.name == 'FE4 Player Weapon Editor':
             ItemExpansion(self).assign(index+1, values[0])
@@ -321,7 +334,8 @@ class Rom:
         reconcile_storage_checksum(self)
         from item_expansion import installed,update_checksum
         from bonus_profiles import installed as custom_bonuses
-        if installed(self) or custom_bonuses(self):update_checksum(self)
+        from weapon_skills import installed as extra_skills
+        if installed(self) or custom_bonuses(self) or extra_skills(self):update_checksum(self)
         self._save(target)
 
     def save_original(self,description='ROM edit',details=None):
@@ -334,7 +348,8 @@ class Rom:
         reconcile_storage_checksum(self)
         from item_expansion import installed, update_checksum
         from bonus_profiles import installed as custom_bonuses
-        if installed(self) or custom_bonuses(self):update_checksum(self)
+        from weapon_skills import installed as extra_skills
+        if installed(self) or custom_bonuses(self) or extra_skills(self):update_checksum(self)
         state,backup=self.history.prepare(self.original,bytes(self.data),description,details)
         self._save(target)
         self.last_backup=backup

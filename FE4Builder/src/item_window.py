@@ -16,6 +16,7 @@ class ItemWindow(tk.Toplevel):
         super().__init__(app)
         self.app, self.rom, self.model = app, app.rom, model
         self.current = None;self.controls = [];self.initial = [];self.photos = {};self.busy = False
+        self.weapon_skill_vars={};self.weapon_skill_initial=0;self.weapon_skill_checks={}
         self.title('FE4Builder — Item Editor');self.geometry('1180x850');self.minsize(950, 650)
         top = ttk.Frame(self, padding=12);top.pack(fill='x')
         ttk.Label(top, text='Item Editor', style='Title.TLabel').pack(side='left')
@@ -61,7 +62,9 @@ class ItemWindow(tk.Toplevel):
     @property
     def kind(self):return ('items','slots','modules')[self.view.current()]
 
-    def pending(self):return [var.get() for var, _ in self.controls] != self.initial
+    def pending(self):return self.current is not None and ([var.get() for var, _ in self.controls] != self.initial or self.extra_skill_mask()!=self.weapon_skill_initial)
+
+    def extra_skill_mask(self):return sum(bit for bit,var in self.weapon_skill_vars.items() if var.get())
 
     def settle(self):
         if not self.pending():return True
@@ -195,6 +198,7 @@ class ItemWindow(tk.Toplevel):
         self.current = value;self.model = ItemExpansion(self.rom);self.art = ItemArt(self.rom)
         self.form_snapshot = bytes(self.rom.data)
         self.controls = [];self.initial = [];self.equipment_icons={}
+        self.weapon_skill_vars={};self.weapon_skill_initial=0;self.weapon_skill_checks={}
         self.preview_picture=None;self.held_picture=None;self.preview=None;self.held_preview=None
         for widget in self.content.winfo_children():widget.destroy()
         if self.kind=='modules':
@@ -229,6 +233,7 @@ class ItemWindow(tk.Toplevel):
             for text, category in (('Edit name...', 'Item names'), ('Edit description...', 'Item descriptions'), ('Edit event name...', 'Item names — messages')):
                 ttk.Button(actions, text=text, command=lambda c=category:self.edit_text(c)).pack(side='left', padx=(0, 6))
             ttk.Button(actions, text='Edit icon...', command=self.edit_icon).pack(side='left')
+            if len(record(self.rom,item))==19:self.create_weapon_skill_controls(item,actions)
             if item < 125 or item >= BASE_ITEMS:
                 graphics = ttk.LabelFrame(self.content, text='Held weapon graphics', padding=10);graphics.pack(fill='x', pady=8,before=box)
                 sprite, palette = read(self.rom, table(self.rom, 'held') + item*2, 2)
@@ -244,6 +249,36 @@ class ItemWindow(tk.Toplevel):
         self.initial = [var.get() for var, _ in self.controls]
         for var,_ in self.controls:var.trace_add('write',lambda *_:self.draw_preview())
         self.draw_preview()
+
+    def create_weapon_skill_controls(self,item,before):
+        from weapon_skills import WeaponSkills,SKILLS
+        model=WeaponSkills(self.rom)
+        box=ttk.LabelFrame(self.content,text='Additional weapon skills',padding=10);box.pack(fill='x',pady=8,before=before)
+        if not model.installed:
+            ttk.Label(box,text='Install Additional weapon skills in Patches to assign Adept, Charge/Accost, Vantage, Luna and Sol.',wraplength=650).pack(anchor='w')
+            ttk.Button(box,text='Open weapon skill patch...',command=self.open_weapon_skill_patch).pack(anchor='w',pady=(8,0));return
+        self.weapon_skill_initial=model.get(item)
+        for i,(bit,_,name) in enumerate(SKILLS):
+            var=tk.BooleanVar(value=bool(self.weapon_skill_initial&bit));self.weapon_skill_vars[bit]=var
+            button=ttk.Checkbutton(box,text=name+(' (swords only)' if bit&24 else ''),variable=var,command=self.draw_preview)
+            button.grid(row=i//2,column=i%2,sticky='w',padx=(0,18),pady=4);self.weapon_skill_checks[bit]=button
+        ttk.Label(box,text='Only equipped weapons grant these skills. Luna and Sol retain their native sword requirement and activation rules.',
+                  wraplength=650).grid(row=3,column=0,columnspan=2,sticky='w',pady=(8,0))
+
+    def open_weapon_skill_patch(self):
+        if not self.settle():return
+        window=self.app.edit_patches()
+        if window is not None:
+            tabs=next(w for w in window.winfo_children() if isinstance(w,ttk.Notebook));tabs.select(2)
+
+    def update_weapon_skill_controls(self):
+        if not self.weapon_skill_checks:return
+        try:values=self.values()
+        except ValueError:return
+        stats=dict(zip((f.name for f in self.module.fields),values))
+        for bit,button in self.weapon_skill_checks.items():
+            available=stats.get('Type')==0 and (not bit&24 or stats.get('Weapon Type')==0)
+            button.configure(state='normal' if available or self.weapon_skill_vars[bit].get() else 'disabled')
 
     def load_module_record(self, index):
         from item_expansion import ITEM_MODULE
@@ -285,6 +320,7 @@ class ItemWindow(tk.Toplevel):
 
     def draw_preview(self):
         if self.current is None:return
+        self.update_weapon_skill_controls()
         from portraits import export_png
         for index,(label,field) in self.equipment_icons.items():
             try:
@@ -353,7 +389,8 @@ class ItemWindow(tk.Toplevel):
                     raw[field.offset:field.offset+field.size] = value.to_bytes(field.size, 'little', signed=field.signed)
                 if raw[0] not in self.model.items:raise ValueError('The name ID must belong to an enabled item entry.')
                 origin = values[self.stat_count+3] if self.current >= BASE_ITEMS else None
-                self.model.write_record(self.current, raw, origin)
+                skills=self.extra_skill_mask() if self.weapon_skill_vars else None
+                self.model.write_record(self.current, raw, origin,skills=skills)
                 if len(values) > self.stat_count:
                     sprite, palette = values[self.stat_count:self.stat_count+2]
                     if sprite not in range(65) and sprite != 255 or palette not in range(36) and palette != 255:
