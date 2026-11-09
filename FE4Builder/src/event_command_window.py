@@ -203,7 +203,7 @@ class EventCommandWindow(tk.Toplevel):
                 known=dict(TRANSITION_MODES);old=self.model.values(index)[i]
                 if old not in known:known[old]='Existing combined mode (preserve only)'
                 options={name:value for value,name in known.items()}
-            if schema(c)=='set_permanent_flag':
+            if schema(c) in ('set_permanent_flag',0x07):
                 from event_commands import permanent_flag_options
                 known=permanent_flag_options();old=self.model.values(index)[i]
                 if old not in known:known[old]='Existing unnamed flag (preserve only)'
@@ -232,7 +232,7 @@ class EventCommandWindow(tk.Toplevel):
                 old=number(self.drafts[index][i])
                 if old not in known:known[old]='Existing unsupported value (preserve only)'
                 options={f'{name} [ID {value}]':value for value,name in known.items()}
-            if (c['opcode']==0x23 and i in (0,1)) or schema(c)=='deploy_group':
+            if (c['opcode'] in (0x23,0x28) and i in (0,1)) or schema(c)=='deploy_group':
                 if i==0:known=unit_groups(self.rom)
                 else:
                     group=number(self.drafts[index][0]);known={k:v['label'] for k,v in group_units(self.rom,group).items()}
@@ -244,6 +244,8 @@ class EventCommandWindow(tk.Toplevel):
                 old=self.model.values(index)[i]
                 if old not in known:known[old]=f'Existing value ${old:X}'
                 options={f'{name} (${value:04X})':value for value,name in known.items()} if i==0 else {name:value for value,name in known.items()}
+            if c['opcode']==0x43 and i==2:
+                options={'Slot 1':0,'Slot 2':1}
             if schema(c)=='talk_target':
                 known=talk_options(self.rom,i);old=self.model.values(index)[i]
                 if old not in known:known[old]=f'Existing unknown character ${old:02X}'
@@ -394,7 +396,7 @@ class EventCommandWindow(tk.Toplevel):
             pointer=int.from_bytes(raw_command[7:10],'little')
             ttk.Button(self.fields,text='Edit movement route...',command=self.open_route).grid(row=6,column=0,columnspan=2,sticky='w',pady=8)
             self.help.set(HELP[0x27]+'\n\n'+route_preview(self.rom,pointer))
-        if c['opcode']==0x23:
+        if c['opcode'] in (0x23,0x28):
             self.configure_group_load(index,c)
         if c['opcode']==0x14:
             mode=self.model.snapshot[c['offset']+5]
@@ -404,15 +406,19 @@ class EventCommandWindow(tk.Toplevel):
         if self._parameter_reset is not None:self.after_cancel(self._parameter_reset)
         self._parameter_reset=self.after_idle(self.reset_parameter_view)
     def configure_group_load(self,index,command):
+        opcode=command['opcode']
         def value(i):
             text=self.variables[i].get()
             return self.field_options[i][text] if text in self.field_options[i] else number(text)
         def explain(*_):
             if self.command!=index:return
             try:unit=group_units(self.rom,value(0))[value(1)]
-            except (ValueError,KeyError):self.help.set(HELP[0x23]+'\n\nChoose an existing entry in the selected group.');return
-            color=self.model.snapshot[command['offset']+7]
-            self.help.set(HELP[0x23]+f"\n\nArmy record (read-only here): {unit['label']}; destination ({unit['x']}, {unit['y']}); faction slot {unit['faction']}; AI {unit['ai']}; commander {'Yes' if unit['leader'] else 'No'}; formation {unit['formation']}. Stored sprite color: {color} (preserved).")
+            except (ValueError,KeyError):self.help.set(HELP[opcode]+'\n\nChoose an existing entry in the selected group.');return
+            color_note=''
+            if opcode==0x23:
+                color=self.model.snapshot[command['offset']+7]
+                color_note=f' Stored sprite color: {color} (preserved).'
+            self.help.set(HELP[opcode]+f"\n\nArmy record (read-only here): {unit['label']}; destination ({unit['x']}, {unit['y']}); faction slot {unit['faction']}; AI {unit['ai']}; commander {'Yes' if unit['leader'] else 'No'}; formation {unit['formation']}.{color_note}")
         def group_changed(*_):
             if self.command!=index:return
             try:previous=value(1)

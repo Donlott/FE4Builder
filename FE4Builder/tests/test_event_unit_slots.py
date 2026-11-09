@@ -44,13 +44,13 @@ class EventUnitSlotTests(unittest.TestCase):
                 w.history(False);self.assertEqual(path.read_bytes(),original)
                 w.history(True);self.assertEqual(EventCommands(app.rom,self.index).values(command),[260,1])
                 for opcode in (0x39,0x41):
-                    matches=[(i,e) for i,e in enumerate(catalogue()['entries'][:18]) if any(c['opcode']==opcode for c in e['commands'])]
+                    matches=[(i,e) for i,e in enumerate(catalogue()['entries']) if any(c['opcode']==opcode for c in e['commands'])]
                     self.assertIn(opcode,HELP)
-                    if not matches:continue  # Scroll-to-slot is not present in the supported Prologue scripts.
                     entry=matches[0]
                     w.load(entry[0]);selected=next(i for i,c in enumerate(w.model.commands) if c['opcode']==opcode)
                     w.commands.selection_set(str(selected));w.select_command();app.update()
-                    self.assertEqual(w.help.get(),HELP[opcode]);self.assertFalse(w.variables)
-                    self.assertFalse(w.model.commands[selected]['editable'])
+                    self.assertEqual(w.help.get(),HELP[opcode])
+                    self.assertEqual(len(w.variables),int(opcode==0x41))
+                    self.assertEqual(w.model.commands[selected]['editable'],opcode==0x41)
                 w.destroy()
             finally:app.destroy()

@@ -18,7 +18,7 @@ class EventCommandTests(unittest.TestCase):
                 model=EventCommands(self.rom,index);values=model.values(command)
                 values=[next(value for value in audio_options(c) if value!=values[0])] if audio_kind(c) else [low if value==high else value+1 for value,(_,_,_,low,high) in zip(values,FIELDS[schema(c)])]
                 if c['opcode'] in (0x0c,0x14):values[0]=next(o['pointer'] for o in model.dialogues() if o['pointer']!=model.values(command)[0])
-                if c['opcode']==0x23:
+                if c['opcode'] in (0x23,0x28):
                     values[0]=model.values(command)[0];values[1]=next(k for k in group_units(self.rom,values[0]) if k!=model.values(command)[1])
                 if schema(c)=='give_item':values=[next(v for v in give_recipients(self.rom) if v!=model.values(command)[0]),next(v for v in player_item_options(self.rom) if v!=model.values(command)[1])]
                 if c['opcode']==0x3b:values[1]=next(v for v in TRANSITION_MODES if v!=model.values(command)[1])
@@ -35,7 +35,7 @@ class EventCommandTests(unittest.TestCase):
                 self.assertTrue(changed);self.assertTrue(changed<=allowed)
                 self.assertEqual(EventCommands(self.rom,index).values(command),values)
                 self.rom.data[start:start+len(baseline)]=baseline;count+=1
-        self.assertEqual(count,252);self.assertEqual(bytes(self.rom.data),original)
+        self.assertEqual(count,256);self.assertEqual(bytes(self.rom.data),original)
     def test_direct_deployment_packed_fields_and_ui(self):
         from FE4Builder import App
         original=bytes(self.rom.data)
