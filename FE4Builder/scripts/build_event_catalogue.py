@@ -97,6 +97,8 @@ def build(rom,source):
     for event in events['events']:
         cached=old.get(event['id'])
         if cached is not None and cached_commands_match(rom,event,cached,main,conditions):
+            for command in cached['commands']:
+                command['editable']=schema(command) in FIELDS and command['opcode']!=0x4d
             row=cached;row['source']=event['source'];entries.append(row);continue
         start=event['start']
         try:

@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import ttk,messagebox
 from rom import number
 from events import hex_dump,CHAPTERS
-from event_commands import EventCommands,catalogue,FIELDS,HELP,schema,character_options,audio_kind,audio_options,deployment_options,talk_options,BACKGROUNDS,unit_groups,group_units
+from event_commands import EventCommands,catalogue,FIELDS,HELP,schema,character_options,audio_kind,audio_options,deployment_options,talk_options,BACKGROUNDS,CASTLE_NAMES,CASTLE_NAME_COLORS,unit_groups,group_units
 from ui_common import ask_unsaved,scrollable_frame
 
 class EventCommandWindow(tk.Toplevel):
@@ -190,9 +190,15 @@ class EventCommandWindow(tk.Toplevel):
             self._parameter_reset=self.after_idle(self.reset_parameter_view);return
         if FIELDS.get(schema(c)):self.fields.pack(fill='x',before=self.help_label)
         for i,(label,offset,size,low,high) in enumerate(FIELDS.get(schema(c),[])):
-            ttk.Label(self.fields,text=label if c['opcode']==0x42 and i==1 else label+f' ({low}–{high})').grid(row=i,column=0,sticky='w',padx=(0,12),pady=4)
+            ttk.Label(self.fields,text=label if (c['opcode']==0x42 and i==1) or (c['opcode']==0x0d and i<2) else label+f' ({low}–{high})').grid(row=i,column=0,sticky='w',padx=(0,12),pady=4)
             options={f'{name} (0x{value:04X})':value for value,name in self.names.items()} if schema(c)=='character_sprite' else {}
-            if schema(c)=='give_item':
+            if schema(c)=='add_unit_stat' and i<2:
+                from event_commands import stat_recipients,UNIT_STATS
+                known=dict(stat_recipients(self.rom) if i==0 else UNIT_STATS)
+                old=self.model.values(index)[i]
+                if old not in known:known[old]='Existing unknown value'
+                options={f'{name} (${value:02X})':value for value,name in known.items()}
+            if schema(c)=='give_item' or (schema(c)=='add_unit_money' and i==0):
                 from event_commands import give_recipients,player_item_options
                 known=give_recipients(self.rom) if i==0 else player_item_options(self.rom)
                 old=self.model.values(index)[i]
@@ -232,7 +238,7 @@ class EventCommandWindow(tk.Toplevel):
                 old=number(self.drafts[index][i])
                 if old not in known:known[old]='Existing unsupported value (preserve only)'
                 options={f'{name} [ID {value}]':value for value,name in known.items()}
-            if (c['opcode'] in (0x23,0x28) and i in (0,1)) or schema(c)=='deploy_group':
+            if (c['opcode'] in (0x23,0x28) and i in (0,1)) or schema(c) in ('deploy_group','register_group_sprites'):
                 if i==0:known=unit_groups(self.rom)
                 else:
                     group=number(self.drafts[index][0]);known={k:v['label'] for k,v in group_units(self.rom,group).items()}
@@ -244,15 +250,27 @@ class EventCommandWindow(tk.Toplevel):
                 old=self.model.values(index)[i]
                 if old not in known:known[old]=f'Existing value ${old:X}'
                 options={f'{name} (${value:04X})':value for value,name in known.items()} if i==0 else {name:value for value,name in known.items()}
+            if c['opcode']==0x44:
+                if i==0:
+                    known=deployment_options(self.rom,1,self.model.entry['chapter'])
+                elif i==1:
+                    known={255:'Any AI',**{value:f'AI {value}' for value in range(255)}}
+                else:
+                    from event_commands import undeploy_options
+                    known={65535:'Any character',**undeploy_options(self.rom)}
+                old=self.model.values(index)[i]
+                if old not in known:
+                    known[old]='Existing value (preserve only)'
+                options={f'{name} [ID {value}]':value for value,name in known.items()}
             if c['opcode']==0x43 and i==2:
                 options={'Slot 1':0,'Slot 2':1}
             if schema(c)=='talk_target':
                 known=talk_options(self.rom,i);old=self.model.values(index)[i]
                 if old not in known:known[old]=f'Existing unknown character ${old:02X}'
                 options={f'{name} (${value:02X})':value for value,name in known.items()}
-            if c['opcode'] in (0x22,0x24,0x27):
+            if c['opcode'] in (0x22,0x24,0x25,0x27):
                 from event_commands import temporary_options,coordinate_move_options
-                known=coordinate_move_options(self.rom,i) if c['opcode']==0x22 else temporary_options(self.rom,i) if c['opcode']==0x27 else deployment_options(self.rom,i,self.model.entry['chapter'])
+                known=coordinate_move_options(self.rom,i) if c['opcode'] in (0x22,0x25) else temporary_options(self.rom,i) if c['opcode']==0x27 else deployment_options(self.rom,i,self.model.entry['chapter'])
                 if known:
                     current_value=self.model.values(index)[i]
                     if current_value not in known:known[current_value]=f'Existing unknown {current_value}'
@@ -262,6 +280,11 @@ class EventCommandWindow(tk.Toplevel):
                 current_value=self.model.values(index)[i]
                 if current_value not in known:known[current_value]=f'Existing unknown ${current_value:04X}'
                 options={f'{name} (0x{value:04X})':value for value,name in known.items()}
+            if c['opcode']==0x0d and i<2:
+                known=CASTLE_NAMES if i==0 else CASTLE_NAME_COLORS
+                options={name:value for value,name in sorted(known.items(),key=lambda item:item[1])}
+                old=self.model.values(index)[i]
+                if old not in known:options[f'Existing value (${old:0{size*2}X})']=old
             if c['opcode'] in (0x0c,0x14) and i==0:
                 options={o['label']+f" (${o['pointer']:06X})":o['pointer'] for o in self.model.dialogues()}
                 old=self.model.values(index)[i]
@@ -374,16 +397,17 @@ class EventCommandWindow(tk.Toplevel):
                     self.help.set(HELP['deploy_group']+f'\n\nArmy group preview ({len(units)} records):\n'+'\n'.join(rows))
                 except ValueError as error:self.help.set(HELP['deploy_group']+'\n\nPreview unavailable: '+str(error))
             self.variables[0].trace_add('write',explain_group);explain_group()
-        if c['opcode']==0x22:
-            flags=self.model.snapshot[c['offset']+7]
-            ttk.Label(self.fields,text=f'Unknown high flag: {bool(flags & 128)} (read-only; preserved)').grid(row=9,column=0,columnspan=3,sticky='w',pady=6)
+        if c['opcode'] in (0x22,0x25):
+            if c['opcode']==0x22:
+                flags=self.model.snapshot[c['offset']+7]
+                ttk.Label(self.fields,text=f'Unknown high flag: {bool(flags & 128)} (read-only; preserved)').grid(row=9,column=0,columnspan=3,sticky='w',pady=6)
             def coordinate_source(*_):
                 if self.command!=index:return
                 mode=self.field_options[6].get(self.variables[6].get())
                 for row in (1,2,3,4):
                     ignored=(mode in (1,3) and row in (1,2)) or (mode==2 and row in (3,4))
                     self.fields.grid_slaves(row=row,column=1)[0].config(state='disabled' if ignored else 'normal')
-                self.help.set(HELP[0x22]+'\n\n'+('Start coordinates come from Event Unit Slot 1.' if mode in (1,3) else 'Destination coordinates come from Event Unit Slot 2.' if mode==2 else 'Both start and destination use the explicit coordinate fields.'))
+                self.help.set(HELP[c['opcode']]+'\n\n'+('Start coordinates come from Event Unit Slot 1.' if mode in (1,3) else 'Destination coordinates come from Event Unit Slot 2.' if mode==2 else 'Both start and destination use the explicit coordinate fields.'))
             self.variables[6].trace_add('write',coordinate_source);coordinate_source()
         if c['opcode']==0x3f:
             from camera_routes import camera_preview
